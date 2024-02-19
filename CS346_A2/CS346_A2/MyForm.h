@@ -52,7 +52,6 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Button^  button2;
-	private: System::Windows::Forms::Label^  label4;
 
 
 
@@ -80,7 +79,6 @@ namespace CS346_A2 {
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// textBox2
@@ -160,21 +158,11 @@ namespace CS346_A2 {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Location = System::Drawing::Point(417, 31);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(93, 17);
-			this->label4->TabIndex = 10;
-			this->label4->Text = L"LOGIN PAGE";
-			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(955, 541);
-			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->textBox1);

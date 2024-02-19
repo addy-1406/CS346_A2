@@ -79,31 +79,34 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="AddCourseForm.cpp" />
+    <ClCompile Include="CourseForm.cpp" />
+    <ClCompile Include="ProfileForm.cpp" />
     <ClCompile Include="Root.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AddCourseForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="AdminHome.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="CourseForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="FacultyHome.h">
       <FileType>CppForm</FileType>
     </ClInclude>
-    <ClInclude Include="Final.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Grade.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="ProfileForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Register.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Root.h">
-      <FileType>CppForm</FileType>
-    </ClInclude>
-    <ClInclude Include="Signup.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="StudentHome.h">
@@ -115,26 +118,26 @@
     <ClInclude Include="User.h" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="AddCourseForm.resx">
+      <DependentUpon>AddCourseForm.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="AdminHome.resx">
       <DependentUpon>AdminHome.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CourseForm.resx">
+      <DependentUpon>CourseForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="FacultyHome.resx">
       <DependentUpon>FacultyHome.h</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Final.resx">
-      <DependentUpon>Final.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Grade.resx">
-      <DependentUpon>Grade.h</DependentUpon>
+    <EmbeddedResource Include="ProfileForm.resx">
+      <DependentUpon>ProfileForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MyForm.resx">
       <DependentUpon>MyForm.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.h</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Signup.resx">
-      <DependentUpon>Signup.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentHome.resx">
       <DependentUpon>StudentHome.h</DependentUpon>

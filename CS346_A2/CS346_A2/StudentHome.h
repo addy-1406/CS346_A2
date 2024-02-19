@@ -64,19 +64,16 @@ namespace CS346_A2 {
 			// 
 			// panel1
 			// 
-			this->panel1->Location = System::Drawing::Point(175, 50);
-			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->panel1->Location = System::Drawing::Point(233, 62);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(638, 457);
+			this->panel1->Size = System::Drawing::Size(851, 563);
 			this->panel1->TabIndex = 4;
-			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &StudentHome::panel1_Paint);
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(45, 476);
-			this->button1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
+			this->button1->Location = System::Drawing::Point(60, 586);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(69, 32);
+			this->button1->Size = System::Drawing::Size(92, 39);
 			this->button1->TabIndex = 3;
 			this->button1->Text = L"Logout";
 			this->button1->UseVisualStyleBackColor = true;
@@ -84,12 +81,11 @@ namespace CS346_A2 {
 			// 
 			// StudentHome
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(859, 557);
+			this->ClientSize = System::Drawing::Size(1145, 686);
 			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->button1);
-			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"StudentHome";
 			this->Text = L"StudentHome";
 			this->ResumeLayout(false);
@@ -101,8 +97,6 @@ namespace CS346_A2 {
 	public: Form^ globalForm;
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 				 globalForm->Show();
-	}
-	private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 	}
 	};
 }
