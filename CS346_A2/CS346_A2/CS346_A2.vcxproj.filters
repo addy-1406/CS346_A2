@@ -18,6 +18,15 @@
     <ClCompile Include="Root.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="AddCourseForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="ProfileForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="CourseForm.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -27,6 +36,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="AdminHome.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="StudentHome.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="FacultyHome.h">
@@ -41,16 +53,13 @@
     <ClInclude Include="User.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Grade.h">
+    <ClInclude Include="AddCourseForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="Signup.h">
+    <ClInclude Include="CourseForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="StudentHome.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Final.h">
+    <ClInclude Include="ProfileForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
@@ -70,10 +79,10 @@
     <EmbeddedResource Include="StudentHome.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="Grade.resx">
+    <EmbeddedResource Include="AddCourseForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
-    <EmbeddedResource Include="Signup.resx">
+    <EmbeddedResource Include="CourseForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
