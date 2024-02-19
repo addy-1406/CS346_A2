@@ -55,7 +55,7 @@ namespace CS346_A2 {
 			// 
 			// button1
 			// 
-			this->button1->Location = System::Drawing::Point(105, 101);
+			this->button1->Location = System::Drawing::Point(117, 128);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(75, 23);
 			this->button1->TabIndex = 0;
