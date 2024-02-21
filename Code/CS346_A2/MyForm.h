@@ -24,12 +24,14 @@ namespace CS346_A2 {
 	public ref class MyForm : public System::Windows::Forms::Form
 	{
 	public:
-		MyForm(void)
+		MyForm(Panel^ GlobalPanel, Form^ global_form)
 		{
 			InitializeComponent();
+			OuterOuterPanel = GlobalPanel;
 			//
 			//TODO: Add the constructor code here
 			//
+			Global_form = global_form;
 		}
 
 	protected:
@@ -48,11 +50,12 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::Button^  button1;
+
 	private: System::Windows::Forms::ComboBox^  comboBox2;
 	private: System::Windows::Forms::TextBox^  textBox1;
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
 
 
 
@@ -72,19 +75,21 @@ namespace CS346_A2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(462, 161);
+			this->textBox2->Location = System::Drawing::Point(484, 433);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(200, 22);
 			this->textBox2->TabIndex = 1;
@@ -93,7 +98,7 @@ namespace CS346_A2 {
 			// 
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(272, 86);
+			this->label1->Location = System::Drawing::Point(294, 361);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(155, 35);
 			this->label1->TabIndex = 2;
@@ -104,28 +109,18 @@ namespace CS346_A2 {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(272, 151);
+			this->label2->Location = System::Drawing::Point(294, 423);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(95, 32);
 			this->label2->TabIndex = 3;
 			this->label2->Text = L"Email:";
 			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
 			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(294, 341);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(133, 49);
-			this->button1->TabIndex = 4;
-			this->button1->Text = L"Register";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click);
-			// 
 			// comboBox2
 			// 
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Student", L"Faculty", L"Admin" });
-			this->comboBox2->Location = System::Drawing::Point(462, 96);
+			this->comboBox2->Location = System::Drawing::Point(484, 371);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(200, 24);
 			this->comboBox2->TabIndex = 6;
@@ -133,8 +128,9 @@ namespace CS346_A2 {
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(462, 222);
+			this->textBox1->Location = System::Drawing::Point(484, 494);
 			this->textBox1->Name = L"textBox1";
+			this->textBox1->PasswordChar = '*';
 			this->textBox1->Size = System::Drawing::Size(200, 22);
 			this->textBox1->TabIndex = 7;
 			// 
@@ -143,7 +139,7 @@ namespace CS346_A2 {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(272, 212);
+			this->label3->Location = System::Drawing::Point(294, 484);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(147, 32);
 			this->label3->TabIndex = 8;
@@ -151,7 +147,7 @@ namespace CS346_A2 {
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(520, 341);
+			this->button2->Location = System::Drawing::Point(384, 569);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(142, 49);
 			this->button2->TabIndex = 9;
@@ -159,27 +155,40 @@ namespace CS346_A2 {
 			this->button2->UseVisualStyleBackColor = true;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
 			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->Location = System::Drawing::Point(-1, 0);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(957, 315);
+			this->pictureBox1->TabIndex = 10;
+			this->pictureBox1->TabStop = false;
+			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(955, 541);
+			this->BackColor = System::Drawing::Color::White;
+			this->ClientSize = System::Drawing::Size(954, 673);
+			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label3);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->comboBox2);
-			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox2);
 			this->Name = L"MyForm";
 			this->Text = L"Root Page";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 #pragma endregion
+	public: Panel^ OuterOuterPanel;
 	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -187,13 +196,15 @@ namespace CS346_A2 {
 				 comboBox2->Text = "";
 				 textBox1->Text = "";
 				 textBox2->Text = "";
-				 Register^ RegisterPage = gcnew Register(this);
+				 Register^ RegisterPage = gcnew Register();
 				 RegisterPage->ShowDialog();
 
 	}
 private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 }
 		 public: User^ user;
+		 public: Form^ Global_form;
+		 
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 			 String^ userType = comboBox2->Text;
 			 String^ email = textBox2->Text;
@@ -236,19 +247,28 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 						 MessageBox::Show("Invalid password/UserType");
 					 }
 					 else{
-						 this->Hide();
+						 Form^ ToShow;
 						 if (userType == "Student"){
-							 StudentHome^ StudentHomePage = gcnew StudentHome(this, user);
-							 StudentHomePage->ShowDialog();
+							 ToShow = gcnew StudentHome(Global_form, user, OuterOuterPanel);
 						 }
 						 else if (userType == "Faculty"){
-							 FacultyHome^ FacultyHomePage = gcnew FacultyHome(this, user);
-							 FacultyHomePage->ShowDialog();
+							 ToShow = gcnew FacultyHome(Global_form, user, OuterOuterPanel);
 						 }
 						 else if (userType == "Admin"){
-							 AdminHome^ AdminHomePage = gcnew AdminHome(this, user);
-							 AdminHomePage->ShowDialog();
+							 ToShow = gcnew AdminHome(Global_form, user,OuterOuterPanel);
 						 }
+						 ToShow->ControlBox = false; // Hide the control box
+						 ToShow->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+
+						 // Set its properties
+						 ToShow->TopLevel = false;
+						 ToShow->AutoScroll = true;
+						 ToShow->Dock = DockStyle::Fill;
+
+						 // Add it to the panel
+						 OuterOuterPanel->Controls->Clear();
+						 OuterOuterPanel->Controls->Add(ToShow);
+						 ToShow->Show();
 					 }
 				 }
 				 else{

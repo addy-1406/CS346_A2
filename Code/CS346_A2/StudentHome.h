@@ -17,10 +17,12 @@ namespace CS346_A2 {
 	public ref class StudentHome : public System::Windows::Forms::Form
 	{
 	public:
-		StudentHome(Form^ rootForm, User^ user)
+		StudentHome(Form^ rootForm, User^ User, Panel^ GlobalPanel)
 		{
 			InitializeComponent();
 			globalForm = rootForm;
+			user = User;
+			globalPanel = GlobalPanel;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -95,7 +97,11 @@ namespace CS346_A2 {
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 	public: Form^ globalForm;
+	public: Panel^ globalPanel;
+	public: User^ user;
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+				 globalPanel->Controls->Clear();
+				 globalPanel->Controls->Add(globalForm);
 				 globalForm->Show();
 	}
 	};

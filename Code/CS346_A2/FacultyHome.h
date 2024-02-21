@@ -24,15 +24,16 @@ namespace CS346_A2 {
 	public ref class FacultyHome : public System::Windows::Forms::Form
 	{
 	public:
-		FacultyHome(Form^ rootForm, User^ user)
+		FacultyHome(Form^ rootForm, User^ User, Panel^ GlobalPanel)
 		{
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
 			//
 			globalForm = rootForm;
-			user1 = user;
-			int userid = user1->userID;
+			user = User;
+			globalPanel = GlobalPanel;
+			int userid = user->userID;
 			ProfileForm^ profileForm = gcnew ProfileForm(userid);
 
 			// Customize the form's appearance
@@ -70,7 +71,6 @@ namespace CS346_A2 {
 		System::Windows::Forms::Button^ addButtonCourse; // AddCourse Button
 		System::Windows::Forms::Button^ buttonProfile; // Profile Button
 		System::Windows::Forms::Button^ buttonCourses;
-		User^ user1;
 
 
 	protected:
@@ -162,6 +162,8 @@ namespace CS346_A2 {
 		}
 #pragma endregion
 	public: Form^ globalForm;
+	public: Panel^ globalPanel;
+	public: User^ user;
 	
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -169,16 +171,14 @@ namespace CS346_A2 {
 				 
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 // Close the current form
-				 this->Close();
-
-				 // Open the globalForm
+				 globalPanel->Controls->Clear();
+				 globalPanel->Controls->Add(globalForm);
 				 globalForm->Show();
 	}
 	// Event handler for the AddCourse button
 	void AddCourseButton_Click(System::Object^  sender, System::EventArgs^  e) {
 		// Create an instance of the AddCourseForm
-		AddCourseForm^ addCourseForm = gcnew AddCourseForm(user1->userID);
+		AddCourseForm^ addCourseForm = gcnew AddCourseForm(user->userID);
 
 		// Customize the form's appearance
 		addCourseForm->ControlBox = false; // Hide the control box
@@ -199,7 +199,7 @@ namespace CS346_A2 {
 	// Event handler for the Profile button
 	void ProfileButton_Click(System::Object^  sender, System::EventArgs^  e) {
 		// Create an instance of the ProfileForm
-		int userid = user1->userID;
+		int userid = user->userID;
 		ProfileForm^ profileForm = gcnew ProfileForm(userid);
 
 		// Customize the form's appearance
@@ -220,7 +220,7 @@ namespace CS346_A2 {
 	// Event handler for the Courses button
 	void CoursesButton_Click(System::Object^  sender, System::EventArgs^  e) {
 		// Create an instance of the CourseFor
-		int userid = user1->userID;
+		int userid = user->userID;
 		CourseForm^ courseForm = gcnew CourseForm(userid);
 
 		// Customize the form's appearance
