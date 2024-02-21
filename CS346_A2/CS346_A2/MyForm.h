@@ -5,6 +5,7 @@
 #include "FacultyHome.h"
 #include "Register.h"
 #include "User.h"
+#include "DatabaseHelper.h"
 
 
 namespace CS346_A2 {
@@ -173,6 +174,7 @@ namespace CS346_A2 {
 			this->Controls->Add(this->textBox2);
 			this->Name = L"MyForm";
 			this->Text = L"Root Page";
+			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -201,25 +203,12 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			 textBox2->Text = "";
 
 			 try{
-
-				 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-
-				 MySqlConnection^ con = gcnew MySqlConnection(constr);
-
-				 if (con->State == ConnectionState::Open){
-					 con->Close();
-				 }
-
-				
 				 String^ query = "select Email from auth where email= @Email";
-				 MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
-
-				 cmd->Parameters->AddWithValue("@Email", email);
-				 con->Open();	
-
-				 MySqlDataReader^ dr;
-				 dr = cmd->ExecuteReader();
-
+				 array<MySqlParameter^>^ parameters = {
+					 gcnew MySqlParameter("@Email", email)
+				 };
+				 MySqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+				 
 				 int c = 0;
 				 while (dr->Read()){
 					 c++;
@@ -227,12 +216,13 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 				 dr->Close();
 				 if (c != 0){
 					 query = "Select * from auth where email= @Email and password_hash = MD5( @Password ) and userType = @UserType";
-					 cmd = gcnew MySqlCommand(query, con);
-					 cmd->Parameters->AddWithValue("@Email", email);
-					 cmd->Parameters->AddWithValue("@Password", password);
-					 cmd->Parameters->AddWithValue("@UserType", userType);
+					 array<MySqlParameter^>^ parameters = {
+						 gcnew MySqlParameter("@Email", email),
+						 gcnew MySqlParameter("@Password", password),
+						 gcnew MySqlParameter("@UserType", userType)
+					 };
 
-					 dr = cmd->ExecuteReader();
+					 dr = DatabaseHelper::ExecuteQuery(query, parameters);
 
 					 c = 0;
 					 while (dr->Read()){
@@ -242,7 +232,6 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 						 user->userType = dr->GetString(2);
 						 c++;
 					 }
-					 con->Close();
 					 if (c == 0){
 						 MessageBox::Show("Invalid password/UserType");
 					 }
@@ -263,13 +252,14 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 					 }
 				 }
 				 else{
-					 con->Close();
 					 MessageBox::Show("User not found");
-				 }
+				 }	
 			 }
 			 catch (Exception^ ex){
 				 MessageBox::Show(ex->Message);
 			 }
 			 }
+private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

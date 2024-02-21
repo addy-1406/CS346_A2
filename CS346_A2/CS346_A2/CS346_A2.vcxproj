@@ -79,9 +79,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="AddCourseForm.cpp" />
-    <ClCompile Include="CourseForm.cpp" />
-    <ClCompile Include="ProfileForm.cpp" />
     <ClCompile Include="Root.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -94,6 +91,7 @@
     <ClInclude Include="CourseForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="DatabaseHelper.h" />
     <ClInclude Include="FacultyHome.h">
       <FileType>CppForm</FileType>
     </ClInclude>

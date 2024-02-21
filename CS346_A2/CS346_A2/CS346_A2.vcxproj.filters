@@ -18,15 +18,6 @@
     <ClCompile Include="Root.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="AddCourseForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="ProfileForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="CourseForm.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -62,6 +53,9 @@
     <ClInclude Include="ProfileForm.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="DatabaseHelper.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
@@ -83,6 +77,9 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseForm.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProfileForm.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
