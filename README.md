@@ -21,51 +21,28 @@ Port number: 3306\
    or to clone it to a local database server and manage with phpmyadmin on localhost.
 8. You can use it directly from the internet but it will be very slow
 
-## Sample code for running insert queries into the database tables
+## Sample code for running queries into the database tables
 
 ```cpp
-String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-MySqlConnection^ con = gcnew MySqlConnection(constr);
+#include "DatabaseHelper.h"
 
-String^ query = "INSERT INTO signup (Name, DOB, Contact, Address, Email, UserType, Password_hash) VALUES (@Name, @Date, @Contact, @Address, @Email, @UserType, MD5(@Password));";
-MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
-
-cmd->Parameters->AddWithValue("@Name", name);
-cmd->Parameters->AddWithValue("@Date", formattedDate);
-cmd->Parameters->AddWithValue("@Contact", contact);
-cmd->Parameters->AddWithValue("@Address", address);
-cmd->Parameters->AddWithValue("@Email", email);
-cmd->Parameters->AddWithValue("@UserType", userType);
-cmd->Parameters->AddWithValue("@Password", password);
-
-con->Open();
-MySqlDataReader^ dr;
-dr = cmd->ExecuteReader();
-dr->Close();
-```
-
-## Sample code for running select queries into the database tables
-
-```cpp
-String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-MySqlConnection^ con = gcnew MySqlConnection(constr);
-
-String^ query = "select Email from auth where email= @Email";
-MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
-cmd->Parameters->AddWithValue("@Email", email);
-
-con->Open();	
-MySqlDataReader^ dr;
-dr = cmd->ExecuteReader();
+String^ query = "Select * from auth where email= @Email and password_hash = MD5( @Password ) and userType = @UserType";
+array<MySqlParameter^>^ parameters = {
+    gcnew MySqlParameter("@Email", email),
+    gcnew MySqlParameter("@Password", password),
+    gcnew MySqlParameter("@UserType", userType)
+ };
+MySqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 
 while (dr->Read()){
     // each iteration corresponds to a particular record
-
     // this is how you can extract a particular column value, for example if the first field was user_id, use GetString(0) (as zero indexing is used) to get the value of userId
     String^ userId = dr->GetString(0); 
 }
 dr->Close();
 ```
+If there are no parameters, you can use `MySqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);`
+
 
 ## Other instructions
 
