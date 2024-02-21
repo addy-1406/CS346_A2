@@ -56,6 +56,15 @@
     <ClInclude Include="DatabaseHelper.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Global_Page.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Welcome_Pic.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="Login_Register.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">

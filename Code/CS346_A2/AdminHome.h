@@ -19,10 +19,12 @@ namespace CS346_A2 {
 	public ref class AdminHome : public System::Windows::Forms::Form
 	{
 	public:
-		AdminHome(Form^ rootForm, User^ user)
+		AdminHome(Form^ rootForm, User^ User, Panel^ GlobalPanel)
 		{
 			InitializeComponent();
 			globalForm = rootForm;
+			user = User;
+			globalPanel = GlobalPanel;
 			//
 			//TODO: Add the constructor code here
 			//
@@ -206,8 +208,11 @@ namespace CS346_A2 {
 	private: System::Void AdminHome_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
 	public: Form^ globalForm;
+	public: Panel^ globalPanel;
+			public: User^ user;
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 this->Close();
+				 globalPanel->Controls->Clear();
+				 globalPanel->Controls->Add(globalForm);
 				 globalForm->Show();
 	}
 	private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
