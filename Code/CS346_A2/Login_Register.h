@@ -45,6 +45,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::PictureBox^  pictureBox2;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::Button^  button2;
+
 	protected:
 
 	private:
@@ -100,11 +101,11 @@ namespace CS346_A2 {
 			// 
 			// button1
 			// 
-			this->button1->BackColor = System::Drawing::Color::DimGray;
-			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(25, 309);
+			this->button1->BackColor = System::Drawing::Color::White;
+			this->button1->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button1->Location = System::Drawing::Point(77, 305);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(210, 64);
+			this->button1->Size = System::Drawing::Size(132, 52);
 			this->button1->TabIndex = 3;
 			this->button1->Text = L"Login";
 			this->button1->UseVisualStyleBackColor = false;
@@ -112,11 +113,11 @@ namespace CS346_A2 {
 			// 
 			// button2
 			// 
-			this->button2->BackColor = System::Drawing::Color::DimGray;
-			this->button2->ForeColor = System::Drawing::Color::White;
-			this->button2->Location = System::Drawing::Point(25, 403);
+			this->button2->BackColor = System::Drawing::Color::White;
+			this->button2->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->button2->Location = System::Drawing::Point(77, 385);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(210, 70);
+			this->button2->Size = System::Drawing::Size(132, 52);
 			this->button2->TabIndex = 4;
 			this->button2->Text = L"Register";
 			this->button2->UseVisualStyleBackColor = false;
