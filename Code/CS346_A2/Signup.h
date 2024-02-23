@@ -1,6 +1,8 @@
 #pragma once
 
 #include "User.h"
+#include "MiscellaneousFunctions.h"
+#include "DatabaseHelper.h"
 #include <cstdlib>
 
 namespace CS346_A2 {
@@ -12,6 +14,8 @@ namespace CS346_A2 {
 	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace MySql::Data::MySqlClient;
+	using namespace System::Data::SqlClient;
+
 
 	/// <summary>
 	/// Summary for Signup
@@ -27,6 +31,7 @@ namespace CS346_A2 {
 		String^ address = "";
 		String^ email = "";
 		String^ approval_status = "";
+		String^ enrollment_year = "";
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column0;
 	public:
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
@@ -242,16 +247,11 @@ namespace CS346_A2 {
 
 #pragma endregion
 	private: System::Void Signup_Load(System::Object^  sender, System::EventArgs^  e) {
-				 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-				 MySqlConnection^ con = gcnew MySqlConnection(constr);
 
-				 String^ query = "select Name, DOB, Contact, Address, Email, Approval_Status, UserType from signup";
-				 MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
+				 String^ query = "select * from [dbo].[signup]";
 				 //cmd->Parameters->AddWithValue("@sem", this->Current_Semester);
 
-				 con->Open();
-				 MySqlDataReader^ dr;
-				 dr = cmd->ExecuteReader();
+				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
 
 
 
@@ -283,50 +283,46 @@ namespace CS346_A2 {
 	}
 
 	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
-				 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-				 MySqlConnection^ con = gcnew MySqlConnection(constr);
 
 				 // int id = Int32::Parse(idbox->Text);
 				 String^ name = idbox->Text;
 				 String^ approve = "Rejected";
 
-				 // MySqlCommand^ cmd = gcnew MySqlCommand("update signup set Approval_status="+approve+" where Name="+name+"", con);
-				 MySqlCommand^ cmd = gcnew MySqlCommand("update signup set Approval_status='" + approve + "' where Name='" + name + "'", con);
+				 String^ query = "update [dbo].[signup] set Approval_status='" + approve + "' where Name= @Name";
+				 array<SqlParameter^>^ parameters = {
+					 gcnew SqlParameter("@Name", name)
+				 };
 
-				 con->Open();
-				 MySqlDataReader^ dr;
-				 dr = cmd->ExecuteReader();
+				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
-				 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-				 MySqlConnection^ con = gcnew MySqlConnection(constr);
 
 				 // int id = Int32::Parse(idbox->Text);
 				 String^ name = idbox->Text;
 				 String^ approve = "Approved";
 
-				 int user_id = rand() % 100 + 1;
-
 				 String^ pass_hash = nullptr;
 
-				 MySqlCommand^ cmd1 = gcnew MySqlCommand("update signup set Approval_status='" + approve + "' where Name='" + name + "'", con);
-				 MySqlDataReader^ dr;
-				 con->Open();
-				 dr = cmd1->ExecuteReader();
+
+				 String^ query = "update [dbo].[signup] set Approval_status = '" + approve + "' where Name = @Name";
+				 array<SqlParameter^>^ parameters = {
+					 gcnew SqlParameter("@Name", name)
+				 };
+
+				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 				 MessageBox::Show(" Request Approved");
 				 dr->Close();
-				
-				 String^ query = "select Name, DOB, Contact, Address, Email, Approval_Status, UserType, Password_hash from signup  where Name='" + name + "'";
-				 MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
-				 dr = cmd->ExecuteReader();
 
-
+				 query = "select Name, DOB, Contact, Address, Email, Approval_Status, UserType, Password_hash from [dbo].[signup]  where Name = @Name";
+				 array<SqlParameter^>^ parameters2 = {
+					 gcnew SqlParameter("@Name", name)
+				 };
+				 dr = DatabaseHelper::ExecuteQuery(query, parameters2);
 
 				 while (dr->Read()){
 					 User_id++;
 					 // Extracting values from the database result set and assigning them to variables
 					 name = dr->GetString(0);
-
 					 dob = dr->GetString(1);
 					 contact = dr->GetString(2);
 					 address = dr->GetString(3);
@@ -334,13 +330,22 @@ namespace CS346_A2 {
 					 approval_status = dr->GetString(5);
 					 user_type = dr->GetString(6);
 					 pass_hash = dr->GetString(7);
+					 enrollment_year = dr->GetString(8);
 				 }
 
 				 dr->Close();
 
-				 MySqlCommand^ cmd2 = gcnew MySqlCommand("insert into auth values(" + user_id + ",'" + pass_hash + "','" + user_type + "','" + user_type + "','" + email + "')", con);
-				 dr = cmd2->ExecuteReader();
-				 MessageBox::Show("Inserted values");
+				 String^ user_id = MiscellaneousFunctions::generateUserIdStudent(enrollment_year);
+
+				 query =  "insert into [dbo].[auth] values(@UserId,@PassHash,@UserType,@UserType,@Email)";
+				 array<SqlParameter^>^ parameters3 = {
+					 gcnew SqlParameter("@UserId", user_id),
+					 gcnew SqlParameter("@PassHash", pass_hash),
+					 gcnew SqlParameter("@UserType", user_type),
+					 gcnew SqlParameter("@Email", email)
+				 };
+				 dr = DatabaseHelper::ExecuteQuery(query, parameters3);
+				 MessageBox::Show("Inserted values"); 
 
 	}
 	};

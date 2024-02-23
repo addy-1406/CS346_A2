@@ -438,31 +438,26 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			 String^ userType = comboBox1->Text;
 			 String^ password = textBox6->Text;
 			 String^ address = textBox7->Text;
+			 String^ enrollment_year = textBox2->Text;
+			 String^ password_hash = MiscellaneousFunctions::ComputeMD5Hash(password);
 
 
 			 try{
-				 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-				 MySqlConnection^ con = gcnew MySqlConnection(constr);
 
-				 if (con->State == ConnectionState::Open){
-					 con->Close();
-				 }
+				 String^ query = "INSERT INTO signup (Name, DOB, Contact, Address, Email, UserType, Password_hash, enrollment_year) VALUES (@Name, @Date, @Contact, @Address, @Email, @UserType, @Password_hash, @EY);";
+				 array<SqlParameter^>^ parameters = {
+					 gcnew SqlParameter("@Name", name),
+					 gcnew SqlParameter("@Date", formattedDate),
+					 gcnew SqlParameter("@Contact", contact),
+					 gcnew SqlParameter("@Address", address),
+					 gcnew SqlParameter("@Email", email),
+					 gcnew SqlParameter("@UserType", userType),
+					 gcnew SqlParameter("@Password_hash", password_hash),
+					 gcnew SqlParameter("@EY", enrollment_year)
+				 };
 
 
-				 String^ query = "INSERT INTO signup (Name, DOB, Contact, Address, Email, UserType, Password_hash) VALUES (@Name, @Date, @Contact, @Address, @Email, @UserType, MD5(@Password));";
-				 MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
-
-				 cmd->Parameters->AddWithValue("@Name", name);
-				 cmd->Parameters->AddWithValue("@Date", formattedDate);
-				 cmd->Parameters->AddWithValue("@Contact", contact);
-				 cmd->Parameters->AddWithValue("@Address", address);
-				 cmd->Parameters->AddWithValue("@Email", email);
-				 cmd->Parameters->AddWithValue("@UserType", userType);
-				 cmd->Parameters->AddWithValue("@Password", password);
-
-				 con->Open();
-				 MySqlDataReader^ dr;
-				 dr = cmd->ExecuteReader();
+				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 				 dr->Close();
 
 				 MessageBox::Show("Registration successfull");

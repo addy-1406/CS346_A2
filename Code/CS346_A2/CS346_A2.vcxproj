@@ -98,6 +98,9 @@
     <ClInclude Include="Global_Page.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Grade.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Login_Register.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -112,6 +115,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Root.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Signup.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="StudentHome.h">
@@ -141,6 +147,9 @@
     <EmbeddedResource Include="Global_Page.resx">
       <DependentUpon>Global_Page.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Grade.resx">
+      <DependentUpon>Grade.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Login_Register.resx">
       <DependentUpon>Login_Register.h</DependentUpon>
     </EmbeddedResource>
@@ -152,6 +161,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Signup.resx">
+      <DependentUpon>Signup.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentHome.resx">
       <DependentUpon>StudentHome.h</DependentUpon>

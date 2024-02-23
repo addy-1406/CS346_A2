@@ -316,6 +316,7 @@ namespace CS346_A2 {
 			this->Controls->Add(this->textBox1);
 			this->Name = L"AddCourseForm";
 			this->Text = L"AddCourseForm";
+			this->Load += gcnew System::EventHandler(this, &AddCourseForm::AddCourseForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -425,6 +426,8 @@ namespace CS346_A2 {
 			}
 		}
 
-	};
+	private: System::Void AddCourseForm_Load(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }
 #pragma endregion

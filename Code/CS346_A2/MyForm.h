@@ -11,11 +11,7 @@
 #include <sqlext.h>
 #include <sqltypes.h>
 #include <sql.h>
-#include <string.h>
 #include <vcclr.h>
-#include <msclr/marshal_cppstd.h>
-using namespace System::Security::Cryptography;
-using namespace System::Text;
 
 #define SQL_RESULT_LEN 240
 #define SQL_RETURN_CODE_LEN 1000
@@ -32,6 +28,8 @@ namespace CS346_A2 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::Data::SqlClient;
+
 
 	/// <summary>
 	/// Summary for MyForm
@@ -314,30 +312,12 @@ private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, Sy
 		 public: User^ user;
 		 public: Form^ Global_form;
 
-		String^ ComputeMD5Hash(String^ input) {
-			array<Byte>^ hashBytes;
-
-			// Convert the managed string to a standard C++ string
-			std::string strInput = msclr::interop::marshal_as<std::string>(input);
-
-			// Compute MD5 hash
-			{
-				MD5^ md5 = MD5::Create();
-				hashBytes = md5->ComputeHash(Encoding::UTF8->GetBytes(input));
-			}
-
-			// Convert the hash bytes back to a managed string
-			pin_ptr<Byte> pinnedHashBytes = &hashBytes[0];
-			String^ result = BitConverter::ToString(hashBytes)->Replace("-", "");
-
-			return result;
-		}
 		 
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 			 String^ userType = comboBox2->Text;
 			 String^ email = textBox1->Text;
 			 String^ password = textBox2->Text;
-			 String^ password_hash = ComputeMD5Hash(password);
+			 String^ password_hash = MiscellaneousFunctions::ComputeMD5Hash(password);
 			 comboBox2->Text = "";
 			 textBox1->Text = "";
 			 textBox2->Text = "";

@@ -180,6 +180,7 @@ namespace CS346_A2 {
 			this->pictureBox1->Size = System::Drawing::Size(296, 675);
 			this->pictureBox1->TabIndex = 5;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox1_Click);
 			// 
 			// pictureBox3
 			// 
@@ -327,5 +328,7 @@ namespace CS346_A2 {
 
 	private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 	}
+private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }
