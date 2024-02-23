@@ -1,14 +1,5 @@
 # CS346_Assignment2
 
-## Database Details
-
-link: http://www.phpmyadmin.co\
-Server: sql6.freemysqlhosting.net\
-Name: sql6684530\
-User name: sql6684530\
-Password: SaH3N2pscd\
-Port number: 3306\
-
 ## Instructions for setting up
 
 1. Install Visual Studio 2013
@@ -27,12 +18,12 @@ Port number: 3306\
 #include "DatabaseHelper.h"
 
 String^ query = "Select * from auth where email= @Email and password_hash = MD5( @Password ) and userType = @UserType";
-array<MySqlParameter^>^ parameters = {
-    gcnew MySqlParameter("@Email", email),
-    gcnew MySqlParameter("@Password", password),
-    gcnew MySqlParameter("@UserType", userType)
+array<SqlParameter^>^ parameters = {
+    gcnew SqlParameter("@Email", email),
+    gcnew SqlParameter("@Password", password),
+    gcnew SqlParameter("@UserType", userType)
  };
-MySqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 
 while (dr->Read()){
     // each iteration corresponds to a particular record
@@ -41,7 +32,7 @@ while (dr->Read()){
 }
 dr->Close();
 ```
-If there are no parameters, you can use `MySqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);`
+If there are no parameters, you can use `SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);`
 
 
 ## Other instructions
