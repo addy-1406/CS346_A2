@@ -6,29 +6,29 @@ using namespace System::Collections;
 using namespace System::Windows::Forms;
 using namespace System::Data;
 using namespace System::Drawing;
-using namespace MySql::Data::MySqlClient;
+using namespace System::Data::SqlClient;
 
 ref class DatabaseHelper
 {
 public:
-	static MySqlDataReader^ ExecuteQuery(String^ query, array<MySqlParameter^>^ parameters)
+	static SqlDataReader^ ExecuteQuery(String^ query, array<SqlParameter^>^ parameters)
 	{
 		try {
-			String^ connectionString = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-			MySqlConnection^ con = gcnew MySqlConnection(connectionString);
+			String^ connectionString = "Server=tcp:cs346.database.windows.net,1433;Initial Catalog=ass2;Persist Security Info=False;User ID=superuser;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+			SqlConnection^ con = gcnew SqlConnection(connectionString);
 
 			if (con->State == ConnectionState::Open) {
 				con->Close();
 			}
 
-			MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
+			SqlCommand^ cmd = gcnew SqlCommand(query, con);
 
-			for each (MySqlParameter^ parameter in parameters) {
+			for each (SqlParameter^ parameter in parameters) {
 				cmd->Parameters->Add(parameter);
 			}
 
 			con->Open();
-			MySqlDataReader^ dr = cmd->ExecuteReader();
+			SqlDataReader^ dr = cmd->ExecuteReader();
 
 			return dr;
 		}
@@ -38,20 +38,20 @@ public:
 		}
 	}
 
-	static MySqlDataReader^ ExecuteQuery(String^ query)
+	static SqlDataReader^ ExecuteQuery(String^ query)
 	{
 		try {
-			String^ connectionString = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-			MySqlConnection^ con = gcnew MySqlConnection(connectionString);
+			String^ connectionString = "Server=tcp:cs346.database.windows.net,1433;Initial Catalog=ass2;Persist Security Info=False;User ID=superuser;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+			SqlConnection^ con = gcnew SqlConnection(connectionString);
 
 			if (con->State == ConnectionState::Open) {
 				con->Close();
 			}
 
-			MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
+			SqlCommand^ cmd = gcnew SqlCommand(query, con);
 
 			con->Open();
-			MySqlDataReader^ dr = cmd->ExecuteReader();
+			SqlDataReader^ dr = cmd->ExecuteReader();
 
 			return dr;
 		}

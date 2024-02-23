@@ -1,11 +1,21 @@
 #pragma once
 
+#include <comdef.h>
 #include "StudentHome.h"
 #include "AdminHome.h"
 #include "FacultyHome.h"
 #include "Register.h"
 #include "User.h"
 #include "DatabaseHelper.h"
+#include <windows.h>
+#include <sqlext.h>
+#include <sqltypes.h>
+#include <sql.h>
+#define SQL_RESULT_LEN 240
+#define SQL_RETURN_CODE_LEN 1000
+
+
+using namespace std;
 
 
 namespace CS346_A2 {
@@ -63,6 +73,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
+
 
 
 
@@ -290,10 +301,10 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 
 			 try{
 				 String^ query = "select Email from auth where email= @Email";
-				 array<MySqlParameter^>^ parameters = {
-					 gcnew MySqlParameter("@Email", email)
+				 array<SqlParameter^>^ parameters = {
+					 gcnew SqlParameter("@Email", email)
 				 };
-				 MySqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 				 
 				 int c = 0;
 				 while (dr->Read()){
@@ -302,10 +313,10 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 				 dr->Close();
 				 if (c != 0){
 					 query = "Select * from auth where email= @Email and password_hash = MD5( @Password ) and userType = @UserType";
-					 array<MySqlParameter^>^ parameters = {
-						 gcnew MySqlParameter("@Email", email),
-						 gcnew MySqlParameter("@Password", password),
-						 gcnew MySqlParameter("@UserType", userType)
+					 array<SqlParameter^>^ parameters = {
+						 gcnew SqlParameter("@Email", email),
+						 gcnew SqlParameter("@Password", password),
+						 gcnew SqlParameter("@UserType", userType)
 					 };
 
 					 dr = DatabaseHelper::ExecuteQuery(query, parameters);
@@ -357,6 +368,9 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
+
 }
 };
 }
