@@ -14,7 +14,8 @@ public:
 	static SqlDataReader^ ExecuteQuery(String^ query, array<SqlParameter^>^ parameters)
 	{
 		try {
-			String^ connectionString = "Server=tcp:cs346.database.windows.net,1433;Initial Catalog=ass2;Persist Security Info=False;User ID=superuser;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+			String^ connectionString = "Server=tcp:cs346.database.windows.net,1433;Initial Catalog=ass2;Persist Security Info=False;User ID=superuser;Password=Admin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+
 			SqlConnection^ con = gcnew SqlConnection(connectionString);
 
 			if (con->State == ConnectionState::Open) {
@@ -41,7 +42,7 @@ public:
 	static SqlDataReader^ ExecuteQuery(String^ query)
 	{
 		try {
-			String^ connectionString = "Server=tcp:cs346.database.windows.net,1433;Initial Catalog=ass2;Persist Security Info=False;User ID=superuser;Password={your_password};MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
+			String^ connectionString = "Server=tcp:cs346.database.windows.net,1433;Initial Catalog=ass2;Persist Security Info=False;User ID=superuser;Password=Admin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 			SqlConnection^ con = gcnew SqlConnection(connectionString);
 
 			if (con->State == ConnectionState::Open) {

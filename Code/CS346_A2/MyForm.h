@@ -11,6 +11,12 @@
 #include <sqlext.h>
 #include <sqltypes.h>
 #include <sql.h>
+#include <string.h>
+#include <vcclr.h>
+#include <msclr/marshal_cppstd.h>
+using namespace System::Security::Cryptography;
+using namespace System::Text;
+
 #define SQL_RESULT_LEN 240
 #define SQL_RETURN_CODE_LEN 1000
 
@@ -57,22 +63,24 @@ namespace CS346_A2 {
 		}
 
 	protected:
-	private: System::Windows::Forms::TextBox^  textBox2;
 
 
 
 	private: System::Windows::Forms::ComboBox^  comboBox2;
 	private: System::Windows::Forms::TextBox^  textBox1;
+	private: System::Windows::Forms::TextBox^  textBox2;
 
 	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::Button^  button1;
 
 	private: System::Windows::Forms::PictureBox^  pictureBox2;
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label6;
 	private: System::Windows::Forms::Label^  label8;
-	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::Label^  label1;
+
 
 
 
@@ -106,6 +114,7 @@ namespace CS346_A2 {
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
@@ -114,8 +123,9 @@ namespace CS346_A2 {
 			// 
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(320, 404);
+			this->textBox2->Location = System::Drawing::Point(318, 417);
 			this->textBox2->Name = L"textBox2";
+			this->textBox2->PasswordChar = '•';
 			this->textBox2->Size = System::Drawing::Size(319, 30);
 			this->textBox2->TabIndex = 1;
 			// 
@@ -126,7 +136,7 @@ namespace CS346_A2 {
 				static_cast<System::Byte>(0)));
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Student", L"Faculty", L"Admin" });
-			this->comboBox2->Location = System::Drawing::Point(320, 325);
+			this->comboBox2->Location = System::Drawing::Point(317, 260);
 			this->comboBox2->Name = L"comboBox2";
 			this->comboBox2->Size = System::Drawing::Size(319, 31);
 			this->comboBox2->TabIndex = 6;
@@ -136,9 +146,8 @@ namespace CS346_A2 {
 			// 
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(320, 482);
+			this->textBox1->Location = System::Drawing::Point(318, 339);
 			this->textBox1->Name = L"textBox1";
-			this->textBox1->PasswordChar = '*';
 			this->textBox1->Size = System::Drawing::Size(319, 30);
 			this->textBox1->TabIndex = 7;
 			// 
@@ -149,7 +158,7 @@ namespace CS346_A2 {
 			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->button2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
 			this->button2->ForeColor = System::Drawing::Color::White;
-			this->button2->Location = System::Drawing::Point(321, 553);
+			this->button2->Location = System::Drawing::Point(318, 488);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(142, 49);
 			this->button2->TabIndex = 9;
@@ -160,9 +169,9 @@ namespace CS346_A2 {
 			// pictureBox2
 			// 
 			this->pictureBox2->BackColor = System::Drawing::Color::White;
-			this->pictureBox2->Location = System::Drawing::Point(283, 269);
+			this->pictureBox2->Location = System::Drawing::Point(280, 204);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(397, 367);
+			this->pictureBox2->Size = System::Drawing::Size(397, 438);
 			this->pictureBox2->TabIndex = 11;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -173,7 +182,7 @@ namespace CS346_A2 {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->label4->Location = System::Drawing::Point(316, 302);
+			this->label4->Location = System::Drawing::Point(313, 237);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(72, 20);
 			this->label4->TabIndex = 12;
@@ -186,7 +195,7 @@ namespace CS346_A2 {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->label5->Location = System::Drawing::Point(316, 381);
+			this->label5->Location = System::Drawing::Point(313, 316);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(46, 20);
 			this->label5->TabIndex = 13;
@@ -199,7 +208,7 @@ namespace CS346_A2 {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->label6->Location = System::Drawing::Point(317, 459);
+			this->label6->Location = System::Drawing::Point(314, 394);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(71, 20);
 			this->label6->TabIndex = 14;
@@ -213,7 +222,7 @@ namespace CS346_A2 {
 			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label8->ForeColor = System::Drawing::Color::OldLace;
-			this->label8->Location = System::Drawing::Point(283, 205);
+			this->label8->Location = System::Drawing::Point(280, 140);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(397, 73);
 			this->label8->TabIndex = 20;
@@ -228,12 +237,13 @@ namespace CS346_A2 {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(482, 553);
+			this->button1->Location = System::Drawing::Point(479, 488);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(157, 49);
 			this->button1->TabIndex = 26;
 			this->button1->Text = L"Reset";
 			this->button1->UseVisualStyleBackColor = false;
+			this->button1->Click += gcnew System::EventHandler(this, &MyForm::button1_Click_1);
 			// 
 			// pictureBox1
 			// 
@@ -241,9 +251,21 @@ namespace CS346_A2 {
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox1->Location = System::Drawing::Point(3, -3);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(952, 174);
+			this->pictureBox1->Size = System::Drawing::Size(961, 107);
 			this->pictureBox1->TabIndex = 27;
 			this->pictureBox1->TabStop = false;
+			// 
+			// label1
+			// 
+			this->label1->AutoSize = true;
+			this->label1->BackColor = System::Drawing::Color::White;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::Red;
+			this->label1->Location = System::Drawing::Point(314, 565);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(0, 20);
+			this->label1->TabIndex = 28;
 			// 
 			// MyForm
 			// 
@@ -253,6 +275,7 @@ namespace CS346_A2 {
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(954, 673);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label8);
@@ -274,6 +297,13 @@ namespace CS346_A2 {
 
 		}
 #pragma endregion
+		std::string toUtf8(const std::wstring& wideString) {
+			int size_needed = WideCharToMultiByte(CP_UTF8, 0, wideString.c_str(), -1, NULL, 0, NULL, NULL);
+			std::string utf8String(size_needed, 0);
+			WideCharToMultiByte(CP_UTF8, 0, wideString.c_str(), -1, &utf8String[0], size_needed, NULL, NULL);
+			return utf8String;
+		}
+
 	public: Panel^ OuterOuterPanel;
 	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -290,14 +320,35 @@ private: System::Void comboBox2_SelectedIndexChanged(System::Object^  sender, Sy
 }
 		 public: User^ user;
 		 public: Form^ Global_form;
+
+		String^ ComputeMD5Hash(String^ input) {
+			array<Byte>^ hashBytes;
+
+			// Convert the managed string to a standard C++ string
+			std::string strInput = msclr::interop::marshal_as<std::string>(input);
+
+			// Compute MD5 hash
+			{
+				MD5^ md5 = MD5::Create();
+				hashBytes = md5->ComputeHash(Encoding::UTF8->GetBytes(input));
+			}
+
+			// Convert the hash bytes back to a managed string
+			pin_ptr<Byte> pinnedHashBytes = &hashBytes[0];
+			String^ result = BitConverter::ToString(hashBytes)->Replace("-", "");
+
+			return result;
+		}
 		 
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 			 String^ userType = comboBox2->Text;
-			 String^ email = textBox2->Text;
-			 String^ password = textBox1->Text;
+			 String^ email = textBox1->Text;
+			 String^ password = textBox2->Text;
+			 String^ password_hash = ComputeMD5Hash(password);
 			 comboBox2->Text = "";
 			 textBox1->Text = "";
 			 textBox2->Text = "";
+			 label1->Text = "";
 
 			 try{
 				 String^ query = "select Email from auth where email= @Email";
@@ -312,10 +363,11 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 				 }
 				 dr->Close();
 				 if (c != 0){
-					 query = "Select * from auth where email= @Email and password_hash = MD5( @Password ) and userType = @UserType";
+
+					 query = "Select * FROM [dbo].[auth] WHERE email = @Email AND password_hash = @Password AND userType = @UserType;";
 					 array<SqlParameter^>^ parameters = {
 						 gcnew SqlParameter("@Email", email),
-						 gcnew SqlParameter("@Password", password),
+						 gcnew SqlParameter("@Password", password_hash),
 						 gcnew SqlParameter("@UserType", userType)
 					 };
 
@@ -323,14 +375,14 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 
 					 c = 0;
 					 while (dr->Read()){
-						 user = gcnew User;
-						 user->userID = Int32::Parse(dr->GetString(0));
+						 user = gcnew User;	
+						 user->userID = dr->GetInt32(0);
 						 user->email = dr->GetString(4);
 						 user->userType = dr->GetString(2);
 						 c++;
 					 }
 					 if (c == 0){
-						 MessageBox::Show("Invalid password/UserType");
+						 label1->Text = "Invalid password or User Role";
 					 }
 					 else{
 						 Form^ ToShow;
@@ -358,7 +410,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 					 }
 				 }
 				 else{
-					 MessageBox::Show("User not found");
+					 label1->Text = "User not registered";
 				 }	
 			 }
 			 catch (Exception^ ex){
@@ -372,5 +424,18 @@ private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  
 private: System::Void button3_Click(System::Object^  sender, System::EventArgs^  e) {
 
 }
+
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+
+
+				
+}
+private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+		comboBox2->Text = "";
+		textBox1->Text = "";
+		textBox2->Text = "";
+		label1->Text = "";
+}
 };
 }
+
