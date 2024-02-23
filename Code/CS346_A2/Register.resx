@@ -117,4 +117,17 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="label5.Text" xml:space="preserve">
+    <value>•  Contact must be 10 digits only
+•  The Email must end with @iitg.ac.in
+•  The password should have at least 8
+    characters and must include at least
+    one uppercase. one lowercase and 
+    a special character
+•  After registration, you must wait for 
+    admin approval before login
+•  Address field is multiline
+•  No field should be left blank
+</value>
+  </data>
 </root>

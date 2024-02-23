@@ -48,14 +48,22 @@ namespace CS346_A2 {
 
 	protected:
 	private: System::Windows::Forms::TextBox^  textBox2;
-	private: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::Label^  label2;
+
+
 
 	private: System::Windows::Forms::ComboBox^  comboBox2;
 	private: System::Windows::Forms::TextBox^  textBox1;
-	private: System::Windows::Forms::Label^  label3;
+
 	private: System::Windows::Forms::Button^  button2;
+
+	private: System::Windows::Forms::PictureBox^  pictureBox2;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::Label^  label8;
+	private: System::Windows::Forms::Button^  button1;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
+
 
 
 
@@ -77,111 +85,178 @@ namespace CS346_A2 {
 		{
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(MyForm::typeid));
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
 			this->comboBox2 = (gcnew System::Windows::Forms::ComboBox());
 			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox2
 			// 
-			this->textBox2->Location = System::Drawing::Point(484, 433);
+			this->textBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox2->Location = System::Drawing::Point(320, 404);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->Size = System::Drawing::Size(200, 22);
+			this->textBox2->Size = System::Drawing::Size(319, 30);
 			this->textBox2->TabIndex = 1;
-			// 
-			// label1
-			// 
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(294, 361);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(155, 35);
-			this->label1->TabIndex = 2;
-			this->label1->Text = L"UserType:";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(294, 423);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(95, 32);
-			this->label2->TabIndex = 3;
-			this->label2->Text = L"Email:";
-			this->label2->Click += gcnew System::EventHandler(this, &MyForm::label2_Click);
 			// 
 			// comboBox2
 			// 
+			this->comboBox2->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->comboBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
 			this->comboBox2->FormattingEnabled = true;
 			this->comboBox2->Items->AddRange(gcnew cli::array< System::Object^  >(3) { L"Student", L"Faculty", L"Admin" });
-			this->comboBox2->Location = System::Drawing::Point(484, 371);
+			this->comboBox2->Location = System::Drawing::Point(320, 325);
 			this->comboBox2->Name = L"comboBox2";
-			this->comboBox2->Size = System::Drawing::Size(200, 24);
+			this->comboBox2->Size = System::Drawing::Size(319, 31);
 			this->comboBox2->TabIndex = 6;
 			this->comboBox2->SelectedIndexChanged += gcnew System::EventHandler(this, &MyForm::comboBox2_SelectedIndexChanged);
 			// 
 			// textBox1
 			// 
-			this->textBox1->Location = System::Drawing::Point(484, 494);
+			this->textBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->textBox1->Location = System::Drawing::Point(320, 482);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->PasswordChar = '*';
-			this->textBox1->Size = System::Drawing::Size(200, 22);
+			this->textBox1->Size = System::Drawing::Size(319, 30);
 			this->textBox1->TabIndex = 7;
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 16.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(294, 484);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(147, 32);
-			this->label3->TabIndex = 8;
-			this->label3->Text = L"Password:";
 			// 
 			// button2
 			// 
-			this->button2->Location = System::Drawing::Point(384, 569);
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
+			this->button2->ForeColor = System::Drawing::Color::White;
+			this->button2->Location = System::Drawing::Point(321, 553);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(142, 49);
 			this->button2->TabIndex = 9;
 			this->button2->Text = L"Login";
-			this->button2->UseVisualStyleBackColor = true;
+			this->button2->UseVisualStyleBackColor = false;
 			this->button2->Click += gcnew System::EventHandler(this, &MyForm::button2_Click);
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackColor = System::Drawing::Color::White;
+			this->pictureBox2->Location = System::Drawing::Point(283, 269);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(397, 367);
+			this->pictureBox2->TabIndex = 11;
+			this->pictureBox2->TabStop = false;
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::Color::White;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label4->Location = System::Drawing::Point(316, 302);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(72, 20);
+			this->label4->TabIndex = 12;
+			this->label4->Text = L"User Role";
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::White;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label5->Location = System::Drawing::Point(316, 381);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(46, 20);
+			this->label5->TabIndex = 13;
+			this->label5->Text = L"Email";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::Color::White;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label6->Location = System::Drawing::Point(317, 459);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(71, 20);
+			this->label6->TabIndex = 14;
+			this->label6->Text = L"Password";
+			this->label6->Click += gcnew System::EventHandler(this, &MyForm::label6_Click);
+			// 
+			// label8
+			// 
+			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->ForeColor = System::Drawing::Color::OldLace;
+			this->label8->Location = System::Drawing::Point(283, 205);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(397, 73);
+			this->label8->TabIndex = 20;
+			this->label8->Text = L"USER LOGIN";
+			this->label8->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// button1
+			// 
+			this->button1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->button1->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->ForeColor = System::Drawing::Color::White;
+			this->button1->Location = System::Drawing::Point(482, 553);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(157, 49);
+			this->button1->TabIndex = 26;
+			this->button1->Text = L"Reset";
+			this->button1->UseVisualStyleBackColor = false;
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox1->Location = System::Drawing::Point(-1, 0);
+			this->pictureBox1->Location = System::Drawing::Point(3, -3);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(957, 315);
-			this->pictureBox1->TabIndex = 10;
+			this->pictureBox1->Size = System::Drawing::Size(952, 174);
+			this->pictureBox1->TabIndex = 27;
 			this->pictureBox1->TabStop = false;
 			// 
 			// MyForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->BackColor = System::Drawing::Color::White;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->ClientSize = System::Drawing::Size(954, 673);
 			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->button1);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->button2);
-			this->Controls->Add(this->label3);
 			this->Controls->Add(this->textBox1);
 			this->Controls->Add(this->comboBox2);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox2);
+			this->Controls->Add(this->pictureBox2);
 			this->Name = L"MyForm";
 			this->Text = L"Root Page";
 			this->Load += gcnew System::EventHandler(this, &MyForm::MyForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -280,6 +355,8 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 			 }
 			 }
 private: System::Void MyForm_Load(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }
