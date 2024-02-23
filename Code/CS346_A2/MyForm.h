@@ -32,7 +32,6 @@ namespace CS346_A2 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Summary for MyForm
@@ -125,7 +124,7 @@ namespace CS346_A2 {
 				static_cast<System::Byte>(0)));
 			this->textBox2->Location = System::Drawing::Point(318, 417);
 			this->textBox2->Name = L"textBox2";
-			this->textBox2->PasswordChar = '•';
+			this->textBox2->PasswordChar = '*';
 			this->textBox2->Size = System::Drawing::Size(319, 30);
 			this->textBox2->TabIndex = 1;
 			// 
@@ -297,12 +296,6 @@ namespace CS346_A2 {
 
 		}
 #pragma endregion
-		std::string toUtf8(const std::wstring& wideString) {
-			int size_needed = WideCharToMultiByte(CP_UTF8, 0, wideString.c_str(), -1, NULL, 0, NULL, NULL);
-			std::string utf8String(size_needed, 0);
-			WideCharToMultiByte(CP_UTF8, 0, wideString.c_str(), -1, &utf8String[0], size_needed, NULL, NULL);
-			return utf8String;
-		}
 
 	public: Panel^ OuterOuterPanel;
 	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {

@@ -101,6 +101,7 @@
     <ClInclude Include="Login_Register.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="MiscellaneousFunctions.h" />
     <ClInclude Include="MyForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
