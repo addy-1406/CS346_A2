@@ -260,7 +260,7 @@ namespace CS346_A2 {
 					 // Extracting values from the database result set and assigning them to variables
 					 name = dr->GetString(0);
 
-					 dob = dr->GetString(1);
+					 //dob = dr->GetD;
 					 contact = dr->GetString(2);
 					 address = dr->GetString(3);
 					 email = dr->GetString(4);
