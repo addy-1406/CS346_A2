@@ -123,6 +123,9 @@
     <ClInclude Include="StudentHome.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Student_Profile.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Test.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -167,6 +170,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="StudentHome.resx">
       <DependentUpon>StudentHome.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student_Profile.resx">
+      <DependentUpon>Student_Profile.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome_Pic.resx">
       <DependentUpon>Welcome_Pic.h</DependentUpon>
