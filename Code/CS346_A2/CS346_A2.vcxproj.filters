@@ -18,6 +18,9 @@
     <ClCompile Include="Root.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="permissions.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="Signup.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="permissions.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

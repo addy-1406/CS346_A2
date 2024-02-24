@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="permissions.cpp" />
     <ClCompile Include="Root.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -106,6 +107,9 @@
     </ClInclude>
     <ClInclude Include="MiscellaneousFunctions.h" />
     <ClInclude Include="MyForm.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="permissions.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="ProfileForm.h">
@@ -152,6 +156,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Login_Register.resx">
       <DependentUpon>Login_Register.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="permissions.resx">
+      <DependentUpon>permissions.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ProfileForm.resx">
       <DependentUpon>ProfileForm.h</DependentUpon>

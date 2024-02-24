@@ -13,7 +13,7 @@ namespace CS346_A2 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace MySql::Data::MySqlClient;
+	//using namespace MySql::Data::MySqlClient;
 	using namespace System::Data::SqlClient;
 
 
@@ -22,6 +22,7 @@ namespace CS346_A2 {
 	/// </summary>
 	public ref class Signup : public System::Windows::Forms::Form
 	{
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
 	public:
 		User^ admin;
 		String^ name = "";
@@ -63,9 +64,6 @@ namespace CS346_A2 {
 			//TODO: Add the constructor code here
 			//
 		}
-
-
-	private: System::Windows::Forms::DataGridView^  dataGridView1;
 
 
 	protected:
@@ -314,7 +312,7 @@ namespace CS346_A2 {
 				 MessageBox::Show(" Request Approved");
 				 dr->Close();
 
-				 query = "select Name, DOB, Contact, Address, Email, Approval_Status, UserType, Password_hash from [dbo].[signup]  where Name = @Name";
+				 query = "select Name, DOB, Contact, Address, Email, Approval_Status, UserType, Password_hash, enrollment_year from [dbo].[signup]  where Name = @Name";
 				 array<SqlParameter^>^ parameters2 = {
 					 gcnew SqlParameter("@Name", name)
 				 };
@@ -339,7 +337,9 @@ namespace CS346_A2 {
 
 				 dr->Close();
 
-				 String^ user_id = MiscellaneousFunctions::generateUserIdStudent(enrollment_year);
+				 String^ user_id;
+				 if(user_type == "Student")  user_id = MiscellaneousFunctions::generateUserIdStudent(enrollment_year);
+				 if(user_type == "Faculty")  user_id = MiscellaneousFunctions::generateUserIdProf(enrollment_year);
 
 				 query =  "insert into [dbo].[auth] values(@UserId,@PassHash,@UserType,@UserType,@Email)";
 				 array<SqlParameter^>^ parameters3 = {
@@ -352,5 +352,5 @@ namespace CS346_A2 {
 				 MessageBox::Show("Inserted values"); 
 
 	}
-	};
+};
 }
