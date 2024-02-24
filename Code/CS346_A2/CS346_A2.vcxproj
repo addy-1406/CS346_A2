@@ -162,6 +162,9 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Root.resx">
+      <DependentUpon>Root.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.h</DependentUpon>
     </EmbeddedResource>

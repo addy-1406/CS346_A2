@@ -74,9 +74,10 @@ namespace CS346_A2 {
 			this->lblName->AutoSize = true;
 			this->lblName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblName->Location = System::Drawing::Point(417, 344);
+			this->lblName->Location = System::Drawing::Point(313, 280);
+			this->lblName->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblName->Name = L"lblName";
-			this->lblName->Size = System::Drawing::Size(64, 25);
+			this->lblName->Size = System::Drawing::Size(51, 20);
 			this->lblName->TabIndex = 0;
 			this->lblName->Text = L"Name";
 			// 
@@ -85,9 +86,10 @@ namespace CS346_A2 {
 			this->lblContact->AutoSize = true;
 			this->lblContact->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblContact->Location = System::Drawing::Point(417, 403);
+			this->lblContact->Location = System::Drawing::Point(313, 327);
+			this->lblContact->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblContact->Name = L"lblContact";
-			this->lblContact->Size = System::Drawing::Size(80, 25);
+			this->lblContact->Size = System::Drawing::Size(65, 20);
 			this->lblContact->TabIndex = 1;
 			this->lblContact->Text = L"Contact";
 			// 
@@ -96,9 +98,10 @@ namespace CS346_A2 {
 			this->lblEmail->AutoSize = true;
 			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblEmail->Location = System::Drawing::Point(417, 466);
+			this->lblEmail->Location = System::Drawing::Point(313, 379);
+			this->lblEmail->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->lblEmail->Name = L"lblEmail";
-			this->lblEmail->Size = System::Drawing::Size(60, 25);
+			this->lblEmail->Size = System::Drawing::Size(48, 20);
 			this->lblEmail->TabIndex = 2;
 			this->lblEmail->Text = L"Email";
 			// 
@@ -107,9 +110,10 @@ namespace CS346_A2 {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(348, 32);
+			this->label1->Location = System::Drawing::Point(261, 26);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(90, 29);
+			this->label1->Size = System::Drawing::Size(69, 24);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Profile";
 			// 
@@ -118,9 +122,10 @@ namespace CS346_A2 {
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(262, 344);
+			this->label2->Location = System::Drawing::Point(196, 280);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(70, 25);
+			this->label2->Size = System::Drawing::Size(55, 20);
 			this->label2->TabIndex = 4;
 			this->label2->Text = L"Name:";
 			// 
@@ -129,9 +134,10 @@ namespace CS346_A2 {
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(262, 403);
+			this->label3->Location = System::Drawing::Point(196, 327);
+			this->label3->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(86, 25);
+			this->label3->Size = System::Drawing::Size(69, 20);
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"Contact:";
 			// 
@@ -140,26 +146,28 @@ namespace CS346_A2 {
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(262, 466);
+			this->label4->Location = System::Drawing::Point(196, 379);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(66, 25);
+			this->label4->Size = System::Drawing::Size(52, 20);
 			this->label4->TabIndex = 6;
 			this->label4->Text = L"Email:";
 			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(252, 80);
+			this->pictureBox1->Location = System::Drawing::Point(189, 65);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(289, 249);
+			this->pictureBox1->Size = System::Drawing::Size(217, 202);
 			this->pictureBox1->TabIndex = 7;
 			this->pictureBox1->TabStop = false;
 			// 
 			// ProfileForm
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(833, 563);
+			this->ClientSize = System::Drawing::Size(625, 457);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -168,8 +176,10 @@ namespace CS346_A2 {
 			this->Controls->Add(this->lblEmail);
 			this->Controls->Add(this->lblContact);
 			this->Controls->Add(this->lblName);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"ProfileForm";
 			this->Text = L"ProfileForm";
+			this->Load += gcnew System::EventHandler(this, &ProfileForm::ProfileForm_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
@@ -220,5 +230,7 @@ namespace CS346_A2 {
 				con->Close();
 			}
 		}
-	};
+	private: System::Void ProfileForm_Load(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }

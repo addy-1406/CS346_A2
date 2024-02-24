@@ -23,7 +23,6 @@ namespace CS346_A2 {
 	public ref class Signup : public System::Windows::Forms::Form
 	{
 	public:
-		static int User_id = 0;
 		User^ admin;
 		String^ name = "";
 		String^ dob = "";
@@ -253,14 +252,15 @@ namespace CS346_A2 {
 
 				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
 
-
+				 int User_id = 0;
 
 				 while (dr->Read()){
+					 DateTime date = DateTime::Now;
 					 User_id++;
 					 // Extracting values from the database result set and assigning them to variables
 					 name = dr->GetString(0);
-
-					 dob = dr->GetString(1);
+					 date = dr->GetDateTime(1);
+					 dob = date.ToString("yyyy-mm-dd");
 					 contact = dr->GetString(2);
 					 address = dr->GetString(3);
 					 email = dr->GetString(4);
@@ -270,7 +270,8 @@ namespace CS346_A2 {
 
 
 
-					 int rowIndex = this->dataGridView1->Rows->Add(User_id, name, dob, contact, address, email, approval_status, user_type);
+					int rowIndex = this->dataGridView1->Rows->Add(User_id, name, dob, contact, address, email, approval_status, user_type);
+
 
 
 					 // Now you have extracted all the values and assigned them to the respective variables
@@ -319,11 +320,14 @@ namespace CS346_A2 {
 				 };
 				 dr = DatabaseHelper::ExecuteQuery(query, parameters2);
 
+				 int User_id = 0;
 				 while (dr->Read()){
+					 DateTime date = DateTime::Now;
 					 User_id++;
 					 // Extracting values from the database result set and assigning them to variables
 					 name = dr->GetString(0);
-					 dob = dr->GetString(1);
+					 date = dr->GetDateTime(1);
+					 dob = date.ToString("yyyy-mm-dd");
 					 contact = dr->GetString(2);
 					 address = dr->GetString(3);
 					 email = dr->GetString(4);
