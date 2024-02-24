@@ -1,5 +1,6 @@
 #pragma once
 #include "User.h"
+#include "DatabaseHelper.h"
 
 namespace CS346_A2 {
 
@@ -197,62 +198,61 @@ namespace CS346_A2 {
 		}
 
 		void FetchUserData(int userID) {
-			String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-			MySqlConnection^ con = gcnew MySqlConnection(constr);
+		//	String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
+			//MySqlConnection^ con = gcnew MySqlConnection(constr);
 
 			try {
-				con->Open();
-				String^ query = "SELECT Name, Contact, Email, Photo FROM faculty WHERE User_ID = @UserID";
-				MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
-				cmd->Parameters->AddWithValue("@UserID", userID);
-				MySqlDataReader^ reader = cmd->ExecuteReader();
+				//con->Open();
+				String^ query = "SELECT Name, Contact, Email FROM faculty WHERE User_ID = @UserID";
+				//MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
+				array<SqlParameter^>^ parameters = {
+					gcnew SqlParameter("@UserID", System::Convert::ToString(userID))
+				};
+
+				SqlDataReader^ reader = DatabaseHelper::ExecuteQuery(query, parameters);
 
 				if (reader->Read()) {
-					lblName->Text = reader->GetString(0);
+					String^ name = reader->GetString(0);
+					lblName->Text = name;
 					lblContact->Text = reader->GetString(1);
 					lblEmail->Text = reader->GetString(2);
 
 					// Check if the photo field is not null
-					if (reader["Photo"] != nullptr && reader["Photo"] != DBNull::Value) {
+					/*if (reader["Photo"] != nullptr && reader["Photo"] != DBNull::Value) {
 						array<Byte>^ imgData = dynamic_cast<array<Byte>^>(reader["Photo"]);
 						System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(imgData);
 						pictureBox1->Image = System::Drawing::Image::FromStream(ms);
 					}
-					else {
+					else {*/
 						// If image data is null, set default image
 						// Set default image if database image is null
-						pictureBox1->Image = Image::FromFile("MediaFiles\\profile.jpg");
+					try {
+						pictureBox1->Image = Image::FromFile("..\\MediaFiles\\profile.jpg");
 					}
+					catch (Exception^ ex) {
+						// Handle the exception, e.g., display an error message.
+						MessageBox::Show("Error loading image: " + ex->Message);
+					}
+					//}
 				}
 
 				reader->Close();
 			}
-			catch (MySqlException^ ex) {
+			catch (SqlException^ ex) {
 				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			}
-			finally {
-				con->Close();
 			}
 		}
 
 		void UploadImageToDatabase(array<Byte>^ imageArray, int userID) {
-			String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-			MySqlConnection^ con = gcnew MySqlConnection(constr);
-
-			try {
-				con->Open();
+			/*try {
 				String^ query = "UPDATE faculty SET Photo = @Photo WHERE User_ID = @UserID";
-				MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
-				cmd->Parameters->AddWithValue("@Photo", imageArray);
-				cmd->Parameters->AddWithValue("@UserID", userID);
-				cmd->ExecuteNonQuery();
+				array<SqlParameter^>^ parameters = {
+					gcnew SqlParameter("@UserID", System::Convert::ToString(userID))
+				};
 			}
 			catch (MySqlException^ ex) {
 				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
-			}
-			finally {
-				con->Close();
-			}
+			}*/
 		}
 
 		void DisplayImageFromDatabase(array<Byte>^ imageArray) {

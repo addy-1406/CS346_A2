@@ -1,5 +1,6 @@
 #pragma once
 #include "User.h"
+#include "DatabaseHelper.h"
 namespace CS346_A2 {
 
 	using namespace System;
@@ -316,65 +317,61 @@ namespace CS346_A2 {
 			this->Controls->Add(this->textBox1);
 			this->Name = L"AddCourseForm";
 			this->Text = L"AddCourseForm";
+			this->Load += gcnew System::EventHandler(this, &AddCourseForm::AddCourseForm_Load);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
 		}
 		void AddCourseToDatabase(int userid)
 		{
-			String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-			MySqlConnection^ con = gcnew MySqlConnection(constr);
 
 			try
 			{
-				con->Open();
 
 				// Check if Course_ID already exists
 				int courseID = 1;
-				MySqlCommand^ checkCmd = gcnew MySqlCommand("SELECT COUNT(*) FROM course WHERE Course_ID = @Course_ID", con);
-				checkCmd->Parameters->AddWithValue("@Course_ID", courseID);
-				int count = Convert::ToInt32(checkCmd->ExecuteScalar());
+				String^ query = "SELECT COUNT(*) FROM course WHERE Course_ID = @Course_ID";
+				array<SqlParameter^>^ parameters = {
+					gcnew SqlParameter("@course_ID", courseID),
+				};
+				SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 
-				while (count > 0)
-				{
-					// If Course_ID exists, increment it
-					courseID++;
-					checkCmd->Parameters->Clear();
-					checkCmd->Parameters->AddWithValue("@Course_ID", courseID);
-					count = Convert::ToInt32(checkCmd->ExecuteScalar());
-				}
+				//while (count > 0)
+				//{
+				//	// If Course_ID exists, increment it
+				//	courseID++;
+				//	checkCmd->Parameters->Clear();
+				//	checkCmd->Parameters->AddWithValue("@Course_ID", courseID);
+				//	count = Convert::ToInt32(checkCmd->ExecuteScalar());
+				//}
 
 				// Now courseID contains a unique Course_ID
-				MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO course (Course_ID, Name, Description, L, T, P, C, Faculty_ID, Intake, Semester, Year, Course_Code) VALUES (@Course_ID, @Name, @Description, @L, @T, @P, @C, @Faculty_ID, @Intake, @Semester, @Year, @Course_Code)", con);
+			//	MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO course (Course_ID, Name, Description, L, T, P, C, Faculty_ID, Intake, Semester, Year, Course_Code) VALUES (@Course_ID, @Name, @Description, @L, @T, @P, @C, @Faculty_ID, @Intake, @Semester, @Year, @Course_Code)", con);
 
 				// Set parameter values
-				cmd->Parameters->AddWithValue("@Course_ID", courseID);
-				cmd->Parameters->AddWithValue("@Name", textBox2->Text);
-				cmd->Parameters->AddWithValue("@Description", textBox3->Text);
-				int L = Int32::Parse(textBox4->Text);
-				int T = Int32::Parse(textBox5->Text);
-				int P = Int32::Parse(textBox6->Text);
-				int C = L * 2 + T * 2 + P;
-				cmd->Parameters->AddWithValue("@L", L);
-				cmd->Parameters->AddWithValue("@T", T);
-				cmd->Parameters->AddWithValue("@P", P);
-				cmd->Parameters->AddWithValue("@C", C);
-				cmd->Parameters->AddWithValue("@Faculty_ID", userid); // Assuming a default value for Faculty_ID
-				cmd->Parameters->AddWithValue("@Intake", textBox7->Text);
-				cmd->Parameters->AddWithValue("@Semester", textBox8->Text);
-				cmd->Parameters->AddWithValue("@Year", textBox9->Text);
-				cmd->Parameters->AddWithValue("@Course_Code", textBox1->Text);
+				//cmd->Parameters->AddWithValue("@Course_ID", courseID);
+				//cmd->Parameters->AddWithValue("@Name", textBox2->Text);
+				//cmd->Parameters->AddWithValue("@Description", textBox3->Text);
+				//int L = Int32::Parse(textBox4->Text);
+				//int T = Int32::Parse(textBox5->Text);
+				//int P = Int32::Parse(textBox6->Text);
+				//int C = L * 2 + T * 2 + P;
+				//cmd->Parameters->AddWithValue("@L", L);
+				//cmd->Parameters->AddWithValue("@T", T);
+				//cmd->Parameters->AddWithValue("@P", P);
+				//cmd->Parameters->AddWithValue("@C", C);
+				//cmd->Parameters->AddWithValue("@Faculty_ID", userid); // Assuming a default value for Faculty_ID
+				//cmd->Parameters->AddWithValue("@Intake", textBox7->Text);
+				//cmd->Parameters->AddWithValue("@Semester", textBox8->Text);
+				//cmd->Parameters->AddWithValue("@Year", textBox9->Text);
+				//cmd->Parameters->AddWithValue("@Course_Code", textBox1->Text);
 
-				cmd->ExecuteNonQuery();
+				//cmd->ExecuteNonQuery();
 				MessageBox::Show("Course added successfully!");
 			}
 			catch (Exception^ ex)
 			{
 				MessageBox::Show(ex->Message);
-			}
-			finally
-			{
-				con->Close();
 			}
 		}
 
@@ -425,6 +422,8 @@ namespace CS346_A2 {
 			}
 		}
 
-	};
+	private: System::Void AddCourseForm_Load(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }
 #pragma endregion

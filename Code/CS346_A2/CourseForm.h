@@ -1,5 +1,6 @@
 #pragma once
 
+#include "DatabaseHelper.h"
 #include <string>
 #include <sstream>
 
@@ -31,22 +32,22 @@ namespace CS346_A2 {
 			userid = _userid;
 
 			// Connect to the database
-			String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
+			/*String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
 			MySqlConnection^ con = gcnew MySqlConnection(constr);
-			MySqlCommand^ cmd;
-			MySqlDataReader^ reader;
+			MySqlCommand^ cmd;*/
+			SqlDataReader^ reader;
 
 			try
 			{
 				// Open the connection
-				con->Open();
+				//con->Open();
 
 				// Prepare the SQL command to fetch data
 				String^ query = "SELECT Name, Course_Code FROM course WHERE Faculty_ID = " + userid;
-				cmd = gcnew MySqlCommand(query, con);
+				//cmd = gcnew MySqlCommand(query, con);
 
 				// Execute the command and get the data
-				reader = cmd->ExecuteReader();
+				reader = DatabaseHelper::ExecuteQuery(query);
 
 				// Loop through the records and create buttons
 				int y = 10; // Initial Y position of buttons
@@ -78,11 +79,6 @@ namespace CS346_A2 {
 				// Handle exceptions
 				MessageBox::Show(ex->Message);
 			}
-			finally
-			{
-				// Close the connection
-				con->Close();
-			}
 		}
 
 	protected:
@@ -110,18 +106,7 @@ namespace CS346_A2 {
 		/// </summary>
 
 #pragma endregion
-	private: System::Void InitializeComponent() {
-
-				 this->SuspendLayout();
-				 // 
-
-				 // CourseForm
-				 // 
-				 this->ClientSize = System::Drawing::Size(668, 503);
-				 this->Controls->Add(this->listView1);
-				 this->Name = L"CourseForm";
-				 this->ResumeLayout(false);
-	}
+	
 
 	private:
 		// Declare a member variable to store the reference to the textbox for displaying course details
@@ -131,7 +116,7 @@ namespace CS346_A2 {
 		// Update the Button_Click event handler
 		// Update the Button_Click event handler
 		// Update the Button_Click event handler
-		int course_id;
+		String^ course_id;
 private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e) {
 			 // Retrieve the button that was clicked
 			 Button^ clickedButton = dynamic_cast<Button^>(sender);
@@ -141,25 +126,22 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 				 String^ courseCode = buttonText->Split('\n')[1]; // Assuming course code is after a newline character
 
 				 // Connect to the database
-				 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-				 MySqlConnection^ con = gcnew MySqlConnection(constr);
-				 MySqlCommand^ cmd;
-				 MySqlDataReader^ reader = nullptr;
+				 SqlDataReader^ reader = nullptr;
 
 				 try {
 					 // Open the connection
-					 con->Open();
+					 //con->Open();
 
 					 // Prepare the SQL command to fetch data for the selected course and related grades and student details
-					 String^ query = "SELECT c.Course_ID, c.Name AS CourseName, c.Description, c.L, c.T, c.P, c.C, c.Intake, c.Semester, c.Year, c.Course_Code, g.User_ID, g.Grade, g.Approval_Status, s.Name AS StudentName " +
+					 String^ query = "SELECT c.Name AS CourseName, c.Description, c.L, c.T, c.P, c.C, c.Intake, c.Semester, c.Course_Code, g.User_ID, g.Grade, g.Approval_Status, s.Name AS StudentName " +
 						 "FROM course c " +
-						 "LEFT JOIN grade g ON c.Course_ID = g.Course_ID " +
+						 "LEFT JOIN grade g ON c.Course_Code = g.CourseCode " +
 						 "LEFT JOIN student s ON g.User_ID = s.User_ID " +
 						 "WHERE c.Course_Code = '" + courseCode + "'";
-					 cmd = gcnew MySqlCommand(query, con);
+
 
 					 // Execute the command and get the data
-					 reader = cmd->ExecuteReader();
+					 reader = DatabaseHelper::ExecuteQuery(query);
 
 					 // Check if there is data available
 					 if (reader->Read()) {
@@ -169,9 +151,9 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 							 "Course Description: " + reader["Description"]->ToString() + "\r\n" +
 							 "L: " + reader["L"]->ToString() + ", T: " + reader["T"]->ToString() +
 							 ", P: " + reader["P"]->ToString() + ", C: " + reader["C"]->ToString() + "\r\n" +
-							 "Year: " + reader["Year"]->ToString() + ", Semester: " + reader["Semester"]->ToString() +
+							 "Semester: " + reader["Semester"]->ToString() +
 							 ", Intake: " + reader["Intake"]->ToString();
-						 course_id = Convert::ToInt32(reader["Course_ID"]);
+						 course_id = reader["Course_Code"]->ToString();
 
 						 // Check if the textbox for course details exists
 						 if (courseDetailsTextBox == nullptr) {
@@ -281,7 +263,6 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 					 if (reader != nullptr) {
 						 reader->Close();
 					 }
-					 con->Close();
 				 }
 			 }
 }
@@ -313,20 +294,15 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 									 // Update the database with the new approval status for this item
 									 try {
 										 // Connect to the database
-										 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-										 MySqlConnection^ con = gcnew MySqlConnection(constr);
-										 con->Open();
+					
 
 										 // Prepare the SQL command to update the Approval_Status
-										 String^ updateQuery = "UPDATE grade SET Approval_Status = '" + newStatus + "' WHERE User_ID = '" + item->Text + "' AND Course_ID = '" + course_id + "'";
-										 MySqlCommand^ cmd = gcnew MySqlCommand(updateQuery, con);
+										 String^ updateQuery = "UPDATE grade SET Approval_Status = '" + newStatus + "' WHERE User_ID = '" + item->Text + "' AND CourseCode = '" + course_id + "'";
 
 										 // Execute the command
-										 cmd->ExecuteNonQuery();
-
-										 // Close the connection
-										 con->Close();
-										 //a
+										 
+										 //
+										 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(updateQuery);
 									 }
 									 catch (Exception^ ex) {
 										 // Handle exceptions
@@ -344,5 +320,18 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 
 	
 
+private: System::Void InitializeComponent() {
+			 this->SuspendLayout();
+			 // 
+			 // CourseForm
+			 // 
+			 this->ClientSize = System::Drawing::Size(282, 253);
+			 this->Name = L"CourseForm";
+			 this->Load += gcnew System::EventHandler(this, &CourseForm::CourseForm_Load);
+			 this->ResumeLayout(false);
+}
+
+private: System::Void CourseForm_Load(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }
