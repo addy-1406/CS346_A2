@@ -2,7 +2,7 @@
 #include "User.h"
 #include "DatabaseHelper.h"
 #include "MiscellaneousFunctions.h"
-
+#include <msclr/marshal_cppstd.h> // Required for marshaling strings
 namespace CS346_A2 {
 
 	using namespace System;
@@ -489,18 +489,60 @@ namespace CS346_A2 {
 	
 	private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
+	public: array<unsigned char>^ ImageToByteArray(System::Drawing::Image^ image) {
+				 System::IO::MemoryStream^ memoryStream = gcnew System::IO::MemoryStream();
+				 image->Save(memoryStream, System::Drawing::Imaging::ImageFormat::Png); // Save as PNG for simplicity
+				 return memoryStream->ToArray();
+			 }
+
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 get_profile(user);
 			 // Update query here
 			 update_profile(user);
 			 get_profile(user);
-			 
-
-
-			 
+				 
 }
-private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 
+	public: System::Void Upload_Profile_Photo(User^ user, System::Drawing::Image^ image) {
+				try {
+					// Convert the image to a byte array
+					array<unsigned char>^ photoBytes = ImageToByteArray(image);
+
+					// Prepare SQL query
+					String^ query = "INSERT INTO Profile_photos (User_ID, Photo) VALUES (@User_ID, @Photo);";
+
+					// Prepare parameters
+					array<SqlParameter^>^ parameters = {
+						gcnew SqlParameter("@User_ID", System::Convert::ToString(user->userID)),
+						gcnew SqlParameter("@Photo", System::Data::SqlDbType::VarBinary, photoBytes->Length)
+					};
+
+					// Set the byte array representing the image to the parameter
+					parameters[1]->Value = photoBytes;
+
+					// Execute the query
+					// (Assuming DatabaseHelper::ExecuteQuery is defined elsewhere)
+					SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+				}
+				catch (Exception^ ex) {
+					throw gcnew Exception("Error uploading profile photo: " + ex->Message);
+				}
+	}
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+			 OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
+			 openFileDialog1->Filter = "Image Files (*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif)|*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif";
+			 if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				 try {
+					 pictureBox3->BackgroundImage = Image::FromFile(openFileDialog1->FileName);
+
+					 // Upload the image to the database
+					 Upload_Profile_Photo(user, pictureBox3->Image);
+					 MessageBox::Show("Image successfully uploaded!!");
+				 }
+				 catch (Exception^ ex) {
+					 MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				 }
+			 }
 }
 private: System::Void Student_Profile_Load(System::Object^  sender, System::EventArgs^  e) {
 			 get_profile(user);
