@@ -1,32 +1,26 @@
 #pragma once
 #include "User.h"
+
 namespace CS346_A2 {
 
 	using namespace System;
 	using namespace System::ComponentModel;
-	using namespace System::Collections;
 	using namespace System::Windows::Forms;
-	using namespace System::Data;
 	using namespace System::Drawing;
 	using namespace MySql::Data::MySqlClient;
+	using namespace System::IO;
 
-	/// <summary>
-	/// Summary for ProfileForm
-	/// </summary>
 	public ref class ProfileForm : public System::Windows::Forms::Form
 	{
 	public:
 		ProfileForm(int userID) // Constructor taking User_ID as input argument
 		{
 			InitializeComponent();
+			this->userID = userID;
 			FetchUserData(userID); // Fetch user data based on User_ID
 		}
 
-
 	protected:
-		/// <summary>
-		/// Clean up any resources being used.
-		/// </summary>
 		~ProfileForm()
 		{
 			if (components)
@@ -35,7 +29,6 @@ namespace CS346_A2 {
 			}
 		}
 	private: System::Windows::Forms::Label^  lblName;
-	protected:
 	private: System::Windows::Forms::Label^  lblContact;
 	private: System::Windows::Forms::Label^  lblEmail;
 	private: System::Windows::Forms::Label^  label1;
@@ -43,21 +36,15 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::Button^  btnPhoto;
 
 	private:
-		/// <summary>
-		/// Required designer variable.
-		/// </summary>
 		System::ComponentModel::Container ^components;
+		int userID;
 
 #pragma region Windows Form Designer generated code
-		/// <summary>
-		/// Required method for Designer support - do not modify
-		/// the contents of this method with the code editor.
-		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(ProfileForm::typeid));
 			this->lblName = (gcnew System::Windows::Forms::Label());
 			this->lblContact = (gcnew System::Windows::Forms::Label());
 			this->lblEmail = (gcnew System::Windows::Forms::Label());
@@ -66,6 +53,7 @@ namespace CS346_A2 {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->btnPhoto = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -148,18 +136,29 @@ namespace CS346_A2 {
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(252, 80);
+			this->pictureBox1->Location = System::Drawing::Point(238, 85);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(289, 249);
+			this->pictureBox1->Size = System::Drawing::Size(297, 239);
+			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 7;
 			this->pictureBox1->TabStop = false;
+			// 
+			// btnPhoto
+			// 
+			this->btnPhoto->Location = System::Drawing::Point(323, 526);
+			this->btnPhoto->Name = L"btnPhoto";
+			this->btnPhoto->Size = System::Drawing::Size(136, 59);
+			this->btnPhoto->TabIndex = 8;
+			this->btnPhoto->Text = L"Upload Photo";
+			this->btnPhoto->UseVisualStyleBackColor = true;
+			this->btnPhoto->Click += gcnew System::EventHandler(this, &ProfileForm::btnPhoto_Click);
 			// 
 			// ProfileForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(833, 563);
+			this->ClientSize = System::Drawing::Size(833, 631);
+			this->Controls->Add(this->btnPhoto);
 			this->Controls->Add(this->pictureBox1);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label3);
@@ -177,48 +176,100 @@ namespace CS346_A2 {
 		}
 #pragma endregion
 	private:
-		void FetchUserData(int^ userID) {
-			// Construct the connection string
-			String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
+		void btnPhoto_Click(System::Object^ sender, System::EventArgs^ e) {
+			OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
+			openFileDialog1->Filter = "Image Files (.bmp;.jpg;.jpeg,.gif,.png,.tif)|.bmp;.jpg;.jpeg;.gif;.png;.tif";
 
-			// Create a MySqlConnection object
+			if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
+				try {
+					pictureBox1->Image = Image::FromFile(openFileDialog1->FileName);
+
+					// Convert Image to byte array
+					array<Byte>^ imageArray = ImageToByteArray(pictureBox1->Image);
+
+					// Upload the image to the database
+					UploadImageToDatabase(imageArray, userID);
+				}
+				catch (Exception^ ex) {
+					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				}
+			}
+		}
+
+		void FetchUserData(int userID) {
+			String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
 			MySqlConnection^ con = gcnew MySqlConnection(constr);
 
 			try {
-				// Open the database connection
 				con->Open();
-
-				// Construct the SQL query
-				String^ query = "SELECT Name, Contact, Email FROM faculty WHERE User_ID = @UserID";
-
-				// Create a MySqlCommand object
+				String^ query = "SELECT Name, Contact, Email, Photo FROM faculty WHERE User_ID = @UserID";
 				MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
-
-				// Add the user ID parameter to the query
 				cmd->Parameters->AddWithValue("@UserID", userID);
-
-				// Execute the query and get the result
 				MySqlDataReader^ reader = cmd->ExecuteReader();
 
-				// Check if there are rows returned
 				if (reader->Read()) {
-					// Update the labels with the fetched data
-					lblName->Text = reader->GetString(0);     // Name
-					lblContact->Text = reader->GetString(1);  // Contact
-					lblEmail->Text = reader->GetString(2);    // Email
+					lblName->Text = reader->GetString(0);
+					lblContact->Text = reader->GetString(1);
+					lblEmail->Text = reader->GetString(2);
+
+					// Check if the photo field is not null
+					if (reader["Photo"] != nullptr && reader["Photo"] != DBNull::Value) {
+						array<Byte>^ imgData = dynamic_cast<array<Byte>^>(reader["Photo"]);
+						System::IO::MemoryStream^ ms = gcnew System::IO::MemoryStream(imgData);
+						pictureBox1->Image = System::Drawing::Image::FromStream(ms);
+					}
+					else {
+						// If image data is null, set default image
+						// Set default image if database image is null
+						pictureBox1->Image = Image::FromFile("MediaFiles\\profile.jpg");
+					}
 				}
 
-				// Close the reader
 				reader->Close();
 			}
 			catch (MySqlException^ ex) {
-				// Handle any exceptions here
 				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 			}
 			finally {
-				// Close the connection
 				con->Close();
 			}
+		}
+
+		void UploadImageToDatabase(array<Byte>^ imageArray, int userID) {
+			String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
+			MySqlConnection^ con = gcnew MySqlConnection(constr);
+
+			try {
+				con->Open();
+				String^ query = "UPDATE faculty SET Photo = @Photo WHERE User_ID = @UserID";
+				MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
+				cmd->Parameters->AddWithValue("@Photo", imageArray);
+				cmd->Parameters->AddWithValue("@UserID", userID);
+				cmd->ExecuteNonQuery();
+			}
+			catch (MySqlException^ ex) {
+				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
+			finally {
+				con->Close();
+			}
+		}
+
+		void DisplayImageFromDatabase(array<Byte>^ imageArray) {
+			try {
+				// Convert byte array back to Image
+				MemoryStream^ ms = gcnew MemoryStream(imageArray);
+				pictureBox1->Image = Image::FromStream(ms);
+			}
+			catch (Exception^ ex) {
+				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+			}
+		}
+
+		array<Byte>^ ImageToByteArray(System::Drawing::Image^ image) {
+			MemoryStream^ ms = gcnew MemoryStream();
+			image->Save(ms, System::Drawing::Imaging::ImageFormat::Png);
+			return ms->ToArray();
 		}
 	};
 }

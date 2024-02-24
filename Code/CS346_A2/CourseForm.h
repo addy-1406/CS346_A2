@@ -65,6 +65,13 @@ namespace CS346_A2 {
 					// Increment Y position for the next button
 					y += btn->Height + 10; // Add some vertical spacing between buttons
 				}
+				// Add a label for visual separation
+				Label^ partitionLabel = gcnew Label();
+				partitionLabel->AutoSize = false;
+				partitionLabel->Size = System::Drawing::Size(2, 520); // Adjust the width as needed
+				partitionLabel->Location = Point(103, 0); // Adjust the X position to align with the buttons
+				partitionLabel->BackColor = Color::Gray; // Set the color of the partition
+				Controls->Add(partitionLabel);
 			}
 			catch (Exception^ ex)
 			{
@@ -157,17 +164,13 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 					 // Check if there is data available
 					 if (reader->Read()) {
 						 // Create a string with the course details
-						 String^ courseDetails = "Course ID: " + reader["Course_ID"]->ToString() + ";  \n" +
-							 "Name: " + reader["CourseName"]->ToString() + ";  \n" +
-							 "Description: " + reader["Description"]->ToString() + ";  \n" +
-							 "L: " + reader["L"]->ToString() + ";  \n" +
-							 "T: " + reader["T"]->ToString() + ";  \n" +
-							 "P: " + reader["P"]->ToString() + ";  \n" +
-							 "C: " + reader["C"]->ToString() + ";  \n" +
-							 "Intake: " + reader["Intake"]->ToString() + ";  \n" +
-							 "Semester: " + reader["Semester"]->ToString() + ";  \n" +
-							 "Year: " + reader["Year"]->ToString() + ";  \n" +
-							 "Course Code: " + reader["Course_Code"]->ToString();
+						 String^ courseDetails = "Course Code: " + reader["Course_Code"]->ToString() + "\r\n" +
+							 "Course Name: " + reader["CourseName"]->ToString() + "\r\n" +
+							 "Course Description: " + reader["Description"]->ToString() + "\r\n" +
+							 "L: " + reader["L"]->ToString() + ", T: " + reader["T"]->ToString() +
+							 ", P: " + reader["P"]->ToString() + ", C: " + reader["C"]->ToString() + "\r\n" +
+							 "Year: " + reader["Year"]->ToString() + ", Semester: " + reader["Semester"]->ToString() +
+							 ", Intake: " + reader["Intake"]->ToString();
 						 course_id = Convert::ToInt32(reader["Course_ID"]);
 
 						 // Check if the textbox for course details exists
@@ -176,11 +179,18 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 							 courseDetailsTextBox = gcnew TextBox();
 							 courseDetailsTextBox->Multiline = true;
 							 courseDetailsTextBox->ReadOnly = true;
-							 courseDetailsTextBox->Size = System::Drawing::Size(450, 70); // Set size for three lines
-							 courseDetailsTextBox->Location = System::Drawing::Point(120, 10); // Set location as needed
+							 courseDetailsTextBox->BackColor = Color::Gray; // Set background color to gray
+							 courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
+							 courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
+							 courseDetailsTextBox->Text = courseDetails; // Set the text
+							 // Adjust the size of the text box according to the text content
+							 SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
+							 courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
+							 courseDetailsTextBox->Location = System::Drawing::Point(160, 20); // Set location as needed
 							 courseDetailsTextBox->Font = gcnew System::Drawing::Font("Arial", 12); // Set the font size and style
 							 Controls->Add(courseDetailsTextBox); // Add the textbox to the form
 						 }
+
 
 						 // Update the textbox with the course details
 						 courseDetailsTextBox->Text = courseDetails;
@@ -191,14 +201,33 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 								 Controls->Remove(control);
 								 break;
 							 }
+							 if (Button::typeid == control->GetType() && control->Text == "Approve" || control->Text == "Reject")
+							 {
+								 Controls->Remove(control);
+								 break;
+							 }
+						 }
+						 for each (Control^ control in Controls) {
+							 if (Button::typeid == control->GetType() && (control->Text == "Approve" || control->Text == "Reject"))
+							 {
+								 Controls->Remove(control);
+								 break;
+							 }
+						 }
+						 for each (Control^ control in Controls) {
+							 if (Button::typeid == control->GetType() && (control->Text == "Approve" || control->Text == "Reject"))
+							 {
+								 Controls->Remove(control);
+								 break;
+							 }
 						 }
 
 						 // Check if there is grade data available
 						 if (reader["User_ID"] != DBNull::Value) {
 							 // Create list view for displaying grades
 							 ListView^ listViewGrades = gcnew ListView();
-							 listViewGrades->Location = Point(120, 120);
-							 listViewGrades->Size = System::Drawing::Size(400, 200);
+							 listViewGrades->Location = Point(160, 160);
+							 listViewGrades->Size = System::Drawing::Size(450, 200);
 							 listViewGrades->View = View::Details;
 							 listViewGrades->FullRowSelect = true;
 							 listViewGrades->Columns->Add("User ID", 80);
@@ -226,13 +255,14 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 							 // Add approve button below the list view
 							 Button^ approveButton = gcnew Button();
 							 approveButton->Text = "Approve";
-							 approveButton->Location = Point(120, 330); // Adjust position as needed
+							 approveButton->Location = Point(280, 370); // Adjust position as needed
+
 							 approveButton->Click += gcnew EventHandler(this, &CourseForm::ApproveButton_Click); // Handle click event
 							 Controls->Add(approveButton);
 
 							 Button^ rejectButton = gcnew Button();
 							 rejectButton->Text = "Reject";
-							 rejectButton->Location = Point(250, 330); // Adjust position as needed
+							 rejectButton->Location = Point(400, 370); // Adjust position as needed
 							 rejectButton->Click += gcnew EventHandler(this, &CourseForm::RejectButton_Click); // Handle click event
 							 Controls->Add(rejectButton);
 						 }
@@ -257,57 +287,57 @@ private: System::Void Button_Click(System::Object^ sender, System::EventArgs^ e)
 }
 
 		 // Event handler for the approve button click
-// Event handler for the Approve button click
-private: System::Void ApproveButton_Click(System::Object^ sender, System::EventArgs^ e) {
-			 UpdateApprovalStatus("Approved");
-}
+		// Event handler for the Approve button click
+		private: System::Void ApproveButton_Click(System::Object^ sender, System::EventArgs^ e) {
+					 UpdateApprovalStatus("Approved");
+		}
 
-		 // Event handler for the Reject button click
-private: System::Void RejectButton_Click(System::Object^ sender, System::EventArgs^ e) {
-			 UpdateApprovalStatus("Pending");
-}
+				 // Event handler for the Reject button click
+		private: System::Void RejectButton_Click(System::Object^ sender, System::EventArgs^ e) {
+					 UpdateApprovalStatus("Pending");
+		}
 
-		 // Function to update the approval status in the database
-private: void UpdateApprovalStatus(String^ newStatus) {
-			 // Find the list view control
-			 for each (Control^ control in Controls) {
-				 if (ListView::typeid == control->GetType()) {
-					 ListView^ listViewGrades = safe_cast<ListView^>(control);
-					 // Iterate through the checked items in the list view
-					 for each (ListViewItem^ item in listViewGrades->Items) {
-						 // Check if the item is checked and its approval status is "Pending"
-						 if (item->Checked) {
-							 // Update the approval status to the new status
-							 item->SubItems[3]->Text = newStatus;
+				 // Function to update the approval status in the database
+		private: void UpdateApprovalStatus(String^ newStatus) {
+					 // Find the list view control
+					 for each (Control^ control in Controls) {
+						 if (ListView::typeid == control->GetType()) {
+							 ListView^ listViewGrades = safe_cast<ListView^>(control);
+							 // Iterate through the checked items in the list view
+							 for each (ListViewItem^ item in listViewGrades->Items) {
+								 // Check if the item is checked and its approval status is "Pending"
+								 if (item->Checked) {
+									 // Update the approval status to the new status
+									 item->SubItems[3]->Text = newStatus;
 
-							 // Update the database with the new approval status for this item
-							 try {
-								 // Connect to the database
-								 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-								 MySqlConnection^ con = gcnew MySqlConnection(constr);
-								 con->Open();
+									 // Update the database with the new approval status for this item
+									 try {
+										 // Connect to the database
+										 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
+										 MySqlConnection^ con = gcnew MySqlConnection(constr);
+										 con->Open();
 
-								 // Prepare the SQL command to update the Approval_Status
-								 String^ updateQuery = "UPDATE grade SET Approval_Status = '" + newStatus + "' WHERE User_ID = '" + item->Text + "' AND Course_ID = '" + course_id + "'";
-								 MySqlCommand^ cmd = gcnew MySqlCommand(updateQuery, con);
+										 // Prepare the SQL command to update the Approval_Status
+										 String^ updateQuery = "UPDATE grade SET Approval_Status = '" + newStatus + "' WHERE User_ID = '" + item->Text + "' AND Course_ID = '" + course_id + "'";
+										 MySqlCommand^ cmd = gcnew MySqlCommand(updateQuery, con);
 
-								 // Execute the command
-								 cmd->ExecuteNonQuery();
+										 // Execute the command
+										 cmd->ExecuteNonQuery();
 
-								 // Close the connection
-								 con->Close();
-								 //a
+										 // Close the connection
+										 con->Close();
+										 //a
+									 }
+									 catch (Exception^ ex) {
+										 // Handle exceptions
+										 MessageBox::Show(ex->Message);
+									 }
+								 }
 							 }
-							 catch (Exception^ ex) {
-								 // Handle exceptions
-								 MessageBox::Show(ex->Message);
-							 }
+							 break;
 						 }
 					 }
-					 break;
-				 }
-			 }
-}
+		}
 
 
 
