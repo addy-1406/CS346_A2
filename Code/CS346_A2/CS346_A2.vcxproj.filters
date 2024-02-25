@@ -18,6 +18,9 @@
     <ClCompile Include="Root.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Fee_Payment_Dummy.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -83,7 +86,11 @@
     <ClInclude Include="Course_EnrollPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+<<<<<<< HEAD
     <ClInclude Include="AddGradeForm.h">
+=======
+    <ClInclude Include="Fee_Payment_Dummy.h">
+>>>>>>> 850643a3a5b889f97760a352372751eb82dbca02
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>
