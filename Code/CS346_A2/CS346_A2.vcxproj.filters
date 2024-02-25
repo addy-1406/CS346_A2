@@ -83,6 +83,9 @@
     <ClInclude Include="Course_EnrollPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="AddGradeForm.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
@@ -125,6 +128,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="Student_Profile.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Course_EnrollPage.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registered Courses.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>
