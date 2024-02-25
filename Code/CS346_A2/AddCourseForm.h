@@ -51,7 +51,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::TextBox^  textBox5;
 	private: System::Windows::Forms::TextBox^  textBox6;
 	private: System::Windows::Forms::TextBox^  textBox7;
-	private: System::Windows::Forms::TextBox^  textBox8;
+
 	private: System::Windows::Forms::TextBox^  textBox9;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
@@ -59,7 +59,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::Label^  label7;
+
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::Label^  label10;
@@ -88,7 +88,6 @@ namespace CS346_A2 {
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -96,7 +95,6 @@ namespace CS346_A2 {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
@@ -160,14 +158,6 @@ namespace CS346_A2 {
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(219, 30);
 			this->textBox7->TabIndex = 6;
-			// 
-			// textBox8
-			// 
-			this->textBox8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox8->Location = System::Drawing::Point(471, 354);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(219, 30);
-			this->textBox8->TabIndex = 7;
 			// 
 			// textBox9
 			// 
@@ -238,16 +228,6 @@ namespace CS346_A2 {
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"Intake:";
 			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label7->Location = System::Drawing::Point(354, 354);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(59, 25);
-			this->label7->TabIndex = 15;
-			this->label7->Text = L"Year:";
-			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
@@ -299,7 +279,6 @@ namespace CS346_A2 {
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label8);
-			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
@@ -307,7 +286,6 @@ namespace CS346_A2 {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox9);
-			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox5);
@@ -329,12 +307,12 @@ namespace CS346_A2 {
 			{
 
 				// Check if Course_ID already exists
-				int courseID = 1;
-				String^ query = "SELECT COUNT(*) FROM course WHERE Course_ID = @Course_ID";
-				array<SqlParameter^>^ parameters = {
-					gcnew SqlParameter("@course_ID", courseID),
-				};
-				SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+				//int courseID = 1;
+				//String^ query = "SELECT COUNT(*) FROM course WHERE Course_ID = @Course_ID";
+				//array<SqlParameter^>^ parameters = {
+				//gcnew SqlParameter("@course_ID", courseID),
+				//};
+				//SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 
 				//while (count > 0)
 				//{
@@ -346,7 +324,7 @@ namespace CS346_A2 {
 				//}
 
 				// Now courseID contains a unique Course_ID
-			//	MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO course (Course_ID, Name, Description, L, T, P, C, Faculty_ID, Intake, Semester, Year, Course_Code) VALUES (@Course_ID, @Name, @Description, @L, @T, @P, @C, @Faculty_ID, @Intake, @Semester, @Year, @Course_Code)", con);
+				//	MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO course (Course_ID, Name, Description, L, T, P, C, Faculty_ID, Intake, Semester, Year, Course_Code) VALUES (@Course_ID, @Name, @Description, @L, @T, @P, @C, @Faculty_ID, @Intake, @Semester, @Year, @Course_Code)", con);
 
 				// Set parameter values
 				//cmd->Parameters->AddWithValue("@Course_ID", courseID);
@@ -367,6 +345,49 @@ namespace CS346_A2 {
 				//cmd->Parameters->AddWithValue("@Course_Code", textBox1->Text);
 
 				//cmd->ExecuteNonQuery();
+				String^ courseCode = textBox1->Text;
+				String^ query = "SELECT COUNT(*) FROM course WHERE Course_Code = @Course_Code";
+				array<SqlParameter^>^ parameters = {
+					gcnew SqlParameter("@Course_Code", courseCode),
+				};
+				SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+
+				// Since we are expecting only one row as a result, we don't need a loop
+				if (dr->Read())
+				{
+					int count = Convert::ToInt32(dr[0]);
+					if (count > 0)
+					{
+						// Course with the given course code already exists
+						MessageBox::Show("Course code already exists!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					}
+					else
+					{
+						int L = Int32::Parse(textBox4->Text);
+						int T = Int32::Parse(textBox5->Text);
+						int P = Int32::Parse(textBox6->Text);
+
+						// Course code doesn't exist, you can proceed with insertion or any other logic
+						String^ insertQuery = "INSERT INTO course (Name, Description, L, T, P, C, Faculty_ID, Intake, Semester, Course_Code, ElectiveorCompulsory) VALUES (@Name, @Description, @L, @T, @P, @C, @Faculty_ID, @Intake, @Semester, @Course_Code, @ElectiveorCompulsory)";
+						array<SqlParameter^>^ insertParameters = {
+							gcnew SqlParameter("@Name", textBox2->Text),
+							gcnew SqlParameter("@Description", textBox3->Text),
+							gcnew SqlParameter("@L", L),
+							gcnew SqlParameter("@T", T),
+							gcnew SqlParameter("@P", P),
+							gcnew SqlParameter("@C", L * 2 + T * 2 + P),
+							gcnew SqlParameter("@Faculty_ID", userid), // Assuming a default value for Faculty_ID
+							gcnew SqlParameter("@Intake", textBox7->Text),
+							gcnew SqlParameter("@Semester", textBox9->Text),
+							gcnew SqlParameter("@Course_Code", courseCode),
+							gcnew SqlParameter("@ElectiveorCompulsory", true) // Assuming 1 represents true for ElectiveorCompulsory
+						};
+
+						DatabaseHelper::ExecuteQuery(insertQuery, insertParameters);
+						// Optionally, you might want to inform the user about successful insertion
+					}
+				}
+
 				MessageBox::Show("Course added successfully!");
 			}
 			catch (Exception^ ex)
@@ -381,7 +402,7 @@ namespace CS346_A2 {
 		{
 			// Type checking for each textbox
 			if (!IsValidInt(textBox4->Text) || !IsValidInt(textBox5->Text) || !IsValidInt(textBox6->Text) ||
-				!IsValidInt(textBox7->Text) || !IsValidInt(textBox8->Text) || !IsValidInt(textBox9->Text))
+				!IsValidInt(textBox7->Text) || !IsValidInt(textBox9->Text))
 			{
 				MessageBox::Show("Please enter valid integer values for L, T, P, Intake, Semester, and Year.");
 				return;
@@ -424,6 +445,6 @@ namespace CS346_A2 {
 
 	private: System::Void AddCourseForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
-};
+	};
 }
 #pragma endregion
