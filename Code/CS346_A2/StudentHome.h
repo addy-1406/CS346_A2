@@ -4,6 +4,7 @@
 #include "Student_Profile.h"
 #include "Welcome_Pic.h"
 #include "Registered Courses.h"
+#include "Fee_Payment_Dummy.h"
 
 namespace CS346_A2 {
 
@@ -247,6 +248,7 @@ namespace CS346_A2 {
 			this->label5->Size = System::Drawing::Size(134, 28);
 			this->label5->TabIndex = 44;
 			this->label5->Text = L"Fee Payment";
+			this->label5->Click += gcnew System::EventHandler(this, &StudentHome::label5_Click);
 			// 
 			// pictureBox1
 			// 
@@ -397,6 +399,7 @@ namespace CS346_A2 {
 			this->pictureBox8->Size = System::Drawing::Size(296, 675);
 			this->pictureBox8->TabIndex = 33;
 			this->pictureBox8->TabStop = false;
+			this->pictureBox8->Click += gcnew System::EventHandler(this, &StudentHome::pictureBox8_Click);
 			// 
 			// StudentHome
 			// 
@@ -501,6 +504,38 @@ private: System::Void pictureBox6_Click(System::Object^  sender, System::EventAr
 }
 private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
 			 RegisteredCourses^ lp = gcnew RegisteredCourses(user,panel1);
+			 // Customize the form's appearance
+			 lp->ControlBox = false; // Hide the control box
+			 lp->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+
+			 // Set its properties
+			 lp->TopLevel = false;
+			 lp->AutoScroll = true;
+			 lp->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(lp);
+			 lp->Show();
+}
+private: System::Void pictureBox8_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Fee_Payment_Dummy^ lp = gcnew Fee_Payment_Dummy(user);
+			 // Customize the form's appearance
+			 lp->ControlBox = false; // Hide the control box
+			 lp->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+
+			 // Set its properties
+			 lp->TopLevel = false;
+			 lp->AutoScroll = true;
+			 lp->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(lp);
+			 lp->Show();
+}
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+			 Fee_Payment_Dummy^ lp = gcnew Fee_Payment_Dummy(user);
 			 // Customize the form's appearance
 			 lp->ControlBox = false; // Hide the control box
 			 lp->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
