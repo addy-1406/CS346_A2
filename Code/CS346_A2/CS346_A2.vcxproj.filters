@@ -18,6 +18,9 @@
     <ClCompile Include="Root.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Fee_Payment_Dummy.cpp">
+      <Filter>Header Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="MyForm.h">
@@ -83,6 +86,9 @@
     <ClInclude Include="Course_EnrollPage.h">
       <Filter>Header Files</Filter>
     </ClInclude>
+    <ClInclude Include="Fee_Payment_Dummy.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="MyForm.resx">
@@ -125,6 +131,12 @@
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
     <EmbeddedResource Include="Student_Profile.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Course_EnrollPage.resx">
+      <Filter>Resource Files</Filter>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registered Courses.resx">
       <Filter>Resource Files</Filter>
     </EmbeddedResource>
   </ItemGroup>

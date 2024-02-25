@@ -221,13 +221,7 @@ namespace CS346_A2 {
 
 						   String^ type = dr->GetString(4);
 						   String^ approvalStatus = dr->GetString(3);
-						   int grade;
-						   if (dr->IsDBNull(2)) {
-							   grade = -1; // or any other appropriate default value for NULL
-						   }
-						   else {
-							   grade = dr->GetInt32(2); // Assuming the grade column is an integer
-						   } // Check for NULL grade
+						   String^ grade = dr->GetString(2);
 
 						   ListViewItem^ item = gcnew ListViewItem(courseCode->ToString());
 						   item->SubItems->Add(courseName->ToString());
@@ -238,7 +232,7 @@ namespace CS346_A2 {
 						   item->SubItems->Add(semester->ToString());
 						   item->SubItems->Add(type->ToString());
 						   item->SubItems->Add(approvalStatus->ToString());
-						   item->SubItems->Add(grade.ToString());
+						   item->SubItems->Add(grade->ToString());
 						   if (col)
 						   {
 							   item->BackColor = Color::LightGray;
