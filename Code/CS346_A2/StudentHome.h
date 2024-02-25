@@ -3,6 +3,7 @@
 #include "User.h"
 #include "Student_Profile.h"
 #include "Welcome_Pic.h"
+#include "Registered Courses.h"
 
 namespace CS346_A2 {
 
@@ -274,6 +275,7 @@ namespace CS346_A2 {
 			this->label4->Size = System::Drawing::Size(135, 28);
 			this->label4->TabIndex = 42;
 			this->label4->Text = L"Reg. Courses";
+			this->label4->Click += gcnew System::EventHandler(this, &StudentHome::label4_Click);
 			// 
 			// panel1
 			// 
@@ -496,6 +498,22 @@ private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  
 			 lp->Show();
 }
 private: System::Void pictureBox6_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
+			 RegisteredCourses^ lp = gcnew RegisteredCourses(user,panel1);
+			 // Customize the form's appearance
+			 lp->ControlBox = false; // Hide the control box
+			 lp->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+
+			 // Set its properties
+			 lp->TopLevel = false;
+			 lp->AutoScroll = true;
+			 lp->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(lp);
+			 lp->Show();
 }
 };
 }

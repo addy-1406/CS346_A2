@@ -91,6 +91,9 @@
     <ClInclude Include="CourseForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Course_EnrollPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DatabaseHelper.h" />
     <ClInclude Include="FacultyHome.h">
       <FileType>CppForm</FileType>
@@ -112,6 +115,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Register.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Registered Courses.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Root.h">
@@ -144,6 +150,9 @@
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Course_EnrollPage.resx">
+      <DependentUpon>Course_EnrollPage.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FacultyHome.resx">
       <DependentUpon>FacultyHome.h</DependentUpon>
     </EmbeddedResource>
@@ -164,6 +173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registered Courses.resx">
+      <DependentUpon>Registered Courses.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.h</DependentUpon>
