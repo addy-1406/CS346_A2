@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Fee_Payment_Dummy.cpp" />
     <ClCompile Include="Root.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -97,6 +98,9 @@
     </ClInclude>
     <ClInclude Include="DatabaseHelper.h" />
     <ClInclude Include="FacultyHome.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Fee_Payment_Dummy.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Global_Page.h">
@@ -156,6 +160,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="FacultyHome.resx">
       <DependentUpon>FacultyHome.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee_Payment_Dummy.resx">
+      <DependentUpon>Fee_Payment_Dummy.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Global_Page.resx">
       <DependentUpon>Global_Page.h</DependentUpon>
