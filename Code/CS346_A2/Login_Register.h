@@ -51,7 +51,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
 	private: System::Windows::Forms::PictureBox^  pictureBox4;
 	private: System::Windows::Forms::PictureBox^  pictureBox5;
-	private: System::Windows::Forms::Button^  button1;
+
 
 
 	protected:
@@ -78,7 +78,6 @@ namespace CS346_A2 {
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
@@ -187,23 +186,12 @@ namespace CS346_A2 {
 			this->pictureBox5->TabIndex = 17;
 			this->pictureBox5->TabStop = false;
 			// 
-			// button1
-			// 
-			this->button1->Location = System::Drawing::Point(106, 469);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(75, 23);
-			this->button1->TabIndex = 18;
-			this->button1->Text = L"button1";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Login_Register::button1_Click_1);
-			// 
 			// Login_Register
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(1262, 673);
-			this->Controls->Add(this->button1);
 			this->Controls->Add(this->pictureBox5);
 			this->Controls->Add(this->pictureBox4);
 			this->Controls->Add(this->pictureBox3);
@@ -326,13 +314,7 @@ private: System::Void pictureBox5_Click(System::Object^  sender, System::EventAr
 private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
-			 try{
-				 TimeTable::allocateSlots();
-				 MessageBox::Show("TT generation successfull");
-			 }
-			 catch (Exception^ ex){
-				 MessageBox::Show(ex->Message);
-			 }
+
 }
 };
 }

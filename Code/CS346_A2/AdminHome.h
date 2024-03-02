@@ -3,6 +3,7 @@
 #include "User.h"
 #include "Grade.h"
 #include "Signup.h"
+#include "TimeTable.h"
 
 namespace CS346_A2 {
 
@@ -78,6 +79,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::PictureBox^  pictureBox13;
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Button^  button10;
+	private: System::Windows::Forms::Button^  button1;
 	protected:
 
 	private:
@@ -115,6 +117,7 @@ namespace CS346_A2 {
 			this->pictureBox13 = (gcnew System::Windows::Forms::PictureBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->button10 = (gcnew System::Windows::Forms::Button());
+			this->button1 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
@@ -405,12 +408,23 @@ namespace CS346_A2 {
 			this->button10->Text = L"Logout";
 			this->button10->UseVisualStyleBackColor = true;
 			// 
+			// button1
+			// 
+			this->button1->Location = System::Drawing::Point(70, 556);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(128, 35);
+			this->button1->TabIndex = 32;
+			this->button1->Text = L"Generate TT";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &AdminHome::button1_Click_1);
+			// 
 			// AdminHome
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(1262, 673);
+			this->Controls->Add(this->button1);
 			this->Controls->Add(this->pictureBox13);
 			this->Controls->Add(this->pictureBox12);
 			this->Controls->Add(this->label10);
@@ -518,6 +532,15 @@ private: System::Void label10_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void pictureBox5_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void pictureBox8_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+			 try{
+				 TimeTable::allocateSlots();
+				 MessageBox::Show("TT generation successfull");
+			 }
+			 catch (Exception^ ex){
+				 MessageBox::Show(ex->Message);
+			 }
 }
 };
 }

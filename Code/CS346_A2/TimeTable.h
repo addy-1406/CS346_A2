@@ -175,13 +175,13 @@ public:
 		array<String^>^ eveningLabSlotArray = gcnew array<String^> { "AL1", "AL2", "AL3", "AL4", "AL5" };
 
 		////////algorithm(1,eveningSlotArray);
-		algorithmForLab("2", "X", eveningLabSlotArray, labs[0]);
+		algorithmForLab("2", "X", morningLabSlotArray, labs[0]);
 		////////algorithm(3, morningSlotArray);
-		algorithmForLab("4", "X", morningLabSlotArray, labs[1]);
+		algorithmForLab("4", "X", eveningLabSlotArray, labs[1]);
 		////////algorithm(5, eveningSlotArray);
-		algorithmForLab("6", "X", eveningLabSlotArray, labs[2]);
+		algorithmForLab("6", "X", morningLabSlotArray, labs[2]);
 		////////algorithm(7, morningSlotArray);
-		algorithmForLab("8", "6,8", morningLabSlotArray, labs[3]);
+		algorithmForLab("8", "6,8", eveningLabSlotArray, labs[3]);
 
 
 		for (int i = 0; i < 5; i++){
