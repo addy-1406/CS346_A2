@@ -2,6 +2,7 @@
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
     <ClCompile Include="Root.cpp" />
+    <ClCompile Include="ExamSchedule.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCourseForm.h" />
@@ -28,6 +29,7 @@
     <ClInclude Include="TimeTableView.h" />
     <ClInclude Include="User.h" />
     <ClInclude Include="Welcome_Pic.h" />
+    <ClInclude Include="ExamSchedule.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddCourseForm.resx" />
