@@ -138,7 +138,7 @@ namespace CS346_A2 {
 			this->panel1->Location = System::Drawing::Point(293, 50);
 			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(970, 624);
+			this->panel1->Size = System::Drawing::Size(970, 623);
 			this->panel1->TabIndex = 2;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminHome::panel1_Paint);
 			// 
