@@ -13,7 +13,7 @@ namespace CS346_A2 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace MySql::Data::MySqlClient;
+	//using namespace MySql::Data::MySqlClient;
 	using namespace System::Data::SqlClient;
 
 
@@ -22,8 +22,8 @@ namespace CS346_A2 {
 	/// </summary>
 	public ref class Signup : public System::Windows::Forms::Form
 	{
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
 	public:
-		static int User_id = 0;
 		User^ admin;
 		String^ name = "";
 		String^ dob = "";
@@ -64,9 +64,6 @@ namespace CS346_A2 {
 			//TODO: Add the constructor code here
 			//
 		}
-
-
-	private: System::Windows::Forms::DataGridView^  dataGridView1;
 
 
 	protected:
@@ -253,14 +250,15 @@ namespace CS346_A2 {
 
 				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
 
-
+				 int User_id = 0;
 
 				 while (dr->Read()){
+					 DateTime date = DateTime::Now;
 					 User_id++;
 					 // Extracting values from the database result set and assigning them to variables
 					 name = dr->GetString(0);
-
-					 //dob = dr->GetD;
+					 date = dr->GetDateTime(1);
+					 dob = date.ToString("yyyy-mm-dd");
 					 contact = dr->GetString(2);
 					 address = dr->GetString(3);
 					 email = dr->GetString(4);
@@ -271,6 +269,7 @@ namespace CS346_A2 {
 
 
 					 int rowIndex = this->dataGridView1->Rows->Add(User_id, name, dob, contact, address, email, approval_status, user_type);
+
 
 
 					 // Now you have extracted all the values and assigned them to the respective variables
@@ -313,17 +312,21 @@ namespace CS346_A2 {
 				 MessageBox::Show(" Request Approved");
 				 dr->Close();
 
-				 query = "select Name, DOB, Contact, Address, Email, Approval_Status, UserType, Password_hash from [dbo].[signup]  where Name = @Name";
+				 query = "select Name, DOB, Contact, Address, Email, Approval_Status, UserType, Password_hash, enrollment_year from [dbo].[signup]  where Name = @Name";
 				 array<SqlParameter^>^ parameters2 = {
 					 gcnew SqlParameter("@Name", name)
 				 };
 				 dr = DatabaseHelper::ExecuteQuery(query, parameters2);
 
+				 int User_id = 0;
+				 DateTime date;
 				 while (dr->Read()){
+					 date = DateTime::Now;
 					 User_id++;
 					 // Extracting values from the database result set and assigning them to variables
 					 name = dr->GetString(0);
-					 dob = dr->GetString(1);
+					 date = dr->GetDateTime(1);
+					 dob = date.ToString("yyyy-mm-dd");
 					 contact = dr->GetString(2);
 					 address = dr->GetString(3);
 					 email = dr->GetString(4);
@@ -335,9 +338,11 @@ namespace CS346_A2 {
 
 				 dr->Close();
 
-				 String^ user_id = MiscellaneousFunctions::generateUserIdStudent(enrollment_year);
+				 String^ user_id;
+				 if (user_type == "Student")  user_id = MiscellaneousFunctions::generateUserIdStudent(enrollment_year);
+				 if (user_type == "Faculty")  user_id = MiscellaneousFunctions::generateUserIdProf(enrollment_year);
 
-				 query =  "insert into [dbo].[auth] values(@UserId,@PassHash,@UserType,@UserType,@Email)";
+				 query = "insert into [dbo].[auth] values(@UserId,@PassHash,@UserType,@UserType,@Email)";
 				 array<SqlParameter^>^ parameters3 = {
 					 gcnew SqlParameter("@UserId", user_id),
 					 gcnew SqlParameter("@PassHash", pass_hash),
@@ -345,7 +350,91 @@ namespace CS346_A2 {
 					 gcnew SqlParameter("@Email", email)
 				 };
 				 dr = DatabaseHelper::ExecuteQuery(query, parameters3);
-				 MessageBox::Show("Inserted values"); 
+				 dr->Close();
+
+				 if (user_type == "Student")
+				 {
+					 query = "insert into [dbo].[student] values(@UserId,@Name,@dob,@contact,@enrollment_year,@address,@current_Sem,@email)";
+					 if (enrollment_year == "2020")
+					 {
+						 array<SqlParameter^>^ parameters4 = {
+							 gcnew SqlParameter("@UserId", user_id),
+							 gcnew SqlParameter("@Name", name),
+							 gcnew SqlParameter("@dob", date),
+							 gcnew SqlParameter("@contact", contact),
+							 gcnew SqlParameter("@enrollment_year", enrollment_year),
+							 gcnew SqlParameter("@address",address),
+							 gcnew SqlParameter("@current_Sem", 8),
+							 gcnew SqlParameter("@email", email)
+						 };
+						 dr = DatabaseHelper::ExecuteQuery(query, parameters4);
+						 dr->Close();
+					 }
+					 else if (enrollment_year == "2021")
+					 {
+						 array<SqlParameter^>^ parameters5 = {
+							 gcnew SqlParameter("@UserId", user_id),
+							 gcnew SqlParameter("@Name", name),
+							 gcnew SqlParameter("@dob", date),
+							 gcnew SqlParameter("@contact", contact),
+							 gcnew SqlParameter("@enrollment_year", enrollment_year),
+							 gcnew SqlParameter("@address", address),
+							 gcnew SqlParameter("@current_Sem", 6),
+							 gcnew SqlParameter("@email", email)
+						 };
+						 dr = DatabaseHelper::ExecuteQuery(query, parameters5);
+						 dr->Close();
+					 }
+					 else if (enrollment_year == "2022")
+					 {
+						 array<SqlParameter^>^ parameters6 = {
+							 gcnew SqlParameter("@UserId", user_id),
+							 gcnew SqlParameter("@Name", name),
+							 gcnew SqlParameter("@dob", date),
+							 gcnew SqlParameter("@contact", contact),
+							 gcnew SqlParameter("@enrollment_year", enrollment_year),
+							 gcnew SqlParameter("@address", address),
+							 gcnew SqlParameter("@current_Sem", 4),
+							 gcnew SqlParameter("@email", email)
+						 };
+						 dr = DatabaseHelper::ExecuteQuery(query, parameters6);
+						 dr->Close();
+					 }
+					 else if (enrollment_year == "2023")
+					 {
+						 array<SqlParameter^>^ parameters7 = {
+							 gcnew SqlParameter("@UserId", user_id),
+							 gcnew SqlParameter("@Name", name),
+							 gcnew SqlParameter("@dob", date),
+							 gcnew SqlParameter("@contact", contact),
+							 gcnew SqlParameter("@enrollment_year", enrollment_year),
+							 gcnew SqlParameter("@address", address),
+							 gcnew SqlParameter("@current_Sem", 2),
+							 gcnew SqlParameter("@email", email)
+						 };
+						 dr = DatabaseHelper::ExecuteQuery(query, parameters7);
+						 dr->Close();
+					 }
+				 }
+				 else
+				 {
+					 query = "insert into [dbo].[faculty] values(@UserId,@Name,@dob,@contact,@email,@room_num,@enrollment_year,@research_interest,@designation)";
+					 array<SqlParameter^>^ parameters8 = {
+						 gcnew SqlParameter("@UserId", user_id),
+						 gcnew SqlParameter("@Name", name),
+						 gcnew SqlParameter("@dob", date),
+						 gcnew SqlParameter("@contact", contact),
+						 gcnew SqlParameter("@email", email),
+						 gcnew SqlParameter("@room_num", NULL),
+						 gcnew SqlParameter("@enrollment_year", enrollment_year),
+						 gcnew SqlParameter("@research_interest", NULL),
+						 gcnew SqlParameter("@designation","Assistant Professor")
+
+					 };
+					 dr = DatabaseHelper::ExecuteQuery(query, parameters8);
+					 dr->Close();
+				 }
+				 MessageBox::Show("Inserted values");
 
 	}
 	};

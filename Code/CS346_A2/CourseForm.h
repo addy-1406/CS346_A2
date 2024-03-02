@@ -270,17 +270,6 @@ namespace CS346_A2 {
 			 // Event handler for the approve button click
 			 // Event handler for the Approve button click
 	private: System::Void ApproveButton_Click(System::Object^ sender, System::EventArgs^ e) {
-				 UpdateApprovalStatus("Approved");
-	}
-
-			 // Event handler for the Reject button click
-	private: System::Void RejectButton_Click(System::Object^ sender, System::EventArgs^ e) {
-				 UpdateApprovalStatus("Pending");
-	}
-
-			 // Function to update the approval status in the database
-	private: void UpdateApprovalStatus(String^ newStatus) {
-				 // Find the list view control
 				 for each (Control^ control in Controls) {
 					 if (ListView::typeid == control->GetType()) {
 						 ListView^ listViewGrades = safe_cast<ListView^>(control);
@@ -288,21 +277,20 @@ namespace CS346_A2 {
 						 for each (ListViewItem^ item in listViewGrades->Items) {
 							 // Check if the item is checked and its approval status is "Pending"
 							 if (item->Checked) {
-								 // Update the approval status to the new status
-								 item->SubItems[3]->Text = newStatus;
+								 // Update the approval status to "Approved" directly
+								 item->SubItems[3]->Text = "Approved";
 
 								 // Update the database with the new approval status for this item
 								 try {
 									 // Connect to the database
 
-
 									 // Prepare the SQL command to update the Approval_Status
-									 String^ updateQuery = "UPDATE grade SET Approval_Status = '" + newStatus + "' WHERE User_ID = '" + item->Text + "' AND CourseCode = '" + course_id + "'";
+									 String^ updateQuery = "UPDATE grade SET Approval_Status = 'Approved' WHERE User_ID = '" + item->Text + "' AND CourseCode = '" + course_id + "'";
 
 									 // Execute the command
-
-									 //
 									 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(updateQuery);
+									 MessageBox::Show("Selected items have been approved.");
+									 item->Checked = false;
 								 }
 								 catch (Exception^ ex) {
 									 // Handle exceptions
@@ -314,6 +302,43 @@ namespace CS346_A2 {
 					 }
 				 }
 	}
+
+			 // Event handler for the Reject button click
+	private: System::Void RejectButton_Click(System::Object^ sender, System::EventArgs^ e) {
+	
+				 for each (Control^ control in Controls) {
+					 if (ListView::typeid == control->GetType()) {
+						 ListView^ listViewGrades = safe_cast<ListView^>(control);
+						 // Iterate through the checked items in the list view
+						 for each (ListViewItem^ item in listViewGrades->Items) {
+							 // Check if the item is checked and its approval status is "Pending"
+							 if (item->Checked) {
+								 // Delete the row from the grade table
+								 try {
+									 // Connect to the database
+
+									 // Prepare the SQL command to delete the row
+									 String^ deleteQuery = "DELETE FROM grade WHERE User_ID = '" + item->Text + "' AND CourseCode = '" + course_id + "'";
+
+									 // Execute the command
+									 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(deleteQuery);
+									 MessageBox::Show("Student rejected, refresh page.");
+								 }
+								 catch (Exception^ ex) {
+									 // Handle exceptions
+									 MessageBox::Show(ex->Message);
+								 }
+							 }
+						 }
+						 break;
+					 }
+				 }
+	
+
+	}
+
+			 // Function to update the approval status in the database
+	
 
 
 
