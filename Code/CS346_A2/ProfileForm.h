@@ -196,7 +196,7 @@ namespace CS346_A2 {
 			this->label7->AutoSize = true;
 			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(271, 250);
+			this->label7->Location = System::Drawing::Point(51, 251);
 			this->label7->Name = L"label7";
 			this->label7->Size = System::Drawing::Size(96, 20);
 			this->label7->TabIndex = 11;
@@ -231,7 +231,7 @@ namespace CS346_A2 {
 			this->label13->AutoSize = true;
 			this->label13->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label13->Location = System::Drawing::Point(55, 250);
+			this->label13->Location = System::Drawing::Point(271, 251);
 			this->label13->Name = L"label13";
 			this->label13->Size = System::Drawing::Size(92, 20);
 			this->label13->TabIndex = 17;
@@ -408,7 +408,8 @@ namespace CS346_A2 {
 		}
 		System::Void btnProfile_Click(System::Object^  sender, System::EventArgs^  e) {
 					 try {
-						 // Get the updated values from the text boxes and date time picker
+						
+										// Get the updated values from the text boxes and date time picker
 						 String^ newDOB = dtpDOB->Value.ToString("yyyy-MM-dd");
 						 String^ newContact = txtContact->Text;
 						 String^ newRoom = txtRoom->Text;
