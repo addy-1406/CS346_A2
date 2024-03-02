@@ -1,7 +1,6 @@
 #pragma once
 
 #include "User.h"
-#include "DatabaseHelper.h"
 
 namespace CS346_A2 {
 
@@ -11,8 +10,7 @@ namespace CS346_A2 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	using namespace System::Data::SqlClient;
-
+	using namespace MySql::Data::MySqlClient;
 
 	/// <summary>
 	/// Summary for Grade
@@ -151,11 +149,16 @@ namespace CS346_A2 {
 
 #pragma endregion
 	private: System::Void Grade_Load(System::Object^  sender, System::EventArgs^  e) {
+				 String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
+				 MySqlConnection^ con = gcnew MySqlConnection(constr);
 
-				 String^ query = "select User_ID , CourseCode, Grade, Approval_Status from [dbo].[grade]";
+				 String^ query = "select User_ID , Course_ID, Grade, Approval_Status from grade";
+				 MySqlCommand^ cmd = gcnew MySqlCommand(query, con);
 				 //cmd->Parameters->AddWithValue("@sem", this->Current_Semester);
 
-				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);;
+				 con->Open();
+				 MySqlDataReader^ dr;
+				 dr = cmd->ExecuteReader();
 
 
 

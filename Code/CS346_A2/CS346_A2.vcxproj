@@ -79,21 +79,32 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+<<<<<<< HEAD
     <ClCompile Include="permissions.cpp" />
+=======
+    <ClCompile Include="Fee_Payment_Dummy.cpp" />
+>>>>>>> 36aa4f94eb02629aca74a67a2a1261333afb7216
     <ClCompile Include="Root.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCourseForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="AddGradeForm.h" />
     <ClInclude Include="AdminHome.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CourseForm.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Course_EnrollPage.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="DatabaseHelper.h" />
     <ClInclude Include="FacultyHome.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Fee_Payment_Dummy.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Global_Page.h">
@@ -118,6 +129,9 @@
     <ClInclude Include="Register.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="Registered Courses.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
     <ClInclude Include="Root.h">
       <FileType>CppForm</FileType>
     </ClInclude>
@@ -125,6 +139,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="StudentHome.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="Student_Profile.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Test.h">
@@ -145,8 +162,14 @@
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="Course_EnrollPage.resx">
+      <DependentUpon>Course_EnrollPage.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="FacultyHome.resx">
       <DependentUpon>FacultyHome.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Fee_Payment_Dummy.resx">
+      <DependentUpon>Fee_Payment_Dummy.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Global_Page.resx">
       <DependentUpon>Global_Page.h</DependentUpon>
@@ -169,14 +192,22 @@
     <EmbeddedResource Include="Register.resx">
       <DependentUpon>Register.h</DependentUpon>
     </EmbeddedResource>
+<<<<<<< HEAD
     <EmbeddedResource Include="Root.resx">
       <DependentUpon>Root.h</DependentUpon>
+=======
+    <EmbeddedResource Include="Registered Courses.resx">
+      <DependentUpon>Registered Courses.h</DependentUpon>
+>>>>>>> 36aa4f94eb02629aca74a67a2a1261333afb7216
     </EmbeddedResource>
     <EmbeddedResource Include="Signup.resx">
       <DependentUpon>Signup.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="StudentHome.resx">
       <DependentUpon>StudentHome.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Student_Profile.resx">
+      <DependentUpon>Student_Profile.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Welcome_Pic.resx">
       <DependentUpon>Welcome_Pic.h</DependentUpon>

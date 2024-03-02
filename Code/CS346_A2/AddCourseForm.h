@@ -1,5 +1,6 @@
 #pragma once
 #include "User.h"
+#include "DatabaseHelper.h"
 namespace CS346_A2 {
 
 	using namespace System;
@@ -50,7 +51,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::TextBox^  textBox5;
 	private: System::Windows::Forms::TextBox^  textBox6;
 	private: System::Windows::Forms::TextBox^  textBox7;
-	private: System::Windows::Forms::TextBox^  textBox8;
+
 	private: System::Windows::Forms::TextBox^  textBox9;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
@@ -58,7 +59,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::Label^  label7;
+
 	private: System::Windows::Forms::Label^  label8;
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::Label^  label10;
@@ -87,7 +88,6 @@ namespace CS346_A2 {
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
-			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -95,7 +95,6 @@ namespace CS346_A2 {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
@@ -105,7 +104,7 @@ namespace CS346_A2 {
 			// textBox1
 			// 
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox1->Location = System::Drawing::Point(351, 441);
+			this->textBox1->Location = System::Drawing::Point(471, 438);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(219, 30);
 			this->textBox1->TabIndex = 0;
@@ -113,7 +112,7 @@ namespace CS346_A2 {
 			// textBox2
 			// 
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox2->Location = System::Drawing::Point(351, 85);
+			this->textBox2->Location = System::Drawing::Point(471, 85);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(219, 30);
 			this->textBox2->TabIndex = 1;
@@ -122,7 +121,7 @@ namespace CS346_A2 {
 			// 
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(351, 130);
+			this->textBox3->Location = System::Drawing::Point(471, 133);
 			this->textBox3->Multiline = true;
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(219, 51);
@@ -131,7 +130,7 @@ namespace CS346_A2 {
 			// textBox4
 			// 
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox4->Location = System::Drawing::Point(351, 190);
+			this->textBox4->Location = System::Drawing::Point(471, 190);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(219, 30);
 			this->textBox4->TabIndex = 3;
@@ -139,7 +138,7 @@ namespace CS346_A2 {
 			// textBox5
 			// 
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox5->Location = System::Drawing::Point(351, 228);
+			this->textBox5->Location = System::Drawing::Point(471, 231);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(219, 30);
 			this->textBox5->TabIndex = 4;
@@ -147,7 +146,7 @@ namespace CS346_A2 {
 			// textBox6
 			// 
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox6->Location = System::Drawing::Point(351, 268);
+			this->textBox6->Location = System::Drawing::Point(471, 271);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(219, 30);
 			this->textBox6->TabIndex = 5;
@@ -155,23 +154,15 @@ namespace CS346_A2 {
 			// textBox7
 			// 
 			this->textBox7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox7->Location = System::Drawing::Point(351, 313);
+			this->textBox7->Location = System::Drawing::Point(471, 311);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(219, 30);
 			this->textBox7->TabIndex = 6;
 			// 
-			// textBox8
-			// 
-			this->textBox8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox8->Location = System::Drawing::Point(351, 356);
-			this->textBox8->Name = L"textBox8";
-			this->textBox8->Size = System::Drawing::Size(219, 30);
-			this->textBox8->TabIndex = 7;
-			// 
 			// textBox9
 			// 
 			this->textBox9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox9->Location = System::Drawing::Point(351, 395);
+			this->textBox9->Location = System::Drawing::Point(471, 397);
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->Size = System::Drawing::Size(219, 30);
 			this->textBox9->TabIndex = 8;
@@ -181,7 +172,7 @@ namespace CS346_A2 {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(145, 85);
+			this->label1->Location = System::Drawing::Point(274, 85);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(139, 25);
 			this->label1->TabIndex = 9;
@@ -191,7 +182,7 @@ namespace CS346_A2 {
 			// 
 			this->label2->AutoSize = true;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label2->Location = System::Drawing::Point(145, 133);
+			this->label2->Location = System::Drawing::Point(229, 133);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(184, 25);
 			this->label2->TabIndex = 10;
@@ -201,7 +192,7 @@ namespace CS346_A2 {
 			// 
 			this->label3->AutoSize = true;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label3->Location = System::Drawing::Point(145, 190);
+			this->label3->Location = System::Drawing::Point(290, 190);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(123, 25);
 			this->label3->TabIndex = 11;
@@ -211,7 +202,7 @@ namespace CS346_A2 {
 			// 
 			this->label4->AutoSize = true;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label4->Location = System::Drawing::Point(145, 231);
+			this->label4->Location = System::Drawing::Point(288, 234);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(125, 25);
 			this->label4->TabIndex = 12;
@@ -221,7 +212,7 @@ namespace CS346_A2 {
 			// 
 			this->label5->AutoSize = true;
 			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label5->Location = System::Drawing::Point(145, 271);
+			this->label5->Location = System::Drawing::Point(279, 271);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(134, 25);
 			this->label5->TabIndex = 13;
@@ -231,27 +222,17 @@ namespace CS346_A2 {
 			// 
 			this->label6->AutoSize = true;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label6->Location = System::Drawing::Point(145, 316);
+			this->label6->Location = System::Drawing::Point(342, 311);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(71, 25);
 			this->label6->TabIndex = 14;
 			this->label6->Text = L"Intake:";
 			// 
-			// label7
-			// 
-			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label7->Location = System::Drawing::Point(145, 359);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(59, 25);
-			this->label7->TabIndex = 15;
-			this->label7->Text = L"Year:";
-			// 
 			// label8
 			// 
 			this->label8->AutoSize = true;
 			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label8->Location = System::Drawing::Point(145, 400);
+			this->label8->Location = System::Drawing::Point(311, 397);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(102, 25);
 			this->label8->TabIndex = 16;
@@ -261,7 +242,7 @@ namespace CS346_A2 {
 			// 
 			this->label9->AutoSize = true;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label9->Location = System::Drawing::Point(145, 441);
+			this->label9->Location = System::Drawing::Point(279, 438);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(135, 25);
 			this->label9->TabIndex = 17;
@@ -272,7 +253,7 @@ namespace CS346_A2 {
 			this->label10->AutoSize = true;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(346, 42);
+			this->label10->Location = System::Drawing::Point(407, 25);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(127, 25);
 			this->label10->TabIndex = 18;
@@ -281,7 +262,7 @@ namespace CS346_A2 {
 			// button1
 			// 
 			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->button1->Location = System::Drawing::Point(351, 494);
+			this->button1->Location = System::Drawing::Point(399, 492);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(153, 30);
 			this->button1->TabIndex = 19;
@@ -293,12 +274,11 @@ namespace CS346_A2 {
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(833, 556);
+			this->ClientSize = System::Drawing::Size(970, 640);
 			this->Controls->Add(this->button1);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label8);
-			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->label4);
@@ -306,7 +286,6 @@ namespace CS346_A2 {
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox9);
-			this->Controls->Add(this->textBox8);
 			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->textBox6);
 			this->Controls->Add(this->textBox5);
@@ -323,59 +302,97 @@ namespace CS346_A2 {
 		}
 		void AddCourseToDatabase(int userid)
 		{
-			String^ constr = "Server=sql6.freemysqlhosting.net;Uid=sql6684530;Pwd=SaH3N2pscd;Database=sql6684530";
-			MySqlConnection^ con = gcnew MySqlConnection(constr);
 
 			try
 			{
-				con->Open();
 
 				// Check if Course_ID already exists
-				int courseID = 1;
-				MySqlCommand^ checkCmd = gcnew MySqlCommand("SELECT COUNT(*) FROM course WHERE Course_ID = @Course_ID", con);
-				checkCmd->Parameters->AddWithValue("@Course_ID", courseID);
-				int count = Convert::ToInt32(checkCmd->ExecuteScalar());
+				//int courseID = 1;
+				//String^ query = "SELECT COUNT(*) FROM course WHERE Course_ID = @Course_ID";
+				//array<SqlParameter^>^ parameters = {
+				//gcnew SqlParameter("@course_ID", courseID),
+				//};
+				//SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 
-				while (count > 0)
-				{
-					// If Course_ID exists, increment it
-					courseID++;
-					checkCmd->Parameters->Clear();
-					checkCmd->Parameters->AddWithValue("@Course_ID", courseID);
-					count = Convert::ToInt32(checkCmd->ExecuteScalar());
-				}
+				//while (count > 0)
+				//{
+				//	// If Course_ID exists, increment it
+				//	courseID++;
+				//	checkCmd->Parameters->Clear();
+				//	checkCmd->Parameters->AddWithValue("@Course_ID", courseID);
+				//	count = Convert::ToInt32(checkCmd->ExecuteScalar());
+				//}
 
 				// Now courseID contains a unique Course_ID
-				MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO course (Course_ID, Name, Description, L, T, P, C, Faculty_ID, Intake, Semester, Year, Course_Code) VALUES (@Course_ID, @Name, @Description, @L, @T, @P, @C, @Faculty_ID, @Intake, @Semester, @Year, @Course_Code)", con);
+				//	MySqlCommand^ cmd = gcnew MySqlCommand("INSERT INTO course (Course_ID, Name, Description, L, T, P, C, Faculty_ID, Intake, Semester, Year, Course_Code) VALUES (@Course_ID, @Name, @Description, @L, @T, @P, @C, @Faculty_ID, @Intake, @Semester, @Year, @Course_Code)", con);
 
 				// Set parameter values
-				cmd->Parameters->AddWithValue("@Course_ID", courseID);
-				cmd->Parameters->AddWithValue("@Name", textBox2->Text);
-				cmd->Parameters->AddWithValue("@Description", textBox3->Text);
-				int L = Int32::Parse(textBox4->Text);
-				int T = Int32::Parse(textBox5->Text);
-				int P = Int32::Parse(textBox6->Text);
-				int C = L * 2 + T * 2 + P;
-				cmd->Parameters->AddWithValue("@L", L);
-				cmd->Parameters->AddWithValue("@T", T);
-				cmd->Parameters->AddWithValue("@P", P);
-				cmd->Parameters->AddWithValue("@C", C);
-				cmd->Parameters->AddWithValue("@Faculty_ID", userid); // Assuming a default value for Faculty_ID
-				cmd->Parameters->AddWithValue("@Intake", textBox7->Text);
-				cmd->Parameters->AddWithValue("@Semester", textBox8->Text);
-				cmd->Parameters->AddWithValue("@Year", textBox9->Text);
-				cmd->Parameters->AddWithValue("@Course_Code", textBox1->Text);
+				//cmd->Parameters->AddWithValue("@Course_ID", courseID);
+				//cmd->Parameters->AddWithValue("@Name", textBox2->Text);
+				//cmd->Parameters->AddWithValue("@Description", textBox3->Text);
+				//int L = Int32::Parse(textBox4->Text);
+				//int T = Int32::Parse(textBox5->Text);
+				//int P = Int32::Parse(textBox6->Text);
+				//int C = L * 2 + T * 2 + P;
+				//cmd->Parameters->AddWithValue("@L", L);
+				//cmd->Parameters->AddWithValue("@T", T);
+				//cmd->Parameters->AddWithValue("@P", P);
+				//cmd->Parameters->AddWithValue("@C", C);
+				//cmd->Parameters->AddWithValue("@Faculty_ID", userid); // Assuming a default value for Faculty_ID
+				//cmd->Parameters->AddWithValue("@Intake", textBox7->Text);
+				//cmd->Parameters->AddWithValue("@Semester", textBox8->Text);
+				//cmd->Parameters->AddWithValue("@Year", textBox9->Text);
+				//cmd->Parameters->AddWithValue("@Course_Code", textBox1->Text);
 
-				cmd->ExecuteNonQuery();
+				//cmd->ExecuteNonQuery();
+				String^ courseCode = textBox1->Text;
+				String^ query = "SELECT COUNT(*) FROM course WHERE Course_Code = @Course_Code";
+				array<SqlParameter^>^ parameters = {
+					gcnew SqlParameter("@Course_Code", courseCode),
+				};
+				SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+
+				// Since we are expecting only one row as a result, we don't need a loop
+				if (dr->Read())
+				{
+					int count = Convert::ToInt32(dr[0]);
+					if (count > 0)
+					{
+						// Course with the given course code already exists
+						MessageBox::Show("Course code already exists!", "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					}
+					else
+					{
+						int L = Int32::Parse(textBox4->Text);
+						int T = Int32::Parse(textBox5->Text);
+						int P = Int32::Parse(textBox6->Text);
+
+						// Course code doesn't exist, you can proceed with insertion or any other logic
+						String^ insertQuery = "INSERT INTO course (Name, Description, L, T, P, C, Faculty_ID, Intake, Semester, Course_Code, ElectiveorCompulsory) VALUES (@Name, @Description, @L, @T, @P, @C, @Faculty_ID, @Intake, @Semester, @Course_Code, @ElectiveorCompulsory)";
+						array<SqlParameter^>^ insertParameters = {
+							gcnew SqlParameter("@Name", textBox2->Text),
+							gcnew SqlParameter("@Description", textBox3->Text),
+							gcnew SqlParameter("@L", L),
+							gcnew SqlParameter("@T", T),
+							gcnew SqlParameter("@P", P),
+							gcnew SqlParameter("@C", L * 2 + T * 2 + P),
+							gcnew SqlParameter("@Faculty_ID", userid), // Assuming a default value for Faculty_ID
+							gcnew SqlParameter("@Intake", textBox7->Text),
+							gcnew SqlParameter("@Semester", textBox9->Text),
+							gcnew SqlParameter("@Course_Code", courseCode),
+							gcnew SqlParameter("@ElectiveorCompulsory", true) // Assuming 1 represents true for ElectiveorCompulsory
+						};
+
+						DatabaseHelper::ExecuteQuery(insertQuery, insertParameters);
+						// Optionally, you might want to inform the user about successful insertion
+					}
+				}
+
 				MessageBox::Show("Course added successfully!");
 			}
 			catch (Exception^ ex)
 			{
 				MessageBox::Show(ex->Message);
-			}
-			finally
-			{
-				con->Close();
 			}
 		}
 
@@ -385,7 +402,7 @@ namespace CS346_A2 {
 		{
 			// Type checking for each textbox
 			if (!IsValidInt(textBox4->Text) || !IsValidInt(textBox5->Text) || !IsValidInt(textBox6->Text) ||
-				!IsValidInt(textBox7->Text) || !IsValidInt(textBox8->Text) || !IsValidInt(textBox9->Text))
+				!IsValidInt(textBox7->Text) || !IsValidInt(textBox9->Text))
 			{
 				MessageBox::Show("Please enter valid integer values for L, T, P, Intake, Semester, and Year.");
 				return;
@@ -428,6 +445,6 @@ namespace CS346_A2 {
 
 	private: System::Void AddCourseForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
-};
+	};
 }
 #pragma endregion

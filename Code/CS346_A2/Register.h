@@ -68,7 +68,8 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Label^  label5;
 	private: System::Windows::Forms::TextBox^  textBox2;
 	private: System::Windows::Forms::Label^  label6;
-	private: System::Windows::Forms::Label^  label7;
+
+	private: System::Windows::Forms::Label^  label13;
 
 
 
@@ -108,7 +109,7 @@ namespace CS346_A2 {
 			this->label5 = (gcnew System::Windows::Forms::Label());
 			this->textBox2 = (gcnew System::Windows::Forms::TextBox());
 			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
@@ -311,6 +312,7 @@ namespace CS346_A2 {
 			this->button2->TabIndex = 25;
 			this->button2->Text = L"Reset";
 			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &Register::button2_Click);
 			// 
 			// label3
 			// 
@@ -374,15 +376,14 @@ namespace CS346_A2 {
 			this->label6->TabIndex = 31;
 			this->label6->Text = L"Enrollment Year / Joining Year";
 			// 
-			// label7
+			// label13
 			// 
-			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
-			this->label7->ForeColor = System::Drawing::Color::Red;
-			this->label7->Location = System::Drawing::Point(551, 479);
-			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(0, 28);
-			this->label7->TabIndex = 32;
+			this->label13->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
+			this->label13->ForeColor = System::Drawing::Color::Green;
+			this->label13->Location = System::Drawing::Point(518, 471);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(369, 152);
+			this->label13->TabIndex = 33;
 			// 
 			// Register
 			// 
@@ -391,7 +392,7 @@ namespace CS346_A2 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(958, 674);
-			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label13);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label8);
@@ -429,7 +430,43 @@ namespace CS346_A2 {
 	}
 	private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
-private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+
+	
+			 bool IsPasswordValid(String^ password)
+			 {
+				 // Check if the password is at least 8 characters
+				 if (password->Length < 8)
+				 {
+					 return false;
+				 }
+
+				 // Check for at least one uppercase letter, one lowercase letter, and one special character
+				 bool hasUppercase = false;
+				 bool hasLowercase = false;
+				 bool hasSpecialChar = false;
+
+				 for each (Char c in password)
+				 {
+					 if (Char::IsUpper(c))
+					 {
+						 hasUppercase = true;
+					 }
+					 else if (Char::IsLower(c))
+					 {
+						 hasLowercase = true;
+					 }
+					 else if (!Char::IsLetterOrDigit(c))
+					 {
+						 hasSpecialChar = true;
+					 }
+				 }
+
+				 // Check if all criteria are met
+				 return hasUppercase && hasLowercase && hasSpecialChar;
+			 }
+
+
+ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 			 String^ name = textBox1->Text;
 			 DateTime^ dateTime = dateTimePicker1->Value;
 			 String^ formattedDate = dateTime->ToString("yyyy-MM-dd");
@@ -441,30 +478,59 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 			 String^ enrollment_year = textBox2->Text;
 			 String^ password_hash = MiscellaneousFunctions::ComputeMD5Hash(password);
 
-
-			 try{
-
-				 String^ query = "INSERT INTO signup (Name, DOB, Contact, Address, Email, UserType, Password_hash, enrollment_year) VALUES (@Name, @Date, @Contact, @Address, @Email, @UserType, @Password_hash, @EY);";
-				 array<SqlParameter^>^ parameters = {
-					 gcnew SqlParameter("@Name", name),
-					 gcnew SqlParameter("@Date", formattedDate),
-					 gcnew SqlParameter("@Contact", contact),
-					 gcnew SqlParameter("@Address", address),
-					 gcnew SqlParameter("@Email", email),
-					 gcnew SqlParameter("@UserType", userType),
-					 gcnew SqlParameter("@Password_hash", password_hash),
-					 gcnew SqlParameter("@EY", enrollment_year)
-				 };
-
-
-				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
-				 dr->Close();
-
-				 MessageBox::Show("Registration successfull");
-				 this->Close();
+			 label13->ForeColor = System::Drawing::Color::Red;
+			 if (name == "" || formattedDate == "" || contact == "" || email == "" || userType == "" || password == "" || address == "" || enrollment_year == ""){
+				 label13->Text = "Please fill all values!";
 			 }
-			 catch (Exception^ ex){
-				 MessageBox::Show(ex->Message);
+			 else if (contact->Length != 10){
+				 label13->Text = "Contact must be 10 digits!";
+			 }
+			 else if (!(email->EndsWith("@iitg.ac.in", StringComparison::OrdinalIgnoreCase))){
+				 label13->Text = "Email must end with @iitg.ac.in";
+			 }
+			 else if (enrollment_year->Length != 4){
+				 label13->Text = "Enrollment year must be 4 digits!";
+			 }
+			 else if (!IsPasswordValid(password)){
+				 label13->Text = "Please enter a stronger password!";
+			 }
+			 else{
+				 String^ query = "SELECT COUNT(*) FROM [dbo].[signup] WHERE Email=@Email";
+				 array<SqlParameter^>^ parameters1 = {
+					 gcnew SqlParameter("@Email", email)
+				 };
+				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters1);
+				 dr->Read();
+				 int c = dr->GetInt32(0);
+				 dr->Close();
+				 if (c != 0){
+					 label13->Text = "Email already registered!";
+				 }
+				 else{
+					 try{
+
+						 String^ query = "INSERT INTO signup (Name, DOB, Contact, Address, Email, UserType, Password_hash, enrollment_year) VALUES (@Name, @Date, @Contact, @Address, @Email, @UserType, @Password_hash, @EY);";
+						 array<SqlParameter^>^ parameters = {
+							 gcnew SqlParameter("@Name", name),
+							 gcnew SqlParameter("@Date", formattedDate),
+							 gcnew SqlParameter("@Contact", contact),
+							 gcnew SqlParameter("@Address", address),
+							 gcnew SqlParameter("@Email", email),
+							 gcnew SqlParameter("@UserType", userType),
+							 gcnew SqlParameter("@Password_hash", password_hash),
+							 gcnew SqlParameter("@EY", enrollment_year)
+						 };
+
+
+						 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+						 dr->Close();
+						 label13->ForeColor = System::Drawing::Color::Green;
+						 label13->Text = "Your registration request is sent successfully !";
+					 }
+					 catch (Exception^ ex){
+						 MessageBox::Show(ex->Message);
+					 }
+				 }
 			 }
 }
 private: System::Void label8_Click(System::Object^  sender, System::EventArgs^  e) {
@@ -477,5 +543,15 @@ private: System::Void textBox7_TextChanged(System::Object^  sender, System::Even
 }
 
 
+private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+			 textBox1->Text = "";
+			 textBox3->Text = "";
+			 textBox4->Text = "";
+			 comboBox1->Text = "";
+			 textBox6->Text = "";
+			 textBox7->Text = "";
+			 textBox2->Text = "";
+			 label13->Text = "";
+}
 };
 }

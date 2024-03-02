@@ -352,7 +352,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 						 user->userID = dr->GetInt32(0);
 						 user->email = dr->GetString(4);
 						 user->userType = dr->GetString(2);
-						 c++;
+						 c++;	
 					 }
 					 if (c == 0){
 						 label1->Text = "Invalid password or User Role";

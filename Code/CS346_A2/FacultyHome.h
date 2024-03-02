@@ -5,6 +5,8 @@
 #include "CourseForm.h"
 #include "AddCourseForm.h"
 #include "ProfileForm.h"
+#include "AddGradeForm.h"
+
 
 namespace CS346_A2 {
 
@@ -39,7 +41,6 @@ namespace CS346_A2 {
 			// Customize the form's appearance
 			profileForm->ControlBox = false; // Hide the control box
 			profileForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-			profileForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to green
 
 			// Set its properties
 			profileForm->TopLevel = false;
@@ -180,7 +181,6 @@ namespace CS346_A2 {
 			this->pictureBox1->Size = System::Drawing::Size(296, 675);
 			this->pictureBox1->TabIndex = 5;
 			this->pictureBox1->TabStop = false;
-			this->pictureBox1->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox1_Click);
 			// 
 			// pictureBox3
 			// 
@@ -199,6 +199,8 @@ namespace CS346_A2 {
 			this->button2->TabIndex = 8;
 			this->button2->Text = L"Add Grades";
 			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &FacultyHome::button2_Click);
+
 			// 
 			// button3
 			// 
@@ -269,7 +271,7 @@ namespace CS346_A2 {
 		// Customize the form's appearance
 		addCourseForm->ControlBox = false; // Hide the control box
 		addCourseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-		addCourseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to red
+		//addCourseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to red
 
 		// Set its properties
 		addCourseForm->TopLevel = false;
@@ -291,7 +293,7 @@ namespace CS346_A2 {
 		// Customize the form's appearance
 		profileForm->ControlBox = false; // Hide the control box
 		profileForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-		profileForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to green
+		//profileForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to green
 
 		// Set its properties
 		profileForm->TopLevel = false;
@@ -312,7 +314,7 @@ namespace CS346_A2 {
 		// Customize the form's appearance
 		courseForm->ControlBox = false; // Hide the control box
 		courseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-		courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
+		//courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
 
 		// Set its properties
 		courseForm->TopLevel = false;
@@ -325,10 +327,23 @@ namespace CS346_A2 {
 		courseForm->Show();
 	}
 
+	void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		int userid = user->userID;
+		AddGradeForm^ addGradeForm = gcnew AddGradeForm(userid);
+		// Customize the form's appearance
+		addGradeForm->ControlBox = false; // Hide the control box
+		addGradeForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+		addGradeForm->TopLevel = false;
+		addGradeForm->AutoScroll = true;
+		addGradeForm->Dock = DockStyle::Fill;
+		// Add the AddGradeForm to the panel
+		panel1->Controls->Clear();
+		panel1->Controls->Add(addGradeForm);
+		addGradeForm->Show();
+	}
+
 
 	private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 	}
-private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
-}
 };
 }
