@@ -290,6 +290,7 @@ namespace CS346_A2 {
 
 	// Event handler for the Profile button
 	void ProfileButton_Click(System::Object^  sender, System::EventArgs^  e) {
+		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		// Create an instance of the ProfileForm
 		int userid = user->userID;
 		ProfileForm^ profileForm = gcnew ProfileForm(userid);
@@ -311,6 +312,7 @@ namespace CS346_A2 {
 	}
 	// Event handler for the Courses button
 	void CoursesButton_Click(System::Object^  sender, System::EventArgs^  e) {
+		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		// Create an instance of the CourseFor
 		int userid = user->userID;
 		CourseForm^ courseForm = gcnew CourseForm(userid);
@@ -331,6 +333,7 @@ namespace CS346_A2 {
 		courseForm->Show();
 	}
 	void Timetable_Click(System::Object^  sender, System::EventArgs^  e) {
+		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		// Create an instance of the CourseFor
 		
 		TimeTableView^ timetable = gcnew TimeTableView(user);
@@ -352,6 +355,7 @@ namespace CS346_A2 {
 	}
 
 	void button2_Click(System::Object^ sender, System::EventArgs^ e) {
+		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		int userid = user->userID;
 		AddGradeForm^ addGradeForm = gcnew AddGradeForm(userid);
 		// Customize the form's appearance
