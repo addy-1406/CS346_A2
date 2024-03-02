@@ -59,5 +59,6 @@
     <EmbeddedResource Include="permissions.resx" />
     <EmbeddedResource Include="CourseList.resx" />
     <EmbeddedResource Include="TimeTableView.resx" />
+    <EmbeddedResource Include="classroomlist.resx" />
   </ItemGroup>
 </Project>
