@@ -4,6 +4,7 @@
 #include "Grade.h"
 #include "Signup.h"
 #include "permissions.h"
+#include "CourseList.h"
 
 namespace CS346_A2 {
 
@@ -68,14 +69,14 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Label^  label4;
 	private: System::Windows::Forms::PictureBox^  pictureBox2;
 	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::PictureBox^  pictureBox9;
-	private: System::Windows::Forms::Label^  label6;
 
 
 
 
-	private: System::Windows::Forms::PictureBox^  pictureBox12;
-	private: System::Windows::Forms::Label^  label9;
+
+
+
+
 	private: System::Windows::Forms::PictureBox^  pictureBox13;
 	private: System::Windows::Forms::Label^  label10;
 	private: System::Windows::Forms::Button^  button10;
@@ -110,10 +111,6 @@ namespace CS346_A2 {
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->pictureBox12 = (gcnew System::Windows::Forms::PictureBox());
-			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox13 = (gcnew System::Windows::Forms::PictureBox());
 			this->label10 = (gcnew System::Windows::Forms::Label());
 			this->button10 = (gcnew System::Windows::Forms::Button());
@@ -126,8 +123,6 @@ namespace CS346_A2 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox13))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox11))->BeginInit();
 			this->SuspendLayout();
@@ -135,10 +130,10 @@ namespace CS346_A2 {
 			// panel1
 			// 
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel1->Location = System::Drawing::Point(293, 50);
-			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->panel1->Location = System::Drawing::Point(220, 41);
+			this->panel1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(970, 623);
+			this->panel1->Size = System::Drawing::Size(728, 507);
 			this->panel1->TabIndex = 2;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &AdminHome::panel1_Paint);
 			// 
@@ -149,9 +144,10 @@ namespace CS346_A2 {
 				static_cast<System::Int32>(static_cast<System::Byte>(160)));
 			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
 			this->label1->ForeColor = System::Drawing::Color::White;
-			this->label1->Location = System::Drawing::Point(301, 9);
+			this->label1->Location = System::Drawing::Point(226, 7);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(71, 28);
+			this->label1->Size = System::Drawing::Size(58, 21);
 			this->label1->TabIndex = 14;
 			this->label1->Text = L"label1";
 			// 
@@ -159,20 +155,20 @@ namespace CS346_A2 {
 			// 
 			this->pictureBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
 				static_cast<System::Int32>(static_cast<System::Byte>(160)));
-			this->pictureBox3->Location = System::Drawing::Point(292, -1);
-			this->pictureBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox3->Location = System::Drawing::Point(219, -1);
+			this->pictureBox3->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(971, 50);
+			this->pictureBox3->Size = System::Drawing::Size(728, 41);
 			this->pictureBox3->TabIndex = 13;
 			this->pictureBox3->TabStop = false;
 			// 
 			// pictureBox5
 			// 
 			this->pictureBox5->BackColor = System::Drawing::Color::Silver;
-			this->pictureBox5->Location = System::Drawing::Point(23, 215);
-			this->pictureBox5->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox5->Location = System::Drawing::Point(17, 175);
+			this->pictureBox5->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox5->Name = L"pictureBox5";
-			this->pictureBox5->Size = System::Drawing::Size(245, 2);
+			this->pictureBox5->Size = System::Drawing::Size(184, 2);
 			this->pictureBox5->TabIndex = 16;
 			this->pictureBox5->TabStop = false;
 			this->pictureBox5->Click += gcnew System::EventHandler(this, &AdminHome::pictureBox5_Click);
@@ -184,10 +180,10 @@ namespace CS346_A2 {
 			this->pictureBox4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.BackgroundImage")));
 			this->pictureBox4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox4->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox4->Location = System::Drawing::Point(69, 249);
-			this->pictureBox4->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox4->Location = System::Drawing::Point(52, 202);
+			this->pictureBox4->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox4->Name = L"pictureBox4";
-			this->pictureBox4->Size = System::Drawing::Size(35, 31);
+			this->pictureBox4->Size = System::Drawing::Size(26, 25);
 			this->pictureBox4->TabIndex = 15;
 			this->pictureBox4->TabStop = false;
 			// 
@@ -200,9 +196,10 @@ namespace CS346_A2 {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(111, 249);
+			this->label2->Location = System::Drawing::Point(83, 202);
+			this->label2->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(83, 28);
+			this->label2->Size = System::Drawing::Size(67, 21);
 			this->label2->TabIndex = 13;
 			this->label2->Text = L"SignUp";
 			this->label2->Click += gcnew System::EventHandler(this, &AdminHome::label2_Click);
@@ -213,10 +210,10 @@ namespace CS346_A2 {
 				static_cast<System::Int32>(static_cast<System::Byte>(72)));
 			this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
 			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox7->Location = System::Drawing::Point(69, 30);
-			this->pictureBox7->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox7->Location = System::Drawing::Point(52, 24);
+			this->pictureBox7->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox7->Name = L"pictureBox7";
-			this->pictureBox7->Size = System::Drawing::Size(155, 164);
+			this->pictureBox7->Size = System::Drawing::Size(116, 133);
 			this->pictureBox7->TabIndex = 11;
 			this->pictureBox7->TabStop = false;
 			// 
@@ -225,9 +222,9 @@ namespace CS346_A2 {
 			this->pictureBox8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 				static_cast<System::Int32>(static_cast<System::Byte>(72)));
 			this->pictureBox8->Location = System::Drawing::Point(0, -1);
-			this->pictureBox8->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox8->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox8->Name = L"pictureBox8";
-			this->pictureBox8->Size = System::Drawing::Size(296, 674);
+			this->pictureBox8->Size = System::Drawing::Size(222, 548);
 			this->pictureBox8->TabIndex = 10;
 			this->pictureBox8->TabStop = false;
 			this->pictureBox8->Click += gcnew System::EventHandler(this, &AdminHome::pictureBox8_Click);
@@ -239,10 +236,10 @@ namespace CS346_A2 {
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox1->Location = System::Drawing::Point(69, 297);
-			this->pictureBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox1->Location = System::Drawing::Point(52, 241);
+			this->pictureBox1->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(35, 31);
+			this->pictureBox1->Size = System::Drawing::Size(26, 25);
 			this->pictureBox1->TabIndex = 18;
 			this->pictureBox1->TabStop = false;
 			// 
@@ -255,9 +252,10 @@ namespace CS346_A2 {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(111, 297);
+			this->label4->Location = System::Drawing::Point(83, 241);
+			this->label4->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(112, 28);
+			this->label4->Size = System::Drawing::Size(93, 21);
 			this->label4->TabIndex = 17;
 			this->label4->Text = L"Classroom";
 			// 
@@ -268,10 +266,10 @@ namespace CS346_A2 {
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox2->Location = System::Drawing::Point(69, 343);
-			this->pictureBox2->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox2->Location = System::Drawing::Point(52, 279);
+			this->pictureBox2->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(35, 31);
+			this->pictureBox2->Size = System::Drawing::Size(26, 25);
 			this->pictureBox2->TabIndex = 20;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -284,71 +282,13 @@ namespace CS346_A2 {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(111, 343);
+			this->label5->Location = System::Drawing::Point(83, 279);
+			this->label5->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(78, 28);
+			this->label5->Size = System::Drawing::Size(65, 21);
 			this->label5->TabIndex = 19;
 			this->label5->Text = L"Course";
 			this->label5->Click += gcnew System::EventHandler(this, &AdminHome::label5_Click);
-			// 
-			// pictureBox9
-			// 
-			this->pictureBox9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->pictureBox9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.BackgroundImage")));
-			this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox9->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox9->Location = System::Drawing::Point(69, 391);
-			this->pictureBox9->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->pictureBox9->Name = L"pictureBox9";
-			this->pictureBox9->Size = System::Drawing::Size(35, 31);
-			this->pictureBox9->TabIndex = 22;
-			this->pictureBox9->TabStop = false;
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->label6->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(111, 391);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(62, 28);
-			this->label6->TabIndex = 21;
-			this->label6->Text = L"Exam";
-			this->label6->Click += gcnew System::EventHandler(this, &AdminHome::label6_Click);
-			// 
-			// pictureBox12
-			// 
-			this->pictureBox12->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->pictureBox12->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox12.BackgroundImage")));
-			this->pictureBox12->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox12->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox12->Location = System::Drawing::Point(69, 439);
-			this->pictureBox12->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->pictureBox12->Name = L"pictureBox12";
-			this->pictureBox12->Size = System::Drawing::Size(35, 31);
-			this->pictureBox12->TabIndex = 28;
-			this->pictureBox12->TabStop = false;
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->label9->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label9->ForeColor = System::Drawing::Color::White;
-			this->label9->Location = System::Drawing::Point(111, 439);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(110, 28);
-			this->label9->TabIndex = 27;
-			this->label9->Text = L"TimeTable";
 			// 
 			// pictureBox13
 			// 
@@ -357,10 +297,10 @@ namespace CS346_A2 {
 			this->pictureBox13->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox13.BackgroundImage")));
 			this->pictureBox13->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox13->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox13->Location = System::Drawing::Point(1099, 9);
-			this->pictureBox13->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox13->Location = System::Drawing::Point(824, 7);
+			this->pictureBox13->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox13->Name = L"pictureBox13";
-			this->pictureBox13->Size = System::Drawing::Size(35, 31);
+			this->pictureBox13->Size = System::Drawing::Size(26, 25);
 			this->pictureBox13->TabIndex = 31;
 			this->pictureBox13->TabStop = false;
 			// 
@@ -373,19 +313,20 @@ namespace CS346_A2 {
 			this->label10->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label10->ForeColor = System::Drawing::Color::White;
-			this->label10->Location = System::Drawing::Point(1140, 9);
+			this->label10->Location = System::Drawing::Point(855, 7);
+			this->label10->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(81, 28);
+			this->label10->Size = System::Drawing::Size(65, 21);
 			this->label10->TabIndex = 30;
 			this->label10->Text = L"Logout";
 			this->label10->Click += gcnew System::EventHandler(this, &AdminHome::label10_Click);
 			// 
 			// button10
 			// 
-			this->button10->Location = System::Drawing::Point(1861, -466);
-			this->button10->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->button10->Location = System::Drawing::Point(1396, -379);
+			this->button10->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->button10->Name = L"button10";
-			this->button10->Size = System::Drawing::Size(109, 26);
+			this->button10->Size = System::Drawing::Size(82, 21);
 			this->button10->TabIndex = 29;
 			this->button10->Text = L"Logout";
 			this->button10->UseVisualStyleBackColor = true;
@@ -399,9 +340,10 @@ namespace CS346_A2 {
 			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label7->ForeColor = System::Drawing::Color::White;
-			this->label7->Location = System::Drawing::Point(109, 492);
+			this->label7->Location = System::Drawing::Point(82, 317);
+			this->label7->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(125, 28);
+			this->label7->Size = System::Drawing::Size(105, 21);
 			this->label7->TabIndex = 32;
 			this->label7->Text = L"Permissions";
 			this->label7->Click += gcnew System::EventHandler(this, &AdminHome::label7_Click);
@@ -413,28 +355,24 @@ namespace CS346_A2 {
 			this->pictureBox11->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox11.BackgroundImage")));
 			this->pictureBox11->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox11->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox11->Location = System::Drawing::Point(69, 492);
-			this->pictureBox11->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->pictureBox11->Location = System::Drawing::Point(52, 317);
+			this->pictureBox11->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->pictureBox11->Name = L"pictureBox11";
-			this->pictureBox11->Size = System::Drawing::Size(35, 31);
+			this->pictureBox11->Size = System::Drawing::Size(26, 25);
 			this->pictureBox11->TabIndex = 34;
 			this->pictureBox11->TabStop = false;
 			// 
 			// AdminHome
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
-			this->ClientSize = System::Drawing::Size(1261, 673);
+			this->ClientSize = System::Drawing::Size(946, 547);
 			this->Controls->Add(this->pictureBox11);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->pictureBox13);
-			this->Controls->Add(this->pictureBox12);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->button10);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->pictureBox9);
-			this->Controls->Add(this->label6);
 			this->Controls->Add(this->pictureBox2);
 			this->Controls->Add(this->label5);
 			this->Controls->Add(this->pictureBox1);
@@ -447,7 +385,7 @@ namespace CS346_A2 {
 			this->Controls->Add(this->pictureBox7);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->pictureBox8);
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->Margin = System::Windows::Forms::Padding(2, 2, 2, 2);
 			this->Name = L"AdminHome";
 			this->Text = L"AdminHome";
 			this->Load += gcnew System::EventHandler(this, &AdminHome::AdminHome_Load);
@@ -458,8 +396,6 @@ namespace CS346_A2 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox12))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox13))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox11))->EndInit();
 			this->ResumeLayout(false);
@@ -509,6 +445,14 @@ namespace CS346_A2 {
 	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+				 //course list
+				 panel1->Controls->Clear();
+				 CourseList^ Courselist = gcnew CourseList();
+				 Courselist->TopLevel = false;
+				 Courselist->FormBorderStyle = Windows::Forms::FormBorderStyle::None;
+				 Courselist->Dock = DockStyle::Fill;
+				 panel1->Controls->Add(Courselist);
+				 Courselist->Show();
 	}
 	private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
 	}

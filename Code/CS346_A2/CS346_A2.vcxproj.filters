@@ -4,6 +4,7 @@
     <ClCompile Include="Root.cpp" />
     <ClCompile Include="ExamSchedule.cpp" />
     <ClCompile Include="permissions.cpp" />
+    <ClCompile Include="CourseList.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCourseForm.h" />
@@ -32,6 +33,7 @@
     <ClInclude Include="Welcome_Pic.h" />
     <ClInclude Include="ExamSchedule.h" />
     <ClInclude Include="permissions.h" />
+    <ClInclude Include="CourseList.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddCourseForm.resx" />
