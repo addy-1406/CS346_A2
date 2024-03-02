@@ -3,6 +3,7 @@
 #include "Register.h"
 #include "User.h"
 #include "Welcome_Pic.h"
+#include "TimeTable.h"
 
 namespace CS346_A2 {
 
@@ -50,6 +51,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
 	private: System::Windows::Forms::PictureBox^  pictureBox4;
 	private: System::Windows::Forms::PictureBox^  pictureBox5;
+
 
 
 	protected:
@@ -310,6 +312,9 @@ private: System::Void pictureBox4_Click(System::Object^  sender, System::EventAr
 private: System::Void pictureBox5_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
+
 }
 };
 }
