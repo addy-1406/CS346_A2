@@ -63,8 +63,13 @@ namespace CS346_A2 {
 			// 
 			// panel1
 			// 
+			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>((((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Bottom)
+				| System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel1->BackColor = System::Drawing::Color::White;
 			this->panel1->Location = System::Drawing::Point(-4, -1);
+			this->panel1->MaximumSize = System::Drawing::Size(1270, 675);
+			this->panel1->MinimumSize = System::Drawing::Size(1270, 675);
 			this->panel1->Name = L"panel1";
 			this->panel1->Size = System::Drawing::Size(1270, 675);
 			this->panel1->TabIndex = 0;
