@@ -30,8 +30,8 @@ namespace CS346_A2 {
 			}
 		}
 	private: System::Windows::Forms::Label^  lblName;
-	private: System::Windows::Forms::Label^  lblContact;
-	private: System::Windows::Forms::Label^  lblEmail;
+
+
 	private: System::Windows::Forms::Label^  label1;
 
 	private: System::Windows::Forms::Label^  label3;
@@ -42,44 +42,69 @@ namespace CS346_A2 {
 	private:
 		System::ComponentModel::Container ^components;
 	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::Label^  lblDOB;
+
 
 	private: System::Windows::Forms::Label^  label7;
-	private: System::Windows::Forms::Label^  lblOffice;
+
 
 	private: System::Windows::Forms::Label^  label9;
-	private: System::Windows::Forms::Label^  lblYear;
+
 
 	private: System::Windows::Forms::Label^  label11;
-	private: System::Windows::Forms::Label^  lblResearch;
+
 
 	private: System::Windows::Forms::Label^  label13;
-	private: System::Windows::Forms::Label^  lblDesign;
+	private: System::Windows::Forms::TextBox^  txtYear;
+	private: System::Windows::Forms::TextBox^  txtEmail;
+
+
+	private: System::Windows::Forms::TextBox^  txtContact;
+	private: System::Windows::Forms::TextBox^  txtRoom;
+	private: System::Windows::Forms::TextBox^  txtResearch;
+
+
+
+	private: System::Windows::Forms::TextBox^  txtDesign;
+
+	private: System::Windows::Forms::DateTimePicker^  dtpDOB;
+	private: System::Windows::Forms::Button^  btnProfile;
+	private: System::Windows::Forms::Panel^  panel1;
+	private: System::Windows::Forms::Panel^  panel2;
+
+
+
+
 
 			 int userID;
 
 #pragma region Windows Form Designer generated code
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(ProfileForm::typeid));
 			this->lblName = (gcnew System::Windows::Forms::Label());
-			this->lblContact = (gcnew System::Windows::Forms::Label());
-			this->lblEmail = (gcnew System::Windows::Forms::Label());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->btnPhoto = (gcnew System::Windows::Forms::Button());
 			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->lblDOB = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
-			this->lblOffice = (gcnew System::Windows::Forms::Label());
 			this->label9 = (gcnew System::Windows::Forms::Label());
-			this->lblYear = (gcnew System::Windows::Forms::Label());
 			this->label11 = (gcnew System::Windows::Forms::Label());
-			this->lblResearch = (gcnew System::Windows::Forms::Label());
 			this->label13 = (gcnew System::Windows::Forms::Label());
-			this->lblDesign = (gcnew System::Windows::Forms::Label());
+			this->txtYear = (gcnew System::Windows::Forms::TextBox());
+			this->txtEmail = (gcnew System::Windows::Forms::TextBox());
+			this->txtContact = (gcnew System::Windows::Forms::TextBox());
+			this->txtRoom = (gcnew System::Windows::Forms::TextBox());
+			this->txtResearch = (gcnew System::Windows::Forms::TextBox());
+			this->txtDesign = (gcnew System::Windows::Forms::TextBox());
+			this->dtpDOB = (gcnew System::Windows::Forms::DateTimePicker());
+			this->btnProfile = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			this->panel1->SuspendLayout();
+			this->panel2->SuspendLayout();
 			this->SuspendLayout();
 			// 
 			// lblName
@@ -87,223 +112,275 @@ namespace CS346_A2 {
 			this->lblName->AutoSize = true;
 			this->lblName->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblName->Location = System::Drawing::Point(438, 53);
+			this->lblName->Location = System::Drawing::Point(544, 23);
 			this->lblName->Name = L"lblName";
-			this->lblName->Size = System::Drawing::Size(112, 39);
+			this->lblName->Size = System::Drawing::Size(108, 38);
 			this->lblName->TabIndex = 0;
 			this->lblName->Text = L"Name";
-			// 
-			// lblContact
-			// 
-			this->lblContact->AutoSize = true;
-			this->lblContact->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblContact->Location = System::Drawing::Point(599, 231);
-			this->lblContact->Name = L"lblContact";
-			this->lblContact->Size = System::Drawing::Size(80, 25);
-			this->lblContact->TabIndex = 1;
-			this->lblContact->Text = L"Contact";
-			// 
-			// lblEmail
-			// 
-			this->lblEmail->AutoSize = true;
-			this->lblEmail->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblEmail->Location = System::Drawing::Point(599, 268);
-			this->lblEmail->Name = L"lblEmail";
-			this->lblEmail->Size = System::Drawing::Size(60, 25);
-			this->lblEmail->TabIndex = 2;
-			this->lblEmail->Text = L"Email";
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(260, 53);
+			this->label1->Location = System::Drawing::Point(362, 23);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(166, 39);
+			this->label1->Size = System::Drawing::Size(160, 38);
 			this->label1->TabIndex = 3;
 			this->label1->Text = L"Welcome";
 			// 
 			// label3
 			// 
 			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(479, 231);
+			this->label3->Location = System::Drawing::Point(55, 133);
 			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(86, 25);
+			this->label3->Size = System::Drawing::Size(63, 20);
 			this->label3->TabIndex = 5;
 			this->label3->Text = L"Contact:";
+			this->label3->Click += gcnew System::EventHandler(this, &ProfileForm::label3_Click);
 			// 
 			// label4
 			// 
 			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(499, 268);
+			this->label4->Location = System::Drawing::Point(55, 194);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(66, 25);
+			this->label4->Size = System::Drawing::Size(49, 20);
 			this->label4->TabIndex = 6;
 			this->label4->Text = L"Email:";
+			this->label4->Click += gcnew System::EventHandler(this, &ProfileForm::label4_Click);
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->Location = System::Drawing::Point(47, 166);
+			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
+			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
+			this->pictureBox1->Location = System::Drawing::Point(18, 44);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(297, 239);
+			this->pictureBox1->Size = System::Drawing::Size(344, 392);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 7;
 			this->pictureBox1->TabStop = false;
 			// 
 			// btnPhoto
 			// 
-			this->btnPhoto->Location = System::Drawing::Point(133, 517);
+			this->btnPhoto->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->btnPhoto->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnPhoto->ForeColor = System::Drawing::SystemColors::ButtonHighlight;
+			this->btnPhoto->Location = System::Drawing::Point(117, 457);
 			this->btnPhoto->Name = L"btnPhoto";
-			this->btnPhoto->Size = System::Drawing::Size(136, 59);
+			this->btnPhoto->Size = System::Drawing::Size(172, 44);
 			this->btnPhoto->TabIndex = 8;
 			this->btnPhoto->Text = L"Upload Photo";
-			this->btnPhoto->UseVisualStyleBackColor = true;
+			this->btnPhoto->UseVisualStyleBackColor = false;
 			this->btnPhoto->Click += gcnew System::EventHandler(this, &ProfileForm::btnPhoto_Click);
 			// 
 			// label5
 			// 
 			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label5->Location = System::Drawing::Point(499, 196);
+			this->label5->Location = System::Drawing::Point(55, 21);
 			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(61, 25);
+			this->label5->Size = System::Drawing::Size(43, 20);
 			this->label5->TabIndex = 9;
 			this->label5->Text = L"DOB:";
-			// 
-			// lblDOB
-			// 
-			this->lblDOB->AutoSize = true;
-			this->lblDOB->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblDOB->Location = System::Drawing::Point(597, 196);
-			this->lblDOB->Name = L"lblDOB";
-			this->lblDOB->Size = System::Drawing::Size(55, 25);
-			this->lblDOB->TabIndex = 10;
-			this->lblDOB->Text = L"DOB";
+			this->label5->Click += gcnew System::EventHandler(this, &ProfileForm::label5_Click);
 			// 
 			// label7
 			// 
 			this->label7->AutoSize = true;
-			this->label7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label7->Location = System::Drawing::Point(440, 306);
+			this->label7->Location = System::Drawing::Point(271, 250);
 			this->label7->Name = L"label7";
-			this->label7->Size = System::Drawing::Size(125, 25);
+			this->label7->Size = System::Drawing::Size(96, 20);
 			this->label7->TabIndex = 11;
 			this->label7->Text = L"Office Room:";
-			// 
-			// lblOffice
-			// 
-			this->lblOffice->AutoSize = true;
-			this->lblOffice->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblOffice->Location = System::Drawing::Point(599, 306);
-			this->lblOffice->Name = L"lblOffice";
-			this->lblOffice->Size = System::Drawing::Size(63, 25);
-			this->lblOffice->TabIndex = 12;
-			this->lblOffice->Text = L"Office";
+			this->label7->Click += gcnew System::EventHandler(this, &ProfileForm::label7_Click);
 			// 
 			// label9
 			// 
 			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label9->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(440, 340);
+			this->label9->Location = System::Drawing::Point(55, 77);
 			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(127, 25);
+			this->label9->Size = System::Drawing::Size(92, 20);
 			this->label9->TabIndex = 13;
 			this->label9->Text = L"Joining Year:";
 			this->label9->Click += gcnew System::EventHandler(this, &ProfileForm::label9_Click);
 			// 
-			// lblYear
-			// 
-			this->lblYear->AutoSize = true;
-			this->lblYear->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblYear->Location = System::Drawing::Point(599, 340);
-			this->lblYear->Name = L"lblYear";
-			this->lblYear->Size = System::Drawing::Size(53, 25);
-			this->lblYear->TabIndex = 14;
-			this->lblYear->Text = L"Year";
-			// 
 			// label11
 			// 
 			this->label11->AutoSize = true;
-			this->label11->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label11->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(396, 380);
+			this->label11->Location = System::Drawing::Point(52, 307);
 			this->label11->Name = L"label11";
-			this->label11->Size = System::Drawing::Size(180, 25);
+			this->label11->Size = System::Drawing::Size(130, 20);
 			this->label11->TabIndex = 15;
 			this->label11->Text = L"Research Interests:";
-			// 
-			// lblResearch
-			// 
-			this->lblResearch->AutoSize = true;
-			this->lblResearch->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->lblResearch->Location = System::Drawing::Point(597, 380);
-			this->lblResearch->Name = L"lblResearch";
-			this->lblResearch->Size = System::Drawing::Size(95, 25);
-			this->lblResearch->TabIndex = 16;
-			this->lblResearch->Text = L"Research";
 			// 
 			// label13
 			// 
 			this->label13->AutoSize = true;
-			this->label13->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->label13->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label13->Location = System::Drawing::Point(439, 531);
+			this->label13->Location = System::Drawing::Point(55, 250);
 			this->label13->Name = L"label13";
-			this->label13->Size = System::Drawing::Size(121, 25);
+			this->label13->Size = System::Drawing::Size(92, 20);
 			this->label13->TabIndex = 17;
 			this->label13->Text = L"Designation:";
+			this->label13->Click += gcnew System::EventHandler(this, &ProfileForm::label13_Click);
 			// 
-			// lblDesign
+			// txtYear
 			// 
-			this->lblDesign->AutoSize = true;
-			this->lblDesign->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->txtYear->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->lblDesign->Location = System::Drawing::Point(599, 531);
-			this->lblDesign->Name = L"lblDesign";
-			this->lblDesign->Size = System::Drawing::Size(115, 25);
-			this->lblDesign->TabIndex = 18;
-			this->lblDesign->Text = L"Designation";
+			this->txtYear->Location = System::Drawing::Point(56, 100);
+			this->txtYear->Name = L"txtYear";
+			this->txtYear->ReadOnly = true;
+			this->txtYear->Size = System::Drawing::Size(288, 30);
+			this->txtYear->TabIndex = 19;
+			this->txtYear->TextChanged += gcnew System::EventHandler(this, &ProfileForm::textBox1_TextChanged);
+			// 
+			// txtEmail
+			// 
+			this->txtEmail->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtEmail->Location = System::Drawing::Point(56, 217);
+			this->txtEmail->Name = L"txtEmail";
+			this->txtEmail->ReadOnly = true;
+			this->txtEmail->Size = System::Drawing::Size(288, 30);
+			this->txtEmail->TabIndex = 20;
+			this->txtEmail->TextChanged += gcnew System::EventHandler(this, &ProfileForm::txtEmail_TextChanged);
+			// 
+			// txtContact
+			// 
+			this->txtContact->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtContact->Location = System::Drawing::Point(56, 161);
+			this->txtContact->Name = L"txtContact";
+			this->txtContact->Size = System::Drawing::Size(288, 30);
+			this->txtContact->TabIndex = 21;
+			this->txtContact->TextChanged += gcnew System::EventHandler(this, &ProfileForm::txtContact_TextChanged);
+			// 
+			// txtRoom
+			// 
+			this->txtRoom->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtRoom->Location = System::Drawing::Point(55, 274);
+			this->txtRoom->Name = L"txtRoom";
+			this->txtRoom->Size = System::Drawing::Size(193, 30);
+			this->txtRoom->TabIndex = 22;
+			this->txtRoom->TextChanged += gcnew System::EventHandler(this, &ProfileForm::txtRoom_TextChanged);
+			// 
+			// txtResearch
+			// 
+			this->txtResearch->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtResearch->Location = System::Drawing::Point(55, 330);
+			this->txtResearch->Multiline = true;
+			this->txtResearch->Name = L"txtResearch";
+			this->txtResearch->Size = System::Drawing::Size(433, 106);
+			this->txtResearch->TabIndex = 23;
+			this->txtResearch->TextChanged += gcnew System::EventHandler(this, &ProfileForm::txtResearch_TextChanged);
+			// 
+			// txtDesign
+			// 
+			this->txtDesign->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->txtDesign->Location = System::Drawing::Point(275, 274);
+			this->txtDesign->Name = L"txtDesign";
+			this->txtDesign->Size = System::Drawing::Size(170, 30);
+			this->txtDesign->TabIndex = 24;
+			this->txtDesign->TextChanged += gcnew System::EventHandler(this, &ProfileForm::txtDesign_TextChanged);
+			// 
+			// dtpDOB
+			// 
+			this->dtpDOB->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->dtpDOB->Location = System::Drawing::Point(55, 44);
+			this->dtpDOB->Name = L"dtpDOB";
+			this->dtpDOB->Size = System::Drawing::Size(288, 30);
+			this->dtpDOB->TabIndex = 25;
+			this->dtpDOB->ValueChanged += gcnew System::EventHandler(this, &ProfileForm::dtpDOB_ValueChanged);
+			// 
+			// btnProfile
+			// 
+			this->btnProfile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->btnProfile->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->btnProfile->ForeColor = System::Drawing::SystemColors::Control;
+			this->btnProfile->Location = System::Drawing::Point(123, 450);
+			this->btnProfile->Name = L"btnProfile";
+			this->btnProfile->Size = System::Drawing::Size(161, 48);
+			this->btnProfile->TabIndex = 26;
+			this->btnProfile->Text = L"Upload Profile";
+			this->btnProfile->UseVisualStyleBackColor = false;
+			this->btnProfile->Click += gcnew System::EventHandler(this, &ProfileForm::btnProfile_Click);
+			// 
+			// panel1
+			// 
+			this->panel1->BackColor = System::Drawing::Color::White;
+			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel1->Controls->Add(this->btnProfile);
+			this->panel1->Controls->Add(this->label11);
+			this->panel1->Controls->Add(this->dtpDOB);
+			this->panel1->Controls->Add(this->txtDesign);
+			this->panel1->Controls->Add(this->txtResearch);
+			this->panel1->Controls->Add(this->txtRoom);
+			this->panel1->Controls->Add(this->txtContact);
+			this->panel1->Controls->Add(this->txtEmail);
+			this->panel1->Controls->Add(this->txtYear);
+			this->panel1->Controls->Add(this->label13);
+			this->panel1->Controls->Add(this->label9);
+			this->panel1->Controls->Add(this->label7);
+			this->panel1->Controls->Add(this->label5);
+			this->panel1->Controls->Add(this->label4);
+			this->panel1->Controls->Add(this->label3);
+			this->panel1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->panel1->Location = System::Drawing::Point(403, 64);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(543, 519);
+			this->panel1->TabIndex = 27;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &ProfileForm::panel1_Paint);
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::White;
+			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel2->Controls->Add(this->btnPhoto);
+			this->panel2->Controls->Add(this->pictureBox1);
+			this->panel2->Location = System::Drawing::Point(12, 64);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(395, 519);
+			this->panel2->TabIndex = 28;
 			// 
 			// ProfileForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(810, 602);
-			this->Controls->Add(this->lblDesign);
-			this->Controls->Add(this->label13);
-			this->Controls->Add(this->lblResearch);
-			this->Controls->Add(this->label11);
-			this->Controls->Add(this->lblYear);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->lblOffice);
-			this->Controls->Add(this->label7);
-			this->Controls->Add(this->lblDOB);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->btnPhoto);
-			this->Controls->Add(this->pictureBox1);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->ClientSize = System::Drawing::Size(958, 578);
+			this->Controls->Add(this->panel2);
+			this->Controls->Add(this->panel1);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->lblEmail);
-			this->Controls->Add(this->lblContact);
 			this->Controls->Add(this->lblName);
 			this->Name = L"ProfileForm";
 			this->Text = L"ProfileForm";
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			this->panel1->ResumeLayout(false);
+			this->panel1->PerformLayout();
+			this->panel2->ResumeLayout(false);
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -329,6 +406,35 @@ namespace CS346_A2 {
 				}
 			}
 		}
+		System::Void btnProfile_Click(System::Object^  sender, System::EventArgs^  e) {
+					 try {
+						 // Get the updated values from the text boxes and date time picker
+						 String^ newDOB = dtpDOB->Value.ToString("yyyy-MM-dd");
+						 String^ newContact = txtContact->Text;
+						 String^ newRoom = txtRoom->Text;
+						 String^ newDesignation = txtDesign->Text;
+						 String^ newResearchInterests = txtResearch->Text->Replace("\n", ",");
+
+						 // Update the values in the database
+						 String^ query = "UPDATE faculty SET DOB = @DOB, Contact = @Contact, Office_room = @Room, Designation = @Designation, Research_Interests = @Research WHERE User_ID = @UserID";
+						 array<SqlParameter^>^ parameters = {
+							 gcnew SqlParameter("@DOB", newDOB),
+							 gcnew SqlParameter("@Contact", newContact),
+							 gcnew SqlParameter("@Room", newRoom),
+							 gcnew SqlParameter("@Designation", newDesignation),
+							 gcnew SqlParameter("@Research", newResearchInterests),
+							 gcnew SqlParameter("@UserID", userID)
+						 };
+
+						 DatabaseHelper::ExecuteQuery(query, parameters);
+
+						 MessageBox::Show("Profile updated successfully.", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					 }
+					 catch (SqlException^ ex) {
+						 MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					 }
+		}
+
 
 		void FetchUserData(int userID) {
 			try {
@@ -341,16 +447,13 @@ namespace CS346_A2 {
 
 				if (reader->Read()) {
 					lblName->Text = reader->GetString(0);
-					lblDOB->Text = reader->IsDBNull(1) ? "null" : reader->GetDateTime(1).ToString(); // Check if the value is DBNull
-					lblContact->Text = reader->GetString(2);
-					lblEmail->Text = reader->GetString(3);
-					lblOffice->Text = reader->IsDBNull(4) ? "null" : reader->GetString(4); // Check if the value is DBNull
-					lblYear->Text = reader->IsDBNull(5) ? "null" : reader->GetInt32(5).ToString(); // Check if the value is DBNull
-
-					// Split research interests by commas and join with newline characters
-					lblResearch->Text = reader->IsDBNull(6) ? "null" : reader->GetString(6)->Replace(",", "\n");
-
-					lblDesign->Text = reader->IsDBNull(7) ? "null" : reader->GetString(7); // Check if the value is DBNull
+					dtpDOB->Value = reader->IsDBNull(1) ? DateTime::Now : reader->GetDateTime(1);
+					txtContact->Text = reader->GetString(2);
+					txtEmail->Text = reader->GetString(3);
+					txtRoom->Text = reader->IsDBNull(4) ? "null" : reader->GetString(4);
+					txtYear->Text = reader->IsDBNull(5) ? "null" : reader->GetInt32(5).ToString();
+					txtResearch->Text = reader->IsDBNull(6) ? "null" : reader->GetString(6)->Replace(",", "\n");
+					txtDesign->Text = reader->IsDBNull(7) ? "null" : reader->GetString(7);
 					reader->Close();
 					// Fetch photo from profile_photos table
 					query = "SELECT Photo FROM profile_photos WHERE User_ID = @UserID";
@@ -365,7 +468,7 @@ namespace CS346_A2 {
 					else {
 						// If photo is null in profile_photos table, use default photo
 						try {
-							pictureBox1->Image = Image::FromFile("..\\MediaFiles\\profile.jpg");
+							pictureBox1->Image = Image::FromFile("..\\MediaFiles\\student_default.png");
 						}
 						catch (Exception^ ex) {
 							MessageBox::Show("Error loading default image: " + ex->Message);
@@ -420,5 +523,31 @@ namespace CS346_A2 {
 		}
 	private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
+private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
+}
+private: System::Void dtpDOB_ValueChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void txtContact_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void txtEmail_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void txtRoom_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void txtDesign_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void txtResearch_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label13_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

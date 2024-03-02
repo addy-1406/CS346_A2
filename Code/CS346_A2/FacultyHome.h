@@ -6,6 +6,8 @@
 #include "AddCourseForm.h"
 #include "ProfileForm.h"
 #include "AddGradeForm.h"
+#include "TimeTableView.h"
+#include <Windows.h>
 
 
 namespace CS346_A2 {
@@ -210,6 +212,7 @@ namespace CS346_A2 {
 			this->button3->TabIndex = 9;
 			this->button3->Text = L"View TimeTable";
 			this->button3->UseVisualStyleBackColor = true;
+			this->button3->Click += gcnew System::EventHandler(this, &FacultyHome::Timetable_Click);
 			// 
 			// label1
 			// 
@@ -265,6 +268,7 @@ namespace CS346_A2 {
 	}
 	// Event handler for the AddCourse button
 	void AddCourseButton_Click(System::Object^  sender, System::EventArgs^  e) {
+		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 		// Create an instance of the AddCourseForm
 		AddCourseForm^ addCourseForm = gcnew AddCourseForm(user->userID);
 
@@ -325,6 +329,26 @@ namespace CS346_A2 {
 		panel1->Controls->Clear();
 		panel1->Controls->Add(courseForm);
 		courseForm->Show();
+	}
+	void Timetable_Click(System::Object^  sender, System::EventArgs^  e) {
+		// Create an instance of the CourseFor
+		
+		TimeTableView^ timetable = gcnew TimeTableView(user);
+
+		// Customize the form's appearance
+		timetable->ControlBox = false; // Hide the control box
+		timetable->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+		//courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
+
+		// Set its properties
+		timetable->TopLevel = false;
+		timetable->AutoScroll = true;
+		timetable->Dock = DockStyle::Fill;
+
+		// Add it to the panel
+		panel1->Controls->Clear();
+		panel1->Controls->Add(timetable);
+		timetable->Show();
 	}
 
 	void button2_Click(System::Object^ sender, System::EventArgs^ e) {
