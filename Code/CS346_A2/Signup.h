@@ -256,7 +256,7 @@ namespace CS346_A2 {
 					 // Extracting values from the database result set and assigning them to variables
 					 name = dr->GetString(0);
 					 date = dr->GetDateTime(1);
-					 dob = date.ToString("yyyy-mm-dd");
+					 dob = date.ToString("yyyy-MM-dd");
 					 contact = dr->GetString(2);
 					 address = dr->GetString(3);
 					 email = dr->GetString(4);
@@ -343,7 +343,7 @@ namespace CS346_A2 {
 					 // Extracting values from the database result set and assigning them to variables
 					 name = dr->GetString(0);
 					 date = dr->GetDateTime(1);
-					 dob = date.ToString("yyyy-mm-dd");
+					 dob = date.ToString("yyyy-MM-dd");
 					 contact = dr->GetString(2);
 					 address = dr->GetString(3);
 					 email = dr->GetString(4);
