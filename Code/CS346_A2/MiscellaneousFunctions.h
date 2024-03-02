@@ -17,32 +17,35 @@ using namespace System::Data::SqlClient;
 ref class MiscellaneousFunctions
 {
 public:
-	static String^ FormatString(String^ str) {
-		int newCount = Int32::Parse(str);
+	static String^ FormatString(int str) {
+		int newCount = str + 1;
 		String^ formattedStr = newCount.ToString("D3");
 		return formattedStr;
 	}
 	static String^ generateUserIdProf(String^ JoiningYear){
-		String^ query = "select count(User_ID) from [dbo].[faculty] where Joining_Year = @Year;";
+		int joiningyear = Int32::Parse(JoiningYear);
+		String^ query = "select count(User_ID) from [dbo].[faculty] where Joining_Year = @joining_year;";
 		array<SqlParameter^>^ parameters = {
-			gcnew SqlParameter("@joiningYear", JoiningYear)
+			gcnew SqlParameter("@joining_year", joiningyear)
 		};
 		SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 		dr->Read();
-		String^ count = dr->GetString(0);
+		int count = dr->GetInt32(0);
 		dr->Close();
 		String^ userId = JoiningYear + FormatString(count);
+
 		return userId;
 	}
 
 	static String^ generateUserIdStudent(String^ JoiningYear){
-		String^ query = "select count(User_ID) from [dbo].[faculty] where Joining_Year = @Year;";
+		int joiningyear = Int32::Parse(JoiningYear);
+		String^ query = "select count(User_ID) from [dbo].[student] where Enrollment_Year = @joining_year;";
 		array<SqlParameter^>^ parameters = {
-			gcnew SqlParameter("@joiningYear", JoiningYear)
+			gcnew SqlParameter("@joining_year", joiningyear)
 		};
 		SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
 		dr->Read();
-		String^ count = dr->GetString(0);
+		int count = dr->GetInt32(0);
 		dr->Close();
 		String^ userId = JoiningYear + "1" + FormatString(count);
 		return userId;
