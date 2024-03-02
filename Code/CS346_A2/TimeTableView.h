@@ -37,7 +37,7 @@ namespace CS346_A2 {
 				delete components;
 			}
 		}
-	private: System::Windows::Forms::Label^  label1;
+
 	protected:
 	private: System::Windows::Forms::ComboBox^  comboBox1;
 	private: System::Windows::Forms::ListView^  listView1;
@@ -47,6 +47,9 @@ namespace CS346_A2 {
 
 	private: System::Windows::Forms::ColumnHeader^  Time;
 	private: System::Windows::Forms::ColumnHeader^  Venue;
+	private: System::Windows::Forms::Label^  label4;
+
+
 
 	private:
 		/// <summary>
@@ -61,7 +64,6 @@ namespace CS346_A2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
 			this->listView1 = (gcnew System::Windows::Forms::ListView());
 			this->CourseCode = (gcnew System::Windows::Forms::ColumnHeader());
@@ -69,28 +71,21 @@ namespace CS346_A2 {
 			this->Slot = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Time = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Venue = (gcnew System::Windows::Forms::ColumnHeader());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(273, 27);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(88, 17);
-			this->label1->TabIndex = 0;
-			this->label1->Text = L"Select Day : ";
 			// 
 			// comboBox1
 			// 
 			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(5) {
 				L"Monday", L"Tuesday", L"Wednesday", L"Thursday",
 					L"Friday"
 			});
-			this->comboBox1->Location = System::Drawing::Point(367, 24);
+			this->comboBox1->Location = System::Drawing::Point(183, 50);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(277, 24);
+			this->comboBox1->Size = System::Drawing::Size(228, 31);
 			this->comboBox1->TabIndex = 1;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &TimeTableView::comboBox1_SelectedIndexChanged);
 			// 
@@ -103,12 +98,14 @@ namespace CS346_A2 {
 				this->CourseCode, this->CourseName,
 					this->Slot, this->Time, this->Venue
 			});
-			this->listView1->Location = System::Drawing::Point(-6, 116);
+			this->listView1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9));
+			this->listView1->Location = System::Drawing::Point(29, 116);
 			this->listView1->Name = L"listView1";
-			this->listView1->Size = System::Drawing::Size(970, 470);
+			this->listView1->Size = System::Drawing::Size(917, 461);
 			this->listView1->TabIndex = 2;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
+			this->listView1->SelectedIndexChanged += gcnew System::EventHandler(this, &TimeTableView::listView1_SelectedIndexChanged);
 			// 
 			// CourseCode
 			// 
@@ -118,7 +115,7 @@ namespace CS346_A2 {
 			// CourseName
 			// 
 			this->CourseName->Text = L"Course Name";
-			this->CourseName->Width = 445;
+			this->CourseName->Width = 400;
 			// 
 			// Slot
 			// 
@@ -134,6 +131,21 @@ namespace CS346_A2 {
 			this->Venue->Text = L"Venue";
 			this->Venue->Width = 225;
 			// 
+			// label4
+			// 
+			this->label4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label4->Location = System::Drawing::Point(25, 50);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(138, 31);
+			this->label4->TabIndex = 29;
+			this->label4->Text = L"SELECT DAY :";
+			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
+			// 
 			// TimeTableView
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -141,14 +153,13 @@ namespace CS346_A2 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(958, 578);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->label1);
 			this->Name = L"TimeTableView";
 			this->Text = L"TimeTableView";
 			this->Load += gcnew System::EventHandler(this, &TimeTableView::TimeTableView_Load);
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion
@@ -217,5 +228,7 @@ namespace CS346_A2 {
 				 //MessageBox::Show(comboBox1->SelectedItem->ToString());
 				 get_timetable(comboBox1->SelectedItem->ToString(), user);
 	}
-	};
+	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+};
 }

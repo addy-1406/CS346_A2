@@ -26,6 +26,7 @@ namespace CS346_A2 {
 			InitializeComponent();
 			//
 			//TODO: Add the constructor code here
+			this->MinimizeBox = true;
 			//
 		}
 

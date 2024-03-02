@@ -99,6 +99,7 @@ namespace CS346_A2 {
 			// Date
 			// 
 			this->Date->Text = L"Date";
+			this->Date->Width = 135;
 			// 
 			// Time
 			// 
@@ -108,7 +109,7 @@ namespace CS346_A2 {
 			// Venue
 			// 
 			this->Venue->Text = L"Venue";
-			this->Venue->Width = 225;
+			this->Venue->Width = 150;
 			// 
 			// comboBox1
 			// 
@@ -150,21 +151,17 @@ namespace CS346_A2 {
 		}
 #pragma endregion
 	public: User^ user;
-	public: System::Void get_timetable(String^ day, User^ user){
+	public: System::Void get_examschedule(int mid_end, User^ user){
 
 				try{
 					String^ query;
-					if (user->userType == "Faculty")
-					{
-						query = "select Course_ID,Name,timetable.Room_ID,timetable.Slot,time_slot,Room_type from course INNER JOIN ((timetable INNER JOIN Lecture_Slots ON timetable.Slot = Lecture_Slots.slot) INNER JOIN classroom ON classroom.Room_ID = timetable.Room_ID) ON Course_Code = Course_ID where Course_ID in (select Course_Code from course where  Faculty_ID = @user_ID_fetch) and weekday = @day";
-					}
-					else
-					{
-						query = "select Course_ID,Name,timetable.Room_ID,timetable.Slot,time_slot,Room_type from course INNER JOIN ((timetable INNER JOIN Lecture_Slots ON timetable.Slot = Lecture_Slots.slot) INNER JOIN classroom ON classroom.Room_ID = timetable.Room_ID) ON Course_Code = Course_ID where Course_ID in (select CourseCode from grade where User_ID = @user_ID_fetch) and weekday = @day";
-					}
+					
+						query = "select Course_ID,Name,Date,Time_Slot,exam.Room_ID,classroom.Room_type from ((exam INNER JOIN course ON Course_ID = Course_Code) INNER JOIN classroom ON classroom.Room_ID = exam.Room_ID) where Student_ID = @user_ID_fetch and ExamType = @type";
+					
+					
 					array<SqlParameter^>^ parameters = {
 						gcnew SqlParameter("@user_ID_fetch", System::Convert::ToString(user->userID)),
-						gcnew SqlParameter("@day", day)
+						gcnew SqlParameter("@type", mid_end)
 
 					};
 					//MessageBox::Show(query);
@@ -179,14 +176,15 @@ namespace CS346_A2 {
 					while (dr->Read()) {
 						String^ courseCode = dr->GetString(0);
 						String^ courseName = dr->GetString(1);
-						String^ slot = dr->GetString(3);
+						DateTime dt = dr->GetDateTime(2);
+						String^ date = dt.ToString("dd MM yyyy");
 
-						String^ time = dr->GetString(4);
-						String^ venue = dr->GetString(2) + ", " + dr->GetString(5);
+						String^ time = dr->GetString(3);
+						String^ venue = dr->GetString(4) + ", " + dr->GetString(5);
 
 						ListViewItem^ item = gcnew ListViewItem(courseCode->ToString());
 						item->SubItems->Add(courseName->ToString());
-						item->SubItems->Add(slot->ToString());
+						item->SubItems->Add(date->ToString());
 						item->SubItems->Add(time->ToString());
 						item->SubItems->Add(venue->ToString());
 						if (col)
@@ -212,7 +210,7 @@ namespace CS346_A2 {
 	}
 	private: System::Void comboBox1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
 				 //MessageBox::Show(comboBox1->SelectedItem->ToString());
-				 get_timetable(comboBox1->SelectedItem->ToString(), user);
+				 get_examschedule(comboBox1->SelectedIndex, user);
 	}
 };
 }

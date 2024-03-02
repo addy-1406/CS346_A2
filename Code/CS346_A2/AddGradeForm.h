@@ -40,17 +40,19 @@ namespace CS346_A2 {
 					Button^ btn = gcnew Button();
 					btn->Text = reader["Name"]->ToString() + "\n" + reader["Course_Code"]->ToString();
 					btn->Location = Point(10, y);
-					btn->AutoSize = true;
-					Controls->Add(btn);
+					btn->AutoSize = false;
+					btn->Size = System::Drawing::Size(170, 50);
+					Controls->Add(btn); // Add the button to the form
 					btn->Click += gcnew System::EventHandler(this, &AddGradeForm::Button_Click);
 					y += btn->Height + 10;
 				}
 				Label^ partitionLabel = gcnew Label();
 				partitionLabel->AutoSize = false;
-				partitionLabel->Size = System::Drawing::Size(2, 520);
-				partitionLabel->Location = Point(103, 0);
-				partitionLabel->BackColor = Color::Gray;
+				partitionLabel->Size = System::Drawing::Size(2, Math::Max(520, y+10)); // Adjust the width as needed
+				partitionLabel->Location = Point(200, 0); // Adjust the X position to align with the buttons
+				partitionLabel->BackColor = Color::Gray; // Set the color of the partition
 				Controls->Add(partitionLabel);
+				
 			}
 			catch (Exception^ ex)
 			{
@@ -105,7 +107,7 @@ namespace CS346_A2 {
 							"Course Description: " + reader["Description"]->ToString() + "\r\n" +
 							"L: " + reader["L"]->ToString() + ", T: " + reader["T"]->ToString() +
 							", P: " + reader["P"]->ToString() + ", C: " + reader["C"]->ToString() + "\r\n" +
-							", Semester: " + reader["Semester"]->ToString() +
+							" Semester: " + reader["Semester"]->ToString() +
 							", Intake: " + reader["Intake"]->ToString();
 						course_id = reader["Course_Code"]->ToString();
 
@@ -119,7 +121,7 @@ namespace CS346_A2 {
 							courseDetailsTextBox->Text = courseDetails;
 							SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
 							courseDetailsTextBox->Size = System::Drawing::Size(450, 115);
-							courseDetailsTextBox->Location = System::Drawing::Point(160, 20);
+							courseDetailsTextBox->Location = System::Drawing::Point(210, 20);
 							courseDetailsTextBox->Font = gcnew System::Drawing::Font("Arial", 12);
 							Controls->Add(courseDetailsTextBox);
 						}
@@ -135,7 +137,7 @@ namespace CS346_A2 {
 
 						if (reader["User_ID"] != DBNull::Value) {
 							ListView^ listViewGrades = gcnew ListView();
-							listViewGrades->Location = Point(160, 160);
+							listViewGrades->Location = Point(210, 160);
 							listViewGrades->Size = System::Drawing::Size(450, 200);
 							listViewGrades->View = View::Details;
 							listViewGrades->FullRowSelect = true;
@@ -155,13 +157,13 @@ namespace CS346_A2 {
 
 							// Add Grade TextBox
 							gradeTextBox = gcnew TextBox();
-							gradeTextBox->Location = Point(160, 370);
-							gradeTextBox->Size = System::Drawing::Size(100, 20);
+							gradeTextBox->Location = Point(210, 370);
+							gradeTextBox->Size = System::Drawing::Size(50, 20);
 							Controls->Add(gradeTextBox);
 
 							Button^ addGradeButton = gcnew Button();
 							addGradeButton->Text = "Add Grade";
-							addGradeButton->Location = Point(280, 370);
+							addGradeButton->Location = Point(300, 370);
 							addGradeButton->Click += gcnew EventHandler(this, &AddGradeForm::AddGradeButton_Click);
 							Controls->Add(addGradeButton);
 						}
