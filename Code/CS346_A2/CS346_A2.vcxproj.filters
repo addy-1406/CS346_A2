@@ -1,153 +1,51 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <ItemGroup>
-    <Filter Include="Source Files">
-      <UniqueIdentifier>{4FC737F1-C7A5-4376-A066-2A32D752A2FF}</UniqueIdentifier>
-      <Extensions>cpp;c;cc;cxx;def;odl;idl;hpj;bat;asm;asmx</Extensions>
-    </Filter>
-    <Filter Include="Header Files">
-      <UniqueIdentifier>{93995380-89BD-4b04-88EB-625FBE52EBFB}</UniqueIdentifier>
-      <Extensions>h;hh;hpp;hxx;hm;inl;inc;xsd</Extensions>
-    </Filter>
-    <Filter Include="Resource Files">
-      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
-      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
-    </Filter>
+    <ClCompile Include="Root.cpp" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Root.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
-    <ClCompile Include="Fee_Payment_Dummy.cpp">
-      <Filter>Header Files</Filter>
-    </ClCompile>
+    <ClInclude Include="AddCourseForm.h" />
+    <ClInclude Include="AddGradeForm.h" />
+    <ClInclude Include="AdminHome.h" />
+    <ClInclude Include="CourseForm.h" />
+    <ClInclude Include="Course_EnrollPage.h" />
+    <ClInclude Include="DatabaseHelper.h" />
+    <ClInclude Include="FacultyHome.h" />
+    <ClInclude Include="Fee_Payment_Dummy.h" />
+    <ClInclude Include="Global_Page.h" />
+    <ClInclude Include="Grade.h" />
+    <ClInclude Include="Login_Register.h" />
+    <ClInclude Include="MiscellaneousFunctions.h" />
+    <ClInclude Include="MyForm.h" />
+    <ClInclude Include="ProfileForm.h" />
+    <ClInclude Include="Register.h" />
+    <ClInclude Include="Registered Courses.h" />
+    <ClInclude Include="Root.h" />
+    <ClInclude Include="Signup.h" />
+    <ClInclude Include="StudentHome.h" />
+    <ClInclude Include="Student_Profile.h" />
+    <ClInclude Include="Test.h" />
+    <ClInclude Include="TimeTableView.h" />
+    <ClInclude Include="User.h" />
+    <ClInclude Include="Welcome_Pic.h" />
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="MyForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Test.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AdminHome.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="StudentHome.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="FacultyHome.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Register.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Root.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="User.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="AddCourseForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="CourseForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="ProfileForm.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="DatabaseHelper.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Global_Page.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Welcome_Pic.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Login_Register.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="MiscellaneousFunctions.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Grade.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Signup.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Student_Profile.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Registered Courses.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="Course_EnrollPage.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-<<<<<<< HEAD
-    <ClInclude Include="AddGradeForm.h">
-=======
-    <ClInclude Include="Fee_Payment_Dummy.h">
->>>>>>> 850643a3a5b889f97760a352372751eb82dbca02
-      <Filter>Header Files</Filter>
-    </ClInclude>
-    <ClInclude Include="TimeTableView.h">
-      <Filter>Header Files</Filter>
-    </ClInclude>
-  </ItemGroup>
-  <ItemGroup>
-    <EmbeddedResource Include="MyForm.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AdminHome.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="FacultyHome.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Register.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="StudentHome.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="AddCourseForm.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="CourseForm.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="ProfileForm.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Global_Page.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Login_Register.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Welcome_Pic.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Grade.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Signup.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Student_Profile.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Course_EnrollPage.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Registered Courses.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Fee_Payment_Dummy.resx">
-      <Filter>Resource Files</Filter>
-    </EmbeddedResource>
+    <EmbeddedResource Include="AddCourseForm.resx" />
+    <EmbeddedResource Include="AdminHome.resx" />
+    <EmbeddedResource Include="CourseForm.resx" />
+    <EmbeddedResource Include="Course_EnrollPage.resx" />
+    <EmbeddedResource Include="FacultyHome.resx" />
+    <EmbeddedResource Include="Fee_Payment_Dummy.resx" />
+    <EmbeddedResource Include="Global_Page.resx" />
+    <EmbeddedResource Include="Grade.resx" />
+    <EmbeddedResource Include="Login_Register.resx" />
+    <EmbeddedResource Include="ProfileForm.resx" />
+    <EmbeddedResource Include="MyForm.resx" />
+    <EmbeddedResource Include="Register.resx" />
+    <EmbeddedResource Include="Registered Courses.resx" />
+    <EmbeddedResource Include="Signup.resx" />
+    <EmbeddedResource Include="StudentHome.resx" />
+    <EmbeddedResource Include="Student_Profile.resx" />
+    <EmbeddedResource Include="Welcome_Pic.resx" />
   </ItemGroup>
 </Project>
