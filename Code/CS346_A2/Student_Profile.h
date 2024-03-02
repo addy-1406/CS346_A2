@@ -3,6 +3,7 @@
 #include "DatabaseHelper.h"
 #include "MiscellaneousFunctions.h"
 #include <msclr/marshal_cppstd.h> // Required for marshaling strings
+
 namespace CS346_A2 {
 
 	using namespace System;
@@ -11,6 +12,7 @@ namespace CS346_A2 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
+	using namespace System::IO;
 
 	/// <summary>
 	/// Summary for Student_Profile
@@ -442,6 +444,7 @@ namespace CS346_A2 {
 				catch (Exception^ ex){
 					MessageBox::Show(ex->Message);
 				}
+				profile_photo_fetch(user);
 				
 		
 	}
@@ -528,22 +531,64 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 					throw gcnew Exception("Error uploading profile photo: " + ex->Message);
 				}
 	}
+			public: System::Void profile_photo_fetch(User^ user)
+			{
+						String^ query = "SELECT Photo FROM profile_photos WHERE User_ID = @UserID";
+						array<SqlParameter^>^ parameters = gcnew array<SqlParameter^> { gcnew SqlParameter("@UserID", System::Convert::ToString(user->userID)) };
+						SqlDataReader^ reader = DatabaseHelper::ExecuteQuery(query, parameters);
+
+						if (reader->Read() && reader["Photo"] != nullptr && reader["Photo"] != DBNull::Value) {
+							array<Byte>^ imgData = safe_cast<array<Byte>^>(reader["Photo"]);
+							MemoryStream^ ms = gcnew MemoryStream(imgData);
+							pictureBox3->Image = Image::FromStream(ms);
+						}
+						else {
+							// If photo is null in profile_photos table, use default photo
+							try {
+								pictureBox3->Image = Image::FromFile("..\\MediaFiles\\profile.jpg");
+							}
+							catch (Exception^ ex) {
+								MessageBox::Show("Error loading default image: " + ex->Message);
+							}
+						}
+
+						reader->Close();
+			}
 private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
 			 OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
-			 openFileDialog1->Filter = "Image Files (*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif)|*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif";
+			 //openFileDialog1->Filter = "Image Files (.bmp;.jpg;.jpeg,.gif,.png,.tif)|.bmp;.jpg;.jpeg;.gif;.png;.tif";
+
 			 if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 				 try {
-					 pictureBox3->BackgroundImage = Image::FromFile(openFileDialog1->FileName);
+					 pictureBox1->Image = Image::FromFile(openFileDialog1->FileName);
+
+					 // Convert Image to byte array
+					 array<Byte>^ imageArray = ImageToByteArray(pictureBox1->Image);
 
 					 // Upload the image to the database
-					 Upload_Profile_Photo(user, pictureBox3->Image);
-					 MessageBox::Show("Image successfully uploaded!!");
+					 UploadImageToDatabase(imageArray, user->userID);
 				 }
 				 catch (Exception^ ex) {
 					 MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				 }
 			 }
 }
+		 public: System::Void UploadImageToDatabase(array<Byte>^ photoData, int userID) {
+					 try {
+						 String^ query = "UPDATE profile_photos SET Photo = @Photo WHERE User_ID = @UserID";
+						 array<SqlParameter^>^ parameters = {
+							 gcnew SqlParameter("@UserID", userID),
+							 gcnew SqlParameter("@Photo", photoData)
+						 };
+
+						 DatabaseHelper::ExecuteQuery(query, parameters);
+
+						 MessageBox::Show("Photo uploaded successfully.", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+					 }
+					 catch (SqlException^ ex) {
+						 MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+					 }
+		 }
 private: System::Void Student_Profile_Load(System::Object^  sender, System::EventArgs^  e) {
 			 get_profile(user);
 			 textBox1->Text = stu->Name;
