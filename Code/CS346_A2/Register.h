@@ -229,7 +229,7 @@ namespace CS346_A2 {
 				static_cast<System::Int32>(static_cast<System::Byte>(160)));
 			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->ForeColor = System::Drawing::Color::OldLace;
+			this->label8->ForeColor = System::Drawing::Color::White;
 			this->label8->Location = System::Drawing::Point(0, 0);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(967, 63);

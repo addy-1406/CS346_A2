@@ -53,24 +53,35 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::TextBox^  textBox7;
 
 	private: System::Windows::Forms::TextBox^  textBox9;
-	private: System::Windows::Forms::Label^  label1;
-	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::Label^  label3;
-	private: System::Windows::Forms::Label^  label4;
-	private: System::Windows::Forms::Label^  label5;
-	private: System::Windows::Forms::Label^  label6;
 
-	private: System::Windows::Forms::Label^  label8;
-	private: System::Windows::Forms::Label^  label9;
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::Label^  label10;
-	private: System::Windows::Forms::Button^  button1;
+
 
 	private:
 		/// <summary>
 		/// Required designer variable.
 		/// </summary>
 		System::ComponentModel::Container ^components;
-		int userid;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::Label^  label7;
+	private: System::Windows::Forms::Label^  label11;
+	private: System::Windows::Forms::Label^  label13;
+	private: System::Windows::Forms::Label^  label14;
+	private: System::Windows::Forms::Label^  label15;
+	private: System::Windows::Forms::Label^  label12;
+	private: System::Windows::Forms::Label^  label16;
+	private: System::Windows::Forms::Label^  label17;
+	private: System::Windows::Forms::PictureBox^  pictureBox2;
+	private: System::Windows::Forms::Button^  button2;
+			 int userid;
 		// Function to add labels and text boxes
 
 
@@ -89,22 +100,26 @@ namespace CS346_A2 {
 			this->textBox6 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox7 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox9 = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->label5 = (gcnew System::Windows::Forms::Label());
-			this->label6 = (gcnew System::Windows::Forms::Label());
-			this->label8 = (gcnew System::Windows::Forms::Label());
-			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->label10 = (gcnew System::Windows::Forms::Label());
-			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			this->label11 = (gcnew System::Windows::Forms::Label());
+			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->label14 = (gcnew System::Windows::Forms::Label());
+			this->label15 = (gcnew System::Windows::Forms::Label());
+			this->label12 = (gcnew System::Windows::Forms::Label());
+			this->label16 = (gcnew System::Windows::Forms::Label());
+			this->label17 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox1
 			// 
 			this->textBox1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox1->Location = System::Drawing::Point(471, 438);
+			this->textBox1->Location = System::Drawing::Point(494, 108);
 			this->textBox1->Name = L"textBox1";
 			this->textBox1->Size = System::Drawing::Size(219, 30);
 			this->textBox1->TabIndex = 0;
@@ -112,7 +127,7 @@ namespace CS346_A2 {
 			// textBox2
 			// 
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox2->Location = System::Drawing::Point(471, 85);
+			this->textBox2->Location = System::Drawing::Point(235, 108);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->Size = System::Drawing::Size(219, 30);
 			this->textBox2->TabIndex = 1;
@@ -121,16 +136,16 @@ namespace CS346_A2 {
 			// 
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(471, 133);
+			this->textBox3->Location = System::Drawing::Point(494, 187);
 			this->textBox3->Multiline = true;
 			this->textBox3->Name = L"textBox3";
-			this->textBox3->Size = System::Drawing::Size(219, 51);
+			this->textBox3->Size = System::Drawing::Size(232, 177);
 			this->textBox3->TabIndex = 2;
 			// 
 			// textBox4
 			// 
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox4->Location = System::Drawing::Point(471, 190);
+			this->textBox4->Location = System::Drawing::Point(235, 187);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->Size = System::Drawing::Size(219, 30);
 			this->textBox4->TabIndex = 3;
@@ -138,7 +153,7 @@ namespace CS346_A2 {
 			// textBox5
 			// 
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox5->Location = System::Drawing::Point(471, 231);
+			this->textBox5->Location = System::Drawing::Point(235, 262);
 			this->textBox5->Name = L"textBox5";
 			this->textBox5->Size = System::Drawing::Size(219, 30);
 			this->textBox5->TabIndex = 4;
@@ -146,7 +161,7 @@ namespace CS346_A2 {
 			// textBox6
 			// 
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox6->Location = System::Drawing::Point(471, 271);
+			this->textBox6->Location = System::Drawing::Point(235, 334);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->Size = System::Drawing::Size(219, 30);
 			this->textBox6->TabIndex = 5;
@@ -154,7 +169,7 @@ namespace CS346_A2 {
 			// textBox7
 			// 
 			this->textBox7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox7->Location = System::Drawing::Point(471, 311);
+			this->textBox7->Location = System::Drawing::Point(494, 413);
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(219, 30);
 			this->textBox7->TabIndex = 6;
@@ -162,129 +177,181 @@ namespace CS346_A2 {
 			// textBox9
 			// 
 			this->textBox9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->textBox9->Location = System::Drawing::Point(471, 397);
+			this->textBox9->Location = System::Drawing::Point(235, 413);
 			this->textBox9->Name = L"textBox9";
 			this->textBox9->Size = System::Drawing::Size(219, 30);
 			this->textBox9->TabIndex = 8;
 			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(274, 85);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(139, 25);
-			this->label1->TabIndex = 9;
-			this->label1->Text = L"Course Name:";
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label2->Location = System::Drawing::Point(229, 133);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(184, 25);
-			this->label2->TabIndex = 10;
-			this->label2->Text = L"Course Description:";
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label3->Location = System::Drawing::Point(290, 190);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(123, 25);
-			this->label3->TabIndex = 11;
-			this->label3->Text = L"L (Lectures):";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label4->Location = System::Drawing::Point(288, 234);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(125, 25);
-			this->label4->TabIndex = 12;
-			this->label4->Text = L"T (Tutorials):";
-			// 
-			// label5
-			// 
-			this->label5->AutoSize = true;
-			this->label5->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label5->Location = System::Drawing::Point(279, 271);
-			this->label5->Name = L"label5";
-			this->label5->Size = System::Drawing::Size(134, 25);
-			this->label5->TabIndex = 13;
-			this->label5->Text = L"P (Practicals):";
-			// 
-			// label6
-			// 
-			this->label6->AutoSize = true;
-			this->label6->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label6->Location = System::Drawing::Point(342, 311);
-			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(71, 25);
-			this->label6->TabIndex = 14;
-			this->label6->Text = L"Intake:";
-			// 
-			// label8
-			// 
-			this->label8->AutoSize = true;
-			this->label8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label8->Location = System::Drawing::Point(311, 397);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(102, 25);
-			this->label8->TabIndex = 16;
-			this->label8->Text = L"Semester:";
-			// 
-			// label9
-			// 
-			this->label9->AutoSize = true;
-			this->label9->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->label9->Location = System::Drawing::Point(279, 438);
-			this->label9->Name = L"label9";
-			this->label9->Size = System::Drawing::Size(135, 25);
-			this->label9->TabIndex = 17;
-			this->label9->Text = L"Course Code:";
-			// 
 			// label10
 			// 
 			this->label10->AutoSize = true;
-			this->label10->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+			this->label10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->label10->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(407, 25);
+			this->label10->ForeColor = System::Drawing::Color::White;
+			this->label10->Location = System::Drawing::Point(312, 16);
 			this->label10->Name = L"label10";
-			this->label10->Size = System::Drawing::Size(127, 25);
+			this->label10->Size = System::Drawing::Size(361, 41);
 			this->label10->TabIndex = 18;
-			this->label10->Text = L"Add Course";
+			this->label10->Text = L"ENTER COURSE DETAILS";
 			// 
-			// button1
+			// pictureBox1
 			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12));
-			this->button1->Location = System::Drawing::Point(399, 492);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(153, 30);
-			this->button1->TabIndex = 19;
-			this->button1->Text = L"Submit";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &AddCourseForm::button1_Click);
+			this->pictureBox1->BackColor = System::Drawing::Color::White;
+			this->pictureBox1->Location = System::Drawing::Point(197, 60);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(567, 552);
+			this->pictureBox1->TabIndex = 20;
+			this->pictureBox1->TabStop = false;
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->BackColor = System::Drawing::Color::White;
+			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label7->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label7->Location = System::Drawing::Point(231, 85);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(98, 20);
+			this->label7->TabIndex = 21;
+			this->label7->Text = L"Course Name";
+			// 
+			// label11
+			// 
+			this->label11->AutoSize = true;
+			this->label11->BackColor = System::Drawing::Color::White;
+			this->label11->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label11->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label11->Location = System::Drawing::Point(490, 164);
+			this->label11->Name = L"label11";
+			this->label11->Size = System::Drawing::Size(85, 20);
+			this->label11->TabIndex = 22;
+			this->label11->Text = L"Description";
+			// 
+			// label13
+			// 
+			this->label13->AutoSize = true;
+			this->label13->BackColor = System::Drawing::Color::White;
+			this->label13->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label13->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label13->Location = System::Drawing::Point(231, 164);
+			this->label13->Name = L"label13";
+			this->label13->Size = System::Drawing::Size(84, 20);
+			this->label13->TabIndex = 24;
+			this->label13->Text = L"L (Lectures)";
+			// 
+			// label14
+			// 
+			this->label14->AutoSize = true;
+			this->label14->BackColor = System::Drawing::Color::White;
+			this->label14->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label14->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label14->Location = System::Drawing::Point(231, 236);
+			this->label14->Name = L"label14";
+			this->label14->Size = System::Drawing::Size(88, 20);
+			this->label14->TabIndex = 25;
+			this->label14->Text = L"T (Tutorials)";
+			// 
+			// label15
+			// 
+			this->label15->AutoSize = true;
+			this->label15->BackColor = System::Drawing::Color::White;
+			this->label15->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label15->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label15->Location = System::Drawing::Point(236, 311);
+			this->label15->Name = L"label15";
+			this->label15->Size = System::Drawing::Size(93, 20);
+			this->label15->TabIndex = 26;
+			this->label15->Text = L"P (Practicals)";
+			// 
+			// label12
+			// 
+			this->label12->AutoSize = true;
+			this->label12->BackColor = System::Drawing::Color::White;
+			this->label12->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label12->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label12->Location = System::Drawing::Point(490, 390);
+			this->label12->Name = L"label12";
+			this->label12->Size = System::Drawing::Size(49, 20);
+			this->label12->TabIndex = 27;
+			this->label12->Text = L"Intake";
+			// 
+			// label16
+			// 
+			this->label16->AutoSize = true;
+			this->label16->BackColor = System::Drawing::Color::White;
+			this->label16->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label16->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label16->Location = System::Drawing::Point(231, 390);
+			this->label16->Name = L"label16";
+			this->label16->Size = System::Drawing::Size(70, 20);
+			this->label16->TabIndex = 28;
+			this->label16->Text = L"Semester";
+			// 
+			// label17
+			// 
+			this->label17->AutoSize = true;
+			this->label17->BackColor = System::Drawing::Color::White;
+			this->label17->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label17->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label17->Location = System::Drawing::Point(490, 85);
+			this->label17->Name = L"label17";
+			this->label17->Size = System::Drawing::Size(93, 20);
+			this->label17->TabIndex = 29;
+			this->label17->Text = L"Course Code";
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->pictureBox2->Location = System::Drawing::Point(197, 12);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(567, 50);
+			this->pictureBox2->TabIndex = 30;
+			this->pictureBox2->TabStop = false;
+			// 
+			// button2
+			// 
+			this->button2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->button2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->ForeColor = System::Drawing::Color::White;
+			this->button2->Location = System::Drawing::Point(399, 530);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(176, 46);
+			this->button2->TabIndex = 31;
+			this->button2->Text = L"Submit";
+			this->button2->UseVisualStyleBackColor = false;
+			this->button2->Click += gcnew System::EventHandler(this, &AddCourseForm::button2_Click);
 			// 
 			// AddCourseForm
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(970, 640);
-			this->Controls->Add(this->button1);
+			this->Controls->Add(this->button2);
+			this->Controls->Add(this->label17);
+			this->Controls->Add(this->label16);
+			this->Controls->Add(this->label12);
+			this->Controls->Add(this->label15);
+			this->Controls->Add(this->label14);
+			this->Controls->Add(this->label13);
+			this->Controls->Add(this->label11);
+			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label10);
-			this->Controls->Add(this->label9);
-			this->Controls->Add(this->label8);
-			this->Controls->Add(this->label6);
-			this->Controls->Add(this->label5);
-			this->Controls->Add(this->label4);
-			this->Controls->Add(this->label3);
-			this->Controls->Add(this->label2);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->textBox9);
 			this->Controls->Add(this->textBox7);
 			this->Controls->Add(this->textBox6);
@@ -293,9 +360,13 @@ namespace CS346_A2 {
 			this->Controls->Add(this->textBox3);
 			this->Controls->Add(this->textBox2);
 			this->Controls->Add(this->textBox1);
+			this->Controls->Add(this->pictureBox1);
+			this->Controls->Add(this->pictureBox2);
 			this->Name = L"AddCourseForm";
 			this->Text = L"AddCourseForm";
 			this->Load += gcnew System::EventHandler(this, &AddCourseForm::AddCourseForm_Load);
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -400,34 +471,7 @@ namespace CS346_A2 {
 		// Event handler for submit button click
 		System::Void button1_Click(System::Object^ sender, System::EventArgs^ e)
 		{
-			// Type checking for each textbox
-			if (!IsValidInt(textBox4->Text) || !IsValidInt(textBox5->Text) || !IsValidInt(textBox6->Text) ||
-				!IsValidInt(textBox7->Text) || !IsValidInt(textBox9->Text))
-			{
-				MessageBox::Show("Please enter valid integer values for L, T, P, Intake, Semester, and Year.");
-				return;
-			}
-
-			if (textBox1->Text->Length != 5)
-			{
-				MessageBox::Show("Course code must be 5 characters long.");
-				return;
-			}
-
-			if (textBox2->Text->Length > 50)
-			{
-				MessageBox::Show("Course name must not exceed 50 characters.");
-				return;
-			}
-
-			if (textBox3->Text->Length > 200)
-			{
-				MessageBox::Show("Description must not exceed 200 characters.");
-				return;
-			}
-
-			// If all validations pass, add the course to the database
-			AddCourseToDatabase(userid);
+			
 		}
 
 		bool IsValidInt(String^ input)
@@ -445,6 +489,36 @@ namespace CS346_A2 {
 
 	private: System::Void AddCourseForm_Load(System::Object^  sender, System::EventArgs^  e) {
 	}
-	};
+	private: System::Void button2_Click(System::Object^  sender, System::EventArgs^  e) {
+				 // Type checking for each textbox
+				 if (!IsValidInt(textBox4->Text) || !IsValidInt(textBox5->Text) || !IsValidInt(textBox6->Text) ||
+					 !IsValidInt(textBox7->Text) || !IsValidInt(textBox9->Text))
+				 {
+					 MessageBox::Show("Please enter valid integer values for L, T, P, Intake, Semester, and Year.");
+					 return;
+				 }
+
+				 if (textBox1->Text->Length != 5)
+				 {
+					 MessageBox::Show("Course code must be 5 characters long.");
+					 return;
+				 }
+
+				 if (textBox2->Text->Length > 50)
+				 {
+					 MessageBox::Show("Course name must not exceed 50 characters.");
+					 return;
+				 }
+
+				 if (textBox3->Text->Length > 200)
+				 {
+					 MessageBox::Show("Description must not exceed 200 characters.");
+					 return;
+				 }
+
+				 // If all validations pass, add the course to the database
+				 AddCourseToDatabase(userid);
+	}
+};
 }
 #pragma endregion
