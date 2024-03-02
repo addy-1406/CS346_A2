@@ -58,7 +58,10 @@ namespace CS346_A2 {
 					btn->Text = reader["Name"]->ToString() + "\n" + reader["Course_Code"]->ToString();
 					btn->Location = Point(10, y);
 					btn->AutoSize = false;
-					btn->Size = System::Drawing::Size(170, 50);
+					btn->Size = System::Drawing::Size(170, 70);
+					btn->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
+					btn->ForeColor = Color::White; // Set text color to white
+					btn->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 10); // Set the font size to 10
 					Controls->Add(btn); // Add the button to the form
 
 					// Attach click event handler to the button
@@ -163,15 +166,16 @@ namespace CS346_A2 {
 								 courseDetailsTextBox = gcnew TextBox();
 								 courseDetailsTextBox->Multiline = true;
 								 courseDetailsTextBox->ReadOnly = true;
-								 courseDetailsTextBox->BackColor = Color::Gray; // Set background color to gray
+								 courseDetailsTextBox->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
 								 courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
+	
 								 courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
 								 courseDetailsTextBox->Text = courseDetails; // Set the text
 								 // Adjust the size of the text box according to the text content
 								 SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
 								 courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
 								 courseDetailsTextBox->Location = System::Drawing::Point(210, 20); // Set location as needed
-								 courseDetailsTextBox->Font = gcnew System::Drawing::Font("Arial", 12); // Set the font size and style
+								 courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
 								 Controls->Add(courseDetailsTextBox); // Add the textbox to the form
 							 }
 
@@ -220,6 +224,14 @@ namespace CS346_A2 {
 								 listViewGrades->Columns->Add("Approval Status", 100);
 								 listViewGrades->CheckBoxes = true; // Enable checkboxes
 
+								 // Set font and background color
+								 listViewGrades->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 9);
+								 listViewGrades->BackColor = System::Drawing::Color::FromArgb(177, 212, 224);
+
+								 // Set behavior
+								 listViewGrades->BorderStyle = System::Windows::Forms::BorderStyle::None;
+								 listViewGrades->UseCompatibleStateImageBehavior = false;
+
 								 // Add grade details to the list view
 								 do {
 									 ListViewItem^ item = gcnew ListViewItem(reader["User_ID"]->ToString());
@@ -239,14 +251,21 @@ namespace CS346_A2 {
 								 // Add approve button below the list view
 								 Button^ approveButton = gcnew Button();
 								 approveButton->Text = "Approve";
-								 approveButton->Location = Point(280, 370); // Adjust position as needed
-
+								 approveButton->Location = Point(280, 370); 
+								 approveButton->Size = System::Drawing::Size(120, 50);
+								 approveButton->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
+								 approveButton->ForeColor = Color::White; // Set text color to white// Adjust position as needed
+								 approveButton->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 10); // Set the font size to 10
 								 approveButton->Click += gcnew EventHandler(this, &CourseForm::ApproveButton_Click); // Handle click event
 								 Controls->Add(approveButton);
 
 								 Button^ rejectButton = gcnew Button();
 								 rejectButton->Text = "Reject";
-								 rejectButton->Location = Point(400, 370); // Adjust position as needed
+								 rejectButton->Location = Point(450, 370); // Adjust position as needed
+								 rejectButton->Size = System::Drawing::Size(120, 50);
+								 rejectButton->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
+								 rejectButton->ForeColor = Color::White; // Set text color to white
+								 rejectButton->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 10); // Set the font size to 10
 								 rejectButton->Click += gcnew EventHandler(this, &CourseForm::RejectButton_Click); // Handle click event
 								 Controls->Add(rejectButton);
 							 }
