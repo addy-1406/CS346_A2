@@ -210,6 +210,9 @@
     <EmbeddedResource Include="Student_Profile.resx">
       <DependentUpon>Student_Profile.h</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="TimeTableView.resx">
+      <DependentUpon>TimeTableView.h</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Welcome_Pic.resx">
       <DependentUpon>Welcome_Pic.h</DependentUpon>
     </EmbeddedResource>

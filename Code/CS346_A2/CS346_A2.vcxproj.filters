@@ -52,5 +52,6 @@
     <EmbeddedResource Include="Student_Profile.resx" />
     <EmbeddedResource Include="Welcome_Pic.resx" />
     <EmbeddedResource Include="ExamSchedule.resx" />
+    <EmbeddedResource Include="permissions.resx" />
   </ItemGroup>
 </Project>
