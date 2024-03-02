@@ -6,6 +6,7 @@
 #include "Registered Courses.h"
 #include "Fee_Payment_Dummy.h"
 #include "TimeTableView.h"
+#include "ExamSchedule.h"
 
 namespace CS346_A2 {
 
@@ -223,6 +224,7 @@ namespace CS346_A2 {
 			this->label6->Size = System::Drawing::Size(62, 28);
 			this->label6->TabIndex = 46;
 			this->label6->Text = L"Exam";
+			this->label6->Click += gcnew System::EventHandler(this, &StudentHome::label6_Click);
 			// 
 			// pictureBox2
 			// 
@@ -587,6 +589,22 @@ private: System::Void pictureBox12_Click(System::Object^  sender, System::EventA
 			 lp->Show();
 }
 private: System::Void pictureBox2_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+			 ExamSchedule^ lp = gcnew ExamSchedule(user);
+			 // Customize the form's appearance
+			 lp->ControlBox = false; // Hide the control box
+			 lp->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+
+			 // Set its properties
+			 lp->TopLevel = false;
+			 lp->AutoScroll = true;
+			 lp->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(lp);
+			 lp->Show();
 }
 };
 }
