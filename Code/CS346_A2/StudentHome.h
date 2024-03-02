@@ -5,6 +5,7 @@
 #include "Welcome_Pic.h"
 #include "Registered Courses.h"
 #include "Fee_Payment_Dummy.h"
+#include "TimeTableView.h"
 
 namespace CS346_A2 {
 
@@ -151,6 +152,7 @@ namespace CS346_A2 {
 			this->pictureBox12->Size = System::Drawing::Size(35, 31);
 			this->pictureBox12->TabIndex = 49;
 			this->pictureBox12->TabStop = false;
+			this->pictureBox12->Click += gcnew System::EventHandler(this, &StudentHome::pictureBox12_Click);
 			// 
 			// label10
 			// 
@@ -192,6 +194,7 @@ namespace CS346_A2 {
 			this->label9->Size = System::Drawing::Size(110, 28);
 			this->label9->TabIndex = 48;
 			this->label9->Text = L"TimeTable";
+			this->label9->Click += gcnew System::EventHandler(this, &StudentHome::label9_Click);
 			// 
 			// pictureBox9
 			// 
@@ -233,6 +236,7 @@ namespace CS346_A2 {
 			this->pictureBox2->Size = System::Drawing::Size(35, 31);
 			this->pictureBox2->TabIndex = 45;
 			this->pictureBox2->TabStop = false;
+			this->pictureBox2->Click += gcnew System::EventHandler(this, &StudentHome::pictureBox2_Click);
 			// 
 			// label5
 			// 
@@ -549,6 +553,40 @@ private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  
 			 panel1->Controls->Clear();
 			 panel1->Controls->Add(lp);
 			 lp->Show();
+}
+private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
+			 TimeTableView^ lp = gcnew TimeTableView(user);
+			 // Customize the form's appearance
+			 lp->ControlBox = false; // Hide the control box
+			 lp->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+
+			 // Set its properties
+			 lp->TopLevel = false;
+			 lp->AutoScroll = true;
+			 lp->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(lp);
+			 lp->Show();
+}
+private: System::Void pictureBox12_Click(System::Object^  sender, System::EventArgs^  e) {
+			 TimeTableView^ lp = gcnew TimeTableView(user);
+			 // Customize the form's appearance
+			 lp->ControlBox = false; // Hide the control box
+			 lp->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+
+			 // Set its properties
+			 lp->TopLevel = false;
+			 lp->AutoScroll = true;
+			 lp->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(lp);
+			 lp->Show();
+}
+private: System::Void pictureBox2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

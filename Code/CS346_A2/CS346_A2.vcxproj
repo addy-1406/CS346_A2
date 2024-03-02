@@ -79,7 +79,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="Fee_Payment_Dummy.cpp" />
     <ClCompile Include="Root.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -138,6 +137,9 @@
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="Test.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="TimeTableView.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="User.h" />
