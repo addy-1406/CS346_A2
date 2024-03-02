@@ -3,6 +3,7 @@
   <ItemGroup>
     <ClCompile Include="Root.cpp" />
     <ClCompile Include="ExamSchedule.cpp" />
+    <ClCompile Include="permissions.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCourseForm.h" />
@@ -30,6 +31,7 @@
     <ClInclude Include="User.h" />
     <ClInclude Include="Welcome_Pic.h" />
     <ClInclude Include="ExamSchedule.h" />
+    <ClInclude Include="permissions.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddCourseForm.resx" />
@@ -49,5 +51,6 @@
     <EmbeddedResource Include="StudentHome.resx" />
     <EmbeddedResource Include="Student_Profile.resx" />
     <EmbeddedResource Include="Welcome_Pic.resx" />
+    <EmbeddedResource Include="ExamSchedule.resx" />
   </ItemGroup>
 </Project>

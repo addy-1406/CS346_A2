@@ -116,6 +116,7 @@ namespace CS346_A2 {
 			this->pictureBox2->Size = System::Drawing::Size(155, 164);
 			this->pictureBox2->TabIndex = 2;
 			this->pictureBox2->TabStop = false;
+			this->pictureBox2->Click += gcnew System::EventHandler(this, &Login_Register::pictureBox2_Click);
 			// 
 			// label1
 			// 
@@ -315,6 +316,8 @@ private: System::Void pictureBox1_Click(System::Object^  sender, System::EventAr
 }
 private: System::Void button1_Click_1(System::Object^  sender, System::EventArgs^  e) {
 
+}
+private: System::Void pictureBox2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

@@ -70,16 +70,40 @@ namespace CS346_A2 {
 		}
 	private:
 		System::Windows::Forms::Panel^ panel1;
-		System::Windows::Forms::Button^ button1; // Logout Button
-		System::Windows::Forms::Button^ addButtonCourse; // AddCourse Button
-		System::Windows::Forms::Button^ buttonProfile; // Profile Button
-		System::Windows::Forms::Button^ buttonCourses;
-	private: System::Windows::Forms::PictureBox^  pictureBox2;
+		// Logout Button
+		// AddCourse Button
+		// Profile Button
+
+
+
+
+
+
+
+	private: System::Windows::Forms::PictureBox^  pictureBox5;
+	private: System::Windows::Forms::PictureBox^  pictureBox4;
+	private: System::Windows::Forms::PictureBox^  pictureBox6;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
-	private: System::Windows::Forms::PictureBox^  pictureBox3;
-	private: System::Windows::Forms::Button^  button2;
-	private: System::Windows::Forms::Button^  button3;
+
+	private: System::Windows::Forms::PictureBox^  pictureBox9;
+
+	private: System::Windows::Forms::PictureBox^  pictureBox8;
+
+	private: System::Windows::Forms::PictureBox^  pictureBox7;
+
+	private: System::Windows::Forms::PictureBox^  pictureBox2;
+	private: System::Windows::Forms::PictureBox^  pictureBox13;
+
+	private: System::Windows::Forms::PictureBox^  pictureBox10;
 	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  label6;
+	private: System::Windows::Forms::Label^  label5;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  label7;
+
+
 
 
 	protected:
@@ -99,130 +123,272 @@ namespace CS346_A2 {
 		void InitializeComponent(void)
 		{
 			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(FacultyHome::typeid));
-			this->addButtonCourse = (gcnew System::Windows::Forms::Button());
-			this->buttonProfile = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->button1 = (gcnew System::Windows::Forms::Button());
-			this->buttonCourses = (gcnew System::Windows::Forms::Button());
-			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox4 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button3 = (gcnew System::Windows::Forms::Button());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox7 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox8 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox9 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox13 = (gcnew System::Windows::Forms::PictureBox());
+			this->pictureBox10 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			this->label6 = (gcnew System::Windows::Forms::Label());
+			this->label5 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label7 = (gcnew System::Windows::Forms::Label());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox13))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->BeginInit();
 			this->SuspendLayout();
-			// 
-			// addButtonCourse
-			// 
-			this->addButtonCourse->Location = System::Drawing::Point(89, 348);
-			this->addButtonCourse->Name = L"addButtonCourse";
-			this->addButtonCourse->Size = System::Drawing::Size(132, 52);
-			this->addButtonCourse->TabIndex = 1;
-			this->addButtonCourse->Text = L"Add Course";
-			this->addButtonCourse->UseVisualStyleBackColor = true;
-			this->addButtonCourse->Click += gcnew System::EventHandler(this, &FacultyHome::AddCourseButton_Click);
-			// 
-			// buttonProfile
-			// 
-			this->buttonProfile->Location = System::Drawing::Point(89, 280);
-			this->buttonProfile->Name = L"buttonProfile";
-			this->buttonProfile->Size = System::Drawing::Size(132, 52);
-			this->buttonProfile->TabIndex = 2;
-			this->buttonProfile->Text = L"Profile";
-			this->buttonProfile->UseVisualStyleBackColor = true;
-			this->buttonProfile->Click += gcnew System::EventHandler(this, &FacultyHome::ProfileButton_Click);
 			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::Transparent;
-			this->panel1->Location = System::Drawing::Point(293, 34);
+			this->panel1->Location = System::Drawing::Point(293, 49);
 			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(970, 640);
+			this->panel1->Size = System::Drawing::Size(970, 625);
 			this->panel1->TabIndex = 4;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &FacultyHome::panel1_Paint);
 			// 
-			// button1
+			// pictureBox5
 			// 
-			this->button1->Location = System::Drawing::Point(1141, 4);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(109, 26);
-			this->button1->TabIndex = 3;
-			this->button1->Text = L"Logout";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &FacultyHome::button1_Click);
+			this->pictureBox5->BackColor = System::Drawing::Color::Silver;
+			this->pictureBox5->Location = System::Drawing::Point(24, 215);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(245, 2);
+			this->pictureBox5->TabIndex = 20;
+			this->pictureBox5->TabStop = false;
 			// 
-			// buttonCourses
+			// pictureBox4
 			// 
-			this->buttonCourses->Location = System::Drawing::Point(89, 421);
-			this->buttonCourses->Name = L"buttonCourses";
-			this->buttonCourses->Size = System::Drawing::Size(132, 52);
-			this->buttonCourses->TabIndex = 4;
-			this->buttonCourses->Text = L"Courses";
-			this->buttonCourses->UseVisualStyleBackColor = true;
-			this->buttonCourses->Click += gcnew System::EventHandler(this, &FacultyHome::CoursesButton_Click);
+			this->pictureBox4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->pictureBox4->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox4.BackgroundImage")));
+			this->pictureBox4->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->pictureBox4->Location = System::Drawing::Point(72, 30);
+			this->pictureBox4->Name = L"pictureBox4";
+			this->pictureBox4->Size = System::Drawing::Size(155, 164);
+			this->pictureBox4->TabIndex = 19;
+			this->pictureBox4->TabStop = false;
 			// 
-			// pictureBox2
+			// pictureBox6
 			// 
-			this->pictureBox2->BackColor = System::Drawing::Color::DimGray;
-			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
-			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox2->Location = System::Drawing::Point(27, 26);
-			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(239, 224);
-			this->pictureBox2->TabIndex = 6;
-			this->pictureBox2->TabStop = false;
+			this->pictureBox6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->pictureBox6->Location = System::Drawing::Point(1, -1);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(296, 675);
+			this->pictureBox6->TabIndex = 18;
+			this->pictureBox6->TabStop = false;
 			// 
 			// pictureBox1
 			// 
-			this->pictureBox1->BackColor = System::Drawing::Color::DimGray;
-			this->pictureBox1->Location = System::Drawing::Point(2, -1);
+			this->pictureBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->pictureBox1->Location = System::Drawing::Point(60, 261);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(296, 675);
-			this->pictureBox1->TabIndex = 5;
+			this->pictureBox1->Size = System::Drawing::Size(35, 31);
+			this->pictureBox1->TabIndex = 9;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox1_Click);
 			// 
-			// pictureBox3
+			// pictureBox2
 			// 
-			this->pictureBox3->BackColor = System::Drawing::Color::DimGray;
-			this->pictureBox3->Location = System::Drawing::Point(293, -1);
-			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(970, 36);
-			this->pictureBox3->TabIndex = 7;
-			this->pictureBox3->TabStop = false;
+			this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
+			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox2->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->pictureBox2->Location = System::Drawing::Point(60, 312);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(35, 31);
+			this->pictureBox2->TabIndex = 11;
+			this->pictureBox2->TabStop = false;
 			// 
-			// button2
+			// pictureBox7
 			// 
-			this->button2->Location = System::Drawing::Point(89, 490);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(132, 52);
-			this->button2->TabIndex = 8;
-			this->button2->Text = L"Add Grades";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &FacultyHome::button2_Click);
-
+			this->pictureBox7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
+			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox7->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->pictureBox7->Location = System::Drawing::Point(60, 361);
+			this->pictureBox7->Name = L"pictureBox7";
+			this->pictureBox7->Size = System::Drawing::Size(35, 31);
+			this->pictureBox7->TabIndex = 13;
+			this->pictureBox7->TabStop = false;
 			// 
-			// button3
+			// pictureBox8
 			// 
-			this->button3->Location = System::Drawing::Point(89, 563);
-			this->button3->Name = L"button3";
-			this->button3->Size = System::Drawing::Size(132, 52);
-			this->button3->TabIndex = 9;
-			this->button3->Text = L"View TimeTable";
-			this->button3->UseVisualStyleBackColor = true;
-			this->button3->Click += gcnew System::EventHandler(this, &FacultyHome::Timetable_Click);
+			this->pictureBox8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->pictureBox8->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.BackgroundImage")));
+			this->pictureBox8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox8->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->pictureBox8->Location = System::Drawing::Point(60, 407);
+			this->pictureBox8->Name = L"pictureBox8";
+			this->pictureBox8->Size = System::Drawing::Size(35, 31);
+			this->pictureBox8->TabIndex = 15;
+			this->pictureBox8->TabStop = false;
+			// 
+			// pictureBox9
+			// 
+			this->pictureBox9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->pictureBox9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.BackgroundImage")));
+			this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox9->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->pictureBox9->Location = System::Drawing::Point(60, 455);
+			this->pictureBox9->Name = L"pictureBox9";
+			this->pictureBox9->Size = System::Drawing::Size(35, 31);
+			this->pictureBox9->TabIndex = 17;
+			this->pictureBox9->TabStop = false;
+			// 
+			// pictureBox13
+			// 
+			this->pictureBox13->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->pictureBox13->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox13.BackgroundImage")));
+			this->pictureBox13->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox13->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->pictureBox13->Location = System::Drawing::Point(1103, 9);
+			this->pictureBox13->Name = L"pictureBox13";
+			this->pictureBox13->Size = System::Drawing::Size(35, 31);
+			this->pictureBox13->TabIndex = 35;
+			this->pictureBox13->TabStop = false;
+			// 
+			// pictureBox10
+			// 
+			this->pictureBox10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->pictureBox10->Location = System::Drawing::Point(293, -1);
+			this->pictureBox10->Name = L"pictureBox10";
+			this->pictureBox10->Size = System::Drawing::Size(970, 51);
+			this->pictureBox10->TabIndex = 32;
+			this->pictureBox10->TabStop = false;
+			this->pictureBox10->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox10_Click);
 			// 
 			// label1
 			// 
 			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::Transparent;
-			this->label1->Location = System::Drawing::Point(303, 9);
+			this->label1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
+			this->label1->ForeColor = System::Drawing::Color::White;
+			this->label1->Location = System::Drawing::Point(303, 12);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(46, 17);
+			this->label1->Size = System::Drawing::Size(71, 28);
 			this->label1->TabIndex = 10;
 			this->label1->Text = L"label1";
+			// 
+			// label6
+			// 
+			this->label6->AutoSize = true;
+			this->label6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label6->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label6->ForeColor = System::Drawing::Color::White;
+			this->label6->Location = System::Drawing::Point(101, 455);
+			this->label6->Name = L"label6";
+			this->label6->Size = System::Drawing::Size(107, 28);
+			this->label6->TabIndex = 40;
+			this->label6->Text = L"Timetable";
+			this->label6->Click += gcnew System::EventHandler(this, &FacultyHome::label6_Click);
+			// 
+			// label5
+			// 
+			this->label5->AutoSize = true;
+			this->label5->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label5->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label5->ForeColor = System::Drawing::Color::White;
+			this->label5->Location = System::Drawing::Point(101, 407);
+			this->label5->Name = L"label5";
+			this->label5->Size = System::Drawing::Size(125, 28);
+			this->label5->TabIndex = 39;
+			this->label5->Text = L"Add Grades";
+			this->label5->Click += gcnew System::EventHandler(this, &FacultyHome::label5_Click);
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label4->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::White;
+			this->label4->Location = System::Drawing::Point(101, 361);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(138, 28);
+			this->label4->TabIndex = 38;
+			this->label4->Text = L"View Courses";
+			this->label4->Click += gcnew System::EventHandler(this, &FacultyHome::label4_Click);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label2->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label2->ForeColor = System::Drawing::Color::White;
+			this->label2->Location = System::Drawing::Point(101, 312);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(133, 28);
+			this->label2->TabIndex = 37;
+			this->label2->Text = L"Add Courses";
+			this->label2->Click += gcnew System::EventHandler(this, &FacultyHome::label2_Click_1);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label3->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::Color::White;
+			this->label3->Location = System::Drawing::Point(101, 261);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(75, 28);
+			this->label3->TabIndex = 36;
+			this->label3->Text = L"Profile";
+			this->label3->Click += gcnew System::EventHandler(this, &FacultyHome::label3_Click);
+			// 
+			// label7
+			// 
+			this->label7->AutoSize = true;
+			this->label7->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->label7->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
+			this->label7->ForeColor = System::Drawing::Color::White;
+			this->label7->Location = System::Drawing::Point(1144, 9);
+			this->label7->Name = L"label7";
+			this->label7->Size = System::Drawing::Size(81, 28);
+			this->label7->TabIndex = 41;
+			this->label7->Text = L"Logout";
+			this->label7->Click += gcnew System::EventHandler(this, &FacultyHome::label7_Click);
 			// 
 			// FacultyHome
 			// 
@@ -230,23 +396,37 @@ namespace CS346_A2 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(1262, 673);
-			this->Controls->Add(this->label1);
-			this->Controls->Add(this->button3);
-			this->Controls->Add(this->button2);
-			this->Controls->Add(this->button1);
-			this->Controls->Add(this->buttonCourses);
-			this->Controls->Add(this->panel1);
-			this->Controls->Add(this->pictureBox2);
-			this->Controls->Add(this->addButtonCourse);
-			this->Controls->Add(this->buttonProfile);
+			this->Controls->Add(this->label7);
+			this->Controls->Add(this->label6);
+			this->Controls->Add(this->label5);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->pictureBox1);
-			this->Controls->Add(this->pictureBox3);
+			this->Controls->Add(this->pictureBox13);
+			this->Controls->Add(this->pictureBox9);
+			this->Controls->Add(this->label1);
+			this->Controls->Add(this->pictureBox5);
+			this->Controls->Add(this->pictureBox10);
+			this->Controls->Add(this->pictureBox8);
+			this->Controls->Add(this->pictureBox4);
+			this->Controls->Add(this->pictureBox7);
+			this->Controls->Add(this->pictureBox2);
+			this->Controls->Add(this->panel1);
+			this->Controls->Add(this->pictureBox6);
 			this->Name = L"FacultyHome";
 			this->Text = L"FacultyHome";
 			this->Load += gcnew System::EventHandler(this, &FacultyHome::FacultyHome_Load);
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
-			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox7))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox8))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox9))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox13))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -256,8 +436,7 @@ namespace CS346_A2 {
 	public: Panel^ globalPanel;
 	public: User^ user;
 	
-	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
-	}
+
 	private: System::Void FacultyHome_Load(System::Object^  sender, System::EventArgs^  e) {
 				 label1->Text = user->email;
 	}
@@ -373,5 +552,114 @@ namespace CS346_A2 {
 
 	private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 	}
+private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void pictureBox10_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
+			PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+			// Create an instance of the ProfileForm
+			int userid = user->userID;
+			ProfileForm^ profileForm = gcnew ProfileForm(userid);
+
+			// Customize the form's appearance
+			profileForm->ControlBox = false; // Hide the control box
+			profileForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+			//profileForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to green
+
+			// Set its properties
+			profileForm->TopLevel = false;
+			profileForm->AutoScroll = true;
+			profileForm->Dock = DockStyle::Fill;
+
+			// Add it to the panel
+			panel1->Controls->Clear();
+			panel1->Controls->Add(profileForm);
+			profileForm->Show();
+}
+private: System::Void label2_Click_1(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+			 // Create an instance of the AddCourseForm
+			 AddCourseForm^ addCourseForm = gcnew AddCourseForm(user->userID);
+
+			 // Customize the form's appearance
+			 addCourseForm->ControlBox = false; // Hide the control box
+			 addCourseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+			 //addCourseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to red
+
+			 // Set its properties
+			 addCourseForm->TopLevel = false;
+			 addCourseForm->AutoScroll = true;
+			 addCourseForm->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(addCourseForm);
+			 addCourseForm->Show();
+}
+private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+			 // Create an instance of the CourseFor
+			 int userid = user->userID;
+			 CourseForm^ courseForm = gcnew CourseForm(userid);
+
+			 // Customize the form's appearance
+			 courseForm->ControlBox = false; // Hide the control box
+			 courseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+			 //courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
+
+			 // Set its properties
+			 courseForm->TopLevel = false;
+			 courseForm->AutoScroll = true;
+			 courseForm->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(courseForm);
+			 courseForm->Show();
+}
+private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+			 int userid = user->userID;
+			 AddGradeForm^ addGradeForm = gcnew AddGradeForm(userid);
+			 // Customize the form's appearance
+			 addGradeForm->ControlBox = false; // Hide the control box
+			 addGradeForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+			 addGradeForm->TopLevel = false;
+			 addGradeForm->AutoScroll = true;
+			 addGradeForm->Dock = DockStyle::Fill;
+			 // Add the AddGradeForm to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(addGradeForm);
+			 addGradeForm->Show();
+}
+private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+			 // Create an instance of the CourseFor
+
+			 TimeTableView^ timetable = gcnew TimeTableView(user);
+
+			 // Customize the form's appearance
+			 timetable->ControlBox = false; // Hide the control box
+			 timetable->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+			 //courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
+
+			 // Set its properties
+			 timetable->TopLevel = false;
+			 timetable->AutoScroll = true;
+			 timetable->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(timetable);
+			 timetable->Show();
+}
+private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
+			 globalPanel->Controls->Clear();
+			 globalPanel->Controls->Add(globalForm);
+			 globalForm->Show();
+}
 };
 }
