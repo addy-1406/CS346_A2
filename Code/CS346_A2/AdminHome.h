@@ -581,7 +581,7 @@ private: System::Void pictureBox8_Click(System::Object^  sender, System::EventAr
 private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
 			 // permissions
 			 panel1->Controls->Clear();
-			 permissions^ permissionsform = gcnew permissions();
+			 permissions^ permissionsform = gcnew permissions(2021001);
 			 permissionsform->TopLevel = false;
 			 permissionsform->FormBorderStyle = Windows::Forms::FormBorderStyle::None;
 			 permissionsform->Dock = DockStyle::Fill;

@@ -154,17 +154,13 @@ namespace CS346_A2 {
 						 // Check if there is data available
 						 if (reader->Read()) {
 							 // Create a string with the course details
-							 String^ courseDetails = "Course ID: " + reader["Course_ID"]->ToString() + ";  \n" +
-								 "Name: " + reader["CourseName"]->ToString() + ";  \n" +
-								 "Description: " + reader["Description"]->ToString() + ";  \n" +
-								 "L: " + reader["L"]->ToString() + ";  \n" +
-								 "T: " + reader["T"]->ToString() + ";  \n" +
-								 "P: " + reader["P"]->ToString() + ";  \n" +
-								 "C: " + reader["C"]->ToString() + ";  \n" +
-								 "Intake: " + reader["Intake"]->ToString() + ";  \n" +
-								 "Semester: " + reader["Semester"]->ToString() + ";  \n" +
-								 "Year: " + reader["Year"]->ToString() + ";  \n" +
-								 "Course Code: " + reader["Course_Code"]->ToString();
+							 String^ courseDetails = "Course Code: " + reader["Course_Code"]->ToString() + "\r\n" +
+								 "Course Name: " + reader["CourseName"]->ToString() + "\r\n" +
+								 "Course Description: " + reader["Description"]->ToString() + "\r\n" +
+								 "L: " + reader["L"]->ToString() + ", T: " + reader["T"]->ToString() +
+								 ", P: " + reader["P"]->ToString() + ", C: " + reader["C"]->ToString() + "\r\n" +
+								 "Year: " + reader["Year"]->ToString() + ", Semester: " + reader["Semester"]->ToString() +
+								 ", Intake: " + reader["Intake"]->ToString();
 							 course_id = Convert::ToInt32(reader["Course_ID"]);
 
 =======
@@ -204,10 +200,13 @@ namespace CS346_A2 {
 								 courseDetailsTextBox = gcnew TextBox();
 								 courseDetailsTextBox->Multiline = true;
 								 courseDetailsTextBox->ReadOnly = true;
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 								 courseDetailsTextBox->Size = System::Drawing::Size(450, 70); // Set size for three lines
 								 courseDetailsTextBox->Location = System::Drawing::Point(120, 10); // Set location as needed
 =======
+=======
+>>>>>>> Stashed changes
 								 courseDetailsTextBox->BackColor = Color::Gray; // Set background color to gray
 								 courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
 								 courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
@@ -216,12 +215,19 @@ namespace CS346_A2 {
 								 SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
 								 courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
 								 courseDetailsTextBox->Location = System::Drawing::Point(160, 20); // Set location as needed
+<<<<<<< Updated upstream
 >>>>>>> 36aa4f94eb02629aca74a67a2a1261333afb7216
+=======
+>>>>>>> Stashed changes
 								 courseDetailsTextBox->Font = gcnew System::Drawing::Font("Arial", 12); // Set the font size and style
 								 Controls->Add(courseDetailsTextBox); // Add the textbox to the form
 							 }
 
+<<<<<<< Updated upstream
 <<<<<<< HEAD
+=======
+
+>>>>>>> Stashed changes
 							 // Update the textbox with the course details
 							 courseDetailsTextBox->Text = courseDetails;
 
@@ -237,8 +243,11 @@ namespace CS346_A2 {
 									 Controls->Remove(control);
 									 break;
 								 }
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 =======
+=======
+>>>>>>> Stashed changes
 								 if (Button::typeid == control->GetType() && control->Text == "Approve" || control->Text == "Reject")
 								 {
 									 Controls->Remove(control);
@@ -258,13 +267,17 @@ namespace CS346_A2 {
 									 Controls->Remove(control);
 									 break;
 								 }
+<<<<<<< Updated upstream
 >>>>>>> 36aa4f94eb02629aca74a67a2a1261333afb7216
+=======
+>>>>>>> Stashed changes
 							 }
 
 							 // Check if there is grade data available
 							 if (reader["User_ID"] != DBNull::Value) {
 								 // Create list view for displaying grades
 								 ListView^ listViewGrades = gcnew ListView();
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 								 listViewGrades->Location = Point(120, 120);
 								 listViewGrades->Size = System::Drawing::Size(400, 200);
@@ -272,6 +285,10 @@ namespace CS346_A2 {
 								 listViewGrades->Location = Point(160, 160);
 								 listViewGrades->Size = System::Drawing::Size(450, 200);
 >>>>>>> 36aa4f94eb02629aca74a67a2a1261333afb7216
+=======
+								 listViewGrades->Location = Point(160, 160);
+								 listViewGrades->Size = System::Drawing::Size(450, 200);
+>>>>>>> Stashed changes
 								 listViewGrades->View = View::Details;
 								 listViewGrades->FullRowSelect = true;
 								 listViewGrades->Columns->Add("User ID", 80);
@@ -299,13 +316,19 @@ namespace CS346_A2 {
 								 // Add approve button below the list view
 								 Button^ approveButton = gcnew Button();
 								 approveButton->Text = "Approve";
+<<<<<<< Updated upstream
 <<<<<<< HEAD
 								 approveButton->Location = Point(120, 330); // Adjust position as needed
+=======
+								 approveButton->Location = Point(280, 370); // Adjust position as needed
+
+>>>>>>> Stashed changes
 								 approveButton->Click += gcnew EventHandler(this, &CourseForm::ApproveButton_Click); // Handle click event
 								 Controls->Add(approveButton);
 
 								 Button^ rejectButton = gcnew Button();
 								 rejectButton->Text = "Reject";
+<<<<<<< Updated upstream
 								 rejectButton->Location = Point(250, 330); // Adjust position as needed
 =======
 								 approveButton->Location = Point(280, 370); // Adjust position as needed
@@ -317,6 +340,9 @@ namespace CS346_A2 {
 								 rejectButton->Text = "Reject";
 								 rejectButton->Location = Point(400, 370); // Adjust position as needed
 >>>>>>> 36aa4f94eb02629aca74a67a2a1261333afb7216
+=======
+								 rejectButton->Location = Point(400, 370); // Adjust position as needed
+>>>>>>> Stashed changes
 								 rejectButton->Click += gcnew EventHandler(this, &CourseForm::RejectButton_Click); // Handle click event
 								 Controls->Add(rejectButton);
 							 }
