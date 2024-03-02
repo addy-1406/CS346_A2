@@ -2,6 +2,7 @@
 
 #include "User.h"
 #include "DatabaseHelper.h"
+#include "TimeTable.h"
 
 namespace CS346_A2 {
 
@@ -62,6 +63,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column8;
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker2;
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
+	private: System::Windows::Forms::Button^  button7;
 
 
 
@@ -126,7 +128,7 @@ namespace CS346_A2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
@@ -147,12 +149,14 @@ namespace CS346_A2 {
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->button7);
 			this->panel1->Controls->Add(this->dateTimePicker2);
 			this->panel1->Controls->Add(this->dateTimePicker1);
 			this->panel1->Controls->Add(this->button6);
@@ -293,8 +297,8 @@ namespace CS346_A2 {
 			// 
 			// Column1
 			// 
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::Color::Transparent;
-			this->Column1->DefaultCellStyle = dataGridViewCellStyle1;
+			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::Color::Transparent;
+			this->Column1->DefaultCellStyle = dataGridViewCellStyle2;
 			this->Column1->HeaderText = L"Course_Add";
 			this->Column1->Name = L"Column1";
 			this->Column1->Width = 90;
@@ -340,6 +344,18 @@ namespace CS346_A2 {
 			this->Column8->HeaderText = L"Endsem Start";
 			this->Column8->Name = L"Column8";
 			this->Column8->Width = 90;
+			// 
+			// button7
+			// 
+			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button7->Location = System::Drawing::Point(118, 422);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(140, 43);
+			this->button7->TabIndex = 18;
+			this->button7->Text = L"Generate TimeTable";
+			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &permissions::button7_Click);
 			// 
 			// permissions
 			// 
@@ -591,5 +607,14 @@ namespace CS346_A2 {
 
 				 fetch();
 	}
+private: System::Void button7_Click(System::Object^  sender, System::EventArgs^  e) {
+			 try{
+				 TimeTable::allocateSlots();
+				 MessageBox::Show("TT generation successfull");
+			 }
+			 catch (Exception^ ex){
+				 MessageBox::Show(ex->Message);
+			 }
+}
 };
 }
