@@ -45,7 +45,8 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::ColumnHeader^  Time;
 	private: System::Windows::Forms::ColumnHeader^  Venue;
 	private: System::Windows::Forms::ComboBox^  comboBox1;
-	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::Label^  label4;
+
 
 	private:
 		/// <summary>
@@ -67,7 +68,7 @@ namespace CS346_A2 {
 			this->Time = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Venue = (gcnew System::Windows::Forms::ColumnHeader());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->SuspendLayout();
 			// 
 			// listView1
@@ -79,9 +80,9 @@ namespace CS346_A2 {
 				this->CourseCode, this->CourseName,
 					this->Date, this->Time, this->Venue
 			});
-			this->listView1->Location = System::Drawing::Point(-6, 100);
+			this->listView1->Location = System::Drawing::Point(33, 100);
 			this->listView1->Name = L"listView1";
-			this->listView1->Size = System::Drawing::Size(970, 470);
+			this->listView1->Size = System::Drawing::Size(913, 470);
 			this->listView1->TabIndex = 5;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
@@ -114,22 +115,29 @@ namespace CS346_A2 {
 			// comboBox1
 			// 
 			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Mid-Semester Exams", L"End-Semester Exams" });
-			this->comboBox1->Location = System::Drawing::Point(367, 8);
+			this->comboBox1->Location = System::Drawing::Point(195, 47);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(277, 24);
+			this->comboBox1->Size = System::Drawing::Size(200, 31);
 			this->comboBox1->TabIndex = 4;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &ExamSchedule::comboBox1_SelectedIndexChanged);
 			// 
-			// label1
+			// label4
 			// 
-			this->label1->AutoSize = true;
-			this->label1->Location = System::Drawing::Point(273, 11);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(97, 17);
-			this->label1->TabIndex = 3;
-			this->label1->Text = L"Select Exam : ";
+			this->label4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label4->Location = System::Drawing::Point(29, 47);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(160, 31);
+			this->label4->TabIndex = 30;
+			this->label4->Text = L"SELECT EXAM :";
+			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
 			// 
 			// ExamSchedule
 			// 
@@ -138,15 +146,14 @@ namespace CS346_A2 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(958, 578);
+			this->Controls->Add(this->label4);
 			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->label1);
 			this->MaximumSize = System::Drawing::Size(976, 625);
 			this->MinimumSize = System::Drawing::Size(976, 625);
 			this->Name = L"ExamSchedule";
 			this->Text = L"ExamSchedule";
 			this->ResumeLayout(false);
-			this->PerformLayout();
 
 		}
 #pragma endregion

@@ -297,9 +297,9 @@ namespace CS346_A2 {
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::White;
-			this->pictureBox1->Location = System::Drawing::Point(477, -13);
+			this->pictureBox1->Location = System::Drawing::Point(477, 7);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(462, 582);
+			this->pictureBox1->Size = System::Drawing::Size(468, 562);
 			this->pictureBox1->TabIndex = 42;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &Student_Profile::pictureBox1_Click);
@@ -341,9 +341,9 @@ namespace CS346_A2 {
 			// pictureBox2
 			// 
 			this->pictureBox2->BackColor = System::Drawing::Color::White;
-			this->pictureBox2->Location = System::Drawing::Point(17, -13);
+			this->pictureBox2->Location = System::Drawing::Point(17, 7);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(462, 582);
+			this->pictureBox2->Size = System::Drawing::Size(468, 562);
 			this->pictureBox2->TabIndex = 58;
 			this->pictureBox2->TabStop = false;
 			// 
