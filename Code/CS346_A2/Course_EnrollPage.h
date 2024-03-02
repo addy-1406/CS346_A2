@@ -134,7 +134,7 @@ namespace CS346_A2 {
 					this->Column2, this->Column3, this->Column4, this->Column8, this->Column5, this->Column6, this->Column7, this->Column9
 			});
 			this->dataGridView1->Location = System::Drawing::Point(155, 126);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersVisible = false;
 			this->dataGridView1->Size = System::Drawing::Size(671, 185);
@@ -227,7 +227,7 @@ namespace CS346_A2 {
 					this->dataGridViewTextBoxColumn7, this->dataGridViewButtonColumn1, this->dataGridViewButtonColumn2
 			});
 			this->dataGridView2->Location = System::Drawing::Point(155, 356);
-			this->dataGridView2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dataGridView2->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->RowHeadersVisible = false;
 			this->dataGridView2->Size = System::Drawing::Size(725, 185);
@@ -302,6 +302,8 @@ namespace CS346_A2 {
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->label1);
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->MaximumSize = System::Drawing::Size(976, 625);
+			this->MinimumSize = System::Drawing::Size(976, 625);
 			this->Name = L"Course_EnrollPage";
 			this->Text = L"Course_EnrollPage";
 			this->Load += gcnew System::EventHandler(this, &Course_EnrollPage::Course_EnrollPage_Load);
