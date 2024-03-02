@@ -29,8 +29,8 @@ namespace CS346_A2 {
 		Boolean^ grades_view = false;
 		Int32^ current_year;
 		String^ current_sem = "";
-		String^ midsem_start;
-		String^ endsem_start;
+		DateTime midsem_start;
+		DateTime endsem_start;
 
 	public:
 	private: System::Windows::Forms::Button^  button2;
@@ -387,11 +387,14 @@ namespace CS346_A2 {
 					 grades_view = dr->GetBoolean(3);
 					 current_year = dr->GetInt32(4);
 					 current_sem = dr->GetString(5);
-					 midsem_start = dr->GetString(6);
-					 endsem_start = dr->GetString(7);
+					 midsem_start = dr->GetDateTime(6);
+					 endsem_start = dr->GetDateTime(7);
+
+					 String^ midsem_date = midsem_start.ToString("yyyy-MM-dd");
+					 String^ endsem_date = endsem_start.ToString("yyyy-MM-dd");
 
 
-					 int rowIndex = this->dataGridView1->Rows->Add(course_add, course_enroll, grades_add, grades_view, current_year, current_sem, midsem_start, endsem_start);
+					 int rowIndex = this->dataGridView1->Rows->Add(course_add, course_enroll, grades_add, grades_view, current_year, current_sem, midsem_date, endsem_date);
 
 					 // Now you have extracted all the values and assigned them to the respective variables
 				 }
@@ -541,12 +544,16 @@ namespace CS346_A2 {
 
 				 while (dr->Read()){
 					 // Extracting values from the database result set and assigning them to variables
-					 midsem_start = dr->GetString(6);
+					 midsem_start = dr->GetDateTime(6);
 				 }
 
 				 RichTextBox^ myRichTextBox = dynamic_cast<RichTextBox^>(this->Controls->Find("richTextBox2", true)[0]);
-				 if (myRichTextBox->Text == "") midsem_start = "Not Assigned yet";
-				 else midsem_start = myRichTextBox->Text;
+				 if (myRichTextBox->Text != "")
+				 {
+					 DateTime date;
+					 DateTime::TryParse(myRichTextBox->Text, date);
+					 midsem_start = date;
+				 }
 
 				 query = "UPDATE [dbo].[permissions] SET Midsem_Start_Date = @midsem_start";
 				 array<SqlParameter^>^ parameters1 = {
@@ -567,12 +574,16 @@ namespace CS346_A2 {
 
 				 while (dr->Read()){
 					 // Extracting values from the database result set and assigning them to variables
-					 endsem_start = dr->GetString(7);
+					 endsem_start = dr->GetDateTime(7);
 				 }
 
 				 RichTextBox^ myRichTextBox = dynamic_cast<RichTextBox^>(this->Controls->Find("richTextBox3", true)[0]);
-				 if (myRichTextBox->Text == "") endsem_start = "Not Assigned yet";
-				 else endsem_start = myRichTextBox->Text;
+				 if (myRichTextBox->Text != "")
+				 {
+					 DateTime date;
+					 DateTime::TryParse(myRichTextBox->Text, date);
+					 endsem_start = date;
+				 }
 
 				 query = "UPDATE [dbo].[permissions] SET Endsem_Start_Date = @endsem_start";
 				 array<SqlParameter^>^ parameters1 = {

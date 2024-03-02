@@ -57,7 +57,8 @@ namespace CS346_A2 {
 					Button^ btn = gcnew Button();
 					btn->Text = reader["Name"]->ToString() + "\n" + reader["Course_Code"]->ToString();
 					btn->Location = Point(10, y);
-					btn->AutoSize = true;
+					btn->AutoSize = false;
+					btn->Size = System::Drawing::Size(170, 50);
 					Controls->Add(btn); // Add the button to the form
 
 					// Attach click event handler to the button
@@ -69,10 +70,11 @@ namespace CS346_A2 {
 				// Add a label for visual separation
 				Label^ partitionLabel = gcnew Label();
 				partitionLabel->AutoSize = false;
-				partitionLabel->Size = System::Drawing::Size(2, 520); // Adjust the width as needed
-				partitionLabel->Location = Point(103, 0); // Adjust the X position to align with the buttons
+				partitionLabel->Size = System::Drawing::Size(2, Math::Max(520, y + 10)); // Adjust the width as needed
+				partitionLabel->Location = Point(200, 0); // Adjust the X position to align with the buttons
 				partitionLabel->BackColor = Color::Gray; // Set the color of the partition
 				Controls->Add(partitionLabel);
+				
 			}
 			catch (Exception^ ex)
 			{
@@ -168,7 +170,7 @@ namespace CS346_A2 {
 								 // Adjust the size of the text box according to the text content
 								 SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
 								 courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
-								 courseDetailsTextBox->Location = System::Drawing::Point(160, 20); // Set location as needed
+								 courseDetailsTextBox->Location = System::Drawing::Point(210, 20); // Set location as needed
 								 courseDetailsTextBox->Font = gcnew System::Drawing::Font("Arial", 12); // Set the font size and style
 								 Controls->Add(courseDetailsTextBox); // Add the textbox to the form
 							 }
@@ -208,7 +210,7 @@ namespace CS346_A2 {
 							 if (reader["User_ID"] != DBNull::Value) {
 								 // Create list view for displaying grades
 								 ListView^ listViewGrades = gcnew ListView();
-								 listViewGrades->Location = Point(160, 160);
+								 listViewGrades->Location = Point(210, 160);
 								 listViewGrades->Size = System::Drawing::Size(450, 200);
 								 listViewGrades->View = View::Details;
 								 listViewGrades->FullRowSelect = true;
