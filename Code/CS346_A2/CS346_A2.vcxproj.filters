@@ -5,6 +5,7 @@
     <ClCompile Include="ExamSchedule.cpp" />
     <ClCompile Include="permissions.cpp" />
     <ClCompile Include="CourseList.cpp" />
+    <ClCompile Include="classroomlist.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCourseForm.h" />
@@ -34,6 +35,7 @@
     <ClInclude Include="ExamSchedule.h" />
     <ClInclude Include="permissions.h" />
     <ClInclude Include="CourseList.h" />
+    <ClInclude Include="classroomlist.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddCourseForm.resx" />
@@ -55,5 +57,7 @@
     <EmbeddedResource Include="Welcome_Pic.resx" />
     <EmbeddedResource Include="ExamSchedule.resx" />
     <EmbeddedResource Include="permissions.resx" />
+    <EmbeddedResource Include="CourseList.resx" />
+    <EmbeddedResource Include="TimeTableView.resx" />
   </ItemGroup>
 </Project>

@@ -22,7 +22,7 @@ namespace CS346_A2 {
 	/// </summary>
 	public ref class Signup : public System::Windows::Forms::Form
 	{
-	private: System::Windows::Forms::DataGridView^  dataGridView1;
+
 
 	public:
 		User^ admin;
@@ -33,6 +33,19 @@ namespace CS346_A2 {
 		String^ email = "";
 		String^ approval_status = "";
 		String^ enrollment_year = "";
+	private: System::Windows::Forms::DataGridView^  dataGridView1;
+	public:
+	private: System::Windows::Forms::DataGridViewCheckBoxColumn^  Column0;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column4;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column5;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column6;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column7;
+	private: System::Windows::Forms::Button^  button1;
+	private: System::Windows::Forms::Button^  button2;
+	private: System::Windows::Forms::Panel^  panel1;
 
 	public:
 
@@ -42,16 +55,16 @@ namespace CS346_A2 {
 
 
 
-	private: System::Windows::Forms::Button^  button2;
-	private: System::Windows::Forms::Button^  button1;
-	private: System::Windows::Forms::DataGridViewCheckBoxColumn^  Column0;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column3;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column4;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column5;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column6;
-	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column7;
+
+
+
+
+
+
+
+
+
+
 
 			 String^ user_type = "";
 
@@ -86,7 +99,7 @@ namespace CS346_A2 {
 		}
 
 
-	private: System::Windows::Forms::Panel^  panel1;
+
 
 	protected:
 
@@ -104,72 +117,81 @@ namespace CS346_A2 {
 		void InitializeComponent(void)
 		{
 			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
-			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->button2 = (gcnew System::Windows::Forms::Button());
-			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->Column0 = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->panel1->SuspendLayout();
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column0 = (gcnew System::Windows::Forms::DataGridViewCheckBoxColumn());
+			this->button1 = (gcnew System::Windows::Forms::Button());
+			this->button2 = (gcnew System::Windows::Forms::Button());
+			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
+			this->panel1->SuspendLayout();
 			this->SuspendLayout();
-			// 
-			// panel1
-			// 
-			this->panel1->Controls->Add(this->button2);
-			this->panel1->Controls->Add(this->button1);
-			this->panel1->Controls->Add(this->dataGridView1);
-			this->panel1->Location = System::Drawing::Point(2, 2);
-			this->panel1->Margin = System::Windows::Forms::Padding(2);
-			this->panel1->Name = L"panel1";
-			this->panel1->Size = System::Drawing::Size(741, 536);
-			this->panel1->TabIndex = 2;
-			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Signup::panel1_Paint);
-			// 
-			// button2
-			// 
-			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button2->Location = System::Drawing::Point(386, 421);
-			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(134, 43);
-			this->button2->TabIndex = 4;
-			this->button2->Text = L"Reject";
-			this->button2->UseVisualStyleBackColor = true;
-			this->button2->Click += gcnew System::EventHandler(this, &Signup::button2_Click);
-			// 
-			// button1
-			// 
-			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->button1->Location = System::Drawing::Point(216, 421);
-			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(140, 43);
-			this->button1->TabIndex = 3;
-			this->button1->Text = L"Approve";
-			this->button1->UseVisualStyleBackColor = true;
-			this->button1->Click += gcnew System::EventHandler(this, &Signup::button1_Click);
 			// 
 			// dataGridView1
 			// 
 			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)),
 				static_cast<System::Int32>(static_cast<System::Byte>(212)), static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->dataGridView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
 				this->Column0,
 					this->Column1, this->Column2, this->Column3, this->Column4, this->Column5, this->Column6, this->Column7
 			});
-			this->dataGridView1->Location = System::Drawing::Point(3, 0);
+			this->dataGridView1->Location = System::Drawing::Point(101, 4);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersVisible = false;
-			this->dataGridView1->Size = System::Drawing::Size(735, 402);
+			this->dataGridView1->Size = System::Drawing::Size(739, 460);
 			this->dataGridView1->TabIndex = 0;
+			// 
+			// Column7
+			// 
+			this->Column7->HeaderText = L"Designation";
+			this->Column7->Name = L"Column7";
+			this->Column7->Width = 95;
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Approval Status";
+			this->Column6->Name = L"Column6";
+			this->Column6->Width = 95;
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Email";
+			this->Column5->Name = L"Column5";
+			this->Column5->Width = 95;
+			// 
+			// Column4
+			// 
+			this->Column4->HeaderText = L"Address";
+			this->Column4->Name = L"Column4";
+			this->Column4->Width = 95;
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Contact";
+			this->Column3->Name = L"Column3";
+			this->Column3->Width = 95;
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"DOB";
+			this->Column2->Name = L"Column2";
+			this->Column2->Width = 95;
+			// 
+			// Column1
+			// 
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::Color::Transparent;
+			this->Column1->DefaultCellStyle = dataGridViewCellStyle1;
+			this->Column1->HeaderText = L"Name";
+			this->Column1->Name = L"Column1";
 			// 
 			// Column0
 			// 
@@ -179,61 +201,60 @@ namespace CS346_A2 {
 			this->Column0->SortMode = System::Windows::Forms::DataGridViewColumnSortMode::Automatic;
 			this->Column0->Width = 60;
 			// 
-			// Column1
+			// button1
 			// 
-			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::Color::Transparent;
-			this->Column1->DefaultCellStyle = dataGridViewCellStyle1;
-			this->Column1->HeaderText = L"Name";
-			this->Column1->Name = L"Column1";
+			this->button1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button1->Location = System::Drawing::Point(290, 472);
+			this->button1->Margin = System::Windows::Forms::Padding(4);
+			this->button1->Name = L"button1";
+			this->button1->Size = System::Drawing::Size(124, 31);
+			this->button1->TabIndex = 3;
+			this->button1->Text = L"Approve";
+			this->button1->UseVisualStyleBackColor = true;
+			this->button1->Click += gcnew System::EventHandler(this, &Signup::button1_Click);
 			// 
-			// Column2
+			// button2
 			// 
-			this->Column2->HeaderText = L"DOB";
-			this->Column2->Name = L"Column2";
-			this->Column2->Width = 95;
+			this->button2->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button2->Location = System::Drawing::Point(519, 472);
+			this->button2->Margin = System::Windows::Forms::Padding(4);
+			this->button2->Name = L"button2";
+			this->button2->Size = System::Drawing::Size(145, 31);
+			this->button2->TabIndex = 4;
+			this->button2->Text = L"Reject";
+			this->button2->UseVisualStyleBackColor = true;
+			this->button2->Click += gcnew System::EventHandler(this, &Signup::button2_Click);
 			// 
-			// Column3
+			// panel1
 			// 
-			this->Column3->HeaderText = L"Contact";
-			this->Column3->Name = L"Column3";
-			this->Column3->Width = 95;
-			// 
-			// Column4
-			// 
-			this->Column4->HeaderText = L"Address";
-			this->Column4->Name = L"Column4";
-			this->Column4->Width = 95;
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Email";
-			this->Column5->Name = L"Column5";
-			this->Column5->Width = 95;
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"Approval Status";
-			this->Column6->Name = L"Column6";
-			this->Column6->Width = 95;
-			// 
-			// Column7
-			// 
-			this->Column7->HeaderText = L"Designation";
-			this->Column7->Name = L"Column7";
-			this->Column7->Width = 95;
+			this->panel1->Controls->Add(this->button2);
+			this->panel1->Controls->Add(this->button1);
+			this->panel1->Controls->Add(this->dataGridView1);
+			this->panel1->Location = System::Drawing::Point(3, 2);
+			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->panel1->Name = L"panel1";
+			this->panel1->Size = System::Drawing::Size(922, 565);
+			this->panel1->TabIndex = 2;
+			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &Signup::panel1_Paint);
 			// 
 			// Signup
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(742, 549);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
+				static_cast<System::Int32>(static_cast<System::Byte>(214)));
+			this->ClientSize = System::Drawing::Size(958, 578);
 			this->Controls->Add(this->panel1);
-			this->Margin = System::Windows::Forms::Padding(2);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->MaximumSize = System::Drawing::Size(976, 625);
+			this->MinimumSize = System::Drawing::Size(976, 625);
 			this->Name = L"Signup";
 			this->Text = L"Signup";
 			this->Load += gcnew System::EventHandler(this, &Signup::Signup_Load);
-			this->panel1->ResumeLayout(false);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
+			this->panel1->ResumeLayout(false);
 			this->ResumeLayout(false);
 
 		}

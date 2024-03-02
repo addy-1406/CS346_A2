@@ -79,6 +79,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="classroomlist.cpp" />
     <ClCompile Include="CourseList.cpp" />
     <ClCompile Include="ExamSchedule.cpp" />
     <ClCompile Include="permissions.cpp" />
@@ -90,6 +91,9 @@
     </ClInclude>
     <ClInclude Include="AddGradeForm.h" />
     <ClInclude Include="AdminHome.h">
+      <FileType>CppForm</FileType>
+    </ClInclude>
+    <ClInclude Include="classroomlist.h">
       <FileType>CppForm</FileType>
     </ClInclude>
     <ClInclude Include="CourseForm.h">
@@ -165,6 +169,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="AdminHome.resx">
       <DependentUpon>AdminHome.h</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="classroomlist.resx">
+      <DependentUpon>classroomlist.h</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CourseForm.resx">
       <DependentUpon>CourseForm.h</DependentUpon>
