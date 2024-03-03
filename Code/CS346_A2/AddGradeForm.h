@@ -174,7 +174,7 @@ namespace CS346_A2 {
 							gradeTextBox->Location = Point(290, 390);
 							gradeTextBox->Size = System::Drawing::Size(50, 60);
 							gradeTextBox->BackColor = Color::White; 
-							gradeTextBox->ForeColor = Color::White; // Set text color to white
+							gradeTextBox->ForeColor = Color::Black; // Set text color to white
 							gradeTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 12); // Set the font size to 10
 							Controls->Add(gradeTextBox);
 
