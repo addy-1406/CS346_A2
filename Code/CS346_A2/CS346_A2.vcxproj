@@ -69,6 +69,7 @@
     <Link>
       <GenerateDebugInformation>true</GenerateDebugInformation>
       <AdditionalDependencies>Winmm.lib</AdditionalDependencies>
+      <MapExports>false</MapExports>
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
