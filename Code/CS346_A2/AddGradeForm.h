@@ -129,6 +129,20 @@ namespace CS346_A2 {
 							break;
 						}
 					}
+					for each (Control^ control in Controls) {
+						if (TextBox::typeid == control->GetType())
+						{
+							Controls->Remove(control);
+							break;
+						}
+					}
+					for each (Control^ control in Controls) {
+						if (TextBox::typeid == control->GetType())
+						{
+							Controls->Remove(control);
+							break;
+						}
+					}
 					if (reader->Read()) {
 						String^ courseDetails = "Course Code: " + reader["Course_Code"]->ToString() + "\r\n" +
 							"Course Name: " + reader["CourseName"]->ToString() + "\r\n" +
@@ -138,24 +152,20 @@ namespace CS346_A2 {
 							" Semester: " + reader["Semester"]->ToString() +
 							", Intake: " + reader["Intake"]->ToString();
 						course_id = reader["Course_Code"]->ToString();
+						courseDetailsTextBox = gcnew TextBox();
+						courseDetailsTextBox->Multiline = true;
+						courseDetailsTextBox->ReadOnly = true;
+						courseDetailsTextBox->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
+						courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
 
-						if (courseDetailsTextBox == nullptr) {
-							courseDetailsTextBox = gcnew TextBox();
-							courseDetailsTextBox->Multiline = true;
-							courseDetailsTextBox->ReadOnly = true;
-							courseDetailsTextBox->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
-							courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
-
-							courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
-							courseDetailsTextBox->Text = courseDetails; // Set the text
-							// Adjust the size of the text box according to the text content
-							SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
-							courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
-							courseDetailsTextBox->Location = System::Drawing::Point(230, 20); // Set location as needed
-							courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
-							Controls->Add(courseDetailsTextBox); // Add the textbox to the form
-						}
-
+						courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
+						courseDetailsTextBox->Text = courseDetails; // Set the text
+						// Adjust the size of the text box according to the text content
+						SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
+						courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
+						courseDetailsTextBox->Location = System::Drawing::Point(230, 20); // Set location as needed
+						courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
+						Controls->Add(courseDetailsTextBox); // Add the textbox to the form
 						courseDetailsTextBox->Text = courseDetails;
 
 						if (reader["User_ID"] != DBNull::Value) {
@@ -192,7 +202,7 @@ namespace CS346_A2 {
 							gradeTextBox->Location = Point(310, 390);
 							gradeTextBox->Size = System::Drawing::Size(50, 60);
 							gradeTextBox->BackColor = Color::White;
-							gradeTextBox->ForeColor = Color::Black; 
+							gradeTextBox->ForeColor = Color::FromArgb(20, 93, 160);
 							gradeTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 12); // Set the font size to 10
 							Controls->Add(gradeTextBox);
 
@@ -228,23 +238,20 @@ namespace CS346_A2 {
 								", Intake: " + reader["Intake"]->ToString();
 							course_id = reader["Course_Code"]->ToString();
 
-							if (courseDetailsTextBox == nullptr) {
-								courseDetailsTextBox = gcnew TextBox();
-								courseDetailsTextBox->Multiline = true;
-								courseDetailsTextBox->ReadOnly = true;
-								courseDetailsTextBox->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
-								courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
+							courseDetailsTextBox = gcnew TextBox();
+							courseDetailsTextBox->Multiline = true;
+							courseDetailsTextBox->ReadOnly = true;
+							courseDetailsTextBox->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
+							courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
 
-								courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
-								courseDetailsTextBox->Text = courseDetails; // Set the text
-								// Adjust the size of the text box according to the text content
-								SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
-								courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
-								courseDetailsTextBox->Location = System::Drawing::Point(230, 20); // Set location as needed
-								courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
-								Controls->Add(courseDetailsTextBox); // Add the textbox to the form
-							}
-
+							courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
+							courseDetailsTextBox->Text = courseDetails; // Set the text
+							// Adjust the size of the text box according to the text content
+							SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
+							courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
+							courseDetailsTextBox->Location = System::Drawing::Point(230, 20); // Set location as needed
+							courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
+							Controls->Add(courseDetailsTextBox); // Add the textbox to the form
 							courseDetailsTextBox->Text = courseDetails;
 
 							// Create a new text box for displaying message
