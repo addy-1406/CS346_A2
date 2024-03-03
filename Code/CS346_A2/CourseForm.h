@@ -147,7 +147,13 @@ namespace CS346_A2 {
 
 						 // Execute the command and get the data
 						 reader = DatabaseHelper::ExecuteQuery(query);
-
+						 for each (Control^ control in Controls) {
+							 if (TextBox::typeid == control->GetType())
+							 {
+								 Controls->Remove(control);
+								 break;
+							 }
+						 }
 						 // Check if there is data available
 						 if (reader->Read()) {
 							 // Create a string with the course details
@@ -161,24 +167,21 @@ namespace CS346_A2 {
 							 course_id = reader["Course_Code"]->ToString();
 
 							 // Check if the textbox for course details exists
-							 if (courseDetailsTextBox == nullptr) {
-								 // If the textbox doesn't exist, create a new one
-								 courseDetailsTextBox = gcnew TextBox();
-								 courseDetailsTextBox->Multiline = true;
-								 courseDetailsTextBox->ReadOnly = true;
-								 courseDetailsTextBox->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
-								 courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
+							 // If the textbox doesn't exist, create a new one
+							 courseDetailsTextBox = gcnew TextBox();
+							 courseDetailsTextBox->Multiline = true;
+							 courseDetailsTextBox->ReadOnly = true;
+							 courseDetailsTextBox->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
+							 courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
 
-								 courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
-								 courseDetailsTextBox->Text = courseDetails; // Set the text
-								 // Adjust the size of the text box according to the text content
-								 SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
-								 courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
-								 courseDetailsTextBox->Location = System::Drawing::Point(230, 20); // Set location as needed
-								 courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
-								 Controls->Add(courseDetailsTextBox); // Add the textbox to the form
-							 }
-
+							 courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
+							 courseDetailsTextBox->Text = courseDetails; // Set the text
+							 // Adjust the size of the text box according to the text content
+							 SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
+							 courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
+							 courseDetailsTextBox->Location = System::Drawing::Point(230, 20); // Set location as needed
+							 courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
+							 Controls->Add(courseDetailsTextBox); // Add the textbox to the form
 
 							 // Update the textbox with the course details
 							 courseDetailsTextBox->Text = courseDetails;
@@ -210,6 +213,7 @@ namespace CS346_A2 {
 								 }
 							 }
 
+
 							 // Check if there is grade data available
 							 if (reader["User_ID"] != DBNull::Value) {
 								 // Create list view for displaying grades
@@ -226,12 +230,12 @@ namespace CS346_A2 {
 
 								 // Set font and background color
 								 listViewGrades->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 9);
-								 listViewGrades->BackColor = System::Drawing::Color::FromArgb(177, 212, 224);
+								 
 
 								 // Set behavior
 								 listViewGrades->BorderStyle = System::Windows::Forms::BorderStyle::None;
 								 listViewGrades->UseCompatibleStateImageBehavior = false;
-
+								 bool col = true;
 								 // Add grade details to the list view
 								 do {
 									 ListViewItem^ item = gcnew ListViewItem(reader["User_ID"]->ToString());
@@ -242,6 +246,16 @@ namespace CS346_A2 {
 									 //if (reader["Approval_Status"]->ToString() == "Pending") {
 									 item->Checked = false; // Initially unchecked
 									 // }
+									 if (col)
+									 {
+										 item->BackColor = Color::LightGray;
+										 col = false;
+									 }
+									 else
+									 {
+										 item->BackColor = Color::White;
+										 col = true;
+									 }
 									 listViewGrades->Items->Add(item);
 								 } while (reader->Read());
 

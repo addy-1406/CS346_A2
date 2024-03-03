@@ -7,6 +7,7 @@
 #include "ProfileForm.h"
 #include "AddGradeForm.h"
 #include "TimeTableView.h"
+#include "DatabaseHelper.h"
 #include <Windows.h>
 
 
@@ -22,9 +23,9 @@ namespace CS346_A2 {
 	/// <summary>
 	/// Summary for FacultyHome
 	/// </summary>
-	
-	
-	
+
+
+
 	public ref class FacultyHome : public System::Windows::Forms::Form
 	{
 	public:
@@ -39,7 +40,7 @@ namespace CS346_A2 {
 			globalPanel = GlobalPanel;
 			int userid = user->userID;
 			ProfileForm^ profileForm = gcnew ProfileForm(userid);
-
+			this->label1->Text = user->email + " | Profile";
 			// Customize the form's appearance
 			profileForm->ControlBox = false; // Hide the control box
 			profileForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
@@ -106,6 +107,10 @@ namespace CS346_A2 {
 
 
 
+
+
+
+
 	protected:
 
 	private:
@@ -165,11 +170,12 @@ namespace CS346_A2 {
 			// pictureBox5
 			// 
 			this->pictureBox5->BackColor = System::Drawing::Color::Silver;
-			this->pictureBox5->Location = System::Drawing::Point(24, 215);
+			this->pictureBox5->Location = System::Drawing::Point(24, 227);
 			this->pictureBox5->Name = L"pictureBox5";
 			this->pictureBox5->Size = System::Drawing::Size(245, 2);
 			this->pictureBox5->TabIndex = 20;
 			this->pictureBox5->TabStop = false;
+			this->pictureBox5->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox5_Click);
 			// 
 			// pictureBox4
 			// 
@@ -200,7 +206,7 @@ namespace CS346_A2 {
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox1->Location = System::Drawing::Point(60, 261);
+			this->pictureBox1->Location = System::Drawing::Point(57, 247);
 			this->pictureBox1->Name = L"pictureBox1";
 			this->pictureBox1->Size = System::Drawing::Size(35, 31);
 			this->pictureBox1->TabIndex = 9;
@@ -214,11 +220,12 @@ namespace CS346_A2 {
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox2->Location = System::Drawing::Point(60, 312);
+			this->pictureBox2->Location = System::Drawing::Point(57, 293);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(35, 31);
 			this->pictureBox2->TabIndex = 11;
 			this->pictureBox2->TabStop = false;
+			this->pictureBox2->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox2_Click);
 			// 
 			// pictureBox7
 			// 
@@ -227,11 +234,12 @@ namespace CS346_A2 {
 			this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
 			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox7->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox7->Location = System::Drawing::Point(60, 361);
+			this->pictureBox7->Location = System::Drawing::Point(57, 337);
 			this->pictureBox7->Name = L"pictureBox7";
 			this->pictureBox7->Size = System::Drawing::Size(35, 31);
 			this->pictureBox7->TabIndex = 13;
 			this->pictureBox7->TabStop = false;
+			this->pictureBox7->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox7_Click);
 			// 
 			// pictureBox8
 			// 
@@ -240,11 +248,12 @@ namespace CS346_A2 {
 			this->pictureBox8->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.BackgroundImage")));
 			this->pictureBox8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox8->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox8->Location = System::Drawing::Point(60, 407);
+			this->pictureBox8->Location = System::Drawing::Point(58, 376);
 			this->pictureBox8->Name = L"pictureBox8";
 			this->pictureBox8->Size = System::Drawing::Size(35, 31);
 			this->pictureBox8->TabIndex = 15;
 			this->pictureBox8->TabStop = false;
+			this->pictureBox8->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox8_Click);
 			// 
 			// pictureBox9
 			// 
@@ -253,7 +262,7 @@ namespace CS346_A2 {
 			this->pictureBox9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.BackgroundImage")));
 			this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox9->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox9->Location = System::Drawing::Point(60, 455);
+			this->pictureBox9->Location = System::Drawing::Point(57, 417);
 			this->pictureBox9->Name = L"pictureBox9";
 			this->pictureBox9->Size = System::Drawing::Size(35, 31);
 			this->pictureBox9->TabIndex = 17;
@@ -292,9 +301,9 @@ namespace CS346_A2 {
 			this->label1->ForeColor = System::Drawing::Color::White;
 			this->label1->Location = System::Drawing::Point(303, 12);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(71, 28);
+			this->label1->Size = System::Drawing::Size(117, 28);
 			this->label1->TabIndex = 10;
-			this->label1->Text = L"label1";
+			this->label1->Text = L"mail | form";
 			// 
 			// label6
 			// 
@@ -305,7 +314,7 @@ namespace CS346_A2 {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(101, 455);
+			this->label6->Location = System::Drawing::Point(98, 420);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(107, 28);
 			this->label6->TabIndex = 40;
@@ -321,7 +330,7 @@ namespace CS346_A2 {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(101, 407);
+			this->label5->Location = System::Drawing::Point(98, 376);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(125, 28);
 			this->label5->TabIndex = 39;
@@ -337,7 +346,7 @@ namespace CS346_A2 {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(101, 361);
+			this->label4->Location = System::Drawing::Point(98, 337);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(138, 28);
 			this->label4->TabIndex = 38;
@@ -353,7 +362,7 @@ namespace CS346_A2 {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(101, 312);
+			this->label2->Location = System::Drawing::Point(98, 296);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(133, 28);
 			this->label2->TabIndex = 37;
@@ -369,7 +378,7 @@ namespace CS346_A2 {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(101, 261);
+			this->label3->Location = System::Drawing::Point(98, 250);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(75, 28);
 			this->label3->TabIndex = 36;
@@ -435,231 +444,145 @@ namespace CS346_A2 {
 	public: Form^ globalForm;
 	public: Panel^ globalPanel;
 	public: User^ user;
-	
+
 
 	private: System::Void FacultyHome_Load(System::Object^  sender, System::EventArgs^  e) {
-				 label1->Text = user->email;
+				 label1->Text = user->email + " | Profile";
+				 int userID = user->userID;
+				 
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 				 globalPanel->Controls->Clear();
 				 globalPanel->Controls->Add(globalForm);
 				 globalForm->Show();
 	}
-	// Event handler for the AddCourse button
-	void AddCourseButton_Click(System::Object^  sender, System::EventArgs^  e) {
-		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-		// Create an instance of the AddCourseForm
-		AddCourseForm^ addCourseForm = gcnew AddCourseForm(user->userID);
+			 // Event handler for the AddCourse button
+			
 
-		// Customize the form's appearance
-		addCourseForm->ControlBox = false; // Hide the control box
-		addCourseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-		//addCourseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to red
-
-		// Set its properties
-		addCourseForm->TopLevel = false;
-		addCourseForm->AutoScroll = true;
-		addCourseForm->Dock = DockStyle::Fill;
-
-		// Add it to the panel
-		panel1->Controls->Clear();
-		panel1->Controls->Add(addCourseForm);
-		addCourseForm->Show();
-	}
-
-	// Event handler for the Profile button
-	void ProfileButton_Click(System::Object^  sender, System::EventArgs^  e) {
-		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-		// Create an instance of the ProfileForm
-		int userid = user->userID;
-		ProfileForm^ profileForm = gcnew ProfileForm(userid);
-
-		// Customize the form's appearance
-		profileForm->ControlBox = false; // Hide the control box
-		profileForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-		//profileForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to green
-
-		// Set its properties
-		profileForm->TopLevel = false;
-		profileForm->AutoScroll = true;
-		profileForm->Dock = DockStyle::Fill;
-
-		// Add it to the panel
-		panel1->Controls->Clear();
-		panel1->Controls->Add(profileForm);
-		profileForm->Show();
-	}
-	// Event handler for the Courses button
-	void CoursesButton_Click(System::Object^  sender, System::EventArgs^  e) {
-		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-		// Create an instance of the CourseFor
-		int userid = user->userID;
-		CourseForm^ courseForm = gcnew CourseForm(userid);
-
-		// Customize the form's appearance
-		courseForm->ControlBox = false; // Hide the control box
-		courseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-		//courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
-
-		// Set its properties
-		courseForm->TopLevel = false;
-		courseForm->AutoScroll = true;
-		courseForm->Dock = DockStyle::Fill;
-
-		// Add it to the panel
-		panel1->Controls->Clear();
-		panel1->Controls->Add(courseForm);
-		courseForm->Show();
-	}
-	void Timetable_Click(System::Object^  sender, System::EventArgs^  e) {
-		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-		// Create an instance of the CourseFor
-		
-		TimeTableView^ timetable = gcnew TimeTableView(user);
-
-		// Customize the form's appearance
-		timetable->ControlBox = false; // Hide the control box
-		timetable->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-		//courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
-
-		// Set its properties
-		timetable->TopLevel = false;
-		timetable->AutoScroll = true;
-		timetable->Dock = DockStyle::Fill;
-
-		// Add it to the panel
-		panel1->Controls->Clear();
-		panel1->Controls->Add(timetable);
-		timetable->Show();
-	}
-
-	void button2_Click(System::Object^ sender, System::EventArgs^ e) {
-		PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-		int userid = user->userID;
-		AddGradeForm^ addGradeForm = gcnew AddGradeForm(userid);
-		// Customize the form's appearance
-		addGradeForm->ControlBox = false; // Hide the control box
-		addGradeForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-		addGradeForm->TopLevel = false;
-		addGradeForm->AutoScroll = true;
-		addGradeForm->Dock = DockStyle::Fill;
-		// Add the AddGradeForm to the panel
-		panel1->Controls->Clear();
-		panel1->Controls->Add(addGradeForm);
-		addGradeForm->Show();
-	}
-
-
+			 // Event handler for the Profile button
+			
 	private: System::Void panel1_Paint(System::Object^  sender, System::Windows::Forms::PaintEventArgs^  e) {
 	}
-private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void pictureBox10_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+	private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+				 // Create an instance of the ProfileForm
+				 int userid = user->userID;
+				 ProfileForm^ profileForm = gcnew ProfileForm(userid);
+				 this->label1->Text = user->email + " | " + " Profile";
+				 // Customize the form's appearance
+				 profileForm->ControlBox = false; // Hide the control box
+				 profileForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+				 //profileForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to green
+
+				 // Set its properties
+				 profileForm->TopLevel = false;
+				 profileForm->AutoScroll = true;
+				 profileForm->Dock = DockStyle::Fill;
+
+				 // Add it to the panel
+				 panel1->Controls->Clear();
+				 panel1->Controls->Add(profileForm);
+				 profileForm->Show();
+	}
+	private: System::Void label2_Click_1(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+				 // Create an instance of the AddCourseForm
+				 AddCourseForm^ addCourseForm = gcnew AddCourseForm(user->userID);
+				 this->label1->Text = user->email + " | " + " Add Course";
+
+				 // Customize the form's appearance
+				 addCourseForm->ControlBox = false; // Hide the control box
+				 addCourseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+				 //addCourseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to red
+
+				 // Set its properties
+				 addCourseForm->TopLevel = false;
+				 addCourseForm->AutoScroll = true;
+				 addCourseForm->Dock = DockStyle::Fill;
+
+				 // Add it to the panel
+				 panel1->Controls->Clear();
+				 panel1->Controls->Add(addCourseForm);
+				 addCourseForm->Show();
+	}
+	private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+				 // Create an instance of the CourseFor
+				 int userid = user->userID;
+				 CourseForm^ courseForm = gcnew CourseForm(userid);
+				 this->label1->Text = user->email + " | " + " Courses";
+				 // Customize the form's appearance
+				 courseForm->ControlBox = false; // Hide the control box
+				 courseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+				 //courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
+
+				 // Set its properties
+				 courseForm->TopLevel = false;
+				 courseForm->AutoScroll = true;
+				 courseForm->Dock = DockStyle::Fill;
+
+				 // Add it to the panel
+				 panel1->Controls->Clear();
+				 panel1->Controls->Add(courseForm);
+				 courseForm->Show();
+	}
+	private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+				 int userid = user->userID;
+				 AddGradeForm^ addGradeForm = gcnew AddGradeForm(userid);
+				 // Customize the form's appearance
+				 this->label1->Text = user->email + " | " + " Grades";
+				 addGradeForm->ControlBox = false; // Hide the control box
+				 addGradeForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+				 addGradeForm->TopLevel = false;
+				 addGradeForm->AutoScroll = true;
+				 addGradeForm->Dock = DockStyle::Fill;
+				 // Add the AddGradeForm to the panel
+				 panel1->Controls->Clear();
+				 panel1->Controls->Add(addGradeForm);
+				 addGradeForm->Show();
+	}
+	private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
+				 // Create an instance of the CourseFor
+
+				 TimeTableView^ timetable = gcnew TimeTableView(user);
+				 this->label1->Text = user->email + " | " + " Timetable";
+				 // Customize the form's appearance
+				 timetable->ControlBox = false; // Hide the control box
+				 timetable->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+				 //courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
+
+				 // Set its properties
+				 timetable->TopLevel = false;
+				 timetable->AutoScroll = true;
+				 timetable->Dock = DockStyle::Fill;
+
+				 // Add it to the panel
+				 panel1->Controls->Clear();
+				 panel1->Controls->Add(timetable);
+				 timetable->Show();
+	}
+	private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
+				 globalPanel->Controls->Clear();
+				 globalPanel->Controls->Add(globalForm);
+				 globalForm->Show();
+	}
+	private: System::Void lblName_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+private: System::Void pictureBox5_Click(System::Object^  sender, System::EventArgs^  e) {
 }
-private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void pictureBox2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
-private: System::Void pictureBox10_Click(System::Object^  sender, System::EventArgs^  e) {
+private: System::Void pictureBox7_Click(System::Object^  sender, System::EventArgs^  e) {
 }
-private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
-			PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-			// Create an instance of the ProfileForm
-			int userid = user->userID;
-			ProfileForm^ profileForm = gcnew ProfileForm(userid);
-
-			// Customize the form's appearance
-			profileForm->ControlBox = false; // Hide the control box
-			profileForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-			//profileForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to green
-
-			// Set its properties
-			profileForm->TopLevel = false;
-			profileForm->AutoScroll = true;
-			profileForm->Dock = DockStyle::Fill;
-
-			// Add it to the panel
-			panel1->Controls->Clear();
-			panel1->Controls->Add(profileForm);
-			profileForm->Show();
-}
-private: System::Void label2_Click_1(System::Object^  sender, System::EventArgs^  e) {
-			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-			 // Create an instance of the AddCourseForm
-			 AddCourseForm^ addCourseForm = gcnew AddCourseForm(user->userID);
-
-			 // Customize the form's appearance
-			 addCourseForm->ControlBox = false; // Hide the control box
-			 addCourseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-			 //addCourseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to red
-
-			 // Set its properties
-			 addCourseForm->TopLevel = false;
-			 addCourseForm->AutoScroll = true;
-			 addCourseForm->Dock = DockStyle::Fill;
-
-			 // Add it to the panel
-			 panel1->Controls->Clear();
-			 panel1->Controls->Add(addCourseForm);
-			 addCourseForm->Show();
-}
-private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
-			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-			 // Create an instance of the CourseFor
-			 int userid = user->userID;
-			 CourseForm^ courseForm = gcnew CourseForm(userid);
-
-			 // Customize the form's appearance
-			 courseForm->ControlBox = false; // Hide the control box
-			 courseForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-			 //courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
-
-			 // Set its properties
-			 courseForm->TopLevel = false;
-			 courseForm->AutoScroll = true;
-			 courseForm->Dock = DockStyle::Fill;
-
-			 // Add it to the panel
-			 panel1->Controls->Clear();
-			 panel1->Controls->Add(courseForm);
-			 courseForm->Show();
-}
-private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
-			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-			 int userid = user->userID;
-			 AddGradeForm^ addGradeForm = gcnew AddGradeForm(userid);
-			 // Customize the form's appearance
-			 addGradeForm->ControlBox = false; // Hide the control box
-			 addGradeForm->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-			 addGradeForm->TopLevel = false;
-			 addGradeForm->AutoScroll = true;
-			 addGradeForm->Dock = DockStyle::Fill;
-			 // Add the AddGradeForm to the panel
-			 panel1->Controls->Clear();
-			 panel1->Controls->Add(addGradeForm);
-			 addGradeForm->Show();
-}
-private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
-			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
-			 // Create an instance of the CourseFor
-
-			 TimeTableView^ timetable = gcnew TimeTableView(user);
-
-			 // Customize the form's appearance
-			 timetable->ControlBox = false; // Hide the control box
-			 timetable->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-			 //courseForm->BackColor = System::Drawing::Color::LightSkyBlue; // Set background color to yellow
-
-			 // Set its properties
-			 timetable->TopLevel = false;
-			 timetable->AutoScroll = true;
-			 timetable->Dock = DockStyle::Fill;
-
-			 // Add it to the panel
-			 panel1->Controls->Clear();
-			 panel1->Controls->Add(timetable);
-			 timetable->Show();
-}
-private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
-			 globalPanel->Controls->Clear();
-			 globalPanel->Controls->Add(globalForm);
-			 globalForm->Show();
+private: System::Void pictureBox8_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

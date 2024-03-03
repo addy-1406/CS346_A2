@@ -71,6 +71,8 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::Panel^  panel2;
 	private: System::Windows::Forms::Button^  btnProfile;
+	private: System::Windows::Forms::Label^  lblName;
+
 
 
 
@@ -102,6 +104,7 @@ namespace CS346_A2 {
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->btnProfile = (gcnew System::Windows::Forms::Button());
 			this->panel2 = (gcnew System::Windows::Forms::Panel());
+			this->lblName = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
@@ -135,9 +138,9 @@ namespace CS346_A2 {
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::Transparent;
 			this->pictureBox1->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.Image")));
-			this->pictureBox1->Location = System::Drawing::Point(26, 44);
+			this->pictureBox1->Location = System::Drawing::Point(60, 110);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(347, 410);
+			this->pictureBox1->Size = System::Drawing::Size(278, 344);
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 7;
 			this->pictureBox1->TabStop = false;
@@ -342,12 +345,24 @@ namespace CS346_A2 {
 			// 
 			this->panel2->BackColor = System::Drawing::Color::White;
 			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel2->Controls->Add(this->lblName);
 			this->panel2->Controls->Add(this->btnPhoto);
 			this->panel2->Controls->Add(this->pictureBox1);
 			this->panel2->Location = System::Drawing::Point(43, 12);
 			this->panel2->Name = L"panel2";
 			this->panel2->Size = System::Drawing::Size(401, 562);
 			this->panel2->TabIndex = 28;
+			// 
+			// lblName
+			// 
+			this->lblName->AutoSize = true;
+			this->lblName->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 13.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->lblName->Location = System::Drawing::Point(54, 43);
+			this->lblName->Name = L"lblName";
+			this->lblName->Size = System::Drawing::Size(130, 32);
+			this->lblName->TabIndex = 10;
+			this->lblName->Text = L"Welcome!";
 			// 
 			// ProfileForm
 			// 
@@ -365,6 +380,7 @@ namespace CS346_A2 {
 			this->panel1->ResumeLayout(false);
 			this->panel1->PerformLayout();
 			this->panel2->ResumeLayout(false);
+			this->panel2->PerformLayout();
 			this->ResumeLayout(false);
 
 		}
@@ -372,6 +388,7 @@ namespace CS346_A2 {
 	private:
 		void btnPhoto_Click(System::Object^ sender, System::EventArgs^ e) {
 			OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
+			//openFileDialog1->Filter = "Image Files (.bmp;.jpg;.jpeg,.gif,.png,.tif)|.bmp;.jpg;.jpeg;.gif;.png;.tif";
 			openFileDialog1->InitialDirectory = "C:\\"; // Change this to a directory containing image files
 			openFileDialog1->RestoreDirectory = true;
 			openFileDialog1->CheckFileExists = true;
@@ -403,7 +420,7 @@ namespace CS346_A2 {
 						 String^ newRoom = txtRoom->Text;
 						 String^ newDesignation = txtDesign->Text;
 						 String^ newResearchInterests = txtResearch->Text->Replace("\n", ",");
-
+						  
 						 // Update the values in the database
 						 String^ query = "UPDATE faculty SET DOB = @DOB, Contact = @Contact, Office_room = @Room, Designation = @Designation, Research_Interests = @Research WHERE User_ID = @UserID";
 						 array<SqlParameter^>^ parameters = {
@@ -435,7 +452,7 @@ namespace CS346_A2 {
 				SqlDataReader^ reader = DatabaseHelper::ExecuteQuery(query, parameters);
 
 				if (reader->Read()) {
-					//lblName->Text = reader->GetString(0);
+					lblName->Text = "Welcome! "+ reader->GetString(0);
 					dtpDOB->Value = reader->IsDBNull(1) ? DateTime::Now : reader->GetDateTime(1);
 					txtContact->Text = reader->GetString(2);
 					txtEmail->Text = reader->GetString(3);
@@ -479,7 +496,18 @@ namespace CS346_A2 {
 	
 		void UploadImageToDatabase(array<Byte>^ photoData, int userID) {
 			try {
-				String^ query = "INSERT INTO profile_photos values(@UserID, @Photo)";
+
+
+				String^ query = "IF EXISTS (SELECT 1 FROM profile_photos WHERE User_ID = @UserID) "
+					"BEGIN "
+					"    UPDATE profile_photos SET Photo = @Photo WHERE User_ID = @UserID "
+					"END "
+					"ELSE "
+					"BEGIN "
+					"    INSERT INTO profile_photos (User_ID, Photo) VALUES (@UserID, @Photo) "
+					"END";
+
+
 				array<SqlParameter^>^ parameters = {
 					gcnew SqlParameter("@UserID", userID),
 					gcnew SqlParameter("@Photo", photoData)
