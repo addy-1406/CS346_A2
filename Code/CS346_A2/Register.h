@@ -159,6 +159,7 @@ namespace CS346_A2 {
 				static_cast<System::Byte>(0)));
 			this->textBox6->Location = System::Drawing::Point(51, 537);
 			this->textBox6->Name = L"textBox6";
+			this->textBox6->PasswordChar = '*';
 			this->textBox6->Size = System::Drawing::Size(363, 30);
 			this->textBox6->TabIndex = 11;
 			// 
