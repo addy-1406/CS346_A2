@@ -41,6 +41,7 @@
     <ClInclude Include="SeatingHelper.h" />
     <ClInclude Include="Queries_User.h" />
     <ClInclude Include="Queries_Admin.h" />
+    <ClInclude Include="resource.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddCourseForm.resx" />
@@ -65,5 +66,14 @@
     <EmbeddedResource Include="CourseList.resx" />
     <EmbeddedResource Include="TimeTableView.resx" />
     <EmbeddedResource Include="classroomlist.resx" />
+    <EmbeddedResource Include="Queries_Admin.resx" />
+    <EmbeddedResource Include="Queries_User.resx" />
+  </ItemGroup>
+  <ItemGroup>
+    <ResourceCompile Include="CS346_A2.rc" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="icon1.ico" />
+    <Image Include="..\..\..\..\..\Downloads\icon.ico" />
   </ItemGroup>
 </Project>
