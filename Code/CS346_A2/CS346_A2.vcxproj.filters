@@ -75,5 +75,6 @@
   <ItemGroup>
     <Image Include="icon1.ico" />
     <Image Include="..\..\..\..\..\Downloads\icon.ico" />
+    <Image Include="..\MediaFiles\icon.ico" />
   </ItemGroup>
 </Project>
