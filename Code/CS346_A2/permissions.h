@@ -3,6 +3,7 @@
 #include "User.h"
 #include "DatabaseHelper.h"
 #include "TimeTable.h"
+#include "SeatingHelper.h"
 
 namespace CS346_A2 {
 
@@ -64,6 +65,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker2;
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
 	private: System::Windows::Forms::Button^  button7;
+	private: System::Windows::Forms::Button^  button8;
 
 
 
@@ -130,6 +132,7 @@ namespace CS346_A2 {
 		{
 			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
+			this->button7 = (gcnew System::Windows::Forms::Button());
 			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->button6 = (gcnew System::Windows::Forms::Button());
@@ -149,13 +152,14 @@ namespace CS346_A2 {
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->button7 = (gcnew System::Windows::Forms::Button());
+			this->button8 = (gcnew System::Windows::Forms::Button());
 			this->panel1->SuspendLayout();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
 			// 
+			this->panel1->Controls->Add(this->button8);
 			this->panel1->Controls->Add(this->button7);
 			this->panel1->Controls->Add(this->dateTimePicker2);
 			this->panel1->Controls->Add(this->dateTimePicker1);
@@ -174,6 +178,18 @@ namespace CS346_A2 {
 			this->panel1->Size = System::Drawing::Size(741, 536);
 			this->panel1->TabIndex = 2;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &permissions::panel1_Paint);
+			// 
+			// button7
+			// 
+			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->button7->Location = System::Drawing::Point(118, 422);
+			this->button7->Name = L"button7";
+			this->button7->Size = System::Drawing::Size(140, 43);
+			this->button7->TabIndex = 18;
+			this->button7->Text = L"Generate TimeTable";
+			this->button7->UseVisualStyleBackColor = true;
+			this->button7->Click += gcnew System::EventHandler(this, &permissions::button7_Click);
 			// 
 			// dateTimePicker2
 			// 
@@ -345,17 +361,17 @@ namespace CS346_A2 {
 			this->Column8->Name = L"Column8";
 			this->Column8->Width = 90;
 			// 
-			// button7
+			// button8
 			// 
-			this->button7->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+			this->button8->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->button7->Location = System::Drawing::Point(118, 422);
-			this->button7->Name = L"button7";
-			this->button7->Size = System::Drawing::Size(140, 43);
-			this->button7->TabIndex = 18;
-			this->button7->Text = L"Generate TimeTable";
-			this->button7->UseVisualStyleBackColor = true;
-			this->button7->Click += gcnew System::EventHandler(this, &permissions::button7_Click);
+			this->button8->Location = System::Drawing::Point(460, 422);
+			this->button8->Name = L"button8";
+			this->button8->Size = System::Drawing::Size(140, 43);
+			this->button8->TabIndex = 19;
+			this->button8->Text = L"Generate SeatingArrangement";
+			this->button8->UseVisualStyleBackColor = true;
+			this->button8->Click += gcnew System::EventHandler(this, &permissions::button8_Click);
 			// 
 			// permissions
 			// 
@@ -616,5 +632,116 @@ namespace CS346_A2 {
 					 MessageBox::Show(ex->Message);
 				 }
 	}
-	};
+	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
+				 
+				 String^ query;
+
+				 query = R"(
+DECLARE @Course_ID VARCHAR(50);
+DECLARE @Room_ID1 VARCHAR(50);
+DECLARE @Room_ID2 VARCHAR(50);
+DECLARE @Slot VARCHAR(50);
+DECLARE @Time_Slot VARCHAR(50);
+DECLARE @Exam_Date DATE;
+DECLARE @Exam_Date_New DATE;
+DECLARE @User_ID VARCHAR(50);
+DECLARE @Student_Count INT;
+DECLARE @Student_Number INT = 0;
+DECLARE @i INT = 0;
+DECLARE @n INT;
+DECLARE @Room_Type VARCHAR(50);
+
+SELECT @Exam_Date = Midsem_Start_Date FROM permissions;
+
+DECLARE course_cursor CURSOR FOR
+SELECT t.Course_ID, t.Slot, c.ElectiveOrCompulsory
+FROM timetable t
+JOIN course c ON t.Course_ID = c.Course_Code
+ORDER BY Slot;
+
+OPEN course_cursor;
+
+FETCH NEXT FROM course_cursor INTO @Course_ID, @Slot, @Room_Type;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+IF LEN(@Slot) <= 2
+BEGIN
+SET @Room_Type = CASE WHEN @Room_Type = 0 THEN 'Lecture Hall' ELSE 'Classroom' END;
+SELECT @n = COUNT(*) FROM classroom WHERE Room_type = @Room_Type;
+SELECT @Room_ID1 = Room_ID
+FROM (
+SELECT Room_ID, ROW_NUMBER() OVER (ORDER BY Room_ID) AS rn
+FROM classroom
+WHERE Room_type = @Room_Type
+) AS subquery
+WHERE rn = @i % @n + 1;
+SELECT @Room_ID2 = Room_ID
+FROM (
+SELECT Room_ID, ROW_NUMBER() OVER (ORDER BY Room_ID) AS rn
+FROM classroom
+WHERE Room_type = @Room_Type
+) AS subquery
+WHERE rn = (@i + 1) % @n + 1;
+SET @Time_Slot = CASE WHEN SUBSTRING(@Slot, 2, 1) = '1' THEN '9AM-11AM' ELSE '2PM-4PM' END;
+SET @Exam_Date_New = DATEADD(day,
+CASE
+WHEN SUBSTRING(@Slot, 1, 1) = 'A' THEN 0
+WHEN SUBSTRING(@Slot, 1, 1) = 'B' THEN 1
+WHEN SUBSTRING(@Slot, 1, 1) = 'C' THEN 2
+WHEN SUBSTRING(@Slot, 1, 1) = 'D' THEN 3
+WHEN SUBSTRING(@Slot, 1, 1) = 'E' THEN 4
+ELSE 0
+END, @Exam_Date);
+
+DECLARE student_cursor CURSOR FOR
+SELECT User_ID FROM grade
+WHERE CourseCode = @Course_ID AND Approval_Status = 'Approved'
+ORDER BY User_ID;
+
+OPEN student_cursor;
+
+FETCH NEXT FROM student_cursor INTO @User_ID;
+
+WHILE @@FETCH_STATUS = 0
+BEGIN
+SET @Student_Number = @Student_Number + 1;
+IF @Student_Number <= @Student_Count / 2
+BEGIN
+PRINT 'Course_ID: ' + @Course_ID + ', Room_ID: ' + @Room_ID1 + ', Slot: ' + @Slot + ', Time_Slot: ' + @Time_Slot + ', Exam_Date: ' + CONVERT(VARCHAR, @Exam_Date_New, 23) + ', User_ID: ' + @User_ID;
+INSERT INTO exam (Course_ID, Date, Time_Slot, Room_ID, Student_ID, ExamType)
+VALUES (@Course_ID, CONVERT(VARCHAR, @Exam_Date_New, 23), @Time_Slot, @Room_ID1, @User_ID, 0);
+END
+ELSE
+BEGIN
+PRINT 'Course_ID: ' + @Course_ID + ', Room_ID: ' + @Room_ID2 + ', Slot: ' + @Slot + ', Time_Slot: ' + @Time_Slot + ', Exam_Date: ' + CONVERT(VARCHAR, @Exam_Date_New, 23) + ', User_ID: ' + @User_ID;
+INSERT INTO exam (Course_ID, Date, Time_Slot, Room_ID, Student_ID, ExamType)
+VALUES (@Course_ID, CONVERT(VARCHAR, @Exam_Date_New, 23), @Time_Slot, @Room_ID2, @User_ID, 0);
+END
+
+FETCH NEXT FROM student_cursor INTO @User_ID;
+END;
+
+CLOSE student_cursor;
+DEALLOCATE student_cursor;
+
+SET @Student_Number = 0;
+END
+
+SET @i = @i + 1;
+
+FETCH NEXT FROM course_cursor INTO @Course_ID, @Slot, @Room_Type;
+END;
+
+CLOSE course_cursor;
+DEALLOCATE course_cursor;
+
+
+)";
+
+	SqlDataReader^ dr = SeatingHelper::fetchSeating(query);
+	dr->Close();
+	MessageBox::Show("Generated Seating Arrangement Successfully");
+	}
+};
 }
