@@ -166,7 +166,7 @@ namespace CS346_A2 {
 			this->pictureBox3->Location = System::Drawing::Point(292, -1);
 			this->pictureBox3->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(971, 50);
+			this->pictureBox3->Size = System::Drawing::Size(971, 53);
 			this->pictureBox3->TabIndex = 13;
 			this->pictureBox3->TabStop = false;
 			// 
