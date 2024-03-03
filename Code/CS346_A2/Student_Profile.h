@@ -540,12 +540,12 @@ private: System::Void button1_Click(System::Object^  sender, System::EventArgs^ 
 						if (reader->Read() && reader["Photo"] != nullptr && reader["Photo"] != DBNull::Value) {
 							array<Byte>^ imgData = safe_cast<array<Byte>^>(reader["Photo"]);
 							MemoryStream^ ms = gcnew MemoryStream(imgData);
-							pictureBox3->Image = Image::FromStream(ms);
+							pictureBox3->BackgroundImage = Image::FromStream(ms);
 						}
 						else {
 							// If photo is null in profile_photos table, use default photo
 							try {
-								pictureBox3->Image = Image::FromFile("..\\MediaFiles\\profile.jpg");
+								pictureBox3->BackgroundImage = Image::FromFile("..\\MediaFiles\\student_default.png");
 							}
 							catch (Exception^ ex) {
 								MessageBox::Show("Error loading default image: " + ex->Message);
@@ -560,10 +560,10 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 
 			 if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 				 try {
-					 pictureBox1->Image = Image::FromFile(openFileDialog1->FileName);
+					 pictureBox3->BackgroundImage = Image::FromFile(openFileDialog1->FileName);
 
 					 // Convert Image to byte array
-					 array<Byte>^ imageArray = ImageToByteArray(pictureBox1->Image);
+					 array<Byte>^ imageArray = ImageToByteArray(pictureBox3->BackgroundImage);
 
 					 // Upload the image to the database
 					 UploadImageToDatabase(imageArray, user->userID);
@@ -575,7 +575,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 }
 		 public: System::Void UploadImageToDatabase(array<Byte>^ photoData, int userID) {
 					 try {
-						 String^ query = "UPDATE profile_photos SET Photo = @Photo WHERE User_ID = @UserID";
+						 String^ query = "INSERT INTO profile_photos values(@UserID, @Photo)";
 						 array<SqlParameter^>^ parameters = {
 							 gcnew SqlParameter("@UserID", userID),
 							 gcnew SqlParameter("@Photo", photoData)
@@ -586,7 +586,23 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 						 MessageBox::Show("Photo uploaded successfully.", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 					 }
 					 catch (SqlException^ ex) {
-						 MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+						 try {
+							 String^ query = "UPDATE profile_photos SET Photo = @Photo WHERE User_ID = @UserID";
+							 array<SqlParameter^>^ parameters = {
+								 gcnew SqlParameter("@UserID", userID),
+								 gcnew SqlParameter("@Photo", photoData)
+							 };
+
+							 DatabaseHelper::ExecuteQuery(query, parameters);
+
+							 MessageBox::Show("Photo uploaded successfully.", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+						 }
+						 catch (SqlException^ ex)
+						 {
+							 MessageBox::Show(ex->Message);
+
+						 }
+						 
 					 }
 		 }
 private: System::Void Student_Profile_Load(System::Object^  sender, System::EventArgs^  e) {

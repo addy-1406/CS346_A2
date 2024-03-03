@@ -80,9 +80,9 @@ namespace CS346_A2 {
 				this->CourseCode, this->CourseName,
 					this->Date, this->Time, this->Venue
 			});
-			this->listView1->Location = System::Drawing::Point(33, 100);
+			this->listView1->Location = System::Drawing::Point(42, 96);
 			this->listView1->Name = L"listView1";
-			this->listView1->Size = System::Drawing::Size(913, 470);
+			this->listView1->Size = System::Drawing::Size(875, 470);
 			this->listView1->TabIndex = 5;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
@@ -95,7 +95,7 @@ namespace CS346_A2 {
 			// CourseName
 			// 
 			this->CourseName->Text = L"Course Name";
-			this->CourseName->Width = 452;
+			this->CourseName->Width = 350;
 			// 
 			// Date
 			// 

@@ -319,7 +319,7 @@ namespace CS346_A2 {
 			this->panel1->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
 				| System::Windows::Forms::AnchorStyles::Right));
 			this->panel1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel1->Location = System::Drawing::Point(298, 50);
+			this->panel1->Location = System::Drawing::Point(294, 50);
 			this->panel1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->panel1->MaximumSize = System::Drawing::Size(970, 624);
 			this->panel1->MinimumSize = System::Drawing::Size(970, 624);

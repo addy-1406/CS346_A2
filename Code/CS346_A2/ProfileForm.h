@@ -100,8 +100,8 @@ namespace CS346_A2 {
 			this->txtDesign = (gcnew System::Windows::Forms::TextBox());
 			this->dtpDOB = (gcnew System::Windows::Forms::DateTimePicker());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			this->btnProfile = (gcnew System::Windows::Forms::Button());
+			this->panel2 = (gcnew System::Windows::Forms::Panel());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->panel1->SuspendLayout();
 			this->panel2->SuspendLayout();
@@ -141,6 +141,7 @@ namespace CS346_A2 {
 			this->pictureBox1->SizeMode = System::Windows::Forms::PictureBoxSizeMode::Zoom;
 			this->pictureBox1->TabIndex = 7;
 			this->pictureBox1->TabStop = false;
+			this->pictureBox1->Click += gcnew System::EventHandler(this, &ProfileForm::pictureBox1_Click);
 			// 
 			// btnPhoto
 			// 
@@ -319,17 +320,6 @@ namespace CS346_A2 {
 			this->panel1->TabIndex = 27;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &ProfileForm::panel1_Paint);
 			// 
-			// panel2
-			// 
-			this->panel2->BackColor = System::Drawing::Color::White;
-			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->panel2->Controls->Add(this->btnPhoto);
-			this->panel2->Controls->Add(this->pictureBox1);
-			this->panel2->Location = System::Drawing::Point(43, 12);
-			this->panel2->Name = L"panel2";
-			this->panel2->Size = System::Drawing::Size(401, 562);
-			this->panel2->TabIndex = 28;
-			// 
 			// btnProfile
 			// 
 			this->btnProfile->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
@@ -347,6 +337,17 @@ namespace CS346_A2 {
 			this->btnProfile->Text = L"Upload Profile";
 			this->btnProfile->UseVisualStyleBackColor = false;
 			this->btnProfile->Click += gcnew System::EventHandler(this, &ProfileForm::btnProfile_Click);
+			// 
+			// panel2
+			// 
+			this->panel2->BackColor = System::Drawing::Color::White;
+			this->panel2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->panel2->Controls->Add(this->btnPhoto);
+			this->panel2->Controls->Add(this->pictureBox1);
+			this->panel2->Location = System::Drawing::Point(43, 12);
+			this->panel2->Name = L"panel2";
+			this->panel2->Size = System::Drawing::Size(401, 562);
+			this->panel2->TabIndex = 28;
 			// 
 			// ProfileForm
 			// 
@@ -473,7 +474,7 @@ namespace CS346_A2 {
 	
 		void UploadImageToDatabase(array<Byte>^ photoData, int userID) {
 			try {
-				String^ query = "UPDATE profile_photos SET Photo = @Photo WHERE User_ID = @UserID";
+				String^ query = "INSERT INTO profile_photos values(@UserID, @Photo)";
 				array<SqlParameter^>^ parameters = {
 					gcnew SqlParameter("@UserID", userID),
 					gcnew SqlParameter("@Photo", photoData)
@@ -484,7 +485,22 @@ namespace CS346_A2 {
 				MessageBox::Show("Photo uploaded successfully.", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
 			}
 			catch (SqlException^ ex) {
-				MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
+				try {
+					String^ query = "UPDATE profile_photos SET Photo = @Photo WHERE User_ID = @UserID";
+					array<SqlParameter^>^ parameters = {
+						gcnew SqlParameter("@UserID", userID),
+						gcnew SqlParameter("@Photo", photoData)
+					};
+
+					DatabaseHelper::ExecuteQuery(query, parameters);
+
+					MessageBox::Show("Photo uploaded successfully.", "Success", MessageBoxButtons::OK, MessageBoxIcon::Information);
+				}
+				catch (SqlException^ ex)
+				{
+					MessageBox::Show(ex->Message);
+
+				}
 			}
 		}
 
@@ -535,6 +551,8 @@ private: System::Void label13_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void ProfileForm_Load(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

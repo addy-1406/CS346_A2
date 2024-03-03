@@ -14,6 +14,7 @@ public:
 	static SqlDataReader^ ExecuteQuery(String^ query, array<SqlParameter^>^ parameters)
 	{
 		try {
+	//		String^ connectionString = "Server=(localdb)\\Local-CS346-A2;Initial Catalog =CS346-A2-Backup;Integrated Security=True;";
 			String^ connectionString = "Server=tcp:cs346.database.windows.net,1433;Initial Catalog=ass2;Persist Security Info=False;User ID=superuser;Password=Admin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 
 			SqlConnection^ con = gcnew SqlConnection(connectionString);
@@ -42,6 +43,7 @@ public:
 	static SqlDataReader^ ExecuteQuery(String^ query)
 	{
 		try {
+	//		String^ connectionString = "Server=(localdb)\\Local-CS346-A2;Initial Catalog =CS346-A2-Backup;Integrated Security=True;";
 			String^ connectionString = "Server=tcp:cs346.database.windows.net,1433;Initial Catalog=ass2;Persist Security Info=False;User ID=superuser;Password=Admin@123;MultipleActiveResultSets=False;Encrypt=True;TrustServerCertificate=False;Connection Timeout=30;";
 			SqlConnection^ con = gcnew SqlConnection(connectionString);
 

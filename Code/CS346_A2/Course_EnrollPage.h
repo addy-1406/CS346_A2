@@ -58,6 +58,24 @@ namespace CS346_A2 {
 
 
 	private: System::Windows::Forms::DataGridView^  dataGridView2;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::DataGridView^  dataGridView3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column3;
@@ -75,7 +93,6 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn7;
 	private: System::Windows::Forms::DataGridViewButtonColumn^  dataGridViewButtonColumn1;
 	private: System::Windows::Forms::DataGridViewButtonColumn^  dataGridViewButtonColumn2;
-	private: System::Windows::Forms::DataGridView^  dataGridView3;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn5;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn8;
@@ -84,6 +101,16 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn10;
 	private: System::Windows::Forms::DataGridViewButtonColumn^  dataGridViewButtonColumn3;
 	private: System::Windows::Forms::DataGridViewButtonColumn^  dataGridViewButtonColumn4;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  label4;
+
+
+
+
+
+
+
+
 
 
 
@@ -114,6 +141,11 @@ namespace CS346_A2 {
 		{
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -123,8 +155,6 @@ namespace CS346_A2 {
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->Column9 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -133,7 +163,6 @@ namespace CS346_A2 {
 			this->dataGridViewTextBoxColumn7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewButtonColumn1 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->dataGridViewButtonColumn2 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
 			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewTextBoxColumn8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -152,9 +181,10 @@ namespace CS346_A2 {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(283, 9);
+			this->label1->Location = System::Drawing::Point(377, 11);
+			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(169, 20);
+			this->label1->Size = System::Drawing::Size(202, 25);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Course Registration";
 			this->label1->Click += gcnew System::EventHandler(this, &Course_EnrollPage::label1_Click);
@@ -162,67 +192,146 @@ namespace CS346_A2 {
 			// dataGridView1
 			// 
 			this->dataGridView1->AllowUserToAddRows = false;
+			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)),
+				static_cast<System::Int32>(static_cast<System::Byte>(212)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->dataGridView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 			this->dataGridView1->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
 			this->dataGridView1->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
 			this->dataGridView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(9) {
 				this->Column1,
 					this->Column2, this->Column3, this->Column4, this->Column8, this->Column5, this->Column6, this->Column7, this->Column9
 			});
-			this->dataGridView1->Location = System::Drawing::Point(105, 77);
+			this->dataGridView1->Location = System::Drawing::Point(62, 95);
+			this->dataGridView1->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersVisible = false;
-			this->dataGridView1->Size = System::Drawing::Size(503, 116);
+			this->dataGridView1->Size = System::Drawing::Size(803, 143);
 			this->dataGridView1->TabIndex = 1;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView1_CellContentClick);
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Location = System::Drawing::Point(59, 74);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(138, 17);
+			this->label2->TabIndex = 2;
+			this->label2->Text = L"Compulsory Courses";
+			this->label2->Click += gcnew System::EventHandler(this, &Course_EnrollPage::label2_Click);
+			// 
+			// dataGridView2
+			// 
+			this->dataGridView2->AllowUserToAddRows = false;
+			this->dataGridView2->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)),
+				static_cast<System::Int32>(static_cast<System::Byte>(212)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->dataGridView2->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->dataGridView2->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
+			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+				this->dataGridViewTextBoxColumn1,
+					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewComboBoxColumn1,
+					this->dataGridViewTextBoxColumn7, this->dataGridViewButtonColumn1, this->dataGridViewButtonColumn2
+			});
+			this->dataGridView2->Location = System::Drawing::Point(62, 269);
+			this->dataGridView2->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dataGridView2->Name = L"dataGridView2";
+			this->dataGridView2->RowHeadersVisible = false;
+			this->dataGridView2->Size = System::Drawing::Size(803, 132);
+			this->dataGridView2->TabIndex = 3;
+			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView2_CellContentClick);
+			this->dataGridView2->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView2_EditingControlShowing);
+			// 
+			// dataGridView3
+			// 
+			this->dataGridView3->AllowUserToAddRows = false;
+			this->dataGridView3->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)),
+				static_cast<System::Int32>(static_cast<System::Byte>(212)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->dataGridView3->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->dataGridView3->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
+			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+				this->dataGridViewTextBoxColumn5,
+					this->dataGridViewTextBoxColumn6, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9, this->dataGridViewComboBoxColumn2,
+					this->dataGridViewTextBoxColumn10, this->dataGridViewButtonColumn3, this->dataGridViewButtonColumn4
+			});
+			this->dataGridView3->Location = System::Drawing::Point(62, 439);
+			this->dataGridView3->Margin = System::Windows::Forms::Padding(4, 4, 4, 4);
+			this->dataGridView3->Name = L"dataGridView3";
+			this->dataGridView3->RowHeadersVisible = false;
+			this->dataGridView3->Size = System::Drawing::Size(803, 108);
+			this->dataGridView3->TabIndex = 4;
+			this->dataGridView3->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView3_CellContentClick);
+			this->dataGridView3->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView3_EditingControlShowing);
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Location = System::Drawing::Point(59, 248);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(113, 17);
+			this->label3->TabIndex = 5;
+			this->label3->Text = L"Elective Courses";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Location = System::Drawing::Point(59, 418);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(96, 17);
+			this->label4->TabIndex = 6;
+			this->label4->Text = L"Audit Courses";
 			// 
 			// Column1
 			// 
 			this->Column1->HeaderText = L"L";
 			this->Column1->Name = L"Column1";
 			this->Column1->ReadOnly = true;
-			this->Column1->Width = 20;
+			this->Column1->Width = 30;
 			// 
 			// Column2
 			// 
 			this->Column2->HeaderText = L"T";
 			this->Column2->Name = L"Column2";
 			this->Column2->ReadOnly = true;
-			this->Column2->Width = 20;
+			this->Column2->Width = 30;
 			// 
 			// Column3
 			// 
 			this->Column3->HeaderText = L"P";
 			this->Column3->Name = L"Column3";
 			this->Column3->ReadOnly = true;
-			this->Column3->Width = 20;
+			this->Column3->Width = 30;
 			// 
 			// Column4
 			// 
 			this->Column4->HeaderText = L"C";
 			this->Column4->Name = L"Column4";
 			this->Column4->ReadOnly = true;
-			this->Column4->Width = 20;
+			this->Column4->Width = 30;
 			// 
 			// Column8
 			// 
 			this->Column8->HeaderText = L"Code";
 			this->Column8->Name = L"Column8";
 			this->Column8->ReadOnly = true;
-			this->Column8->Width = 60;
+			this->Column8->Width = 90;
 			// 
 			// Column5
 			// 
 			this->Column5->HeaderText = L"Name";
 			this->Column5->Name = L"Column5";
 			this->Column5->ReadOnly = true;
-			this->Column5->Width = 200;
+			this->Column5->Width = 350;
 			// 
 			// Column6
 			// 
 			this->Column6->HeaderText = L"Slot";
 			this->Column6->Name = L"Column6";
 			this->Column6->ReadOnly = true;
-			this->Column6->Width = 40;
+			this->Column6->Width = 60;
 			// 
 			// Column7
 			// 
@@ -231,83 +340,55 @@ namespace CS346_A2 {
 			this->Column7->ReadOnly = true;
 			this->Column7->Text = L"View";
 			this->Column7->UseColumnTextForButtonValue = true;
-			this->Column7->Width = 40;
+			this->Column7->Width = 60;
 			// 
 			// Column9
 			// 
 			this->Column9->HeaderText = L"Register";
 			this->Column9->Name = L"Column9";
 			this->Column9->Text = L"Register";
-			this->Column9->Width = 80;
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(102, 40);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(102, 13);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"Compulsory Courses";
-			this->label2->Click += gcnew System::EventHandler(this, &Course_EnrollPage::label2_Click);
-			// 
-			// dataGridView2
-			// 
-			this->dataGridView2->AllowUserToAddRows = false;
-			this->dataGridView2->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
-			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
-				this->dataGridViewTextBoxColumn1,
-					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewComboBoxColumn1,
-					this->dataGridViewTextBoxColumn7, this->dataGridViewButtonColumn1, this->dataGridViewButtonColumn2
-			});
-			this->dataGridView2->Location = System::Drawing::Point(105, 246);
-			this->dataGridView2->Name = L"dataGridView2";
-			this->dataGridView2->RowHeadersVisible = false;
-			this->dataGridView2->Size = System::Drawing::Size(503, 107);
-			this->dataGridView2->TabIndex = 3;
-			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView2_CellContentClick);
-			this->dataGridView2->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView2_EditingControlShowing);
+			this->Column9->Width = 120;
 			// 
 			// dataGridViewTextBoxColumn1
 			// 
 			this->dataGridViewTextBoxColumn1->HeaderText = L"L";
 			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
 			this->dataGridViewTextBoxColumn1->ReadOnly = true;
-			this->dataGridViewTextBoxColumn1->Width = 20;
+			this->dataGridViewTextBoxColumn1->Width = 30;
 			// 
 			// dataGridViewTextBoxColumn2
 			// 
 			this->dataGridViewTextBoxColumn2->HeaderText = L"T";
 			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
 			this->dataGridViewTextBoxColumn2->ReadOnly = true;
-			this->dataGridViewTextBoxColumn2->Width = 20;
+			this->dataGridViewTextBoxColumn2->Width = 30;
 			// 
 			// dataGridViewTextBoxColumn3
 			// 
 			this->dataGridViewTextBoxColumn3->HeaderText = L"P";
 			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
 			this->dataGridViewTextBoxColumn3->ReadOnly = true;
-			this->dataGridViewTextBoxColumn3->Width = 20;
+			this->dataGridViewTextBoxColumn3->Width = 30;
 			// 
 			// dataGridViewTextBoxColumn4
 			// 
 			this->dataGridViewTextBoxColumn4->HeaderText = L"C";
 			this->dataGridViewTextBoxColumn4->Name = L"dataGridViewTextBoxColumn4";
 			this->dataGridViewTextBoxColumn4->ReadOnly = true;
-			this->dataGridViewTextBoxColumn4->Width = 20;
+			this->dataGridViewTextBoxColumn4->Width = 30;
 			// 
 			// dataGridViewComboBoxColumn1
 			// 
 			this->dataGridViewComboBoxColumn1->HeaderText = L"Course";
 			this->dataGridViewComboBoxColumn1->Name = L"dataGridViewComboBoxColumn1";
-			this->dataGridViewComboBoxColumn1->Width = 260;
+			this->dataGridViewComboBoxColumn1->Width = 440;
 			// 
 			// dataGridViewTextBoxColumn7
 			// 
 			this->dataGridViewTextBoxColumn7->HeaderText = L"Slot";
 			this->dataGridViewTextBoxColumn7->Name = L"dataGridViewTextBoxColumn7";
 			this->dataGridViewTextBoxColumn7->ReadOnly = true;
-			this->dataGridViewTextBoxColumn7->Width = 40;
+			this->dataGridViewTextBoxColumn7->Width = 60;
 			// 
 			// dataGridViewButtonColumn1
 			// 
@@ -316,73 +397,55 @@ namespace CS346_A2 {
 			this->dataGridViewButtonColumn1->ReadOnly = true;
 			this->dataGridViewButtonColumn1->Text = L"View";
 			this->dataGridViewButtonColumn1->UseColumnTextForButtonValue = true;
-			this->dataGridViewButtonColumn1->Width = 40;
+			this->dataGridViewButtonColumn1->Width = 60;
 			// 
 			// dataGridViewButtonColumn2
 			// 
 			this->dataGridViewButtonColumn2->HeaderText = L"Register";
 			this->dataGridViewButtonColumn2->Name = L"dataGridViewButtonColumn2";
 			this->dataGridViewButtonColumn2->Text = L"Register";
-			this->dataGridViewButtonColumn2->Width = 80;
-			// 
-			// dataGridView3
-			// 
-			this->dataGridView3->AllowUserToAddRows = false;
-			this->dataGridView3->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
-			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
-				this->dataGridViewTextBoxColumn5,
-					this->dataGridViewTextBoxColumn6, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9, this->dataGridViewComboBoxColumn2,
-					this->dataGridViewTextBoxColumn10, this->dataGridViewButtonColumn3, this->dataGridViewButtonColumn4
-			});
-			this->dataGridView3->Location = System::Drawing::Point(105, 386);
-			this->dataGridView3->Name = L"dataGridView3";
-			this->dataGridView3->RowHeadersVisible = false;
-			this->dataGridView3->Size = System::Drawing::Size(503, 88);
-			this->dataGridView3->TabIndex = 4;
-			this->dataGridView3->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView3_CellContentClick);
-			this->dataGridView3->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView3_EditingControlShowing);
+			this->dataGridViewButtonColumn2->Width = 120;
 			// 
 			// dataGridViewTextBoxColumn5
 			// 
 			this->dataGridViewTextBoxColumn5->HeaderText = L"L";
 			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
 			this->dataGridViewTextBoxColumn5->ReadOnly = true;
-			this->dataGridViewTextBoxColumn5->Width = 20;
+			this->dataGridViewTextBoxColumn5->Width = 30;
 			// 
 			// dataGridViewTextBoxColumn6
 			// 
 			this->dataGridViewTextBoxColumn6->HeaderText = L"T";
 			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
 			this->dataGridViewTextBoxColumn6->ReadOnly = true;
-			this->dataGridViewTextBoxColumn6->Width = 20;
+			this->dataGridViewTextBoxColumn6->Width = 30;
 			// 
 			// dataGridViewTextBoxColumn8
 			// 
 			this->dataGridViewTextBoxColumn8->HeaderText = L"P";
 			this->dataGridViewTextBoxColumn8->Name = L"dataGridViewTextBoxColumn8";
 			this->dataGridViewTextBoxColumn8->ReadOnly = true;
-			this->dataGridViewTextBoxColumn8->Width = 20;
+			this->dataGridViewTextBoxColumn8->Width = 30;
 			// 
 			// dataGridViewTextBoxColumn9
 			// 
 			this->dataGridViewTextBoxColumn9->HeaderText = L"C";
 			this->dataGridViewTextBoxColumn9->Name = L"dataGridViewTextBoxColumn9";
 			this->dataGridViewTextBoxColumn9->ReadOnly = true;
-			this->dataGridViewTextBoxColumn9->Width = 20;
+			this->dataGridViewTextBoxColumn9->Width = 30;
 			// 
 			// dataGridViewComboBoxColumn2
 			// 
 			this->dataGridViewComboBoxColumn2->HeaderText = L"Course";
 			this->dataGridViewComboBoxColumn2->Name = L"dataGridViewComboBoxColumn2";
-			this->dataGridViewComboBoxColumn2->Width = 260;
+			this->dataGridViewComboBoxColumn2->Width = 440;
 			// 
 			// dataGridViewTextBoxColumn10
 			// 
 			this->dataGridViewTextBoxColumn10->HeaderText = L"Slot";
 			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
 			this->dataGridViewTextBoxColumn10->ReadOnly = true;
-			this->dataGridViewTextBoxColumn10->Width = 40;
+			this->dataGridViewTextBoxColumn10->Width = 60;
 			// 
 			// dataGridViewButtonColumn3
 			// 
@@ -391,28 +454,32 @@ namespace CS346_A2 {
 			this->dataGridViewButtonColumn3->ReadOnly = true;
 			this->dataGridViewButtonColumn3->Text = L"View";
 			this->dataGridViewButtonColumn3->UseColumnTextForButtonValue = true;
-			this->dataGridViewButtonColumn3->Width = 40;
+			this->dataGridViewButtonColumn3->Width = 60;
 			// 
 			// dataGridViewButtonColumn4
 			// 
 			this->dataGridViewButtonColumn4->HeaderText = L"Register";
 			this->dataGridViewButtonColumn4->Name = L"dataGridViewButtonColumn4";
 			this->dataGridViewButtonColumn4->Text = L"Register";
-			this->dataGridViewButtonColumn4->Width = 80;
+			this->dataGridViewButtonColumn4->Width = 120;
 			// 
 			// Course_EnrollPage
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
+			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(720, 476);
+			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
+				static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->ClientSize = System::Drawing::Size(957, 576);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->dataGridView3);
 			this->Controls->Add(this->dataGridView2);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(2);
-			this->MaximumSize = System::Drawing::Size(736, 515);
-			this->MinimumSize = System::Drawing::Size(736, 515);
+			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+			this->MaximumSize = System::Drawing::Size(975, 623);
+			this->MinimumSize = System::Drawing::Size(975, 623);
 			this->Name = L"Course_EnrollPage";
 			this->Text = L"Course_EnrollPage";
 			this->Load += gcnew System::EventHandler(this, &Course_EnrollPage::Course_EnrollPage_Load);
