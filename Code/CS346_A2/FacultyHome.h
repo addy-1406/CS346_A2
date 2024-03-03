@@ -104,6 +104,8 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  label7;
 	private: System::Windows::Forms::PictureBox^  pictureBox2;
+	private: System::Windows::Forms::Label^  label8;
+	private: System::Windows::Forms::PictureBox^  pictureBox3;
 
 
 
@@ -147,6 +149,8 @@ namespace CS346_A2 {
 			this->label3 = (gcnew System::Windows::Forms::Label());
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox6))->BeginInit();
@@ -157,6 +161,7 @@ namespace CS346_A2 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox13))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// panel1
@@ -400,12 +405,43 @@ namespace CS346_A2 {
 			this->pictureBox2->TabStop = false;
 			this->pictureBox2->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox2_Click);
 			// 
+			// label8
+			// 
+			this->label8->AutoSize = true;
+			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label8->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->ForeColor = System::Drawing::Color::White;
+			this->label8->Location = System::Drawing::Point(96, 482);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(85, 28);
+			this->label8->TabIndex = 43;
+			this->label8->Text = L"Queries";
+			this->label8->Click += gcnew System::EventHandler(this, &FacultyHome::label8_Click);
+			// 
+			// pictureBox3
+			// 
+			this->pictureBox3->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
+			this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->pictureBox3->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->pictureBox3->Location = System::Drawing::Point(57, 482);
+			this->pictureBox3->Name = L"pictureBox3";
+			this->pictureBox3->Size = System::Drawing::Size(35, 31);
+			this->pictureBox3->TabIndex = 42;
+			this->pictureBox3->TabStop = false;
+			// 
 			// FacultyHome
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(1262, 673);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
@@ -437,6 +473,7 @@ namespace CS346_A2 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox13))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox10))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -584,6 +621,23 @@ private: System::Void pictureBox2_Click(System::Object^  sender, System::EventAr
 private: System::Void pictureBox7_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void pictureBox8_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label8_Click(System::Object^  sender, System::EventArgs^  e) {
+			 label1->Text = user->email + " | Queries";
+			 Queries_User^ lp = gcnew Queries_User(user);
+			 // Customize the form's appearance
+			 lp->ControlBox = false; // Hide the control box
+			 lp->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
+
+			 // Set its properties
+			 lp->TopLevel = false;
+			 lp->AutoScroll = true;
+			 lp->Dock = DockStyle::Fill;
+
+			 // Add it to the panel
+			 panel1->Controls->Clear();
+			 panel1->Controls->Add(lp);
+			 lp->Show();
 }
 };
 }

@@ -153,6 +153,7 @@ namespace CS346_A2 {
 			this->MinimumSize = System::Drawing::Size(976, 625);
 			this->Name = L"ExamSchedule";
 			this->Text = L"ExamSchedule";
+			this->Load += gcnew System::EventHandler(this, &ExamSchedule::ExamSchedule_Load);
 			this->ResumeLayout(false);
 
 		}
@@ -219,5 +220,7 @@ namespace CS346_A2 {
 				 //MessageBox::Show(comboBox1->SelectedItem->ToString());
 				 get_examschedule(comboBox1->SelectedIndex, user);
 	}
+private: System::Void ExamSchedule_Load(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }

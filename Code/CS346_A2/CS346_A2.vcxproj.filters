@@ -6,6 +6,8 @@
     <ClCompile Include="permissions.cpp" />
     <ClCompile Include="CourseList.cpp" />
     <ClCompile Include="classroomlist.cpp" />
+    <ClCompile Include="Queries_User.cpp" />
+    <ClCompile Include="Queries_Admin.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AddCourseForm.h" />
@@ -37,6 +39,8 @@
     <ClInclude Include="CourseList.h" />
     <ClInclude Include="classroomlist.h" />
     <ClInclude Include="SeatingHelper.h" />
+    <ClInclude Include="Queries_User.h" />
+    <ClInclude Include="Queries_Admin.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddCourseForm.resx" />
