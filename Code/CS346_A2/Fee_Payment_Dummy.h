@@ -53,7 +53,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::TextBox^  textBox3;
 	private: System::Windows::Forms::TextBox^  textBox4;
 	private: System::Windows::Forms::TextBox^  textBox5;
-	private: System::Windows::Forms::Label^  label8;
+
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
 	private: System::Windows::Forms::Label^  label1;
 	private: System::Windows::Forms::Label^  label2;
@@ -62,6 +62,8 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Label^  label11;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::Label^  label13;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::PictureBox^  pictureBox2;
 
 	private:
 		/// <summary>
@@ -81,7 +83,6 @@ namespace CS346_A2 {
 			this->textBox3 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox4 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
-			this->label8 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->label2 = (gcnew System::Windows::Forms::Label());
@@ -90,7 +91,10 @@ namespace CS346_A2 {
 			this->label11 = (gcnew System::Windows::Forms::Label());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->label13 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox1
@@ -138,20 +142,6 @@ namespace CS346_A2 {
 			this->textBox5->Size = System::Drawing::Size(351, 30);
 			this->textBox5->TabIndex = 12;
 			// 
-			// label8
-			// 
-			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
-				static_cast<System::Int32>(static_cast<System::Byte>(160)));
-			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label8->ForeColor = System::Drawing::Color::White;
-			this->label8->Location = System::Drawing::Point(261, 27);
-			this->label8->Name = L"label8";
-			this->label8->Size = System::Drawing::Size(436, 63);
-			this->label8->TabIndex = 20;
-			this->label8->Text = L"FEE DETAILS";
-			this->label8->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
-			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::White;
@@ -187,6 +177,7 @@ namespace CS346_A2 {
 			this->label2->Size = System::Drawing::Size(49, 20);
 			this->label2->TabIndex = 23;
 			this->label2->Text = L"Name";
+			this->label2->Click += gcnew System::EventHandler(this, &Fee_Payment_Dummy::label2_Click_1);
 			// 
 			// label9
 			// 
@@ -254,6 +245,30 @@ namespace CS346_A2 {
 			this->label13->TabIndex = 34;
 			this->label13->Click += gcnew System::EventHandler(this, &Fee_Payment_Dummy::label13_Click);
 			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->BackColor = System::Drawing::Color::White;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label3->Location = System::Drawing::Point(605, 111);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(49, 20);
+			this->label3->TabIndex = 35;
+			this->label3->Text = L"Name";
+			this->label3->Click += gcnew System::EventHandler(this, &Fee_Payment_Dummy::label3_Click_1);
+			// 
+			// pictureBox2
+			// 
+			this->pictureBox2->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->pictureBox2->Location = System::Drawing::Point(261, 29);
+			this->pictureBox2->Name = L"pictureBox2";
+			this->pictureBox2->Size = System::Drawing::Size(436, 61);
+			this->pictureBox2->TabIndex = 36;
+			this->pictureBox2->TabStop = false;
+			// 
 			// Fee_Payment_Dummy
 			// 
 			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
@@ -261,13 +276,14 @@ namespace CS346_A2 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(958, 578);
+			this->Controls->Add(this->pictureBox2);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->label11);
 			this->Controls->Add(this->label10);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label1);
-			this->Controls->Add(this->label8);
 			this->Controls->Add(this->textBox5);
 			this->Controls->Add(this->textBox4);
 			this->Controls->Add(this->textBox3);
@@ -279,6 +295,7 @@ namespace CS346_A2 {
 			this->Text = L"Fee_Payment_Dummy";
 			this->Load += gcnew System::EventHandler(this, &Fee_Payment_Dummy::Fee_Payment_Dummy_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -370,15 +387,13 @@ namespace CS346_A2 {
 	public: System::Void get_current_sem(){
 				try{
 					String^ query = "SELECT Current_Year, Current_Sem FROM [dbo].[permissions]";
-					
-
 					SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
 					while (dr->Read()){
 						// each iteration corresponds to a particular record
 						// this is how you can extract a particular column value, for example if the first field was user_id, use GetString(0) (as zero indexing is used) to get the value of userId
 						 String^ year = System::Convert::ToString(dr->GetInt32(0));
 						 String^ sem = System::Convert::ToString(dr->GetString(1));
-						label2->Text = year+ " "+ sem + " Semester";
+						 label2->Text = year+ " "+ sem + " Semester";
 					}
 					dr->Close();
 				}
@@ -429,6 +444,10 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 private: System::Void pictureBox1_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label13_Click(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label2_Click_1(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label3_Click_1(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

@@ -17,7 +17,7 @@ namespace CS346_A2 {
 	public ref class RegisteredCourses : public System::Windows::Forms::Form
 	{
 	public:
-		RegisteredCourses(User^ User,Panel^ panel_stu)
+		RegisteredCourses(User^ User, Panel^ panel_stu)
 		{
 			InitializeComponent();
 			//
@@ -195,7 +195,7 @@ namespace CS346_A2 {
 	public:System::Void fill_Registered_table(User^ user)
 	{
 			   try{
-				   String^ query = "SELECT * FROM [dbo].[grade],[dbo].[course] where User_ID = @user_ID_fetch and CourseCode = Course_Code";
+				   String^ query = "SELECT [CourseCode],[Name],[L],[T],[P],[C],[Semester],[Type],[Approval_Status],[Grade] FROM [dbo].[grade],[dbo].[course] where User_ID = @user_ID_fetch and CourseCode = Course_Code";
 				   array<SqlParameter^>^ parameters = {
 					   gcnew SqlParameter("@user_ID_fetch", System::Convert::ToString(user->userID))
 				   };
@@ -207,45 +207,45 @@ namespace CS346_A2 {
 				   listView1->Items->Clear();
 				   bool col = true;
 				   //MessageBox::Show("Retrive success");
-					   while (dr->Read()) {
-						   String^ courseCode = dr->GetString(1);
-						   String^ courseName = dr->GetString(6);
-						   int l = dr->GetInt32(8);
-						   int t = dr->GetInt32(9);
+				   while (dr->Read()) {
+					   String^ courseCode = dr->GetString(0);
+					   String^ courseName = dr->GetString(1);
+					   int l = dr->GetInt32(2);
+					   int t = dr->GetInt32(3);
 
-						   int p = dr->GetInt32(10);
+					   int p = dr->GetInt32(4);
 
-						   int c = dr->GetInt32(11);
+					   int c = dr->GetInt32(5);
 
-						   String^ semester = dr->GetString(14);
+					   String^ semester = dr->GetString(6);
 
-						   String^ type = dr->GetString(4);
-						   String^ approvalStatus = dr->GetString(3);
-						   String^ grade = dr->GetString(2);
+					   String^ type = dr->GetString(7);
+					   String^ approvalStatus = dr->GetString(8);
+					   String^ grade = dr->GetString(9);
 
-						   ListViewItem^ item = gcnew ListViewItem(courseCode->ToString());
-						   item->SubItems->Add(courseName->ToString());
-						   item->SubItems->Add(l.ToString());
-						   item->SubItems->Add(t.ToString());
-						   item->SubItems->Add(p.ToString());
-						   item->SubItems->Add(c.ToString());
-						   item->SubItems->Add(semester->ToString());
-						   item->SubItems->Add(type->ToString());
-						   item->SubItems->Add(approvalStatus->ToString());
-						   item->SubItems->Add(grade->ToString());
-						   if (col)
-						   {
-							   item->BackColor = Color::LightGray;
-							   col = false;
-						   }
-						   else
-						   {
-							   item->BackColor = Color::White;
-							   col = true;
-						   }
-						   listView1->Items->Add(item);
-
+					   ListViewItem^ item = gcnew ListViewItem(courseCode->ToString());
+					   item->SubItems->Add(courseName->ToString());
+					   item->SubItems->Add(l.ToString());
+					   item->SubItems->Add(t.ToString());
+					   item->SubItems->Add(p.ToString());
+					   item->SubItems->Add(c.ToString());
+					   item->SubItems->Add(semester->ToString());
+					   item->SubItems->Add(type->ToString());
+					   item->SubItems->Add(approvalStatus->ToString());
+					   item->SubItems->Add(grade->ToString());
+					   if (col)
+					   {
+						   item->BackColor = Color::LightGray;
+						   col = false;
 					   }
+					   else
+					   {
+						   item->BackColor = Color::White;
+						   col = true;
+					   }
+					   listView1->Items->Add(item);
+
+				   }
 			   }
 			   catch (Exception^ ex){
 				   MessageBox::Show(ex->Message);
@@ -309,10 +309,10 @@ namespace CS346_A2 {
 					 panel1->Controls->Clear();
 					 panel1->Controls->Add(lp);
 					 lp->Show();
-				 
+
 				 }
 	}
-private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
-}
-};
+	private: System::Void listView1_SelectedIndexChanged(System::Object^  sender, System::EventArgs^  e) {
+	}
+	};
 }

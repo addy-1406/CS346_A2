@@ -48,6 +48,16 @@ namespace CS346_A2 {
 
 
 	private: System::Windows::Forms::Label^  label2;
+
+
+
+
+
+
+
+
+
+	private: System::Windows::Forms::DataGridView^  dataGridView2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column3;
@@ -57,7 +67,6 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column6;
 	private: System::Windows::Forms::DataGridViewButtonColumn^  Column7;
 	private: System::Windows::Forms::DataGridViewButtonColumn^  Column9;
-	private: System::Windows::Forms::DataGridView^  dataGridView2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn3;
@@ -66,6 +75,23 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn7;
 	private: System::Windows::Forms::DataGridViewButtonColumn^  dataGridViewButtonColumn1;
 	private: System::Windows::Forms::DataGridViewButtonColumn^  dataGridViewButtonColumn2;
+	private: System::Windows::Forms::DataGridView^  dataGridView3;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn5;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn6;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn8;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn9;
+	private: System::Windows::Forms::DataGridViewComboBoxColumn^  dataGridViewComboBoxColumn2;
+	private: System::Windows::Forms::DataGridViewTextBoxColumn^  dataGridViewTextBoxColumn10;
+	private: System::Windows::Forms::DataGridViewButtonColumn^  dataGridViewButtonColumn3;
+	private: System::Windows::Forms::DataGridViewButtonColumn^  dataGridViewButtonColumn4;
+
+
+
+
+
+
+
+
 
 
 
@@ -107,8 +133,18 @@ namespace CS346_A2 {
 			this->dataGridViewTextBoxColumn7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->dataGridViewButtonColumn1 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->dataGridViewButtonColumn2 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewComboBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
+			this->dataGridViewTextBoxColumn10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewButtonColumn3 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewButtonColumn4 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// label1
@@ -116,10 +152,9 @@ namespace CS346_A2 {
 			this->label1->AutoSize = true;
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(377, 11);
-			this->label1->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label1->Location = System::Drawing::Point(283, 9);
 			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(202, 25);
+			this->label1->Size = System::Drawing::Size(169, 20);
 			this->label1->TabIndex = 0;
 			this->label1->Text = L"Course Registration";
 			this->label1->Click += gcnew System::EventHandler(this, &Course_EnrollPage::label1_Click);
@@ -133,11 +168,10 @@ namespace CS346_A2 {
 				this->Column1,
 					this->Column2, this->Column3, this->Column4, this->Column8, this->Column5, this->Column6, this->Column7, this->Column9
 			});
-			this->dataGridView1->Location = System::Drawing::Point(155, 126);
-			this->dataGridView1->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridView1->Location = System::Drawing::Point(105, 77);
 			this->dataGridView1->Name = L"dataGridView1";
 			this->dataGridView1->RowHeadersVisible = false;
-			this->dataGridView1->Size = System::Drawing::Size(671, 185);
+			this->dataGridView1->Size = System::Drawing::Size(503, 116);
 			this->dataGridView1->TabIndex = 1;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView1_CellContentClick);
 			// 
@@ -209,12 +243,12 @@ namespace CS346_A2 {
 			// label2
 			// 
 			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(75, 81);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Location = System::Drawing::Point(102, 40);
 			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(138, 17);
+			this->label2->Size = System::Drawing::Size(102, 13);
 			this->label2->TabIndex = 2;
 			this->label2->Text = L"Compulsory Courses";
+			this->label2->Click += gcnew System::EventHandler(this, &Course_EnrollPage::label2_Click);
 			// 
 			// dataGridView2
 			// 
@@ -226,11 +260,10 @@ namespace CS346_A2 {
 					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewComboBoxColumn1,
 					this->dataGridViewTextBoxColumn7, this->dataGridViewButtonColumn1, this->dataGridViewButtonColumn2
 			});
-			this->dataGridView2->Location = System::Drawing::Point(155, 356);
-			this->dataGridView2->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridView2->Location = System::Drawing::Point(105, 246);
 			this->dataGridView2->Name = L"dataGridView2";
 			this->dataGridView2->RowHeadersVisible = false;
-			this->dataGridView2->Size = System::Drawing::Size(725, 185);
+			this->dataGridView2->Size = System::Drawing::Size(503, 107);
 			this->dataGridView2->TabIndex = 3;
 			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView2_CellContentClick);
 			this->dataGridView2->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView2_EditingControlShowing);
@@ -267,7 +300,7 @@ namespace CS346_A2 {
 			// 
 			this->dataGridViewComboBoxColumn1->HeaderText = L"Course";
 			this->dataGridViewComboBoxColumn1->Name = L"dataGridViewComboBoxColumn1";
-			this->dataGridViewComboBoxColumn1->Width = 300;
+			this->dataGridViewComboBoxColumn1->Width = 260;
 			// 
 			// dataGridViewTextBoxColumn7
 			// 
@@ -292,23 +325,100 @@ namespace CS346_A2 {
 			this->dataGridViewButtonColumn2->Text = L"Register";
 			this->dataGridViewButtonColumn2->Width = 80;
 			// 
+			// dataGridView3
+			// 
+			this->dataGridView3->AllowUserToAddRows = false;
+			this->dataGridView3->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
+			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+				this->dataGridViewTextBoxColumn5,
+					this->dataGridViewTextBoxColumn6, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9, this->dataGridViewComboBoxColumn2,
+					this->dataGridViewTextBoxColumn10, this->dataGridViewButtonColumn3, this->dataGridViewButtonColumn4
+			});
+			this->dataGridView3->Location = System::Drawing::Point(105, 386);
+			this->dataGridView3->Name = L"dataGridView3";
+			this->dataGridView3->RowHeadersVisible = false;
+			this->dataGridView3->Size = System::Drawing::Size(503, 88);
+			this->dataGridView3->TabIndex = 4;
+			this->dataGridView3->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView3_CellContentClick);
+			this->dataGridView3->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView3_EditingControlShowing);
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this->dataGridViewTextBoxColumn5->HeaderText = L"L";
+			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
+			this->dataGridViewTextBoxColumn5->ReadOnly = true;
+			this->dataGridViewTextBoxColumn5->Width = 20;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this->dataGridViewTextBoxColumn6->HeaderText = L"T";
+			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
+			this->dataGridViewTextBoxColumn6->ReadOnly = true;
+			this->dataGridViewTextBoxColumn6->Width = 20;
+			// 
+			// dataGridViewTextBoxColumn8
+			// 
+			this->dataGridViewTextBoxColumn8->HeaderText = L"P";
+			this->dataGridViewTextBoxColumn8->Name = L"dataGridViewTextBoxColumn8";
+			this->dataGridViewTextBoxColumn8->ReadOnly = true;
+			this->dataGridViewTextBoxColumn8->Width = 20;
+			// 
+			// dataGridViewTextBoxColumn9
+			// 
+			this->dataGridViewTextBoxColumn9->HeaderText = L"C";
+			this->dataGridViewTextBoxColumn9->Name = L"dataGridViewTextBoxColumn9";
+			this->dataGridViewTextBoxColumn9->ReadOnly = true;
+			this->dataGridViewTextBoxColumn9->Width = 20;
+			// 
+			// dataGridViewComboBoxColumn2
+			// 
+			this->dataGridViewComboBoxColumn2->HeaderText = L"Course";
+			this->dataGridViewComboBoxColumn2->Name = L"dataGridViewComboBoxColumn2";
+			this->dataGridViewComboBoxColumn2->Width = 260;
+			// 
+			// dataGridViewTextBoxColumn10
+			// 
+			this->dataGridViewTextBoxColumn10->HeaderText = L"Slot";
+			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
+			this->dataGridViewTextBoxColumn10->ReadOnly = true;
+			this->dataGridViewTextBoxColumn10->Width = 40;
+			// 
+			// dataGridViewButtonColumn3
+			// 
+			this->dataGridViewButtonColumn3->HeaderText = L"Desc.";
+			this->dataGridViewButtonColumn3->Name = L"dataGridViewButtonColumn3";
+			this->dataGridViewButtonColumn3->ReadOnly = true;
+			this->dataGridViewButtonColumn3->Text = L"View";
+			this->dataGridViewButtonColumn3->UseColumnTextForButtonValue = true;
+			this->dataGridViewButtonColumn3->Width = 40;
+			// 
+			// dataGridViewButtonColumn4
+			// 
+			this->dataGridViewButtonColumn4->HeaderText = L"Register";
+			this->dataGridViewButtonColumn4->Name = L"dataGridViewButtonColumn4";
+			this->dataGridViewButtonColumn4->Text = L"Register";
+			this->dataGridViewButtonColumn4->Width = 80;
+			// 
 			// Course_EnrollPage
 			// 
-			this->AutoScaleDimensions = System::Drawing::SizeF(8, 16);
+			this->AutoScaleDimensions = System::Drawing::SizeF(6, 13);
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
-			this->ClientSize = System::Drawing::Size(958, 578);
+			this->ClientSize = System::Drawing::Size(720, 476);
+			this->Controls->Add(this->dataGridView3);
 			this->Controls->Add(this->dataGridView2);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->dataGridView1);
 			this->Controls->Add(this->label1);
-			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->MaximumSize = System::Drawing::Size(976, 625);
-			this->MinimumSize = System::Drawing::Size(976, 625);
+			this->Margin = System::Windows::Forms::Padding(2);
+			this->MaximumSize = System::Drawing::Size(736, 515);
+			this->MinimumSize = System::Drawing::Size(736, 515);
 			this->Name = L"Course_EnrollPage";
 			this->Text = L"Course_EnrollPage";
 			this->Load += gcnew System::EventHandler(this, &Course_EnrollPage::Course_EnrollPage_Load);
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -341,12 +451,33 @@ namespace CS346_A2 {
 
 	}
 
+	private: int retrieve_year()
+	{
+				 String^ query = "SELECT[Current_Year] FROM[dbo].[permissions]";
+				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
+				 try
+				 {
+					 while (dr->Read()){
+						 int year = dr->GetInt32(0);
+						 return year;
+					 }
+					 dr->Close();
+				 }
+				 catch (SqlException^ ex)
+				 {
+					 // Handle SQL exceptions
+					 MessageBox::Show(ex->Message);
+				 }
+				 return -1;
+	}
+
 	private: System::Void Course_EnrollPage_Load(System::Object^  sender, System::EventArgs^  e)
 	{
 
 				 int sem = retrieve_semester();
 				 disp_comp_courses(sem);
 				 disp_electives(sem);
+				 display_audit_courses();
 	}
 	private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
@@ -389,7 +520,7 @@ namespace CS346_A2 {
 				 {
 
 
-					 String^ query = "SELECT [L],[T],[P],[C],[Course_Code],[Name] FROM [dbo].[course_Structure] where [Semester] = @sem and [Elective] = 0 ";
+					 String^ query = "SELECT [L],[T],[P],[C],[Course_Code],[Name],[Slot] FROM [dbo].[course_Structure],[dbo].[timetable] where [Semester] = @sem and [Elective] = 0 and [Course_Code] = [Course_Id]";
 					 array<SqlParameter^>^ parameters = {
 						 gcnew SqlParameter("@sem", sem)
 					 };
@@ -404,7 +535,7 @@ namespace CS346_A2 {
 						 int CValue = reader->GetInt32(3);
 						 String^ CodeValue = reader->GetString(4);
 						 String^ NameValue = reader->GetString(5);
-						 String^ timeSlot = "A1";
+						 String^ timeSlot = reader->GetString(6);
 
 
 						 // Add row to DataGridView
@@ -580,7 +711,8 @@ namespace CS346_A2 {
 				 if (e->ColumnIndex == dataGridView1->Columns["Column9"]->Index && e->RowIndex >= 0 && e->ColumnIndex >= 0)
 				 {
 					 //Register/de-Register Button Clicked
-					 RegButtonClicked(e->RowIndex, e->ColumnIndex, dataGridView1, dataGridView1->Rows[e->RowIndex]->Cells["Column8"]->Value->ToString());
+					 String^ slot = dataGridView1->Rows[e->RowIndex]->Cells["Column6"]->Value->ToString();
+					 RegButtonClicked(e->RowIndex, e->ColumnIndex, dataGridView1, dataGridView1->Rows[e->RowIndex]->Cells["Column8"]->Value->ToString(), slot, false);
 				 }
 
 	}
@@ -620,22 +752,59 @@ namespace CS346_A2 {
 				 MessageBox::Show("Course Code:" + course_code + "\nCourse Description: " + course_desc);
 	}
 
+			 bool check_slot_clash(String^ slot)
+			 {
 
-	private: System::Void RegButtonClicked(int rowIndex, int colIndex, DataGridView^ dataGridView1, String^ course_code)
+				 String^ query = " SELECT[Course_ID], [Slot] FROM [dbo].[grade], [dbo].[timetable] WHERE[Course_ID] = [CourseCode] AND[User_ID] = @id AND [Slot] = @slot";
+				 array<SqlParameter^>^ parameters = {
+					 gcnew SqlParameter("@id", user->userID),
+					 gcnew SqlParameter("@slot", slot)
+				 };
+
+				 SqlDataReader^ reader = DatabaseHelper::ExecuteQuery(query, parameters);
+				 bool ans = false;
+				 if (reader->HasRows)
+				 {
+					 ans = true;
+				 }
+				 else
+				 {
+					 ans = false;
+				 }
+
+				 reader->Close();
+				 return ans;
+			 }
+	private: System::Void RegButtonClicked(int rowIndex, int colIndex, DataGridView^ dataGridView1, String^ course_code, String^ slot, bool audit)
 	{
 				 if (dataGridView1->Rows[rowIndex]->Cells[colIndex]->Value == "Register")
 				 {
-					 String^ query = "INSERT INTO [dbo].[grade] VALUES (@id , @code, 'NA', 'Pending' , 'Credit')";
-					 array<SqlParameter^>^ parameters = {
-						 gcnew SqlParameter("@id", user->userID),
-						 gcnew SqlParameter("@code", course_code)
-					 };
 
-					 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
-					 dr->Close();
-					 MessageBox::Show("Successfully Registered");
-					 dataGridView1->Rows[rowIndex]->Cells[colIndex]->Value = "De-Register";
-					 dataGridView1->Invalidate();
+					 if (!check_slot_clash(slot))
+					 {
+						 String^ query;
+						 int year = retrieve_year();
+						 if (audit)
+							 query = "INSERT INTO [dbo].[grade] VALUES (@id , @code, 'NA', 'Pending' , 'Audit',@year)";
+						 else
+							 query = "INSERT INTO [dbo].[grade] VALUES (@id , @code, 'NA', 'Pending' , 'Credit', @year)";
+						 array<SqlParameter^>^ parameters = {
+							 gcnew SqlParameter("@id", user->userID),
+							 gcnew SqlParameter("@code", course_code),
+							 gcnew SqlParameter("@year", year)
+						 };
+
+						 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+						 dr->Close();
+						 MessageBox::Show("Successfully Registered");
+						 dataGridView1->Rows[rowIndex]->Cells[colIndex]->Value = "De-Register";
+						 dataGridView1->Invalidate();
+					 }
+					 else
+					 {
+						 MessageBox::Show("TIMETABLE CLASH!\n" + "Slot " + slot + " has already been allocated to another course.");
+
+					 }
 
 				 }
 				 else if (dataGridView1->Rows[rowIndex]->Cells[colIndex]->Value == "De-Register")
@@ -680,7 +849,8 @@ namespace CS346_A2 {
 					 {
 						 String^ code_name = cell->Value->ToString();
 						 String^ code = code_name->Substring(0, 5);
-						 RegButtonClicked(e->RowIndex, e->ColumnIndex, dataGridView2, code);
+						 String^ slot = dataGridView2->Rows[e->RowIndex]->Cells["dataGridViewTextBoxColumn7"]->Value->ToString();
+						 RegButtonClicked(e->RowIndex, e->ColumnIndex, dataGridView2, code, slot, false);
 					 }
 					 else
 					 {
@@ -700,12 +870,14 @@ namespace CS346_A2 {
 					 {
 						 // Register SelectedIndexChanged event
 
-						 comboBox->SelectedIndexChanged += gcnew EventHandler(this, &Course_EnrollPage::ComboBox_SelectedIndexChanged);
+						 comboBox->SelectedIndexChanged += gcnew EventHandler(this, &Course_EnrollPage::ComboBox_SelectedIndexChanged_Elec);
 					 }
 				 }
 	}
 
-			 void ComboBox_SelectedIndexChanged(Object^ sender, EventArgs^ e)
+
+
+			 void ComboBox_SelectedIndexChanged_Elec(Object^ sender, EventArgs^ e)
 			 {
 
 				 ComboBox^ comboBox = safe_cast<ComboBox^>(sender);
@@ -716,22 +888,245 @@ namespace CS346_A2 {
 					 int rowIndex = dataGridView2->CurrentCell->RowIndex;
 
 					 DataGridViewButtonCell^ buttonCell = dynamic_cast<DataGridViewButtonCell^>(dataGridView2->Rows[rowIndex]->Cells[7]);
+
+					 String^ code_name = comboBox->SelectedItem->ToString();
+					 String^ code = code_name->Substring(0, 5);
 					 if (buttonCell != nullptr)
 					 {
 
-						 String^ code_name = comboBox->SelectedItem->ToString();
-						 String^ code = code_name->Substring(0, 5);
 
 						 // Set the text for the button cell
 						 if (is_registered(code))
 							 buttonCell->Value = "De-Register";
 						 else
 							 buttonCell->Value = "Register";
+
+					 }
+
+					 String^ query = "SELECT [Slot] FROM [dbo].[timetable] WHERE [Course_ID] = @code  ";
+					 array<SqlParameter^>^ parameters = {
+						 gcnew SqlParameter("@code", code)
+					 };
+					 SqlDataReader^ reader = DatabaseHelper::ExecuteQuery(query, parameters);
+
+					 if (reader->HasRows)
+					 {
+						 while (reader->Read())
+						 {
+
+							 String^ slot = reader->GetString(0);
+							 dataGridView2->Rows[rowIndex]->Cells["dataGridViewTextBoxColumn7"]->Value = slot;
+							 break;
+						 }
+					 }
+					 else
+					 {
+						 dataGridView2->Rows[rowIndex]->Cells["dataGridViewTextBoxColumn7"]->Value = "NA";
+					 }
+					 reader->Close();
+
+
+				 }
+
+
+
+
+			 }
+	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+	}
+
+
+	private: System::Void display_audit_courses()
+	{
+				 for (int i = 0; i < 3; i++)
+				 {
+
+					 String^ query = "SELECT [Course_ID],[Name]FROM[dbo].[course], [dbo].[timetable] WHERE [Course_ID] = [Course_Code] ";
+					 SqlDataReader^ reader = DatabaseHelper::ExecuteQuery(query);
+
+					 try
+					 {
+
+						 // Create a new row
+						 int rowIndex = dataGridView3->Rows->Add();
+						 // Get the ComboBox cell in the new row
+						 DataGridViewComboBoxCell^ comboBoxCell = dynamic_cast<DataGridViewComboBoxCell^>(dataGridView3->Rows[rowIndex]->Cells[4]);
+						 if (comboBoxCell != nullptr)
+						 {
+							 // Loop through the result set and add course names to the ComboBox
+
+							 while (reader->Read())
+							 {
+
+								 String^ coursecode = reader->GetString(0);
+								 String^ coursename = reader->GetString(1);
+
+								 comboBoxCell->Items->Add(coursecode + " " + coursename);
+							 }
+						 }
+
+						 // Close the reader and the connection
+						 reader->Close();
+
+					 }
+					 catch (Exception^ ex)
+					 {
+						 // Handle exceptions
+						 MessageBox::Show(ex->Message);
+					 }
+
+				 }
+
+				 //Set Text in all button of register column
+				 for (int i = 0; i < dataGridView3->Rows->Count; i++)
+				 {
+					 // Get the cell corresponding to the button column
+					 DataGridViewButtonCell^ buttonCell = dynamic_cast<DataGridViewButtonCell^>(dataGridView3->Rows[i]->Cells[7]);
+
+					 if (buttonCell != nullptr)
+					 {
+						 // Set the text for the button cell
+						 buttonCell->Value = "Register";
+					 }
+				 }
+	}
+
+
+	private: System::Void dataGridView3_CellContentClick(System::Object^  sender, System::Windows::Forms::DataGridViewCellEventArgs^  e) {
+
+				 if (e->ColumnIndex == dataGridView3->Columns["dataGridViewButtonColumn3"]->Index && e->RowIndex >= 0 && e->ColumnIndex >= 0)
+				 {
+					 // View Button Clicked
+					 DataGridViewCell^ cell = dataGridView3->Rows[e->RowIndex]->Cells[4];
+					 if (cell->Value != nullptr)
+					 {
+						 String^ code_name = cell->Value->ToString();
+						 String^ code = code_name->Substring(0, 5);
+						 DescButtonClicked(e->RowIndex, dataGridView3, code);
+					 }
+					 else
+					 {
+						 MessageBox::Show("Please Select A Course First");
+					 }
+
+				 }
+
+				 //Register Button Clicked
+				 if (e->ColumnIndex == dataGridView3->Columns["dataGridViewButtonColumn4"]->Index && e->RowIndex >= 0 && e->ColumnIndex >= 0)
+				 {
+					 DataGridViewCell^ cell = dataGridView3->Rows[e->RowIndex]->Cells[4];
+					 if (cell->Value != nullptr)
+					 {
+						 String^ code_name = cell->Value->ToString();
+						 String^ code = code_name->Substring(0, 5);
+						 String^ slot = dataGridView3->Rows[e->RowIndex]->Cells["dataGridViewTextBoxColumn10"]->Value->ToString();
+						 RegButtonClicked(e->RowIndex, e->ColumnIndex, dataGridView3, code, slot, true);
+					 }
+					 else
+					 {
+						 MessageBox::Show("Please Select A Course First");
+					 }
+
+				 }
+	}
+	private: System::Void dataGridView3_EditingControlShowing(System::Object^  sender, System::Windows::Forms::DataGridViewEditingControlShowingEventArgs^  e) {
+
+				 // Check if the editing control is a ComboBox
+				 if (dataGridView3->CurrentCell->ColumnIndex == 4 && e->Control->GetType() == DataGridViewComboBoxEditingControl::typeid)
+				 {
+					 // Cast the editing control to ComboBox
+					 ComboBox^ comboBox = dynamic_cast<ComboBox^>(e->Control);
+					 if (comboBox != nullptr)
+					 {
+						 // Register SelectedIndexChanged event
+
+						 comboBox->SelectedIndexChanged += gcnew EventHandler(this, &Course_EnrollPage::ComboBox_SelectedIndexChanged_Audit);
 					 }
 				 }
 
-				 //SLOT updation
+	}
+
+			 void ComboBox_SelectedIndexChanged_Audit(Object^ sender, EventArgs^ e)
+			 {
+
+				 ComboBox^ comboBox = safe_cast<ComboBox^>(sender);
+				 if (comboBox != nullptr)
+				 {
+					 //Register or De-Register button
+
+					 int rowIndex = dataGridView3->CurrentCell->RowIndex;
+
+					 DataGridViewButtonCell^ buttonCell = dynamic_cast<DataGridViewButtonCell^>(dataGridView3->Rows[rowIndex]->Cells[7]);
+
+					 String^ code_name = comboBox->SelectedItem->ToString();
+					 String^ code = code_name->Substring(0, 5);
+					 if (buttonCell != nullptr)
+					 {
+
+
+						 // Set the text for the button cell
+						 if (is_registered(code))
+							 buttonCell->Value = "De-Register";
+						 else
+							 buttonCell->Value = "Register";
+
+					 }
+
+
+					 //Update Slot for newly selected course
+					 String^ query = "SELECT [Slot] FROM [dbo].[timetable] WHERE [Course_ID] = @code  ";
+					 array<SqlParameter^>^ parameters = {
+						 gcnew SqlParameter("@code", code)
+					 };
+					 SqlDataReader^ reader = DatabaseHelper::ExecuteQuery(query, parameters);
+
+					 if (reader->HasRows)
+					 {
+						 while (reader->Read())
+						 {
+
+							 String^ slot = reader->GetString(0);
+							 dataGridView3->Rows[rowIndex]->Cells["dataGridViewTextBoxColumn10"]->Value = slot;
+							 break;
+						 }
+					 }
+					 else
+					 {
+						 dataGridView3->Rows[rowIndex]->Cells["dataGridViewTextBoxColumn10"]->Value = "NA";
+					 }
+					 reader->Close();
+
+
+					 //Update L,T,P,C for newly selected course
+					 String^ q = "SELECT [L],[T],[P],[C] FROM [dbo].[course] WHERE [Course_Code] = @code  ";
+					 array<SqlParameter^>^ parameter = {
+						 gcnew SqlParameter("@code", code)
+					 };
+					 reader = DatabaseHelper::ExecuteQuery(q, parameter);
+
+					 if (reader->HasRows)
+					 {
+						 while (reader->Read())
+						 {
+							 int LValue = reader->GetInt32(0);
+							 int TValue = reader->GetInt32(1);
+							 int PValue = reader->GetInt32(2);
+							 int CValue = reader->GetInt32(3);
+							 dataGridView3->Rows[rowIndex]->Cells[0]->Value = Convert::ToString(LValue);
+							 dataGridView3->Rows[rowIndex]->Cells[1]->Value = Convert::ToString(TValue);
+							 dataGridView3->Rows[rowIndex]->Cells[2]->Value = Convert::ToString(PValue);
+							 dataGridView3->Rows[rowIndex]->Cells[3]->Value = Convert::ToString(CValue);
+
+							 break;
+						 }
+					 }
+
+
+					 reader->Close();
+
+				 }
 
 			 }
+
 	};
 }
