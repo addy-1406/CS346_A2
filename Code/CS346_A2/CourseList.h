@@ -48,11 +48,15 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::ComboBox^  comboBox1;
 	private: System::Windows::Forms::Label^  label1;
 <<<<<<< HEAD
+<<<<<<< HEAD
 	private: System::Windows::Forms::ColumnHeader^  columnHeader1;
 	private: System::Windows::Forms::ColumnHeader^  Faculty;
 	private: System::Windows::Forms::ComboBox^  cmbFaculty;
 	private: System::Windows::Forms::Button^  btnAssign;
 	private: System::Windows::Forms::Label^  label2;
+=======
+
+>>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
 =======
 
 >>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
@@ -75,8 +79,11 @@ namespace CS346_A2 {
 			this->CourseCode = (gcnew System::Windows::Forms::ColumnHeader());
 			this->CourseName = (gcnew System::Windows::Forms::ColumnHeader());
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Faculty = (gcnew System::Windows::Forms::ColumnHeader());
+=======
+>>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
 =======
 >>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
@@ -92,6 +99,7 @@ namespace CS346_A2 {
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->listView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this->listView1->CheckBoxes = true;
 			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(4) {
 				this->CourseCode, this->CourseName,
@@ -103,6 +111,15 @@ namespace CS346_A2 {
 			this->listView1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(684, 470);
+=======
+			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(2) { this->CourseCode, this->CourseName });
+			this->listView1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->listView1->Location = System::Drawing::Point(158, 60);
+			this->listView1->Margin = System::Windows::Forms::Padding(2);
+			this->listView1->Name = L"listView1";
+			this->listView1->Size = System::Drawing::Size(399, 382);
+>>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
 =======
 			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(2) { this->CourseCode, this->CourseName });
 			this->listView1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
@@ -127,6 +144,7 @@ namespace CS346_A2 {
 			this->CourseName->Width = 300;
 			// 
 <<<<<<< HEAD
+<<<<<<< HEAD
 			// columnHeader1
 			// 
 			this->columnHeader1->Text = L"Semester";
@@ -139,14 +157,21 @@ namespace CS346_A2 {
 			// 
 =======
 >>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
+=======
+>>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
 			// comboBox1
 			// 
 			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(8) { L"1", L"2", L"3", L"4", L"5", L"6", L"7", L"8" });
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this->comboBox1->Location = System::Drawing::Point(533, 33);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
+=======
+			this->comboBox1->Location = System::Drawing::Point(275, 26);
+			this->comboBox1->Margin = System::Windows::Forms::Padding(2);
+>>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
 =======
 			this->comboBox1->Location = System::Drawing::Point(275, 26);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(2);
@@ -162,7 +187,12 @@ namespace CS346_A2 {
 			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this->label1->Location = System::Drawing::Point(336, 37);
+=======
+			this->label1->Location = System::Drawing::Point(155, 27);
+			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
+>>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
 =======
 			this->label1->Location = System::Drawing::Point(155, 27);
 			this->label1->Margin = System::Windows::Forms::Padding(2, 0, 2, 0);
@@ -206,10 +236,14 @@ namespace CS346_A2 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 <<<<<<< HEAD
+<<<<<<< HEAD
 			this->ClientSize = System::Drawing::Size(958, 578);
 			this->Controls->Add(this->label2);
 			this->Controls->Add(this->btnAssign);
 			this->Controls->Add(this->cmbFaculty);
+=======
+			this->ClientSize = System::Drawing::Size(720, 476);
+>>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
 =======
 			this->ClientSize = System::Drawing::Size(720, 476);
 >>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
@@ -248,6 +282,7 @@ namespace CS346_A2 {
 						String^ courseCode = dr->GetString(0);
 						String^ courseName = dr->GetString(1);
 <<<<<<< HEAD
+<<<<<<< HEAD
 						String^ semester = dr->GetString(2);
 						String^ facultyName = dr->IsDBNull(3) ? "N/A" : dr->GetString(3);
 
@@ -261,6 +296,11 @@ namespace CS346_A2 {
 
 						ListViewItem^ item = gcnew ListViewItem(courseCode->ToString());
 						item->SubItems->Add(courseName->ToString());
+=======
+
+						ListViewItem^ item = gcnew ListViewItem(courseCode->ToString());
+						item->SubItems->Add(courseName->ToString());
+>>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
 						if (col)
 						{
 >>>>>>> 4a2f83d79028c76040ebf83d9881ac406b64193b
