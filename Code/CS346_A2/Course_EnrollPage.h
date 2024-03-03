@@ -652,7 +652,7 @@ namespace CS346_A2 {
 				 {
 
 
-					 String^ query = "SELECT [L],[T],[P],[C],[Course_Code],[Name],[Slot] FROM [dbo].[course_Structure],[dbo].[timetable] where [Semester] = @sem and [Elective] = 0 and [Course_Code] = [Course_Id]";
+					 String^ query = "SELECT [L],[T],[P],[C],[Course_Code],[Name],[Slot] FROM [dbo].[course],[dbo].[timetable] where [Semester] = @sem and [ElectiveOrCompulsory] = 0 and [Course_Code] = [Course_Id]";
 					 array<SqlParameter^>^ parameters = {
 						 gcnew SqlParameter("@sem", sem)
 					 };

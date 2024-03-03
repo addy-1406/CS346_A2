@@ -543,7 +543,7 @@ namespace CS346_A2 {
 				 permisisonsform->Show();
 	}
 	private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
-				 label1->Text = "Signup";
+				 label1->Text = "Classroom";
 				 panel1->Controls->Clear();
 				 classroomlist^ permisisonsform = gcnew classroomlist();
 				 permisisonsform->TopLevel = false;

@@ -162,26 +162,30 @@ public:
 
 		array<String^>^ morningSlotArray = gcnew array<String^> { "A", "B", "C", "D", "E" };
 		array<String^>^ eveningSlotArray = gcnew array<String^> { "A1", "B1", "C1", "D1", "E1" };
+		array<String^>^ morningSlotArrayReversed = gcnew array<String^> { "E", "D", "C", "B", "A" };
+		array<String^>^ eveningSlotArrayReversed = gcnew array<String^> { "E1", "D1", "C1", "B1", "A1" };
 		//algorithm(1,eveningSlotArray);
 		algorithm("2","X", eveningSlotArray, lectureHalls[0]);
 		//algorithm(3, morningSlotArray);
 		algorithm("4","X", morningSlotArray, lectureHalls[1]);
 		//algorithm(5, eveningSlotArray);
-		algorithm("6","X", eveningSlotArray, lectureHalls[2]);
+		algorithm("6","X", eveningSlotArrayReversed, lectureHalls[2]);
 		//algorithm(7, morningSlotArray);
-		algorithm("8","6,8", morningSlotArray, lectureHalls[3]);
+		algorithm("8","6,8", morningSlotArrayReversed, lectureHalls[3]);
 
 		array<String^>^ morningLabSlotArray = gcnew array<String^> { "ML1", "ML2", "ML3", "ML4", "ML5" };
 		array<String^>^ eveningLabSlotArray = gcnew array<String^> { "AL1", "AL2", "AL3", "AL4", "AL5" };
+		array<String^>^ morningLabSlotArrayReversed = gcnew array<String^> { "ML5", "ML4", "ML3", "ML2", "ML1" };
+		array<String^>^ eveningLabSlotArrayReversed = gcnew array<String^> { "AL5", "AL4", "AL3", "AL2", "AL1" };
 
 		////////algorithm(1,eveningSlotArray);
 		algorithmForLab("2", "X", morningLabSlotArray, labs[0]);
 		////////algorithm(3, morningSlotArray);
 		algorithmForLab("4", "X", eveningLabSlotArray, labs[1]);
 		////////algorithm(5, eveningSlotArray);
-		algorithmForLab("6", "X", morningLabSlotArray, labs[2]);
+		algorithmForLab("6", "X", morningLabSlotArrayReversed, labs[2]);
 		////////algorithm(7, morningSlotArray);
-		algorithmForLab("8", "6,8", eveningLabSlotArray, labs[3]);
+		algorithmForLab("8", "6,8", eveningLabSlotArrayReversed, labs[3]);
 
 
 		for (int i = 0; i < 5; i++){
