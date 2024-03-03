@@ -77,7 +77,7 @@ namespace CS346_A2 {
 				partitionLabel->Location = Point(200, 0); // Adjust the X position to align with the buttons
 				partitionLabel->BackColor = Color::Gray; // Set the color of the partition
 				Controls->Add(partitionLabel);
-				
+
 			}
 			catch (Exception^ ex)
 			{
@@ -168,13 +168,13 @@ namespace CS346_A2 {
 								 courseDetailsTextBox->ReadOnly = true;
 								 courseDetailsTextBox->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
 								 courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
-	
+
 								 courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
 								 courseDetailsTextBox->Text = courseDetails; // Set the text
 								 // Adjust the size of the text box according to the text content
 								 SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
 								 courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
-								 courseDetailsTextBox->Location = System::Drawing::Point(210, 20); // Set location as needed
+								 courseDetailsTextBox->Location = System::Drawing::Point(230, 20); // Set location as needed
 								 courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
 								 Controls->Add(courseDetailsTextBox); // Add the textbox to the form
 							 }
@@ -214,7 +214,7 @@ namespace CS346_A2 {
 							 if (reader["User_ID"] != DBNull::Value) {
 								 // Create list view for displaying grades
 								 ListView^ listViewGrades = gcnew ListView();
-								 listViewGrades->Location = Point(210, 160);
+								 listViewGrades->Location = Point(230, 160);
 								 listViewGrades->Size = System::Drawing::Size(450, 200);
 								 listViewGrades->View = View::Details;
 								 listViewGrades->FullRowSelect = true;
@@ -251,7 +251,7 @@ namespace CS346_A2 {
 								 // Add approve button below the list view
 								 Button^ approveButton = gcnew Button();
 								 approveButton->Text = "Approve";
-								 approveButton->Location = Point(280, 370); 
+								 approveButton->Location = Point(310, 370);
 								 approveButton->Size = System::Drawing::Size(120, 50);
 								 approveButton->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
 								 approveButton->ForeColor = Color::White; // Set text color to white// Adjust position as needed
@@ -261,7 +261,7 @@ namespace CS346_A2 {
 
 								 Button^ rejectButton = gcnew Button();
 								 rejectButton->Text = "Reject";
-								 rejectButton->Location = Point(450, 370); // Adjust position as needed
+								 rejectButton->Location = Point(480, 370); // Adjust position as needed
 								 rejectButton->Size = System::Drawing::Size(120, 50);
 								 rejectButton->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
 								 rejectButton->ForeColor = Color::White; // Set text color to white
@@ -326,7 +326,7 @@ namespace CS346_A2 {
 
 			 // Event handler for the Reject button click
 	private: System::Void RejectButton_Click(System::Object^ sender, System::EventArgs^ e) {
-	
+
 				 for each (Control^ control in Controls) {
 					 if (ListView::typeid == control->GetType()) {
 						 ListView^ listViewGrades = safe_cast<ListView^>(control);
@@ -354,12 +354,12 @@ namespace CS346_A2 {
 						 break;
 					 }
 				 }
-	
+
 
 	}
 
 			 // Function to update the approval status in the database
-	
+
 
 
 
