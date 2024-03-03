@@ -103,6 +103,31 @@ namespace CS346_A2 {
 
 	private: System::Windows::Forms::Label^  label3;
 	private: System::Windows::Forms::Label^  label4;
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column3;
@@ -164,28 +189,8 @@ namespace CS346_A2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
-			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
-			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
-			this->label3 = (gcnew System::Windows::Forms::Label());
-			this->label4 = (gcnew System::Windows::Forms::Label());
-			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewComboBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
-			this->dataGridViewTextBoxColumn10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewButtonColumn3 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridViewButtonColumn4 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewComboBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
-			this->dataGridViewTextBoxColumn7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->dataGridViewButtonColumn1 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
-			this->dataGridViewButtonColumn2 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
@@ -195,6 +200,27 @@ namespace CS346_A2 {
 			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->Column7 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
 			this->Column9 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->dataGridView2 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn4 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewComboBoxColumn1 = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
+			this->dataGridViewTextBoxColumn7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewButtonColumn1 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewButtonColumn2 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridView3 = (gcnew System::Windows::Forms::DataGridView());
+			this->dataGridViewTextBoxColumn5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewTextBoxColumn9 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewComboBoxColumn2 = (gcnew System::Windows::Forms::DataGridViewComboBoxColumn());
+			this->dataGridViewTextBoxColumn10 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->dataGridViewButtonColumn3 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->dataGridViewButtonColumn4 = (gcnew System::Windows::Forms::DataGridViewButtonColumn());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView3))->BeginInit();
@@ -205,6 +231,10 @@ namespace CS346_A2 {
 			this->dataGridView1->AllowUserToAddRows = false;
 			this->dataGridView1->AllowUserToResizeColumns = false;
 			this->dataGridView1->AllowUserToResizeRows = false;
+			dataGridViewCellStyle1->BackColor = System::Drawing::Color::White;
+			dataGridViewCellStyle1->SelectionBackColor = System::Drawing::SystemColors::MenuHighlight;
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::Color::White;
+			this->dataGridView1->AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
 			this->dataGridView1->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)),
 				static_cast<System::Int32>(static_cast<System::Byte>(212)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->dataGridView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
@@ -221,206 +251,6 @@ namespace CS346_A2 {
 			this->dataGridView1->Size = System::Drawing::Size(803, 143);
 			this->dataGridView1->TabIndex = 1;
 			this->dataGridView1->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView1_CellContentClick);
-			// 
-			// label2
-			// 
-			this->label2->AutoSize = true;
-			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
-			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->label2->Location = System::Drawing::Point(57, 39);
-			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(209, 28);
-			this->label2->TabIndex = 2;
-			this->label2->Text = L"Compulsory Courses";
-			this->label2->Click += gcnew System::EventHandler(this, &Course_EnrollPage::label2_Click);
-			// 
-			// dataGridView2
-			// 
-			this->dataGridView2->AllowUserToAddRows = false;
-			this->dataGridView2->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)),
-				static_cast<System::Int32>(static_cast<System::Byte>(212)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->dataGridView2->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->dataGridView2->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
-			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
-				this->dataGridViewTextBoxColumn1,
-					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewComboBoxColumn1,
-					this->dataGridViewTextBoxColumn7, this->dataGridViewButtonColumn1, this->dataGridViewButtonColumn2
-			});
-			this->dataGridView2->Location = System::Drawing::Point(62, 269);
-			this->dataGridView2->Margin = System::Windows::Forms::Padding(4);
-			this->dataGridView2->Name = L"dataGridView2";
-			this->dataGridView2->RowHeadersVisible = false;
-			this->dataGridView2->Size = System::Drawing::Size(803, 132);
-			this->dataGridView2->TabIndex = 3;
-			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView2_CellContentClick);
-			this->dataGridView2->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView2_EditingControlShowing);
-			// 
-			// dataGridView3
-			// 
-			this->dataGridView3->AllowUserToAddRows = false;
-			this->dataGridView3->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)),
-				static_cast<System::Int32>(static_cast<System::Byte>(212)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->dataGridView3->BorderStyle = System::Windows::Forms::BorderStyle::None;
-			this->dataGridView3->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
-			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
-			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
-				this->dataGridViewTextBoxColumn5,
-					this->dataGridViewTextBoxColumn6, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9, this->dataGridViewComboBoxColumn2,
-					this->dataGridViewTextBoxColumn10, this->dataGridViewButtonColumn3, this->dataGridViewButtonColumn4
-			});
-			this->dataGridView3->Location = System::Drawing::Point(62, 452);
-			this->dataGridView3->Margin = System::Windows::Forms::Padding(4);
-			this->dataGridView3->Name = L"dataGridView3";
-			this->dataGridView3->RowHeadersVisible = false;
-			this->dataGridView3->Size = System::Drawing::Size(803, 108);
-			this->dataGridView3->TabIndex = 4;
-			this->dataGridView3->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView3_CellContentClick);
-			this->dataGridView3->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView3_EditingControlShowing);
-			// 
-			// label3
-			// 
-			this->label3->AutoSize = true;
-			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
-			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->label3->Location = System::Drawing::Point(57, 234);
-			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label3->Name = L"label3";
-			this->label3->Size = System::Drawing::Size(167, 28);
-			this->label3->TabIndex = 5;
-			this->label3->Text = L"Elective Courses";
-			// 
-			// label4
-			// 
-			this->label4->AutoSize = true;
-			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
-			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->label4->Location = System::Drawing::Point(57, 416);
-			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
-			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(146, 28);
-			this->label4->TabIndex = 6;
-			this->label4->Text = L"Audit Courses";
-			// 
-			// dataGridViewTextBoxColumn5
-			// 
-			this->dataGridViewTextBoxColumn5->HeaderText = L"L";
-			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
-			this->dataGridViewTextBoxColumn5->ReadOnly = true;
-			this->dataGridViewTextBoxColumn5->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewTextBoxColumn5->Width = 30;
-			// 
-			// dataGridViewTextBoxColumn6
-			// 
-			this->dataGridViewTextBoxColumn6->HeaderText = L"T";
-			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
-			this->dataGridViewTextBoxColumn6->ReadOnly = true;
-			this->dataGridViewTextBoxColumn6->Width = 30;
-			// 
-			// dataGridViewTextBoxColumn8
-			// 
-			this->dataGridViewTextBoxColumn8->HeaderText = L"P";
-			this->dataGridViewTextBoxColumn8->Name = L"dataGridViewTextBoxColumn8";
-			this->dataGridViewTextBoxColumn8->ReadOnly = true;
-			this->dataGridViewTextBoxColumn8->Width = 30;
-			// 
-			// dataGridViewTextBoxColumn9
-			// 
-			this->dataGridViewTextBoxColumn9->HeaderText = L"C";
-			this->dataGridViewTextBoxColumn9->Name = L"dataGridViewTextBoxColumn9";
-			this->dataGridViewTextBoxColumn9->ReadOnly = true;
-			this->dataGridViewTextBoxColumn9->Width = 30;
-			// 
-			// dataGridViewComboBoxColumn2
-			// 
-			this->dataGridViewComboBoxColumn2->HeaderText = L"Course";
-			this->dataGridViewComboBoxColumn2->Name = L"dataGridViewComboBoxColumn2";
-			this->dataGridViewComboBoxColumn2->Width = 440;
-			// 
-			// dataGridViewTextBoxColumn10
-			// 
-			this->dataGridViewTextBoxColumn10->HeaderText = L"Slot";
-			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
-			this->dataGridViewTextBoxColumn10->ReadOnly = true;
-			this->dataGridViewTextBoxColumn10->Width = 60;
-			// 
-			// dataGridViewButtonColumn3
-			// 
-			this->dataGridViewButtonColumn3->HeaderText = L"Desc.";
-			this->dataGridViewButtonColumn3->Name = L"dataGridViewButtonColumn3";
-			this->dataGridViewButtonColumn3->ReadOnly = true;
-			this->dataGridViewButtonColumn3->Text = L"View";
-			this->dataGridViewButtonColumn3->UseColumnTextForButtonValue = true;
-			this->dataGridViewButtonColumn3->Width = 60;
-			// 
-			// dataGridViewButtonColumn4
-			// 
-			this->dataGridViewButtonColumn4->HeaderText = L"Register";
-			this->dataGridViewButtonColumn4->Name = L"dataGridViewButtonColumn4";
-			this->dataGridViewButtonColumn4->Text = L"Register";
-			this->dataGridViewButtonColumn4->Width = 120;
-			// 
-			// dataGridViewTextBoxColumn1
-			// 
-			this->dataGridViewTextBoxColumn1->HeaderText = L"L";
-			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
-			this->dataGridViewTextBoxColumn1->ReadOnly = true;
-			this->dataGridViewTextBoxColumn1->Resizable = System::Windows::Forms::DataGridViewTriState::False;
-			this->dataGridViewTextBoxColumn1->Width = 30;
-			// 
-			// dataGridViewTextBoxColumn2
-			// 
-			this->dataGridViewTextBoxColumn2->HeaderText = L"T";
-			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
-			this->dataGridViewTextBoxColumn2->ReadOnly = true;
-			this->dataGridViewTextBoxColumn2->Width = 30;
-			// 
-			// dataGridViewTextBoxColumn3
-			// 
-			this->dataGridViewTextBoxColumn3->HeaderText = L"P";
-			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
-			this->dataGridViewTextBoxColumn3->ReadOnly = true;
-			this->dataGridViewTextBoxColumn3->Width = 30;
-			// 
-			// dataGridViewTextBoxColumn4
-			// 
-			this->dataGridViewTextBoxColumn4->HeaderText = L"C";
-			this->dataGridViewTextBoxColumn4->Name = L"dataGridViewTextBoxColumn4";
-			this->dataGridViewTextBoxColumn4->ReadOnly = true;
-			this->dataGridViewTextBoxColumn4->Width = 30;
-			// 
-			// dataGridViewComboBoxColumn1
-			// 
-			this->dataGridViewComboBoxColumn1->HeaderText = L"Course";
-			this->dataGridViewComboBoxColumn1->Name = L"dataGridViewComboBoxColumn1";
-			this->dataGridViewComboBoxColumn1->Width = 440;
-			// 
-			// dataGridViewTextBoxColumn7
-			// 
-			this->dataGridViewTextBoxColumn7->HeaderText = L"Slot";
-			this->dataGridViewTextBoxColumn7->Name = L"dataGridViewTextBoxColumn7";
-			this->dataGridViewTextBoxColumn7->ReadOnly = true;
-			this->dataGridViewTextBoxColumn7->Width = 60;
-			// 
-			// dataGridViewButtonColumn1
-			// 
-			this->dataGridViewButtonColumn1->HeaderText = L"Desc.";
-			this->dataGridViewButtonColumn1->Name = L"dataGridViewButtonColumn1";
-			this->dataGridViewButtonColumn1->ReadOnly = true;
-			this->dataGridViewButtonColumn1->Text = L"View";
-			this->dataGridViewButtonColumn1->UseColumnTextForButtonValue = true;
-			this->dataGridViewButtonColumn1->Width = 60;
-			// 
-			// dataGridViewButtonColumn2
-			// 
-			this->dataGridViewButtonColumn2->HeaderText = L"Register";
-			this->dataGridViewButtonColumn2->Name = L"dataGridViewButtonColumn2";
-			this->dataGridViewButtonColumn2->Text = L"Register";
-			this->dataGridViewButtonColumn2->Width = 120;
 			// 
 			// Column1
 			// 
@@ -491,10 +321,213 @@ namespace CS346_A2 {
 			// 
 			// Column9
 			// 
+			this->Column9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
 			this->Column9->HeaderText = L"Register";
 			this->Column9->Name = L"Column9";
 			this->Column9->Text = L"Register";
 			this->Column9->Width = 120;
+			// 
+			// label2
+			// 
+			this->label2->AutoSize = true;
+			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
+			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label2->Location = System::Drawing::Point(57, 39);
+			this->label2->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label2->Name = L"label2";
+			this->label2->Size = System::Drawing::Size(209, 28);
+			this->label2->TabIndex = 2;
+			this->label2->Text = L"Compulsory Courses";
+			this->label2->Click += gcnew System::EventHandler(this, &Course_EnrollPage::label2_Click);
+			// 
+			// dataGridView2
+			// 
+			this->dataGridView2->AllowUserToAddRows = false;
+			this->dataGridView2->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)),
+				static_cast<System::Int32>(static_cast<System::Byte>(212)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->dataGridView2->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->dataGridView2->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
+			this->dataGridView2->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView2->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+				this->dataGridViewTextBoxColumn1,
+					this->dataGridViewTextBoxColumn2, this->dataGridViewTextBoxColumn3, this->dataGridViewTextBoxColumn4, this->dataGridViewComboBoxColumn1,
+					this->dataGridViewTextBoxColumn7, this->dataGridViewButtonColumn1, this->dataGridViewButtonColumn2
+			});
+			this->dataGridView2->Location = System::Drawing::Point(62, 269);
+			this->dataGridView2->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridView2->Name = L"dataGridView2";
+			this->dataGridView2->RowHeadersVisible = false;
+			this->dataGridView2->Size = System::Drawing::Size(803, 132);
+			this->dataGridView2->TabIndex = 3;
+			this->dataGridView2->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView2_CellContentClick);
+			this->dataGridView2->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView2_EditingControlShowing);
+			// 
+			// dataGridViewTextBoxColumn1
+			// 
+			this->dataGridViewTextBoxColumn1->HeaderText = L"L";
+			this->dataGridViewTextBoxColumn1->Name = L"dataGridViewTextBoxColumn1";
+			this->dataGridViewTextBoxColumn1->ReadOnly = true;
+			this->dataGridViewTextBoxColumn1->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewTextBoxColumn1->Width = 30;
+			// 
+			// dataGridViewTextBoxColumn2
+			// 
+			this->dataGridViewTextBoxColumn2->HeaderText = L"T";
+			this->dataGridViewTextBoxColumn2->Name = L"dataGridViewTextBoxColumn2";
+			this->dataGridViewTextBoxColumn2->ReadOnly = true;
+			this->dataGridViewTextBoxColumn2->Width = 30;
+			// 
+			// dataGridViewTextBoxColumn3
+			// 
+			this->dataGridViewTextBoxColumn3->HeaderText = L"P";
+			this->dataGridViewTextBoxColumn3->Name = L"dataGridViewTextBoxColumn3";
+			this->dataGridViewTextBoxColumn3->ReadOnly = true;
+			this->dataGridViewTextBoxColumn3->Width = 30;
+			// 
+			// dataGridViewTextBoxColumn4
+			// 
+			this->dataGridViewTextBoxColumn4->HeaderText = L"C";
+			this->dataGridViewTextBoxColumn4->Name = L"dataGridViewTextBoxColumn4";
+			this->dataGridViewTextBoxColumn4->ReadOnly = true;
+			this->dataGridViewTextBoxColumn4->Width = 30;
+			// 
+			// dataGridViewComboBoxColumn1
+			// 
+			this->dataGridViewComboBoxColumn1->HeaderText = L"Course";
+			this->dataGridViewComboBoxColumn1->Name = L"dataGridViewComboBoxColumn1";
+			this->dataGridViewComboBoxColumn1->Width = 440;
+			// 
+			// dataGridViewTextBoxColumn7
+			// 
+			this->dataGridViewTextBoxColumn7->HeaderText = L"Slot";
+			this->dataGridViewTextBoxColumn7->Name = L"dataGridViewTextBoxColumn7";
+			this->dataGridViewTextBoxColumn7->ReadOnly = true;
+			this->dataGridViewTextBoxColumn7->Width = 60;
+			// 
+			// dataGridViewButtonColumn1
+			// 
+			this->dataGridViewButtonColumn1->HeaderText = L"Desc.";
+			this->dataGridViewButtonColumn1->Name = L"dataGridViewButtonColumn1";
+			this->dataGridViewButtonColumn1->ReadOnly = true;
+			this->dataGridViewButtonColumn1->Text = L"View";
+			this->dataGridViewButtonColumn1->UseColumnTextForButtonValue = true;
+			this->dataGridViewButtonColumn1->Width = 60;
+			// 
+			// dataGridViewButtonColumn2
+			// 
+			this->dataGridViewButtonColumn2->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->dataGridViewButtonColumn2->HeaderText = L"Register";
+			this->dataGridViewButtonColumn2->Name = L"dataGridViewButtonColumn2";
+			this->dataGridViewButtonColumn2->Text = L"Register";
+			this->dataGridViewButtonColumn2->Width = 120;
+			// 
+			// dataGridView3
+			// 
+			this->dataGridView3->AllowUserToAddRows = false;
+			this->dataGridView3->BackgroundColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)),
+				static_cast<System::Int32>(static_cast<System::Byte>(212)), static_cast<System::Int32>(static_cast<System::Byte>(224)));
+			this->dataGridView3->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->dataGridView3->CellBorderStyle = System::Windows::Forms::DataGridViewCellBorderStyle::None;
+			this->dataGridView3->ColumnHeadersHeightSizeMode = System::Windows::Forms::DataGridViewColumnHeadersHeightSizeMode::AutoSize;
+			this->dataGridView3->Columns->AddRange(gcnew cli::array< System::Windows::Forms::DataGridViewColumn^  >(8) {
+				this->dataGridViewTextBoxColumn5,
+					this->dataGridViewTextBoxColumn6, this->dataGridViewTextBoxColumn8, this->dataGridViewTextBoxColumn9, this->dataGridViewComboBoxColumn2,
+					this->dataGridViewTextBoxColumn10, this->dataGridViewButtonColumn3, this->dataGridViewButtonColumn4
+			});
+			this->dataGridView3->Location = System::Drawing::Point(62, 452);
+			this->dataGridView3->Margin = System::Windows::Forms::Padding(4);
+			this->dataGridView3->Name = L"dataGridView3";
+			this->dataGridView3->RowHeadersVisible = false;
+			this->dataGridView3->Size = System::Drawing::Size(803, 108);
+			this->dataGridView3->TabIndex = 4;
+			this->dataGridView3->CellContentClick += gcnew System::Windows::Forms::DataGridViewCellEventHandler(this, &Course_EnrollPage::dataGridView3_CellContentClick);
+			this->dataGridView3->EditingControlShowing += gcnew System::Windows::Forms::DataGridViewEditingControlShowingEventHandler(this, &Course_EnrollPage::dataGridView3_EditingControlShowing);
+			// 
+			// dataGridViewTextBoxColumn5
+			// 
+			this->dataGridViewTextBoxColumn5->HeaderText = L"L";
+			this->dataGridViewTextBoxColumn5->Name = L"dataGridViewTextBoxColumn5";
+			this->dataGridViewTextBoxColumn5->ReadOnly = true;
+			this->dataGridViewTextBoxColumn5->Resizable = System::Windows::Forms::DataGridViewTriState::False;
+			this->dataGridViewTextBoxColumn5->Width = 30;
+			// 
+			// dataGridViewTextBoxColumn6
+			// 
+			this->dataGridViewTextBoxColumn6->HeaderText = L"T";
+			this->dataGridViewTextBoxColumn6->Name = L"dataGridViewTextBoxColumn6";
+			this->dataGridViewTextBoxColumn6->ReadOnly = true;
+			this->dataGridViewTextBoxColumn6->Width = 30;
+			// 
+			// dataGridViewTextBoxColumn8
+			// 
+			this->dataGridViewTextBoxColumn8->HeaderText = L"P";
+			this->dataGridViewTextBoxColumn8->Name = L"dataGridViewTextBoxColumn8";
+			this->dataGridViewTextBoxColumn8->ReadOnly = true;
+			this->dataGridViewTextBoxColumn8->Width = 30;
+			// 
+			// dataGridViewTextBoxColumn9
+			// 
+			this->dataGridViewTextBoxColumn9->HeaderText = L"C";
+			this->dataGridViewTextBoxColumn9->Name = L"dataGridViewTextBoxColumn9";
+			this->dataGridViewTextBoxColumn9->ReadOnly = true;
+			this->dataGridViewTextBoxColumn9->Width = 30;
+			// 
+			// dataGridViewComboBoxColumn2
+			// 
+			this->dataGridViewComboBoxColumn2->HeaderText = L"Course";
+			this->dataGridViewComboBoxColumn2->Name = L"dataGridViewComboBoxColumn2";
+			this->dataGridViewComboBoxColumn2->Width = 440;
+			// 
+			// dataGridViewTextBoxColumn10
+			// 
+			this->dataGridViewTextBoxColumn10->HeaderText = L"Slot";
+			this->dataGridViewTextBoxColumn10->Name = L"dataGridViewTextBoxColumn10";
+			this->dataGridViewTextBoxColumn10->ReadOnly = true;
+			this->dataGridViewTextBoxColumn10->Width = 60;
+			// 
+			// dataGridViewButtonColumn3
+			// 
+			this->dataGridViewButtonColumn3->HeaderText = L"Desc.";
+			this->dataGridViewButtonColumn3->Name = L"dataGridViewButtonColumn3";
+			this->dataGridViewButtonColumn3->ReadOnly = true;
+			this->dataGridViewButtonColumn3->Text = L"View";
+			this->dataGridViewButtonColumn3->UseColumnTextForButtonValue = true;
+			this->dataGridViewButtonColumn3->Width = 60;
+			// 
+			// dataGridViewButtonColumn4
+			// 
+			this->dataGridViewButtonColumn4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->dataGridViewButtonColumn4->HeaderText = L"Register";
+			this->dataGridViewButtonColumn4->Name = L"dataGridViewButtonColumn4";
+			this->dataGridViewButtonColumn4->Text = L"Register";
+			this->dataGridViewButtonColumn4->Width = 120;
+			// 
+			// label3
+			// 
+			this->label3->AutoSize = true;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
+			this->label3->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label3->Location = System::Drawing::Point(57, 234);
+			this->label3->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(167, 28);
+			this->label3->TabIndex = 5;
+			this->label3->Text = L"Elective Courses";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
+			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label4->Location = System::Drawing::Point(57, 416);
+			this->label4->Margin = System::Windows::Forms::Padding(4, 0, 4, 0);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(146, 28);
+			this->label4->TabIndex = 6;
+			this->label4->Text = L"Audit Courses";
 			// 
 			// Course_EnrollPage
 			// 
@@ -646,9 +679,17 @@ namespace CS346_A2 {
 						 {
 							 // Set the text for the button cell
 							 if (is_registered(CodeValue))
+							 {
 								 buttonCell->Value = "De-Register";
+
+								 buttonCell->Style->BackColor = System::Drawing::Color::Crimson;
+							 }
 							 else
+							 {
+
 								 buttonCell->Value = "Register";
+								 buttonCell->Style->BackColor = System::Drawing::Color::LimeGreen;
+							 }
 						 }
 
 					 }
@@ -670,7 +711,7 @@ namespace CS346_A2 {
 				 for (int i = 0; i < iter; i++)
 				 {
 
-					 String^ query = "SELECT [Course_Code],[Name] FROM [dbo].[course]WHERE [Course_Code] LIKE '%CS%' AND [ElectiveOrCompulsory] = 1 AND [Semester] LIKE @sem ";
+					 String^ query = "SELECT [Course_Code],[Name] FROM [dbo].[course]WHERE [Course_Code] LIKE '%CS%' AND [ElectiveOrCompulsory] = 1 AND [Semester] LIKE @sem  AND [P] = 0";
 					 array<SqlParameter^>^ parameters = {
 						 gcnew SqlParameter("@sem", "%" + Convert::ToString(sem) + "%")
 					 };
@@ -708,6 +749,53 @@ namespace CS346_A2 {
 					 }
 
 				 }
+
+				 //Add a lab elective for semester 6
+
+				 if (sem == 6)
+				 {
+
+
+					 String^ query = "SELECT [Course_Code],[Name] FROM [dbo].[course]WHERE [Course_Code] LIKE '%CS%' AND [ElectiveOrCompulsory] = 1 AND [Semester] LIKE @sem AND [P] = 3";
+					 array<SqlParameter^>^ parameters = {
+						 gcnew SqlParameter("@sem", "%" + Convert::ToString(sem) + "%")
+					 };
+					 SqlDataReader^ reader = DatabaseHelper::ExecuteQuery(query, parameters);
+
+					 try
+					 {
+
+						 // Create a new row
+						 int rowIndex = dataGridView2->Rows->Add(0, 1, 3, 5);
+						 // Get the ComboBox cell in the new row
+						 DataGridViewComboBoxCell^ comboBoxCell = dynamic_cast<DataGridViewComboBoxCell^>(dataGridView2->Rows[rowIndex]->Cells[4]);
+						 if (comboBoxCell != nullptr)
+						 {
+							 // Loop through the result set and add course names to the ComboBox
+
+							 while (reader->Read())
+							 {
+
+								 String^ coursecode = reader->GetString(0);
+								 String^ coursename = reader->GetString(1);
+
+								 comboBoxCell->Items->Add(coursecode + " " + coursename);
+							 }
+						 }
+
+						 // Close the reader and the connection
+						 reader->Close();
+
+					 }
+					 catch (Exception^ ex)
+					 {
+						 // Handle exceptions
+						 MessageBox::Show(ex->Message);
+					 }
+
+				 }
+
+
 			 }
 
 			 void Add_OE(int sem, int iter)
@@ -772,7 +860,7 @@ namespace CS346_A2 {
 					 break;
 
 				 case 6:
-					 Add_DE(sem, 3);
+					 Add_DE(sem, 2);
 					 break;
 
 				 case 7:
@@ -797,6 +885,7 @@ namespace CS346_A2 {
 					 {
 						 // Set the text for the button cell
 						 buttonCell->Value = "Register";
+						 buttonCell->Style->BackColor = System::Drawing::Color::LimeGreen;
 					 }
 				 }
 
@@ -897,6 +986,7 @@ namespace CS346_A2 {
 						 dr->Close();
 						 MessageBox::Show("Successfully Registered");
 						 dataGridView1->Rows[rowIndex]->Cells[colIndex]->Value = "De-Register";
+						 dataGridView1->Rows[rowIndex]->Cells[colIndex]->Style->BackColor = System::Drawing::Color::Crimson;
 						 dataGridView1->Invalidate();
 					 }
 					 else
@@ -918,6 +1008,7 @@ namespace CS346_A2 {
 					 dr->Close();
 					 MessageBox::Show("Successfully De-Registered");
 					 dataGridView1->Rows[rowIndex]->Cells[colIndex]->Value = "Register";
+					 dataGridView1->Rows[rowIndex]->Cells[colIndex]->Style->BackColor = System::Drawing::Color::LimeGreen;
 					 dataGridView1->Invalidate();
 
 				 }
@@ -996,9 +1087,16 @@ namespace CS346_A2 {
 
 						 // Set the text for the button cell
 						 if (is_registered(code))
+						 {
+							 buttonCell->Style->BackColor = System::Drawing::Color::Crimson;
 							 buttonCell->Value = "De-Register";
+						 }
 						 else
+						 {
+
 							 buttonCell->Value = "Register";
+							 buttonCell->Style->BackColor = System::Drawing::Color::LimeGreen;
+						 }
 
 					 }
 
@@ -1086,6 +1184,7 @@ namespace CS346_A2 {
 					 {
 						 // Set the text for the button cell
 						 buttonCell->Value = "Register";
+						 buttonCell->Style->BackColor = System::Drawing::Color::LimeGreen;
 					 }
 				 }
 	}
@@ -1165,9 +1264,16 @@ namespace CS346_A2 {
 
 						 // Set the text for the button cell
 						 if (is_registered(code))
+						 {
+							 buttonCell->Style->BackColor = System::Drawing::Color::Crimson;
 							 buttonCell->Value = "De-Register";
+						 }
 						 else
+						 {
+
 							 buttonCell->Value = "Register";
+							 buttonCell->Style->BackColor = System::Drawing::Color::LimeGreen;
+						 }
 
 					 }
 
