@@ -1,0 +1,244 @@
+  CS346_A2.AddCourseForm.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.AdminHome.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.classroomlist.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.CourseForm.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.CourseList.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Course_EnrollPage.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.ExamSchedule.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.FacultyHome.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Fee_Payment_Dummy.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Global_Page.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Grade.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Login_Register.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.permissions.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.ProfileForm.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.MyForm.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Queries_Admin.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Queries_User.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Register.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Registered Courses.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Signup.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.StudentHome.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Student_Profile.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.TimeTableView.resources - Embedded, ContainedInManifestFile, 
+  CS346_A2.Welcome_Pic.resources - Embedded, ContainedInManifestFile, 
+ImageRuntimeVersion: v4.0.30319
+Assembly Academic Section Management, Version=0.0.*, Culture=Invariant Language (Invariant Country): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly MySql.Data, Version=6.9.9.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a: 
+	hash=None, flags=None
+Assembly System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class CS346_A2.classroomlist: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class User: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 userID : Public
+    System.String email : Public
+    System.String userType : Public
+Class Student_data: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 userID : Public
+    System.String email : Public
+    System.String DOB : Public
+    System.String Contact : Public
+    Int32 Enrollment_Year : Public
+    System.String Address : Public
+    System.String Name : Public
+    Int32 Current_semester : Public
+Class CS346_A2.CourseList: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    get_coursetable(String): PrivateScope, Public, HideBySig
+    FillFacultyComboBox(): PrivateScope, Public, HideBySig
+Class CS346_A2.ExamSchedule: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User user : Public
+  Methods:
+    get_examschedule(Int32, User): PrivateScope, Public, HideBySig
+Class CS346_A2.permissions: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.ValueType course_add Boolean IsBoxed : Public
+    System.ValueType course_enroll Boolean IsBoxed : Public
+    System.ValueType grades_add Boolean IsBoxed : Public
+    System.ValueType grades_view Boolean IsBoxed : Public
+    System.ValueType current_year Int32 IsBoxed : Public
+    System.String current_sem : Public
+    System.DateTime midsem_start : Public
+    System.DateTime endsem_start : Public
+    System.String user_type : Public
+    System.Windows.Forms.Form globalForm : Public
+  Methods:
+    fetch(): PrivateScope, Public, HideBySig
+Class CS346_A2.Queries_Admin: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User user : Public
+  Methods:
+    get_Queries(): PrivateScope, Public, HideBySig
+    Resolve_query(): PrivateScope, Public, HideBySig
+Class CS346_A2.Queries_User: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User user : Public
+  Methods:
+    add_complaint(User): PrivateScope, Public, HideBySig
+    get_Queries(User): PrivateScope, Public, HideBySig
+Class CS346_A2.Student_Profile: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User user : Public
+    Student_data stu : Public
+  Methods:
+    get_profile(User): PrivateScope, Public, HideBySig
+    update_profile(User): PrivateScope, Public, HideBySig
+    ImageToByteArray(Image): PrivateScope, Public, HideBySig
+    Upload_Profile_Photo(User, Image): PrivateScope, Public, HideBySig
+    profile_photo_fetch(User): PrivateScope, Public, HideBySig
+    UploadImageToDatabase(Byte[], Int32): PrivateScope, Public, HideBySig
+Class CS346_A2.Welcome_Pic: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CS346_A2.Course_EnrollPage: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User user : Public
+Class CS346_A2.RegisteredCourses: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(User, System.Windows.Forms.Panel): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User user : Public
+    Boolean reg_status : Public
+    System.Windows.Forms.Panel panel1 : Public
+  Methods:
+    fill_Registered_table(User): PrivateScope, Public, HideBySig
+    get_reg_status(User): PrivateScope, Public, HideBySig
+Class CS346_A2.Fee_Payment_Dummy: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User user : Public
+    Student_data stu : Public
+  Methods:
+    get_profile(User): PrivateScope, Public, HideBySig
+    get_fee_data(Student_data): PrivateScope, Public, HideBySig
+    get_current_sem(): PrivateScope, Public, HideBySig
+Class CS346_A2.TimeTableView: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(User): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User user : Public
+  Methods:
+    get_timetable(String, User): PrivateScope, Public, HideBySig
+Class CS346_A2.StudentHome: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Windows.Forms.Form, User, System.Windows.Forms.Panel): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.Form globalForm : Public
+    System.Windows.Forms.Panel globalPanel : Public
+    User user : Public
+Class CS346_A2.Grade: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User admin : Public
+    System.String user_id : Public
+    System.String course_id : Public
+    System.String grade : Public
+    System.String approval_status : Public
+    System.Windows.Forms.Form globalForm : Public
+Class CS346_A2.Signup: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    User admin : Public
+    System.String name : Public
+    System.String dob : Public
+    System.String contact : Public
+    System.String address : Public
+    System.String email : Public
+    System.String approval_status : Public
+    System.String enrollment_year : Public
+    System.String user_type : Public
+    System.Windows.Forms.Form globalForm : Public
+  Methods:
+    fetch(): PrivateScope, Public, HideBySig
+Class CS346_A2.AdminHome: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Windows.Forms.Form, User, System.Windows.Forms.Panel): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.Form globalForm : Public
+    System.Windows.Forms.Panel globalPanel : Public
+    User user : Public
+Class CS346_A2.CourseForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 userid : Public
+Class CS346_A2.AddCourseForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CS346_A2.ProfileForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class CS346_A2.AddGradeForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(Int32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    Int32 userid : Public
+Class CS346_A2.FacultyHome: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Windows.Forms.Form, User, System.Windows.Forms.Panel): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.Form globalForm : Public
+    System.Windows.Forms.Panel globalPanel : Public
+    User user : Public
+Class CS346_A2.Register: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.Form globalForm : Public
+Class CS346_A2.MyForm: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Windows.Forms.Panel, System.Windows.Forms.Form): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.Panel OuterOuterPanel : Public
+    User user : Public
+    System.Windows.Forms.Form Global_form : Public
+Class CS346_A2.Login_Register: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(System.Windows.Forms.Panel, System.Windows.Forms.Form): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.Form Global_form : Public
+    System.Windows.Forms.Panel OuterPanel : Public
+Class CS346_A2.Global_Page: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :System.Windows.Forms.Form
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    System.Windows.Forms.Panel panel1 : Public
+  Methods:
+    Login_reg_Load(): PrivateScope, Public, HideBySig
+    Global_Page_Load(Object, EventArgs): PrivateScope, Public, HideBySig
