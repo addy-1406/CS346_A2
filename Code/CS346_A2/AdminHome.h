@@ -484,6 +484,7 @@ namespace CS346_A2 {
 	}
 	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
 				 // signup
+				 label1->Text = "Signup";
 				 panel1->Controls->Clear();
 				 Signup^ signupform = gcnew Signup();
 				 signupform->TopLevel = false;
@@ -496,6 +497,7 @@ namespace CS346_A2 {
 	}
 	private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
 				 //course list
+				 label1->Text = "Courses";
 				 panel1->Controls->Clear();
 				 CourseList^ Courselist = gcnew CourseList();
 				 Courselist->TopLevel = false;
@@ -530,6 +532,7 @@ namespace CS346_A2 {
 	}
 	private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
 				 //permissions
+				 label1->Text = "Permissions";
 				 panel1->Controls->Clear();
 				 permissions^ permisisonsform = gcnew permissions();
 				 permisisonsform->TopLevel = false;
@@ -539,6 +542,7 @@ namespace CS346_A2 {
 				 permisisonsform->Show();
 	}
 	private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
+				 label1->Text = "Signup";
 				 panel1->Controls->Clear();
 				 classroomlist^ permisisonsform = gcnew classroomlist();
 				 permisisonsform->TopLevel = false;

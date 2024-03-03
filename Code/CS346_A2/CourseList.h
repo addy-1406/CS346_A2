@@ -46,12 +46,16 @@ namespace CS346_A2 {
 
 
 	private: System::Windows::Forms::ComboBox^  comboBox1;
-	private: System::Windows::Forms::Label^  label1;
+
 	private: System::Windows::Forms::ColumnHeader^  columnHeader1;
 	private: System::Windows::Forms::ColumnHeader^  Faculty;
 	private: System::Windows::Forms::ComboBox^  cmbFaculty;
 	private: System::Windows::Forms::Button^  btnAssign;
-	private: System::Windows::Forms::Label^  label2;
+	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::Label^  label4;
+	private: System::Windows::Forms::PictureBox^  pictureBox1;
+	private: System::Windows::Forms::Label^  label8;
+
 
 
 	private:
@@ -73,17 +77,19 @@ namespace CS346_A2 {
 			this->columnHeader1 = (gcnew System::Windows::Forms::ColumnHeader());
 			this->Faculty = (gcnew System::Windows::Forms::ColumnHeader());
 			this->comboBox1 = (gcnew System::Windows::Forms::ComboBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->cmbFaculty = (gcnew System::Windows::Forms::ComboBox());
 			this->btnAssign = (gcnew System::Windows::Forms::Button());
-			this->label2 = (gcnew System::Windows::Forms::Label());
+			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->label4 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
+			this->label8 = (gcnew System::Windows::Forms::Label());
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// listView1
 			// 
-			this->listView1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
-				static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->listView1->BorderStyle = System::Windows::Forms::BorderStyle::None;
+			this->listView1->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->listView1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
 			this->listView1->CheckBoxes = true;
 			this->listView1->Columns->AddRange(gcnew cli::array< System::Windows::Forms::ColumnHeader^  >(4) {
 				this->CourseCode, this->CourseName,
@@ -91,7 +97,7 @@ namespace CS346_A2 {
 			});
 			this->listView1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 12, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->listView1->Location = System::Drawing::Point(211, 85);
+			this->listView1->Location = System::Drawing::Point(25, 95);
 			this->listView1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(684, 470);
@@ -122,52 +128,88 @@ namespace CS346_A2 {
 			// comboBox1
 			// 
 			this->comboBox1->DropDownStyle = System::Windows::Forms::ComboBoxStyle::DropDownList;
+			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(8) { L"1", L"2", L"3", L"4", L"5", L"6", L"7", L"8" });
-			this->comboBox1->Location = System::Drawing::Point(533, 33);
+			this->comboBox1->Location = System::Drawing::Point(742, 238);
 			this->comboBox1->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(99, 24);
+			this->comboBox1->Size = System::Drawing::Size(168, 31);
 			this->comboBox1->TabIndex = 4;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &CourseList::comboBox1_SelectedIndexChanged);
 			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Microsoft Sans Serif", 9.75F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->Location = System::Drawing::Point(336, 37);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(148, 20);
-			this->label1->TabIndex = 3;
-			this->label1->Text = L"Select Semester : ";
-			// 
 			// cmbFaculty
 			// 
+			this->cmbFaculty->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F));
 			this->cmbFaculty->FormattingEnabled = true;
-			this->cmbFaculty->Location = System::Drawing::Point(33, 125);
+			this->cmbFaculty->Location = System::Drawing::Point(742, 320);
 			this->cmbFaculty->Name = L"cmbFaculty";
-			this->cmbFaculty->Size = System::Drawing::Size(138, 24);
+			this->cmbFaculty->Size = System::Drawing::Size(168, 31);
 			this->cmbFaculty->TabIndex = 6;
 			// 
 			// btnAssign
 			// 
-			this->btnAssign->Location = System::Drawing::Point(33, 450);
+			this->btnAssign->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->btnAssign->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->btnAssign->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold));
+			this->btnAssign->ForeColor = System::Drawing::Color::White;
+			this->btnAssign->Location = System::Drawing::Point(752, 388);
 			this->btnAssign->Name = L"btnAssign";
-			this->btnAssign->Size = System::Drawing::Size(118, 57);
+			this->btnAssign->Size = System::Drawing::Size(147, 49);
 			this->btnAssign->TabIndex = 7;
-			this->btnAssign->Text = L"btnAssign";
-			this->btnAssign->UseVisualStyleBackColor = true;
+			this->btnAssign->Text = L"Assign";
+			this->btnAssign->UseVisualStyleBackColor = false;
 			this->btnAssign->Click += gcnew System::EventHandler(this, &CourseList::btnAssign_Click);
 			// 
-			// label2
+			// label3
 			// 
-			this->label2->AutoSize = true;
-			this->label2->Location = System::Drawing::Point(73, 85);
-			this->label2->Name = L"label2";
-			this->label2->Size = System::Drawing::Size(53, 17);
-			this->label2->TabIndex = 8;
-			this->label2->Text = L"Faculty";
+			this->label3->AutoSize = true;
+			this->label3->BackColor = System::Drawing::Color::White;
+			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label3->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label3->Location = System::Drawing::Point(738, 297);
+			this->label3->Name = L"label3";
+			this->label3->Size = System::Drawing::Size(55, 20);
+			this->label3->TabIndex = 9;
+			this->label3->Text = L"Faculty";
+			// 
+			// label4
+			// 
+			this->label4->AutoSize = true;
+			this->label4->BackColor = System::Drawing::Color::White;
+			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label4->ForeColor = System::Drawing::SystemColors::ControlText;
+			this->label4->Location = System::Drawing::Point(738, 216);
+			this->label4->Name = L"label4";
+			this->label4->Size = System::Drawing::Size(70, 20);
+			this->label4->TabIndex = 10;
+			this->label4->Text = L"Semester";
+			// 
+			// pictureBox1
+			// 
+			this->pictureBox1->BackColor = System::Drawing::Color::White;
+			this->pictureBox1->Location = System::Drawing::Point(12, 75);
+			this->pictureBox1->Name = L"pictureBox1";
+			this->pictureBox1->Size = System::Drawing::Size(934, 509);
+			this->pictureBox1->TabIndex = 11;
+			this->pictureBox1->TabStop = false;
+			// 
+			// label8
+			// 
+			this->label8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 18, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
+				static_cast<System::Byte>(0)));
+			this->label8->ForeColor = System::Drawing::Color::White;
+			this->label8->Location = System::Drawing::Point(12, 13);
+			this->label8->Name = L"label8";
+			this->label8->Size = System::Drawing::Size(934, 63);
+			this->label8->TabIndex = 20;
+			this->label8->Text = L"ASSIGN FACULTY";
+			this->label8->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
 			// 
 			// CourseList
 			// 
@@ -176,17 +218,20 @@ namespace CS346_A2 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(958, 578);
-			this->Controls->Add(this->label2);
+			this->Controls->Add(this->label8);
+			this->Controls->Add(this->label4);
+			this->Controls->Add(this->label3);
 			this->Controls->Add(this->btnAssign);
 			this->Controls->Add(this->cmbFaculty);
-			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->comboBox1);
-			this->Controls->Add(this->label1);
+			this->Controls->Add(this->listView1);
+			this->Controls->Add(this->pictureBox1);
 			this->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
 			this->MaximumSize = System::Drawing::Size(976, 625);
 			this->MinimumSize = System::Drawing::Size(976, 625);
 			this->Name = L"CourseList";
 			this->Text = L"CourseList";
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -326,5 +371,7 @@ private: System::Void btnAssign_Click(System::Object^ sender, System::EventArgs^
 							 MessageBox::Show(ex->Message);
 						 }
 			 }
+private: System::Void label1_Click(System::Object^  sender, System::EventArgs^  e) {
+}
 };
 }
