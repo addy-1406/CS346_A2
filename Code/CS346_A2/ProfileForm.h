@@ -371,7 +371,10 @@ namespace CS346_A2 {
 	private:
 		void btnPhoto_Click(System::Object^ sender, System::EventArgs^ e) {
 			OpenFileDialog^ openFileDialog1 = gcnew OpenFileDialog();
-			//openFileDialog1->Filter = "Image Files (.bmp;.jpg;.jpeg,.gif,.png,.tif)|.bmp;.jpg;.jpeg;.gif;.png;.tif";
+			openFileDialog1->InitialDirectory = "C:\\"; // Change this to a directory containing image files
+			openFileDialog1->RestoreDirectory = true;
+			openFileDialog1->CheckFileExists = true;
+			openFileDialog1->Filter = "Image Files (*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif)|*.bmp;*.jpg;*.jpeg;*.gif;*.png;*.tif";
 
 			if (openFileDialog1->ShowDialog() == System::Windows::Forms::DialogResult::OK) {
 				try {
@@ -383,6 +386,8 @@ namespace CS346_A2 {
 					// Upload the image to the database
 					UploadImageToDatabase(imageArray, userID);
 				}
+
+
 				catch (Exception^ ex) {
 					MessageBox::Show(ex->Message, "Error", MessageBoxButtons::OK, MessageBoxIcon::Error);
 				}
