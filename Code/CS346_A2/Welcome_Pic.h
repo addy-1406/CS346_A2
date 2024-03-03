@@ -75,7 +75,8 @@ namespace CS346_A2 {
 			// 
 			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::Color::SeaGreen;
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
 			this->label1->Location = System::Drawing::Point(25, 534);
 			this->label1->Name = L"label1";
 			this->label1->Size = System::Drawing::Size(906, 56);
@@ -87,7 +88,8 @@ namespace CS346_A2 {
 			// 
 			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 28.2F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->ForeColor = System::Drawing::Color::SeaGreen;
+			this->label2->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
 			this->label2->Location = System::Drawing::Point(25, 590);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(906, 70);

@@ -58,8 +58,8 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::Label^  label9;
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
 	private: System::Windows::Forms::Label^  label2;
-	private: System::Windows::Forms::TextBox^  textBox1;
-	private: System::Windows::Forms::Label^  label1;
+
+
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
 	private: System::Windows::Forms::TextBox^  textBox5;
 	private: System::Windows::Forms::TextBox^  textBox8;
@@ -67,6 +67,8 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::PictureBox^  pictureBox2;
 	private: System::Windows::Forms::Button^  button2;
 	private: System::Windows::Forms::PictureBox^  pictureBox3;
+	private: System::Windows::Forms::Label^  label1;
+	private: System::Windows::Forms::PictureBox^  pictureBox5;
 
 
 	private:
@@ -97,8 +99,6 @@ namespace CS346_A2 {
 			this->label9 = (gcnew System::Windows::Forms::Label());
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->label2 = (gcnew System::Windows::Forms::Label());
-			this->textBox1 = (gcnew System::Windows::Forms::TextBox());
-			this->label1 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
 			this->textBox5 = (gcnew System::Windows::Forms::TextBox());
 			this->textBox8 = (gcnew System::Windows::Forms::TextBox());
@@ -106,19 +106,22 @@ namespace CS346_A2 {
 			this->pictureBox2 = (gcnew System::Windows::Forms::PictureBox());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->pictureBox3 = (gcnew System::Windows::Forms::PictureBox());
+			this->label1 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox5 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			this->SuspendLayout();
 			// 
 			// textBox2
 			// 
 			this->textBox2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox2->Location = System::Drawing::Point(538, 301);
+			this->textBox2->Location = System::Drawing::Point(513, 330);
 			this->textBox2->Name = L"textBox2";
 			this->textBox2->ReadOnly = true;
-			this->textBox2->Size = System::Drawing::Size(363, 30);
+			this->textBox2->Size = System::Drawing::Size(192, 30);
 			this->textBox2->TabIndex = 53;
 			// 
 			// label6
@@ -127,17 +130,17 @@ namespace CS346_A2 {
 			this->label6->BackColor = System::Drawing::Color::White;
 			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label6->Location = System::Drawing::Point(534, 278);
+			this->label6->Location = System::Drawing::Point(509, 307);
 			this->label6->Name = L"label6";
-			this->label6->Size = System::Drawing::Size(208, 20);
+			this->label6->Size = System::Drawing::Size(167, 20);
 			this->label6->TabIndex = 54;
-			this->label6->Text = L"Enrollment Year / Joining Year";
+			this->label6->Text = L"Enrollment/Joining Year";
 			// 
 			// textBox7
 			// 
 			this->textBox7->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox7->Location = System::Drawing::Point(538, 237);
+			this->textBox7->Location = System::Drawing::Point(513, 261);
 			this->textBox7->Multiline = true;
 			this->textBox7->Name = L"textBox7";
 			this->textBox7->Size = System::Drawing::Size(363, 32);
@@ -149,7 +152,7 @@ namespace CS346_A2 {
 			this->label3->BackColor = System::Drawing::Color::White;
 			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label3->Location = System::Drawing::Point(534, 214);
+			this->label3->Location = System::Drawing::Point(509, 238);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(62, 20);
 			this->label3->TabIndex = 50;
@@ -163,7 +166,7 @@ namespace CS346_A2 {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(638, 519);
+			this->button1->Location = System::Drawing::Point(613, 520);
 			this->button1->Name = L"button1";
 			this->button1->Size = System::Drawing::Size(176, 46);
 			this->button1->TabIndex = 40;
@@ -175,7 +178,7 @@ namespace CS346_A2 {
 			// 
 			this->textBox6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox6->Location = System::Drawing::Point(538, 472);
+			this->textBox6->Location = System::Drawing::Point(513, 470);
 			this->textBox6->Name = L"textBox6";
 			this->textBox6->PasswordChar = '*';
 			this->textBox6->Size = System::Drawing::Size(363, 30);
@@ -187,7 +190,7 @@ namespace CS346_A2 {
 			this->label12->BackColor = System::Drawing::Color::White;
 			this->label12->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label12->Location = System::Drawing::Point(534, 449);
+			this->label12->Location = System::Drawing::Point(509, 447);
 			this->label12->Name = L"label12";
 			this->label12->Size = System::Drawing::Size(71, 20);
 			this->label12->TabIndex = 48;
@@ -197,7 +200,7 @@ namespace CS346_A2 {
 			// 
 			this->textBox4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox4->Location = System::Drawing::Point(538, 414);
+			this->textBox4->Location = System::Drawing::Point(513, 400);
 			this->textBox4->Name = L"textBox4";
 			this->textBox4->ReadOnly = true;
 			this->textBox4->Size = System::Drawing::Size(363, 30);
@@ -209,11 +212,12 @@ namespace CS346_A2 {
 			this->label11->BackColor = System::Drawing::Color::White;
 			this->label11->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label11->Location = System::Drawing::Point(534, 391);
+			this->label11->Location = System::Drawing::Point(509, 377);
 			this->label11->Name = L"label11";
 			this->label11->Size = System::Drawing::Size(46, 20);
 			this->label11->TabIndex = 47;
 			this->label11->Text = L"Email";
+			this->label11->Click += gcnew System::EventHandler(this, &Student_Profile::label11_Click);
 			// 
 			// label10
 			// 
@@ -221,7 +225,7 @@ namespace CS346_A2 {
 			this->label10->BackColor = System::Drawing::Color::White;
 			this->label10->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label10->Location = System::Drawing::Point(752, 94);
+			this->label10->Location = System::Drawing::Point(727, 100);
 			this->label10->Name = L"label10";
 			this->label10->Size = System::Drawing::Size(62, 20);
 			this->label10->TabIndex = 46;
@@ -231,7 +235,7 @@ namespace CS346_A2 {
 			// 
 			this->textBox3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox3->Location = System::Drawing::Point(538, 180);
+			this->textBox3->Location = System::Drawing::Point(513, 193);
 			this->textBox3->Name = L"textBox3";
 			this->textBox3->Size = System::Drawing::Size(363, 30);
 			this->textBox3->TabIndex = 35;
@@ -242,7 +246,7 @@ namespace CS346_A2 {
 			this->label9->BackColor = System::Drawing::Color::White;
 			this->label9->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label9->Location = System::Drawing::Point(534, 157);
+			this->label9->Location = System::Drawing::Point(509, 170);
 			this->label9->Name = L"label9";
 			this->label9->Size = System::Drawing::Size(60, 20);
 			this->label9->TabIndex = 45;
@@ -254,7 +258,7 @@ namespace CS346_A2 {
 				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
 			this->dateTimePicker1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->dateTimePicker1->Location = System::Drawing::Point(538, 117);
+			this->dateTimePicker1->Location = System::Drawing::Point(513, 123);
 			this->dateTimePicker1->Name = L"dateTimePicker1";
 			this->dateTimePicker1->Size = System::Drawing::Size(192, 30);
 			this->dateTimePicker1->TabIndex = 39;
@@ -265,42 +269,18 @@ namespace CS346_A2 {
 			this->label2->BackColor = System::Drawing::Color::White;
 			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label2->Location = System::Drawing::Point(534, 94);
+			this->label2->Location = System::Drawing::Point(509, 100);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(40, 20);
 			this->label2->TabIndex = 44;
 			this->label2->Text = L"DOB";
 			// 
-			// textBox1
-			// 
-			this->textBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->textBox1->Location = System::Drawing::Point(538, 54);
-			this->textBox1->Name = L"textBox1";
-			this->textBox1->ReadOnly = true;
-			this->textBox1->Size = System::Drawing::Size(363, 30);
-			this->textBox1->TabIndex = 34;
-			// 
-			// label1
-			// 
-			this->label1->AutoSize = true;
-			this->label1->BackColor = System::Drawing::Color::White;
-			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
-				static_cast<System::Byte>(0)));
-			this->label1->ForeColor = System::Drawing::SystemColors::ControlText;
-			this->label1->Location = System::Drawing::Point(534, 31);
-			this->label1->Name = L"label1";
-			this->label1->Size = System::Drawing::Size(49, 20);
-			this->label1->TabIndex = 33;
-			this->label1->Text = L"Name";
-			// 
 			// pictureBox1
 			// 
 			this->pictureBox1->BackColor = System::Drawing::Color::White;
-			this->pictureBox1->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pictureBox1->Location = System::Drawing::Point(486, 16);
+			this->pictureBox1->Location = System::Drawing::Point(486, 80);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(468, 562);
+			this->pictureBox1->Size = System::Drawing::Size(447, 510);
 			this->pictureBox1->TabIndex = 42;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &Student_Profile::pictureBox1_Click);
@@ -309,7 +289,7 @@ namespace CS346_A2 {
 			// 
 			this->textBox5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox5->Location = System::Drawing::Point(756, 117);
+			this->textBox5->Location = System::Drawing::Point(731, 123);
 			this->textBox5->MaximumSize = System::Drawing::Size(145, 30);
 			this->textBox5->MinimumSize = System::Drawing::Size(145, 30);
 			this->textBox5->Name = L"textBox5";
@@ -321,10 +301,10 @@ namespace CS346_A2 {
 			// 
 			this->textBox8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->textBox8->Location = System::Drawing::Point(538, 358);
+			this->textBox8->Location = System::Drawing::Point(731, 330);
 			this->textBox8->Name = L"textBox8";
 			this->textBox8->ReadOnly = true;
-			this->textBox8->Size = System::Drawing::Size(363, 30);
+			this->textBox8->Size = System::Drawing::Size(145, 30);
 			this->textBox8->TabIndex = 56;
 			// 
 			// label4
@@ -333,7 +313,7 @@ namespace CS346_A2 {
 			this->label4->BackColor = System::Drawing::Color::White;
 			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9, System::Drawing::FontStyle::Regular, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label4->Location = System::Drawing::Point(534, 335);
+			this->label4->Location = System::Drawing::Point(727, 307);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(122, 20);
 			this->label4->TabIndex = 57;
@@ -342,10 +322,9 @@ namespace CS346_A2 {
 			// pictureBox2
 			// 
 			this->pictureBox2->BackColor = System::Drawing::Color::White;
-			this->pictureBox2->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
-			this->pictureBox2->Location = System::Drawing::Point(26, 16);
+			this->pictureBox2->Location = System::Drawing::Point(49, 80);
 			this->pictureBox2->Name = L"pictureBox2";
-			this->pictureBox2->Size = System::Drawing::Size(468, 562);
+			this->pictureBox2->Size = System::Drawing::Size(445, 510);
 			this->pictureBox2->TabIndex = 58;
 			this->pictureBox2->TabStop = false;
 			// 
@@ -357,7 +336,7 @@ namespace CS346_A2 {
 			this->button2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button2->ForeColor = System::Drawing::Color::White;
-			this->button2->Location = System::Drawing::Point(163, 519);
+			this->button2->Location = System::Drawing::Point(188, 520);
 			this->button2->Name = L"button2";
 			this->button2->Size = System::Drawing::Size(176, 46);
 			this->button2->TabIndex = 59;
@@ -367,13 +346,41 @@ namespace CS346_A2 {
 			// 
 			// pictureBox3
 			// 
+			this->pictureBox3->BackColor = System::Drawing::Color::WhiteSmoke;
 			this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
 			this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
-			this->pictureBox3->Location = System::Drawing::Point(70, 54);
+			this->pictureBox3->BorderStyle = System::Windows::Forms::BorderStyle::FixedSingle;
+			this->pictureBox3->Location = System::Drawing::Point(105, 100);
 			this->pictureBox3->Name = L"pictureBox3";
-			this->pictureBox3->Size = System::Drawing::Size(381, 448);
+			this->pictureBox3->Size = System::Drawing::Size(343, 408);
 			this->pictureBox3->TabIndex = 60;
 			this->pictureBox3->TabStop = false;
+			// 
+			// label1
+			// 
+			this->label1->BackColor = System::Drawing::Color::WhiteSmoke;
+			this->label1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 18, static_cast<System::Drawing::FontStyle>((System::Drawing::FontStyle::Bold | System::Drawing::FontStyle::Italic)),
+				System::Drawing::GraphicsUnit::Point, static_cast<System::Byte>(0)));
+			this->label1->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->label1->Location = System::Drawing::Point(49, 23);
+			this->label1->Name = L"label1";
+			this->label1->Size = System::Drawing::Size(884, 57);
+			this->label1->TabIndex = 61;
+			this->label1->Text = L"WELCOME";
+			this->label1->TextAlign = System::Drawing::ContentAlignment::MiddleCenter;
+			// 
+			// pictureBox5
+			// 
+			this->pictureBox5->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
+				| System::Windows::Forms::AnchorStyles::Right));
+			this->pictureBox5->BackColor = System::Drawing::Color::White;
+			this->pictureBox5->Location = System::Drawing::Point(492, 100);
+			this->pictureBox5->Margin = System::Windows::Forms::Padding(0);
+			this->pictureBox5->Name = L"pictureBox5";
+			this->pictureBox5->Size = System::Drawing::Size(1, 460);
+			this->pictureBox5->TabIndex = 62;
+			this->pictureBox5->TabStop = false;
 			// 
 			// Student_Profile
 			// 
@@ -382,6 +389,8 @@ namespace CS346_A2 {
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
 			this->ClientSize = System::Drawing::Size(958, 578);
+			this->Controls->Add(this->pictureBox5);
+			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox3);
 			this->Controls->Add(this->button2);
 			this->Controls->Add(this->pictureBox2);
@@ -402,8 +411,6 @@ namespace CS346_A2 {
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->dateTimePicker1);
 			this->Controls->Add(this->label2);
-			this->Controls->Add(this->textBox1);
-			this->Controls->Add(this->label1);
 			this->Controls->Add(this->pictureBox1);
 			this->Name = L"Student_Profile";
 			this->Text = L"Student_Profile";
@@ -411,6 +418,7 @@ namespace CS346_A2 {
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox1))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox2))->EndInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->EndInit();
+			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->EndInit();
 			this->ResumeLayout(false);
 			this->PerformLayout();
 
@@ -609,7 +617,7 @@ private: System::Void button2_Click(System::Object^  sender, System::EventArgs^ 
 		 }
 private: System::Void Student_Profile_Load(System::Object^  sender, System::EventArgs^  e) {
 			 get_profile(user);
-			 textBox1->Text = stu->Name;
+			 label1->Text = "Welcome " + stu->Name + " !";
 			 textBox3->Text = stu->Contact;
 			 textBox2->Text = System::Convert::ToString(stu->Enrollment_Year);
 			 textBox7->Text = stu->Address;
@@ -619,6 +627,10 @@ private: System::Void Student_Profile_Load(System::Object^  sender, System::Even
 			 System::DateTime dateTimeValue = System::DateTime::ParseExact(stu->DOB, "yyyy-MM-dd", System::Globalization::CultureInfo::InvariantCulture);
 			 dateTimePicker1->Value = dateTimeValue;
 			 
+}
+private: System::Void textBox1_TextChanged(System::Object^  sender, System::EventArgs^  e) {
+}
+private: System::Void label11_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

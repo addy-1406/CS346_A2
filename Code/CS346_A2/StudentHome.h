@@ -73,6 +73,7 @@ namespace CS346_A2 {
 
 
 
+
 	protected:
 
 
@@ -341,6 +342,7 @@ namespace CS346_A2 {
 			this->label1->Size = System::Drawing::Size(71, 28);
 			this->label1->TabIndex = 39;
 			this->label1->Text = L"label1";
+			this->label1->Click += gcnew System::EventHandler(this, &StudentHome::label1_Click_1);
 			// 
 			// pictureBox3
 			// 
@@ -486,7 +488,7 @@ namespace CS346_A2 {
 				 globalForm->Show();
 	}
 	private: System::Void StudentHome_Load(System::Object^  sender, System::EventArgs^  e) {
-				 label1->Text = user->email;
+				 label1->Text = user->email + " | Profile";
 				 Student_Profile^ wcp = gcnew Student_Profile(user);
 				 // Customize the form's appearance
 				 wcp->ControlBox = false; // Hide the control box
@@ -509,6 +511,7 @@ namespace CS346_A2 {
 				 globalForm->Show();
 	}
 private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
+			 label1->Text = user->email + " | Profile";
 			 Student_Profile^ lp = gcnew Student_Profile(user);
 			 // Customize the form's appearance
 			 lp->ControlBox = false; // Hide the control box
@@ -527,6 +530,7 @@ private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  
 private: System::Void pictureBox6_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
+			 label1->Text = user->email + " | Course Registration";
 			 RegisteredCourses^ lp = gcnew RegisteredCourses(user,panel1);
 			 // Customize the form's appearance
 			 lp->ControlBox = false; // Hide the control box
@@ -545,6 +549,7 @@ private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  
 private: System::Void pictureBox8_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+			 label1->Text = user->email + " | Fee Payment";
 			 Fee_Payment_Dummy^ lp = gcnew Fee_Payment_Dummy(user);
 			 // Customize the form's appearance
 			 lp->ControlBox = false; // Hide the control box
@@ -561,6 +566,7 @@ private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  
 			 lp->Show();
 }
 private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
+			 label1->Text = user->email + " | Timetable";
 			 TimeTableView^ lp = gcnew TimeTableView(user);
 			 // Customize the form's appearance
 			 lp->ControlBox = false; // Hide the control box
@@ -577,6 +583,7 @@ private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  
 			 lp->Show();
 }
 private: System::Void pictureBox12_Click(System::Object^  sender, System::EventArgs^  e) {
+			 label1->Text = user->email + " | Timetable";
 			 TimeTableView^ lp = gcnew TimeTableView(user);
 			 // Customize the form's appearance
 			 lp->ControlBox = false; // Hide the control box
@@ -595,6 +602,7 @@ private: System::Void pictureBox12_Click(System::Object^  sender, System::EventA
 private: System::Void pictureBox2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+			 label1->Text = user->email + " | Exam Schedule";
 			 ExamSchedule^ lp = gcnew ExamSchedule(user);
 			 // Customize the form's appearance
 			 lp->ControlBox = false; // Hide the control box
@@ -609,6 +617,8 @@ private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  
 			 panel1->Controls->Clear();
 			 panel1->Controls->Add(lp);
 			 lp->Show();
+}
+private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
 }
 };
 }

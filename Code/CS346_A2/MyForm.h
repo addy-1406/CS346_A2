@@ -157,7 +157,7 @@ namespace CS346_A2 {
 			this->button2->ForeColor = System::Drawing::Color::White;
 			this->button2->Location = System::Drawing::Point(318, 488);
 			this->button2->Name = L"button2";
-			this->button2->Size = System::Drawing::Size(142, 49);
+			this->button2->Size = System::Drawing::Size(147, 49);
 			this->button2->TabIndex = 9;
 			this->button2->Text = L"Login";
 			this->button2->UseVisualStyleBackColor = false;
@@ -218,7 +218,7 @@ namespace CS346_A2 {
 				static_cast<System::Int32>(static_cast<System::Byte>(160)));
 			this->label8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 19.8F, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
-			this->label8->ForeColor = System::Drawing::Color::OldLace;
+			this->label8->ForeColor = System::Drawing::Color::White;
 			this->label8->Location = System::Drawing::Point(280, 140);
 			this->label8->Name = L"label8";
 			this->label8->Size = System::Drawing::Size(397, 73);
@@ -234,9 +234,9 @@ namespace CS346_A2 {
 			this->button1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->button1->ForeColor = System::Drawing::Color::White;
-			this->button1->Location = System::Drawing::Point(479, 488);
+			this->button1->Location = System::Drawing::Point(489, 488);
 			this->button1->Name = L"button1";
-			this->button1->Size = System::Drawing::Size(157, 49);
+			this->button1->Size = System::Drawing::Size(147, 49);
 			this->button1->TabIndex = 26;
 			this->button1->Text = L"Reset";
 			this->button1->UseVisualStyleBackColor = false;
@@ -248,7 +248,7 @@ namespace CS346_A2 {
 			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox1->Location = System::Drawing::Point(3, -3);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(961, 107);
+			this->pictureBox1->Size = System::Drawing::Size(951, 107);
 			this->pictureBox1->TabIndex = 27;
 			this->pictureBox1->TabStop = false;
 			// 
