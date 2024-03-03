@@ -81,6 +81,7 @@ namespace CS346_A2 {
 
 
 
+
 	protected:
 
 
@@ -478,19 +479,16 @@ namespace CS346_A2 {
 			// 
 			// pictureBox10
 			// 
-			this->pictureBox10->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
 			this->pictureBox10->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 				static_cast<System::Int32>(static_cast<System::Byte>(72)));
 			this->pictureBox10->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.BackgroundImage")));
-			this->pictureBox10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox10->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->pictureBox10->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox10->Location = System::Drawing::Point(61, 485);
-			this->pictureBox10->MaximumSize = System::Drawing::Size(29, 40);
-			this->pictureBox10->MinimumSize = System::Drawing::Size(29, 40);
+			this->pictureBox10->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox10.Image")));
+			this->pictureBox10->Location = System::Drawing::Point(61, 490);
 			this->pictureBox10->Name = L"pictureBox10";
-			this->pictureBox10->Size = System::Drawing::Size(29, 40);
-			this->pictureBox10->TabIndex = 51;
+			this->pictureBox10->Size = System::Drawing::Size(35, 31);
+			this->pictureBox10->TabIndex = 55;
 			this->pictureBox10->TabStop = false;
 			// 
 			// StudentHome
@@ -499,8 +497,8 @@ namespace CS346_A2 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(1262, 673);
-			this->Controls->Add(this->label2);
 			this->Controls->Add(this->pictureBox10);
+			this->Controls->Add(this->label2);
 			this->Controls->Add(this->label9);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->label5);
@@ -579,6 +577,7 @@ namespace CS346_A2 {
 				 globalForm->Show();
 	}
 private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			 label1->Text = user->email + " | Profile";
 			 Student_Profile^ lp = gcnew Student_Profile(user);
 			 // Customize the form's appearance
@@ -598,6 +597,7 @@ private: System::Void label3_Click(System::Object^  sender, System::EventArgs^  
 private: System::Void pictureBox6_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			 label1->Text = user->email + " | Course Registration";
 			 RegisteredCourses^ lp = gcnew RegisteredCourses(user,panel1);
 			 // Customize the form's appearance
@@ -617,6 +617,7 @@ private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  
 private: System::Void pictureBox8_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			 label1->Text = user->email + " | Fee Payment";
 			 Fee_Payment_Dummy^ lp = gcnew Fee_Payment_Dummy(user);
 			 // Customize the form's appearance
@@ -634,6 +635,7 @@ private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  
 			 lp->Show();
 }
 private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			 label1->Text = user->email + " | Timetable";
 			 TimeTableView^ lp = gcnew TimeTableView(user);
 			 // Customize the form's appearance
@@ -651,6 +653,7 @@ private: System::Void label9_Click(System::Object^  sender, System::EventArgs^  
 			 lp->Show();
 }
 private: System::Void pictureBox12_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			 label1->Text = user->email + " | Timetable";
 			 TimeTableView^ lp = gcnew TimeTableView(user);
 			 // Customize the form's appearance
@@ -670,6 +673,7 @@ private: System::Void pictureBox12_Click(System::Object^  sender, System::EventA
 private: System::Void pictureBox2_Click(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			 label1->Text = user->email + " | Exam Schedule";
 			 ExamSchedule^ lp = gcnew ExamSchedule(user);
 			 // Customize the form's appearance
@@ -689,6 +693,7 @@ private: System::Void label6_Click(System::Object^  sender, System::EventArgs^  
 private: System::Void label1_Click_1(System::Object^  sender, System::EventArgs^  e) {
 }
 private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			 label1->Text = user->email + " | Queries";
 			 Queries_User^ lp = gcnew Queries_User(user);
 			 // Customize the form's appearance

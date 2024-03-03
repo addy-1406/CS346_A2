@@ -86,8 +86,9 @@ namespace CS346_A2 {
 
 	private: System::Windows::Forms::PictureBox^  pictureBox11;
 	private: System::Windows::Forms::PictureBox^  pictureBox1;
-	private: System::Windows::Forms::PictureBox^  pictureBox6;
+
 	private: System::Windows::Forms::Label^  label3;
+	private: System::Windows::Forms::PictureBox^  pictureBox6;
 	protected:
 
 	private:
@@ -121,8 +122,8 @@ namespace CS346_A2 {
 			this->label7 = (gcnew System::Windows::Forms::Label());
 			this->pictureBox11 = (gcnew System::Windows::Forms::PictureBox());
 			this->pictureBox1 = (gcnew System::Windows::Forms::PictureBox());
-			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			this->label3 = (gcnew System::Windows::Forms::Label());
+			this->pictureBox6 = (gcnew System::Windows::Forms::PictureBox());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox3))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox5))->BeginInit();
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->pictureBox4))->BeginInit();
@@ -411,24 +412,6 @@ namespace CS346_A2 {
 			this->pictureBox1->TabIndex = 18;
 			this->pictureBox1->TabStop = false;
 			// 
-			// pictureBox6
-			// 
-			this->pictureBox6->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
-				| System::Windows::Forms::AnchorStyles::Right));
-			this->pictureBox6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
-				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->pictureBox6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.BackgroundImage")));
-			this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
-			this->pictureBox6->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox6->Location = System::Drawing::Point(69, 438);
-			this->pictureBox6->Margin = System::Windows::Forms::Padding(3, 2, 3, 2);
-			this->pictureBox6->MaximumSize = System::Drawing::Size(35, 31);
-			this->pictureBox6->MinimumSize = System::Drawing::Size(35, 31);
-			this->pictureBox6->Name = L"pictureBox6";
-			this->pictureBox6->Size = System::Drawing::Size(35, 31);
-			this->pictureBox6->TabIndex = 36;
-			this->pictureBox6->TabStop = false;
-			// 
 			// label3
 			// 
 			this->label3->Anchor = static_cast<System::Windows::Forms::AnchorStyles>(((System::Windows::Forms::AnchorStyles::Top | System::Windows::Forms::AnchorStyles::Left)
@@ -446,6 +429,20 @@ namespace CS346_A2 {
 			this->label3->TabIndex = 35;
 			this->label3->Text = L"Queries";
 			this->label3->Click += gcnew System::EventHandler(this, &AdminHome::label3_Click_1);
+			// 
+			// pictureBox6
+			// 
+			this->pictureBox6->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
+				static_cast<System::Int32>(static_cast<System::Byte>(72)));
+			this->pictureBox6->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.BackgroundImage")));
+			this->pictureBox6->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
+			this->pictureBox6->Cursor = System::Windows::Forms::Cursors::Hand;
+			this->pictureBox6->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox6.Image")));
+			this->pictureBox6->Location = System::Drawing::Point(69, 438);
+			this->pictureBox6->Name = L"pictureBox6";
+			this->pictureBox6->Size = System::Drawing::Size(35, 31);
+			this->pictureBox6->TabIndex = 45;
+			this->pictureBox6->TabStop = false;
 			// 
 			// AdminHome
 			// 
@@ -529,6 +526,7 @@ namespace CS346_A2 {
 				 signupform->Show();
 	}
 	private: System::Void label2_Click(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 // signup
 				 label1->Text = "Signup";
 				 panel1->Controls->Clear();
@@ -542,6 +540,7 @@ namespace CS346_A2 {
 	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 //course list
 				 label1->Text = "Courses";
 				 panel1->Controls->Clear();
@@ -577,6 +576,7 @@ namespace CS346_A2 {
 	private: System::Void pictureBox8_Click(System::Object^  sender, System::EventArgs^  e) {
 	}
 	private: System::Void label7_Click(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 //permissions
 				 label1->Text = "Permissions";
 				 panel1->Controls->Clear();
@@ -588,6 +588,7 @@ namespace CS346_A2 {
 				 permisisonsform->Show();
 	}
 	private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  e) {
+				 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 				 label1->Text = "Classroom";
 				 panel1->Controls->Clear();
 				 classroomlist^ permisisonsform = gcnew classroomlist();
@@ -598,6 +599,7 @@ namespace CS346_A2 {
 				 permisisonsform->Show();
 	}
 private: System::Void label3_Click_1(System::Object^  sender, System::EventArgs^  e) {
+			 PlaySound(TEXT("..\\MediaFiles\\click-button-140881.wav"), NULL, SND_FILENAME | SND_ASYNC);
 			 label1->Text = "Queries";
 			 Queries_Admin^ lp = gcnew Queries_Admin(user);
 			 // Customize the form's appearance

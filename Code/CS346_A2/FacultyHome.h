@@ -114,6 +114,7 @@ namespace CS346_A2 {
 
 
 
+
 	protected:
 
 	private:
@@ -428,10 +429,11 @@ namespace CS346_A2 {
 			this->pictureBox3->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.BackgroundImage")));
 			this->pictureBox3->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->pictureBox3->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox3->Location = System::Drawing::Point(57, 482);
+			this->pictureBox3->Image = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox3.Image")));
+			this->pictureBox3->Location = System::Drawing::Point(58, 479);
 			this->pictureBox3->Name = L"pictureBox3";
 			this->pictureBox3->Size = System::Drawing::Size(35, 31);
-			this->pictureBox3->TabIndex = 42;
+			this->pictureBox3->TabIndex = 44;
 			this->pictureBox3->TabStop = false;
 			// 
 			// FacultyHome
@@ -440,8 +442,8 @@ namespace CS346_A2 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::White;
 			this->ClientSize = System::Drawing::Size(1262, 673);
-			this->Controls->Add(this->label8);
 			this->Controls->Add(this->pictureBox3);
+			this->Controls->Add(this->label8);
 			this->Controls->Add(this->label7);
 			this->Controls->Add(this->label6);
 			this->Controls->Add(this->label5);
