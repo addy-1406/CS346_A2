@@ -260,37 +260,41 @@ namespace CS346_A2 {
 		}
 
 #pragma endregion
+	public: System::Void fetch()
+	{
+				dataGridView1->AllowUserToAddRows = false;
+
+
+				String^ query = "select * from [dbo].[signup]";
+				//cmd->Parameters->AddWithValue("@sem", this->Current_Semester);
+
+				SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
+
+				//int User_id = 0;
+
+				while (dr->Read()){
+					DateTime date = DateTime::Now;
+					// User_id++;
+					// Extracting values from the database result set and assigning them to variables
+					name = dr->GetString(0);
+					date = dr->GetDateTime(1);
+					dob = date.ToString("yyyy-MM-dd");
+					contact = dr->GetString(2);
+					address = dr->GetString(3);
+					email = dr->GetString(4);
+					approval_status = dr->GetString(5);
+					user_type = dr->GetString(6);
+
+					int rowIndex = this->dataGridView1->Rows->Add(false, name, dob, contact, address, email, approval_status, user_type);
+					// int rowIndex = this->dataGridView1->Rows->Add(User_id,name, dob, contact, address, email, approval_status, user_type);
+
+				}
+
+				dataGridView1->TabStop = false;
+				dataGridView1->ClearSelection();
+	}
 	private: System::Void Signup_Load(System::Object^  sender, System::EventArgs^  e) {
-				 dataGridView1->AllowUserToAddRows = false;
-
-
-				 String^ query = "select * from [dbo].[signup]";
-				 //cmd->Parameters->AddWithValue("@sem", this->Current_Semester);
-
-				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
-
-				 //int User_id = 0;
-
-				 while (dr->Read()){
-					 DateTime date = DateTime::Now;
-					 // User_id++;
-					 // Extracting values from the database result set and assigning them to variables
-					 name = dr->GetString(0);
-					 date = dr->GetDateTime(1);
-					 dob = date.ToString("yyyy-MM-dd");
-					 contact = dr->GetString(2);
-					 address = dr->GetString(3);
-					 email = dr->GetString(4);
-					 approval_status = dr->GetString(5);
-					 user_type = dr->GetString(6);
-
-					 int rowIndex = this->dataGridView1->Rows->Add(false, name, dob, contact, address, email, approval_status, user_type);
-					 // int rowIndex = this->dataGridView1->Rows->Add(User_id,name, dob, contact, address, email, approval_status, user_type);
-
-				 }
-
-				 dataGridView1->TabStop = false;
-				 dataGridView1->ClearSelection();
+				 fetch();
 	}
 
 #pragma endregion
@@ -320,6 +324,8 @@ namespace CS346_A2 {
 				 };
 
 				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query, parameters);
+				 dr->Close();
+				 fetch();
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 
@@ -473,7 +479,7 @@ namespace CS346_A2 {
 					 dr->Close();
 				 }
 				 MessageBox::Show("Inserted values");
-
+				 fetch();
 	}
 	};
 }
