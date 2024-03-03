@@ -456,7 +456,7 @@ namespace CS346_A2 {
 				 {
 					 sem_num = 2 * ((current_year)-Int32::Parse(enrollment_year));
 				 }
-				 else sem_num = 2 * ((current_year)-Int32::Parse(enrollment_year)) + 1;
+				 else sem_num = 2 * ((current_year)-Int32::Parse(enrollment_year)) - 1;
 
 				 if (user_type == "Student")
 				 {

@@ -204,11 +204,11 @@ namespace CS346_A2 {
 			this->pictureBox1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 				static_cast<System::Int32>(static_cast<System::Byte>(72)));
 			this->pictureBox1->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox1.BackgroundImage")));
-			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
+			this->pictureBox1->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Zoom;
 			this->pictureBox1->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox1->Location = System::Drawing::Point(57, 247);
+			this->pictureBox1->Location = System::Drawing::Point(47, 240);
 			this->pictureBox1->Name = L"pictureBox1";
-			this->pictureBox1->Size = System::Drawing::Size(35, 31);
+			this->pictureBox1->Size = System::Drawing::Size(60, 53);
 			this->pictureBox1->TabIndex = 9;
 			this->pictureBox1->TabStop = false;
 			this->pictureBox1->Click += gcnew System::EventHandler(this, &FacultyHome::pictureBox1_Click);
@@ -220,7 +220,7 @@ namespace CS346_A2 {
 			this->pictureBox2->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox2.BackgroundImage")));
 			this->pictureBox2->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox2->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox2->Location = System::Drawing::Point(57, 293);
+			this->pictureBox2->Location = System::Drawing::Point(57, 296);
 			this->pictureBox2->Name = L"pictureBox2";
 			this->pictureBox2->Size = System::Drawing::Size(35, 31);
 			this->pictureBox2->TabIndex = 11;
@@ -234,7 +234,7 @@ namespace CS346_A2 {
 			this->pictureBox7->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox7.BackgroundImage")));
 			this->pictureBox7->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox7->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox7->Location = System::Drawing::Point(57, 337);
+			this->pictureBox7->Location = System::Drawing::Point(57, 344);
 			this->pictureBox7->Name = L"pictureBox7";
 			this->pictureBox7->Size = System::Drawing::Size(35, 31);
 			this->pictureBox7->TabIndex = 13;
@@ -248,7 +248,7 @@ namespace CS346_A2 {
 			this->pictureBox8->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox8.BackgroundImage")));
 			this->pictureBox8->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox8->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox8->Location = System::Drawing::Point(58, 376);
+			this->pictureBox8->Location = System::Drawing::Point(58, 390);
 			this->pictureBox8->Name = L"pictureBox8";
 			this->pictureBox8->Size = System::Drawing::Size(35, 31);
 			this->pictureBox8->TabIndex = 15;
@@ -262,7 +262,7 @@ namespace CS346_A2 {
 			this->pictureBox9->BackgroundImage = (cli::safe_cast<System::Drawing::Image^>(resources->GetObject(L"pictureBox9.BackgroundImage")));
 			this->pictureBox9->BackgroundImageLayout = System::Windows::Forms::ImageLayout::Stretch;
 			this->pictureBox9->Cursor = System::Windows::Forms::Cursors::Hand;
-			this->pictureBox9->Location = System::Drawing::Point(57, 417);
+			this->pictureBox9->Location = System::Drawing::Point(57, 434);
 			this->pictureBox9->Name = L"pictureBox9";
 			this->pictureBox9->Size = System::Drawing::Size(35, 31);
 			this->pictureBox9->TabIndex = 17;
@@ -314,7 +314,7 @@ namespace CS346_A2 {
 			this->label6->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label6->ForeColor = System::Drawing::Color::White;
-			this->label6->Location = System::Drawing::Point(98, 420);
+			this->label6->Location = System::Drawing::Point(96, 434);
 			this->label6->Name = L"label6";
 			this->label6->Size = System::Drawing::Size(107, 28);
 			this->label6->TabIndex = 40;
@@ -330,7 +330,7 @@ namespace CS346_A2 {
 			this->label5->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label5->ForeColor = System::Drawing::Color::White;
-			this->label5->Location = System::Drawing::Point(98, 376);
+			this->label5->Location = System::Drawing::Point(97, 390);
 			this->label5->Name = L"label5";
 			this->label5->Size = System::Drawing::Size(125, 28);
 			this->label5->TabIndex = 39;
@@ -346,7 +346,7 @@ namespace CS346_A2 {
 			this->label4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::White;
-			this->label4->Location = System::Drawing::Point(98, 337);
+			this->label4->Location = System::Drawing::Point(97, 345);
 			this->label4->Name = L"label4";
 			this->label4->Size = System::Drawing::Size(138, 28);
 			this->label4->TabIndex = 38;
@@ -362,7 +362,7 @@ namespace CS346_A2 {
 			this->label2->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label2->ForeColor = System::Drawing::Color::White;
-			this->label2->Location = System::Drawing::Point(98, 296);
+			this->label2->Location = System::Drawing::Point(96, 296);
 			this->label2->Name = L"label2";
 			this->label2->Size = System::Drawing::Size(133, 28);
 			this->label2->TabIndex = 37;
@@ -378,7 +378,7 @@ namespace CS346_A2 {
 			this->label3->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 12, System::Drawing::FontStyle::Bold, System::Drawing::GraphicsUnit::Point,
 				static_cast<System::Byte>(0)));
 			this->label3->ForeColor = System::Drawing::Color::White;
-			this->label3->Location = System::Drawing::Point(98, 250);
+			this->label3->Location = System::Drawing::Point(96, 250);
 			this->label3->Name = L"label3";
 			this->label3->Size = System::Drawing::Size(75, 28);
 			this->label3->TabIndex = 36;
