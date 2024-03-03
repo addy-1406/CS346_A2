@@ -143,6 +143,7 @@
     <ClInclude Include="Root.h">
       <FileType>CppForm</FileType>
     </ClInclude>
+    <ClInclude Include="SeatingHelper.h" />
     <ClInclude Include="Signup.h">
       <FileType>CppForm</FileType>
     </ClInclude>

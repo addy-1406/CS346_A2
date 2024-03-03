@@ -36,6 +36,7 @@
     <ClInclude Include="permissions.h" />
     <ClInclude Include="CourseList.h" />
     <ClInclude Include="classroomlist.h" />
+    <ClInclude Include="SeatingHelper.h" />
   </ItemGroup>
   <ItemGroup>
     <EmbeddedResource Include="AddCourseForm.resx" />
@@ -59,5 +60,6 @@
     <EmbeddedResource Include="permissions.resx" />
     <EmbeddedResource Include="CourseList.resx" />
     <EmbeddedResource Include="TimeTableView.resx" />
+    <EmbeddedResource Include="classroomlist.resx" />
   </ItemGroup>
 </Project>
