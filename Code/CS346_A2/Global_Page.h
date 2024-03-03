@@ -59,6 +59,7 @@ namespace CS346_A2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
+			System::ComponentModel::ComponentResourceManager^  resources = (gcnew System::ComponentModel::ComponentResourceManager(Global_Page::typeid));
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
 			this->SuspendLayout();
 			// 
@@ -82,12 +83,13 @@ namespace CS346_A2 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->ClientSize = System::Drawing::Size(1262, 673);
 			this->Controls->Add(this->panel1);
+			this->Icon = (cli::safe_cast<System::Drawing::Icon^>(resources->GetObject(L"$this.Icon")));
 			this->MaximizeBox = false;
 			this->MaximumSize = System::Drawing::Size(1280, 720);
 			this->MinimizeBox = false;
 			this->MinimumSize = System::Drawing::Size(1280, 720);
 			this->Name = L"Global_Page";
-			this->Text = L"Global_Page";
+			this->Text = L"Academic Section Management";
 			this->Load += gcnew System::EventHandler(this, &Global_Page::Global_Page_Load);
 			this->ResumeLayout(false);
 
