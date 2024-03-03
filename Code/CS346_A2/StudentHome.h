@@ -543,20 +543,6 @@ private: System::Void label4_Click(System::Object^  sender, System::EventArgs^  
 			 lp->Show();
 }
 private: System::Void pictureBox8_Click(System::Object^  sender, System::EventArgs^  e) {
-			 Fee_Payment_Dummy^ lp = gcnew Fee_Payment_Dummy(user);
-			 // Customize the form's appearance
-			 lp->ControlBox = false; // Hide the control box
-			 lp->FormBorderStyle = System::Windows::Forms::FormBorderStyle::None; // Remove the border
-
-			 // Set its properties
-			 lp->TopLevel = false;
-			 lp->AutoScroll = true;
-			 lp->Dock = DockStyle::Fill;
-
-			 // Add it to the panel
-			 panel1->Controls->Clear();
-			 panel1->Controls->Add(lp);
-			 lp->Show();
 }
 private: System::Void label5_Click(System::Object^  sender, System::EventArgs^  e) {
 			 Fee_Payment_Dummy^ lp = gcnew Fee_Payment_Dummy(user);

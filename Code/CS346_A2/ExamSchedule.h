@@ -80,9 +80,9 @@ namespace CS346_A2 {
 				this->CourseCode, this->CourseName,
 					this->Date, this->Time, this->Venue
 			});
-			this->listView1->Location = System::Drawing::Point(42, 96);
+			this->listView1->Location = System::Drawing::Point(46, 122);
 			this->listView1->Name = L"listView1";
-			this->listView1->Size = System::Drawing::Size(875, 470);
+			this->listView1->Size = System::Drawing::Size(875, 420);
 			this->listView1->TabIndex = 5;
 			this->listView1->UseCompatibleStateImageBehavior = false;
 			this->listView1->View = System::Windows::Forms::View::Details;
@@ -118,9 +118,9 @@ namespace CS346_A2 {
 			this->comboBox1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 10.2F));
 			this->comboBox1->FormattingEnabled = true;
 			this->comboBox1->Items->AddRange(gcnew cli::array< System::Object^  >(2) { L"Mid-Semester Exams", L"End-Semester Exams" });
-			this->comboBox1->Location = System::Drawing::Point(195, 47);
+			this->comboBox1->Location = System::Drawing::Point(192, 68);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(200, 31);
+			this->comboBox1->Size = System::Drawing::Size(231, 31);
 			this->comboBox1->TabIndex = 4;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &ExamSchedule::comboBox1_SelectedIndexChanged);
 			// 
@@ -132,9 +132,9 @@ namespace CS346_A2 {
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->label4->Location = System::Drawing::Point(29, 47);
+			this->label4->Location = System::Drawing::Point(42, 68);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(160, 31);
+			this->label4->Size = System::Drawing::Size(146, 31);
 			this->label4->TabIndex = 30;
 			this->label4->Text = L"SELECT EXAM :";
 			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;

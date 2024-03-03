@@ -84,9 +84,9 @@ namespace CS346_A2 {
 				L"Monday", L"Tuesday", L"Wednesday", L"Thursday",
 					L"Friday"
 			});
-			this->comboBox1->Location = System::Drawing::Point(228, 50);
+			this->comboBox1->Location = System::Drawing::Point(183, 68);
 			this->comboBox1->Name = L"comboBox1";
-			this->comboBox1->Size = System::Drawing::Size(228, 31);
+			this->comboBox1->Size = System::Drawing::Size(222, 31);
 			this->comboBox1->TabIndex = 1;
 			this->comboBox1->SelectedIndexChanged += gcnew System::EventHandler(this, &TimeTableView::comboBox1_SelectedIndexChanged);
 			// 
@@ -100,7 +100,7 @@ namespace CS346_A2 {
 					this->Slot, this->Time, this->Venue
 			});
 			this->listView1->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 9));
-			this->listView1->Location = System::Drawing::Point(34, 126);
+			this->listView1->Location = System::Drawing::Point(46, 122);
 			this->listView1->Name = L"listView1";
 			this->listView1->Size = System::Drawing::Size(880, 329);
 			this->listView1->TabIndex = 2;
@@ -140,9 +140,9 @@ namespace CS346_A2 {
 				static_cast<System::Byte>(0)));
 			this->label4->ForeColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(12)), static_cast<System::Int32>(static_cast<System::Byte>(45)),
 				static_cast<System::Int32>(static_cast<System::Byte>(72)));
-			this->label4->Location = System::Drawing::Point(70, 50);
+			this->label4->Location = System::Drawing::Point(42, 68);
 			this->label4->Name = L"label4";
-			this->label4->Size = System::Drawing::Size(138, 31);
+			this->label4->Size = System::Drawing::Size(125, 31);
 			this->label4->TabIndex = 29;
 			this->label4->Text = L"SELECT DAY :";
 			this->label4->TextAlign = System::Drawing::ContentAlignment::MiddleLeft;
@@ -154,12 +154,10 @@ namespace CS346_A2 {
 			this->AutoScaleMode = System::Windows::Forms::AutoScaleMode::Font;
 			this->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->ClientSize = System::Drawing::Size(948, 568);
+			this->ClientSize = System::Drawing::Size(958, 578);
 			this->Controls->Add(this->label4);
 			this->Controls->Add(this->listView1);
 			this->Controls->Add(this->comboBox1);
-			this->MaximumSize = System::Drawing::Size(966, 615);
-			this->MinimumSize = System::Drawing::Size(966, 615);
 			this->Name = L"TimeTableView";
 			this->Text = L"TimeTableView";
 			this->Load += gcnew System::EventHandler(this, &TimeTableView::TimeTableView_Load);
