@@ -171,27 +171,37 @@ namespace CS346_A2 {
 						if (reader["User_ID"] != DBNull::Value) {
 							ListView^ listViewGrades = gcnew ListView();
 							listViewGrades->Location = Point(230, 160);
-							listViewGrades->Size = System::Drawing::Size(450, 200);
+							listViewGrades->Size = System::Drawing::Size(390, 200);
 							listViewGrades->View = View::Details;
 							listViewGrades->FullRowSelect = true;
-							listViewGrades->Columns->Add("User ID", 80);
-							listViewGrades->Columns->Add("Name", 150);
+							listViewGrades->Columns->Add("User ID", 100);
+							listViewGrades->Columns->Add("Name", 170);
 							listViewGrades->Columns->Add("Grade", 80);
 
 							listViewGrades->CheckBoxes = true; // Enable checkboxes
 
 							// Set font and background color
-							listViewGrades->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 9);
-							listViewGrades->BackColor = System::Drawing::Color::FromArgb(177, 212, 224);
+							listViewGrades->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 11);
+						
 
 							// Set behavior
 							listViewGrades->BorderStyle = System::Windows::Forms::BorderStyle::None;
 							listViewGrades->UseCompatibleStateImageBehavior = false;
-
+							bool col = true;
 							do {
 								ListViewItem^ item = gcnew ListViewItem(reader["User_ID"]->ToString());
 								item->SubItems->Add(reader["StudentName"]->ToString());
 								item->SubItems->Add(reader["Grade"]->ToString());
+								if (col)
+								{
+									item->BackColor = Color::LightGray;
+									col = false;
+								}
+								else
+								{
+									item->BackColor = Color::White;
+									col = true;
+								}
 								listViewGrades->Items->Add(item);
 							} while (reader->Read());
 
