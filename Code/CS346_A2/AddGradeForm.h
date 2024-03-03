@@ -51,11 +51,11 @@ namespace CS346_A2 {
 				}
 				Label^ partitionLabel = gcnew Label();
 				partitionLabel->AutoSize = false;
-				partitionLabel->Size = System::Drawing::Size(2, Math::Max(520, y+10)); // Adjust the width as needed
+				partitionLabel->Size = System::Drawing::Size(2, Math::Max(520, y + 10)); // Adjust the width as needed
 				partitionLabel->Location = Point(200, 0); // Adjust the X position to align with the buttons
 				partitionLabel->BackColor = Color::Gray; // Set the color of the partition
 				Controls->Add(partitionLabel);
-				
+
 			}
 			catch (Exception^ ex)
 			{
@@ -100,10 +100,35 @@ namespace CS346_A2 {
 						"FROM course c " +
 						"LEFT JOIN grade g ON c.Course_Code = g.CourseCode " +
 						"LEFT JOIN student s ON g.User_ID = s.User_ID " +
-						"WHERE c.Course_Code = '" + courseCode + "' AND g.Approval_Status = 'Approved'";
+						"WHERE c.Course_Code = '" + courseCode + "' AND g.Approval_Status = 'Approved' ";
 
 					reader = DatabaseHelper::ExecuteQuery(query);
 
+					for each (Control^ control in Controls) {
+						if (ListView::typeid == control->GetType()) {
+							Controls->Remove(control);
+							break;
+						}
+					}
+					for each (Control^ control in Controls) {
+						if (Button::typeid == control->GetType() && dynamic_cast<Button^>(control)->Text == "Add Grade") {
+							Controls->Remove(control);
+							break;
+						}
+					}
+					for each (Control^ control in Controls) {
+						if (TextBox::typeid == control->GetType() && control->Location == Point(310, 390)) {
+							Controls->Remove(control);
+							break;
+						}
+					}
+					for each (Control^ control in Controls) {
+						if (TextBox::typeid == control->GetType() && (control->Text == "No Students Registered to this Course yet."))
+						{
+							Controls->Remove(control);
+							break;
+						}
+					}
 					if (reader->Read()) {
 						String^ courseDetails = "Course Code: " + reader["Course_Code"]->ToString() + "\r\n" +
 							"Course Name: " + reader["CourseName"]->ToString() + "\r\n" +
@@ -126,30 +151,23 @@ namespace CS346_A2 {
 							// Adjust the size of the text box according to the text content
 							SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
 							courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
-							courseDetailsTextBox->Location = System::Drawing::Point(210, 20); // Set location as needed
+							courseDetailsTextBox->Location = System::Drawing::Point(230, 20); // Set location as needed
 							courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
 							Controls->Add(courseDetailsTextBox); // Add the textbox to the form
 						}
 
 						courseDetailsTextBox->Text = courseDetails;
 
-						for each (Control^ control in Controls) {
-							if (ListView::typeid == control->GetType()) {
-								Controls->Remove(control);
-								break;
-							}
-						}
-
 						if (reader["User_ID"] != DBNull::Value) {
 							ListView^ listViewGrades = gcnew ListView();
-							listViewGrades->Location = Point(210, 160);
+							listViewGrades->Location = Point(230, 160);
 							listViewGrades->Size = System::Drawing::Size(450, 200);
 							listViewGrades->View = View::Details;
 							listViewGrades->FullRowSelect = true;
 							listViewGrades->Columns->Add("User ID", 80);
 							listViewGrades->Columns->Add("Name", 150);
 							listViewGrades->Columns->Add("Grade", 80);
-							
+
 							listViewGrades->CheckBoxes = true; // Enable checkboxes
 
 							// Set font and background color
@@ -171,16 +189,16 @@ namespace CS346_A2 {
 
 							// Add Grade TextBox
 							gradeTextBox = gcnew TextBox();
-							gradeTextBox->Location = Point(290, 390);
+							gradeTextBox->Location = Point(310, 390);
 							gradeTextBox->Size = System::Drawing::Size(50, 60);
-							gradeTextBox->BackColor = Color::White; 
-							gradeTextBox->ForeColor = Color::Black; // Set text color to white
+							gradeTextBox->BackColor = Color::White;
+							gradeTextBox->ForeColor = Color::Black; 
 							gradeTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 12); // Set the font size to 10
 							Controls->Add(gradeTextBox);
 
 							Button^ addGradeButton = gcnew Button();
 							addGradeButton->Text = "Add Grade";
-							addGradeButton->Location = Point(380, 380);
+							addGradeButton->Location = Point(400, 380);
 							addGradeButton->Size = System::Drawing::Size(120, 50);
 							addGradeButton->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
 							addGradeButton->ForeColor = Color::White; // Set text color to white
@@ -190,11 +208,64 @@ namespace CS346_A2 {
 						}
 					}
 					else {
-						MessageBox::Show("No data found for the selected course.");
+						String^ query = "SELECT c.Name AS CourseName, c.Description, c.L, c.T, c.P, c.C, c.Intake, c.Semester, c.Course_Code, g.User_ID, g.Grade, g.Approval_Status, s.Name AS StudentName " +
+							"FROM course c " +
+							"LEFT JOIN grade g ON c.Course_Code = g.CourseCode " +
+							"LEFT JOIN student s ON g.User_ID = s.User_ID " +
+							"WHERE c.Course_Code = '" + courseCode + "'";
+
+
+						// Execute the command and get the data
+						reader = DatabaseHelper::ExecuteQuery(query);
+						if (reader->Read())
+						{
+							String^ courseDetails = "Course Code: " + reader["Course_Code"]->ToString() + "\r\n" +
+								"Course Name: " + reader["CourseName"]->ToString() + "\r\n" +
+								"Course Description: " + reader["Description"]->ToString() + "\r\n" +
+								"L: " + reader["L"]->ToString() + ", T: " + reader["T"]->ToString() +
+								", P: " + reader["P"]->ToString() + ", C: " + reader["C"]->ToString() + "\r\n" +
+								" Semester: " + reader["Semester"]->ToString() +
+								", Intake: " + reader["Intake"]->ToString();
+							course_id = reader["Course_Code"]->ToString();
+
+							if (courseDetailsTextBox == nullptr) {
+								courseDetailsTextBox = gcnew TextBox();
+								courseDetailsTextBox->Multiline = true;
+								courseDetailsTextBox->ReadOnly = true;
+								courseDetailsTextBox->BackColor = Color::FromArgb(20, 93, 160); // Set background color to RGB (20, 93, 160)
+								courseDetailsTextBox->ForeColor = Color::White; // Set text color to white
+
+								courseDetailsTextBox->BorderStyle = BorderStyle::None; // Remove border
+								courseDetailsTextBox->Text = courseDetails; // Set the text
+								// Adjust the size of the text box according to the text content
+								SizeF textSize = courseDetailsTextBox->CreateGraphics()->MeasureString(courseDetails, courseDetailsTextBox->Font, courseDetailsTextBox->Width);
+								courseDetailsTextBox->Size = System::Drawing::Size(450, 115); // Add some padding
+								courseDetailsTextBox->Location = System::Drawing::Point(230, 20); // Set location as needed
+								courseDetailsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 13); // Set the font size to 14
+								Controls->Add(courseDetailsTextBox); // Add the textbox to the form
+							}
+
+							courseDetailsTextBox->Text = courseDetails;
+
+							// Create a new text box for displaying message
+							TextBox^ noStudentsTextBox = gcnew TextBox();
+							noStudentsTextBox->Multiline = true;
+							noStudentsTextBox->ReadOnly = true;
+							noStudentsTextBox->BackColor = this->BackColor; // Use form's background color
+							noStudentsTextBox->ForeColor = Color::Red; // Set text color to red
+							noStudentsTextBox->BorderStyle = BorderStyle::None; // Remove border
+							noStudentsTextBox->Text = "No Students Registered to this Course yet.";
+							noStudentsTextBox->Location = System::Drawing::Point(230, 160); // Similar location to list box
+							noStudentsTextBox->Size = System::Drawing::Size(450, 30); // Larger size
+							noStudentsTextBox->Font = gcnew System::Drawing::Font("Segoe UI Symbol", 12); // Larger font size
+							Controls->Add(noStudentsTextBox);
+
+						}
+						//MessageBox::Show("No data found for the selected course.");
 					}
 				}
 				catch (Exception^ ex) {
-					MessageBox::Show(ex->Message);
+					//MessageBox::Show(ex->Message);
 				}
 				finally {
 					if (reader != nullptr) {
