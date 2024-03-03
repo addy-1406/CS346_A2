@@ -13,7 +13,6 @@ namespace CS346_A2 {
 	using namespace System::Windows::Forms;
 	using namespace System::Data;
 	using namespace System::Drawing;
-	//using namespace MySql::Data::MySqlClient;
 	using namespace System::Data::SqlClient;
 
 
@@ -49,26 +48,7 @@ namespace CS346_A2 {
 
 	public:
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 			 String^ user_type = "";
-
-
 	public:
 
 
@@ -262,19 +242,20 @@ namespace CS346_A2 {
 #pragma endregion
 	public: System::Void fetch()
 	{
+				dataGridView1->Rows->Clear();
 				dataGridView1->AllowUserToAddRows = false;
 
 
 				String^ query = "select * from [dbo].[signup]";
-				//cmd->Parameters->AddWithValue("@sem", this->Current_Semester);
+				
 
 				SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
 
-				//int User_id = 0;
+				
 
 				while (dr->Read()){
 					DateTime date = DateTime::Now;
-					// User_id++;
+					
 					// Extracting values from the database result set and assigning them to variables
 					name = dr->GetString(0);
 					date = dr->GetDateTime(1);
@@ -286,7 +267,6 @@ namespace CS346_A2 {
 					user_type = dr->GetString(6);
 
 					int rowIndex = this->dataGridView1->Rows->Add(false, name, dob, contact, address, email, approval_status, user_type);
-					// int rowIndex = this->dataGridView1->Rows->Add(User_id,name, dob, contact, address, email, approval_status, user_type);
 
 				}
 
@@ -310,7 +290,6 @@ namespace CS346_A2 {
 
 					 if (checkBox != nullptr && System::Convert::ToBoolean(checkBox->Value)) {
 						 cellValue = row->Cells["Column5"]->Value->ToString();
-						 // MessageBox::Show("Checked row value: " + cellValue);
 						 break; // Exit the loop after the first checked row
 					 }
 				 }
@@ -329,8 +308,6 @@ namespace CS346_A2 {
 	}
 	private: System::Void button1_Click(System::Object^  sender, System::EventArgs^  e) {
 
-				 // int id = Int32::Parse(idbox->Text);
-				 //String^ name = idbox->Text;
 				 String^ approve = "Approved";
 
 				 String^ pass_hash = nullptr;
@@ -396,69 +373,42 @@ namespace CS346_A2 {
 				 dr = DatabaseHelper::ExecuteQuery(query, parameters3);
 				 dr->Close();
 
+				 query = "select Current_Year, Current_Sem from [dbo].[permissions]";
+				 
+				 dr = DatabaseHelper::ExecuteQuery(query);
+
+				 int current_year;
+				 String^ current_sem;
+				 while (dr->Read())
+				 {
+					 current_year = dr->GetInt32(0);
+					 current_sem = dr->GetString(1);
+				 }
+				 dr->Close();
+				 
+				 int sem_num;
+				 if (current_sem == "Winter")
+				 {
+					 sem_num = 2 * ((current_year) - Int32::Parse(enrollment_year));
+				 }
+				 else sem_num = 2 * ((current_year) - Int32::Parse(enrollment_year)) + 1;
+
 				 if (user_type == "Student")
 				 {
 					 query = "insert into [dbo].[student] values(@UserId,@Name,@dob,@contact,@enrollment_year,@address,@current_Sem,@email)";
-					 if (enrollment_year == "2020")
-					 {
-						 array<SqlParameter^>^ parameters4 = {
-							 gcnew SqlParameter("@UserId", user_id),
-							 gcnew SqlParameter("@Name", name),
-							 gcnew SqlParameter("@dob", date),
-							 gcnew SqlParameter("@contact", contact),
-							 gcnew SqlParameter("@enrollment_year", enrollment_year),
-							 gcnew SqlParameter("@address", address),
-							 gcnew SqlParameter("@current_Sem", 8),
-							 gcnew SqlParameter("@email", email)
-						 };
-						 dr = DatabaseHelper::ExecuteQuery(query, parameters4);
-						 dr->Close();
-					 }
-					 else if (enrollment_year == "2021")
-					 {
-						 array<SqlParameter^>^ parameters5 = {
-							 gcnew SqlParameter("@UserId", user_id),
-							 gcnew SqlParameter("@Name", name),
-							 gcnew SqlParameter("@dob", date),
-							 gcnew SqlParameter("@contact", contact),
-							 gcnew SqlParameter("@enrollment_year", enrollment_year),
-							 gcnew SqlParameter("@address", address),
-							 gcnew SqlParameter("@current_Sem", 6),
-							 gcnew SqlParameter("@email", email)
-						 };
-						 dr = DatabaseHelper::ExecuteQuery(query, parameters5);
-						 dr->Close();
-					 }
-					 else if (enrollment_year == "2022")
-					 {
-						 array<SqlParameter^>^ parameters6 = {
-							 gcnew SqlParameter("@UserId", user_id),
-							 gcnew SqlParameter("@Name", name),
-							 gcnew SqlParameter("@dob", date),
-							 gcnew SqlParameter("@contact", contact),
-							 gcnew SqlParameter("@enrollment_year", enrollment_year),
-							 gcnew SqlParameter("@address", address),
-							 gcnew SqlParameter("@current_Sem", 4),
-							 gcnew SqlParameter("@email", email)
-						 };
-						 dr = DatabaseHelper::ExecuteQuery(query, parameters6);
-						 dr->Close();
-					 }
-					 else if (enrollment_year == "2023")
-					 {
-						 array<SqlParameter^>^ parameters7 = {
-							 gcnew SqlParameter("@UserId", user_id),
-							 gcnew SqlParameter("@Name", name),
-							 gcnew SqlParameter("@dob", date),
-							 gcnew SqlParameter("@contact", contact),
-							 gcnew SqlParameter("@enrollment_year", enrollment_year),
-							 gcnew SqlParameter("@address", address),
-							 gcnew SqlParameter("@current_Sem", 2),
-							 gcnew SqlParameter("@email", email)
-						 };
-						 dr = DatabaseHelper::ExecuteQuery(query, parameters7);
-						 dr->Close();
-					 }
+					 array<SqlParameter^>^ parameters4 = {
+						 gcnew SqlParameter("@UserId", user_id),
+						 gcnew SqlParameter("@Name", name),
+						 gcnew SqlParameter("@dob", date),
+						 gcnew SqlParameter("@contact", contact),
+						 gcnew SqlParameter("@enrollment_year", enrollment_year),
+						 gcnew SqlParameter("@address", address),
+						 gcnew SqlParameter("@current_Sem", sem_num),
+						 gcnew SqlParameter("@email", email)
+					 };
+					 dr = DatabaseHelper::ExecuteQuery(query, parameters4);
+					 dr->Close();
+					 
 				 }
 				 else
 				 {
