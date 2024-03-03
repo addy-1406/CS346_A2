@@ -52,8 +52,8 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker1;
 	private: System::Windows::Forms::DateTimePicker^  dateTimePicker2;
 	private: System::Windows::Forms::Button^  button7;
-	private: System::Windows::Forms::Button^  button8;
-	private: System::Windows::Forms::Button^  button4;
+
+
 	private: System::Windows::Forms::Panel^  panel1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column1;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column2;
@@ -62,6 +62,7 @@ namespace CS346_A2 {
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column6;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column7;
 	private: System::Windows::Forms::DataGridViewTextBoxColumn^  Column8;
+	private: System::Windows::Forms::Button^  button9;
 
 	public:
 
@@ -167,8 +168,15 @@ namespace CS346_A2 {
 		/// </summary>
 		void InitializeComponent(void)
 		{
-			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle2 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
+			System::Windows::Forms::DataGridViewCellStyle^  dataGridViewCellStyle1 = (gcnew System::Windows::Forms::DataGridViewCellStyle());
 			this->dataGridView1 = (gcnew System::Windows::Forms::DataGridView());
+			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
 			this->button1 = (gcnew System::Windows::Forms::Button());
 			this->button2 = (gcnew System::Windows::Forms::Button());
 			this->button3 = (gcnew System::Windows::Forms::Button());
@@ -177,16 +185,8 @@ namespace CS346_A2 {
 			this->dateTimePicker1 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->dateTimePicker2 = (gcnew System::Windows::Forms::DateTimePicker());
 			this->button7 = (gcnew System::Windows::Forms::Button());
-			this->button8 = (gcnew System::Windows::Forms::Button());
-			this->button4 = (gcnew System::Windows::Forms::Button());
 			this->panel1 = (gcnew System::Windows::Forms::Panel());
-			this->Column1 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column2 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column3 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column5 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column6 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column7 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
-			this->Column8 = (gcnew System::Windows::Forms::DataGridViewTextBoxColumn());
+			this->button9 = (gcnew System::Windows::Forms::Button());
 			(cli::safe_cast<System::ComponentModel::ISupportInitialize^>(this->dataGridView1))->BeginInit();
 			this->panel1->SuspendLayout();
 			this->SuspendLayout();
@@ -210,6 +210,47 @@ namespace CS346_A2 {
 			this->dataGridView1->RowHeadersVisible = false;
 			this->dataGridView1->Size = System::Drawing::Size(844, 53);
 			this->dataGridView1->TabIndex = 0;
+			// 
+			// Column1
+			// 
+			dataGridViewCellStyle1->SelectionForeColor = System::Drawing::Color::Transparent;
+			this->Column1->DefaultCellStyle = dataGridViewCellStyle1;
+			this->Column1->HeaderText = L"Course_Add";
+			this->Column1->Name = L"Column1";
+			// 
+			// Column2
+			// 
+			this->Column2->HeaderText = L"Course_Enroll";
+			this->Column2->Name = L"Column2";
+			// 
+			// Column3
+			// 
+			this->Column3->HeaderText = L"Grades_Add";
+			this->Column3->Name = L"Column3";
+			// 
+			// Column5
+			// 
+			this->Column5->HeaderText = L"Current_Year";
+			this->Column5->Name = L"Column5";
+			this->Column5->Width = 120;
+			// 
+			// Column6
+			// 
+			this->Column6->HeaderText = L"Current_Sem";
+			this->Column6->Name = L"Column6";
+			this->Column6->Width = 120;
+			// 
+			// Column7
+			// 
+			this->Column7->HeaderText = L"Midsem Start";
+			this->Column7->Name = L"Column7";
+			this->Column7->Width = 150;
+			// 
+			// Column8
+			// 
+			this->Column8->HeaderText = L"Endsem Start";
+			this->Column8->Name = L"Column8";
+			this->Column8->Width = 150;
 			// 
 			// button1
 			// 
@@ -326,44 +367,11 @@ namespace CS346_A2 {
 			this->button7->UseVisualStyleBackColor = false;
 			this->button7->Click += gcnew System::EventHandler(this, &permissions::button7_Click);
 			// 
-			// button8
-			// 
-			this->button8->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
-				static_cast<System::Int32>(static_cast<System::Byte>(160)));
-			this->button8->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button8->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 7.8F, System::Drawing::FontStyle::Bold));
-			this->button8->ForeColor = System::Drawing::Color::White;
-			this->button8->Location = System::Drawing::Point(611, 309);
-			this->button8->Margin = System::Windows::Forms::Padding(4);
-			this->button8->Name = L"button8";
-			this->button8->Size = System::Drawing::Size(187, 53);
-			this->button8->TabIndex = 19;
-			this->button8->Text = L"Generate Midsem Seating Arrangement";
-			this->button8->UseVisualStyleBackColor = false;
-			this->button8->Click += gcnew System::EventHandler(this, &permissions::button8_Click);
-			// 
-			// button4
-			// 
-			this->button4->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
-				static_cast<System::Int32>(static_cast<System::Byte>(160)));
-			this->button4->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
-			this->button4->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 7.8F, System::Drawing::FontStyle::Bold));
-			this->button4->ForeColor = System::Drawing::Color::White;
-			this->button4->Location = System::Drawing::Point(404, 309);
-			this->button4->Margin = System::Windows::Forms::Padding(4);
-			this->button4->Name = L"button4";
-			this->button4->Size = System::Drawing::Size(187, 53);
-			this->button4->TabIndex = 20;
-			this->button4->Text = L"Generate Endsem Seating Arrangement";
-			this->button4->UseVisualStyleBackColor = false;
-			this->button4->Click += gcnew System::EventHandler(this, &permissions::button4_Click);
-			// 
 			// panel1
 			// 
 			this->panel1->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(177)), static_cast<System::Int32>(static_cast<System::Byte>(212)),
 				static_cast<System::Int32>(static_cast<System::Byte>(224)));
-			this->panel1->Controls->Add(this->button4);
-			this->panel1->Controls->Add(this->button8);
+			this->panel1->Controls->Add(this->button9);
 			this->panel1->Controls->Add(this->button7);
 			this->panel1->Controls->Add(this->dateTimePicker2);
 			this->panel1->Controls->Add(this->dateTimePicker1);
@@ -380,46 +388,21 @@ namespace CS346_A2 {
 			this->panel1->TabIndex = 2;
 			this->panel1->Paint += gcnew System::Windows::Forms::PaintEventHandler(this, &permissions::panel1_Paint);
 			// 
-			// Column1
+			// button9
 			// 
-			dataGridViewCellStyle2->SelectionForeColor = System::Drawing::Color::Transparent;
-			this->Column1->DefaultCellStyle = dataGridViewCellStyle2;
-			this->Column1->HeaderText = L"Course_Add";
-			this->Column1->Name = L"Column1";
-			// 
-			// Column2
-			// 
-			this->Column2->HeaderText = L"Course_Enroll";
-			this->Column2->Name = L"Column2";
-			// 
-			// Column3
-			// 
-			this->Column3->HeaderText = L"Grades_Add";
-			this->Column3->Name = L"Column3";
-			// 
-			// Column5
-			// 
-			this->Column5->HeaderText = L"Current_Year";
-			this->Column5->Name = L"Column5";
-			this->Column5->Width = 120;
-			// 
-			// Column6
-			// 
-			this->Column6->HeaderText = L"Current_Sem";
-			this->Column6->Name = L"Column6";
-			this->Column6->Width = 120;
-			// 
-			// Column7
-			// 
-			this->Column7->HeaderText = L"Midsem Start";
-			this->Column7->Name = L"Column7";
-			this->Column7->Width = 150;
-			// 
-			// Column8
-			// 
-			this->Column8->HeaderText = L"Endsem Start";
-			this->Column8->Name = L"Column8";
-			this->Column8->Width = 150;
+			this->button9->BackColor = System::Drawing::Color::FromArgb(static_cast<System::Int32>(static_cast<System::Byte>(20)), static_cast<System::Int32>(static_cast<System::Byte>(93)),
+				static_cast<System::Int32>(static_cast<System::Byte>(160)));
+			this->button9->FlatStyle = System::Windows::Forms::FlatStyle::Flat;
+			this->button9->Font = (gcnew System::Drawing::Font(L"Segoe UI Symbol", 7.8F, System::Drawing::FontStyle::Bold));
+			this->button9->ForeColor = System::Drawing::Color::White;
+			this->button9->Location = System::Drawing::Point(404, 309);
+			this->button9->Margin = System::Windows::Forms::Padding(4);
+			this->button9->Name = L"button9";
+			this->button9->Size = System::Drawing::Size(187, 53);
+			this->button9->TabIndex = 21;
+			this->button9->Text = L"Generate Seating Arrangement";
+			this->button9->UseVisualStyleBackColor = false;
+			this->button9->Click += gcnew System::EventHandler(this, &permissions::button9_Click);
 			// 
 			// permissions
 			// 
@@ -647,14 +630,17 @@ namespace CS346_A2 {
 					 MessageBox::Show(ex->Message);
 				 }
 	}
-	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {
+	private: System::Void button8_Click(System::Object^  sender, System::EventArgs^  e) {}
 
-				 String^ query = "Delete from exam";
-				 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
-				 dr->Close();
-				 
+	private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {}
 
-				 query = R"(
+private: System::Void button9_Click(System::Object^  sender, System::EventArgs^  e) {
+			 String^ query = "Delete from exam";
+			 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
+			 dr->Close();
+
+
+			 query = R"(
 DECLARE @Course_ID VARCHAR(50);
 DECLARE @Room_ID1 VARCHAR(50);
 DECLARE @Room_ID2 VARCHAR(50);
@@ -757,16 +743,12 @@ DEALLOCATE course_cursor;
 
 )";
 
-	dr = SeatingHelper::fetchSeating(query);
-	dr->Close();
-	MessageBox::Show("Generated Midsem Seating Arrangement Successfully");
-	}
-private: System::Void button4_Click(System::Object^  sender, System::EventArgs^  e) {
-			 String^ query = "Delete from exam";
-			 SqlDataReader^ dr = DatabaseHelper::ExecuteQuery(query);
+			 dr = SeatingHelper::fetchSeating(query);
 			 dr->Close();
 
-query = R"(
+
+
+			 query = R"(
 DECLARE @Course_ID VARCHAR(50);
 DECLARE @Room_ID1 VARCHAR(50);
 DECLARE @Room_ID2 VARCHAR(50);
@@ -867,11 +849,10 @@ END;
 CLOSE course_cursor;
 DEALLOCATE course_cursor;
 )";
-		
-		dr = SeatingHelper::fetchSeating(query);
-		dr->Close();
-		MessageBox::Show("Generated Endsem Seating Arrangement Successfully");
-	}
 
+			 dr = SeatingHelper::fetchSeating(query);
+			 dr->Close();
+			 MessageBox::Show("Generated Midsem and Endsem Seating Arrangement Successfully");
+}
 };
 }
